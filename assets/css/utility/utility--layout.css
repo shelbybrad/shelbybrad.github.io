@@ -1,0 +1,174 @@
+/**
+ * @file
+ * Main layout classes.
+ */
+
+/**
+ * Make the content area tall enough by default that desktops never see the
+ * footer super high on the page.
+ */
+main,
+.layout--main {
+  min-height: 37vh;
+}
+
+/**
+ * Since they're only used for spacing at desktop width, hide empty columns on
+ * tablet/mobile.
+ */
+@media all and (max-width: 1023px) {
+  .layout--column--empty {
+    display: none;
+  }
+}
+
+/**
+ * Ensure columns are not allowed to become too narrow, starting at the wrap
+ * breakpoint.
+ */
+@media all and (max-width: 1023px) {
+  .layout--column {
+    min-width: 270px; /* This is nearly the max-width of the content area of a small phone. */
+  }
+}
+@media all and (max-width: 767px) {
+  .layout--column {
+    padding-top: 20px;
+  }
+  .layout--column:last-child {
+    padding-bottom: 20px;
+  }
+}
+
+/**
+ * Wrap layouts in the content area when they get to a narrow desktop-ish viewport.
+ *
+ * And then switch layouts from side-by-side flexes to top-to-bottom flexes at
+ * narrow viewports.
+ */
+@media all and (max-width: 1023px) {
+  .layout--row {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+}
+@media all and (max-width: 767px) {
+  .layout--row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+@media all and (max-width: 767px) and (-ms-high-contrast: active),
+all and (max-width: 767px) and (-ms-high-contrast: none) {
+  /* IE hack to avoid column spacing issues for responsive. */
+  .layout--row {
+    display: block;
+  }
+}
+
+/**
+ * By default, stripes should have generous padding.
+ *
+ * Place the overriding class after it in order for cascade purposes.
+ */
+.layout--stripe {
+  padding: 100px 20px;
+}
+@media all and (max-width: 767px) {
+  .layout--stripe {
+    padding: 60px 20px;
+  }
+}
+
+/**
+ * The inner div of a stripe.
+ */
+.layout--stripe--inner {
+  margin: 0 auto;
+  max-width: var(--layout--content-area);
+  position: relative;
+  z-index: 2;
+}
+
+/**
+ * Layout classes for hiding (see below for showing) at various viewports.
+ */
+@media all and (max-width: 767px) {
+  .layout--hide--narrow {
+    display: none;
+  }
+}
+@media all and (max-width: 1023px) {
+  .layout--hide--medium {
+    display: none;
+  }
+}
+@media all and (min-width: 1024px) {
+  .layout--hide--wide {
+    display: none;
+  }
+}
+
+/**
+ * Content and term listing layout classes.
+ */
+.layout--multiple--horizontal,
+.layout--multiple--carousel {
+  /* https://github.com/philipwalton/flexbugs */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.layout--multiple--horizontal {
+  flex-direction: column;
+}
+.layout--multiple--horizontal > * ,
+.layout--multiple--carousel:not(.slick-initialized) > * {
+  margin: 0 0 40px;
+}
+
+@media all and (min-width: 768px) {
+  .layout--multiple--horizontal {
+    flex-direction: row;
+  }
+  .layout--multiple--horizontal > *,
+  .layout--multiple--carousel:not(.slick-initialized) > * {
+    -webkit-flex-basis: 23%;
+    -ms-flex-preferred-size: 23%;
+    flex-basis: 23%; /* This should safely be a 1/3 layout */
+    -webkit-flex-basis: -webkit-calc(33% - 40px);
+    -ms-flex-preferred-size: calc(33% - 40px);
+    flex-basis: -moz-calc(33% - 40px);
+    flex-basis: calc(33% - 40px); /* Explicit for browsers that support calc. */
+    margin: 0 20px 40px;
+    max-width: 347px;
+    min-width: 205px;
+  }
+}
+
+/**
+ * Layout classes for showing (see above for hiding) at various viewports.
+ */
+@media all and (max-width: 767px) {
+  .layout--show--narrow {
+    display: inherit;
+  }
+}
+@media all and (max-width: 1023px) {
+  .layout--show--medium {
+    display: inherit;
+  }
+}
+@media all and (min-width: 1024px) {
+  .layout--show--wide {
+    display: inherit;
+  }
+}

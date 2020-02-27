@@ -1,8 +1,10 @@
 ## Jekyll configs
 markdown: GFM
+theme: jekyll-theme-primer
 permalink: /:year/:month/:day/:title/
 highlighter: rouge
 sass:
+  sass_dir: assets/css
   style: :compressed
 gems:
   - jekyll-sitemap
@@ -25,19 +27,16 @@ defaults:
       layout: "testimonial"
 
 ## Basic company info
-title: Company
-primary_author: "Company, Inc."
-shortname: Comp
+title: "Shelby and Brad"
+primary_author: "Brad Czerniak"
+shortname: brelby
 tagline: "Serving ours customers' needs"
 offering: "Business and corporate services"
 offer_description: "We do a lot of stuff. This is a lengthy paragraph of text."
 
 ## Site and contact bits
-baseurl: "https://shelbybrad.com"
-# subpath should include leading slash or be an empty string
-subpath: ''
 source_repo: https://www.github.com/shelbybrad/shelbybrad.github.io
-email: ao5357@gmail.com 
+email: ao5357@gmail.com
 phone: (248) 721-0350
 phonedigits: "2487210350"
 # gaid: UA-697953-3
@@ -60,15 +59,3 @@ social:
   -
     title: Twitter
     url: https://twitter.com/ao5357
-
-## Colors
-# Secondary especially should not be a regular blue
-# Text should be close to black, but not black (or dark gray)
-# Light is typically #fff, but could be a non-white very light tint
-colors:
-  primary: "#014"
-  secondary: "#f41"
-  tertiary: "#7c1"
-  quarternary: "#04f"
-  text: "#002"
-  light: "#fff"

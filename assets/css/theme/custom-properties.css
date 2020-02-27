@@ -1,0 +1,154 @@
+/**
+ * @file
+ * Tag-level, tables, forms, and other base styling.
+ */
+
+/**
+ * CSS Custom properties for colors and other variables.
+ */
+:root {
+  --color--black: #222;
+  --color--grey-dark: #555;
+  --color--grey: #999;
+  --color--grey-light: #eee;
+  --color--white: #fff;
+  --color--main: #003f80; /* 127 brightness */
+  --color--main-dark: #002955; /* 170 brightness */
+  --color--main-light: #004cff; /* 0 brightness */
+  --color--second: #803100;
+  --color--second-dark: #552900;
+  --color--second-light: #ff6000;
+  --color--third: #807100;
+  --color--third-dark: #554600;
+  --color--third-light: #fff000;
+  --color--accent: #600080;
+
+  /* Message colors. Can be customized to be site-appropriate. */
+  --color--status: #004085;
+  --color--status-background: #cce5ff;
+  --color--warning: #856404;
+  --color--warning-background: #fff3cd;
+  --color--error: #721c24;
+  --color--error-background: #f8d7da;
+
+  /* Font settings. */
+  --font-family--input: 'Arial';
+  --font-family--monospace: 'courier new';
+  --font-family--primary: 'Arial';
+  --font-family--secondary: 'Georgia';
+
+  /* Layout and spacing. */
+  --layout--content-area: 1080px;
+  --spacing--single: 0.625rem;
+}
+
+/**
+ * Fonts imported early and directly.
+ *
+ * Only include fonts that are known to be used, since each is an asset to load.
+ * font-display: swap; is used to prevent text from being hidden on load.
+ * We list src in preference order: local, woff2, then woff
+ *
+ * @see https://google-webfonts-helper.herokuapp.com/fonts
+ */
+
+/* rubik-300 - latin-ext_latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Rubik Light'), local('Rubik-Light'),
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-300italic - latin-ext_latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Rubik Light Italic'), local('Rubik-LightItalic'),
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-300italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-300italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-regular - latin-ext_latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Rubik'), local('Rubik-Regular'),
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-500 - latin-ext_latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Rubik Medium'), local('Rubik-Medium'),
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-italic - latin-ext_latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Rubik Italic'), local('Rubik-Italic'),
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-500italic - latin-ext_latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 500;
+  src: local('Rubik Medium Italic'), local('Rubik-MediumItalic'),
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-500italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-500italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-700italic - latin-ext_latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Rubik Bold Italic'), local('Rubik-BoldItalic'),
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-700italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-900 - latin-ext_latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Rubik Black'), local('Rubik-Black'),
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-700 - latin-ext_latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Rubik Bold'), local('Rubik-Bold'),
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* rubik-900italic - latin-ext_latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 900;
+  src: local('Rubik Black Italic'), local('Rubik-BlackItalic'),
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-900italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../fonts/rubik/rubik-v9-latin-ext_latin-900italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}

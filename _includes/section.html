@@ -1,5 +1,5 @@
-<section class="region {% if include.section.classes %}{{ include.section.classes }}{% endif %}" id="section-{{ include.section.title | slugify}}">
-  <div class="inner">
+<section class="layout--stripe {% if include.section.classes %}{{ include.section.classes }}{% endif %}" id="section-{{ include.section.title | slugify}}">
+  <div class="layout--stripe--inner">
     {% if include.section.image %}
       <img class="right" src="{{ site.subpath }}/images/sections/{{ include.section.image.file }}" alt="{{ include.section.image.alt }}" />
     {% endif %}

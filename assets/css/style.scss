@@ -1,0 +1,15 @@
+---
+# Frontmatter note: This should compress the CSS automagically.
+# We do not trust Sass to do this, since neither use nor import play nice in Jekyll.
+---
+{% include_relative theme/custom-properties.css %}
+
+{% include_relative utility/property--value.css %}
+{% include_relative utility/utility--color.css %}
+{% include_relative utility/utility--classes.css %}
+{% include_relative utility/utility--layout.css %}
+{% include_relative utility/utility--typography.css %}
+
+{% include_relative theme/base.css %}
+{% include_relative theme/components.css %}
+{% include_relative theme/shame.css %}

@@ -1,0 +1,469 @@
+/**
+ * @file
+ * Component and class-level styles.
+ */
+
+/**
+ * Skip-to-main-content links for accessibility.
+ */
+.a11y--skip-hide {
+  background: var(--color--grey);
+  position: relative;
+  text-align: center;
+}
+.a11y--skip-hide a {
+  color: var(--color--grey);
+  display: block;
+  height: 1px;
+  left: -10000px;
+  overflow: hidden;
+  padding: 10px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+}
+.a11y--skip-hide a:focus {
+  height: auto;
+  outline: 0 none;
+  position: static;
+  width: auto;
+}
+
+/**
+ * Sticky main header for the site.
+ */
+@media all and (min-width: 1024px) {
+  .headroom {
+    left: 0;
+    position: fixed;
+    right: 0;
+    -webkit-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+    will-change: transform;
+    z-index: 100;
+  }
+  .headroom--pinned {
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+  .headroom--unpinned {
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+}
+.headroom--not-top .region--overhang {
+  background-color: var(--color--grey-light);
+}
+
+/**
+ * Clickable card hover states.
+ */
+.hover--bg {
+  -webkit-transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+}
+.hover--bg:hover,
+.hover--bg:active,
+.hover--bg:focus {
+  /* Potentially add a hover style. */
+}
+
+/**
+ * Trigger animated visibility.
+ */
+.js .animateOnScroll {}
+.js .revealOnScroll {
+  opacity: 0;
+}
+.js .revealOnScroll.animated {
+  opacity: 1;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+/**
+ * Line-heights.
+ */
+.line-height--1 {
+  line-height: 1;
+}
+
+/**
+ * Proportional, responsive margin classes.
+ */
+.margin-horizontal--0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+.margin-horizontal--1 {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+@media all and (max-width: 767px) {
+  .margin-horizontal--1 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.margin-horizontal--2 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+@media all and (max-width: 767px) {
+  .margin-horizontal--2 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.margin-horizontal--4 {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+@media all and (max-width: 767px) {
+  .margin-horizontal--4 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.margin-horizontal--8 {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+@media all and (max-width: 767px) {
+  .margin-horizontal--8 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.margin-horizontal--16 {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+@media all and (max-width: 767px) {
+  .margin-horizontal--16 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.margin-horizontal--32 {
+  margin-left: 160px;
+  margin-right: 160px;
+}
+@media all and (max-width: 767px) {
+  .margin-horizontal--32 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.margin-top--auto {
+  margin-top: auto;
+}
+.margin-vertical--0 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.margin-vertical--1 {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.margin-vertical--2 {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.margin-vertical--4,
+.button.margin-vertical--4,
+a.button.margin-vertical--4 {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.margin-vertical--8 {
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+@media all and (max-width: 960px) {
+  .margin-vertical--8 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+}
+.margin-vertical--16 {
+  margin-bottom: 80px;
+  margin-top: 80px;
+}
+@media all and (max-width: 960px) {
+  .margin-vertical--16 {
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+}
+.margin-vertical--32 {
+  margin-bottom: 160px;
+  margin-top: 160px;
+}
+@media all and (max-width: 960px) {
+  .margin-vertical--32 {
+    margin-bottom: 80px;
+    margin-top: 80px;
+  }
+}
+
+/**
+ * Core messages.
+ */
+.messages {
+  font-style: italic;
+  margin: 10px 0;
+  padding: 10px;
+}
+.messages--error {
+  background-color: var(--color--error-background);
+  color: var(--color--error);
+}
+.messages--status {
+  background-color: var(--color--status-background);
+  color: var(--color--status);
+}
+.messages--warning {
+  background-color: var(--color--warning-background);
+  color: var(--color--warning);
+}
+
+/**
+ * Dismissable messages.
+ */
+.messages[id] {
+  padding: 10px 30px 10px 10px;
+  position: relative;
+}
+.messages[id] button {
+  background: none;
+  color: inherit;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  top: -webkit-calc(50% - 14px);
+  top: -moz-calc(50% - 14px);
+  top: calc(50% - 14px);
+  -webkit-transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+}
+.messages[id] button:hover,
+.messages[id] button:active {
+  background: rgba(255,255,255,.5);
+}
+
+/**
+ * Padding classes.
+ *
+ * Horizontal for column section entities. At the mobile breakpoint the padding
+ * zeroes out for consistency.
+ *
+ * Columns are then vertically spaced using flex classes from property--value.
+ */
+.padding--20px {
+  padding: 20px;
+}
+/* In this system images full bleed containers more than they don't */
+.padding--20px > figure,
+.margin-negative--20px {
+  margin: -20px -20px 0;
+}
+.padding-horizontal--0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.padding-horizontal--1 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+@media all and (max-width: 767px) {
+  .padding-horizontal--1 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.padding-horizontal--2 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+@media all and (max-width: 767px) {
+  .padding-horizontal--2 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.padding-horizontal--4 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media all and (max-width: 767px) {
+  .padding-horizontal--4 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  [class*="border"].padding-horizontal--4 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.padding-horizontal--8 {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+@media all and (max-width: 767px) {
+  .padding-horizontal--8 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.padding-horizontal--16 {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+@media all and (max-width: 767px) {
+  .padding-horizontal--16 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.padding-horizontal--32 {
+  padding-left: 160px;
+  padding-right: 160px;
+}
+@media all and (max-width: 767px) {
+  .padding-horizontal--32 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.padding-right--16 {
+  padding-right: 40px;
+}
+.padding-vertical--0 {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+.padding-vertical--1 {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.padding-vertical--2 {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.padding-vertical--4 {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.padding-vertical--8 {
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+@media all and (max-width: 960px) {
+  .padding-vertical--8 {
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+}
+.padding-vertical--16 {
+  padding-bottom: 80px;
+  padding-top: 80px;
+}
+@media all and (max-width: 960px) {
+  .padding-vertical--16 {
+    padding-bottom: 40px;
+    padding-top: 40px;
+  }
+}
+.padding-vertical--32 {
+  padding-bottom: 160px;
+  padding-top: 160px;
+}
+@media all and (max-width: 960px) {
+  .padding-vertical--32 {
+    padding-bottom: 80px;
+    padding-top: 80px;
+  }
+}
+
+/**
+ * Core pagers.
+ */
+.pager {
+  font-weight: 600;
+  margin: 40px auto;
+  text-align: center;
+  text-transform: uppercase;
+}
+.pager ul {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.pager ul > li {
+  display: inline-block;
+  line-height: 1;
+  margin: 0;
+}
+.pager li > a,
+.pager li > span {
+  color: var(--color--grey);
+  display: inline-block;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+.pager li > a:hover {
+  border-color: var(--color--grey);
+}
+.pager li.pager-current > span,
+.pager li.pager-current > a,
+.pager li.is-active > span,
+.pager li.is-active > a {
+  border-color: var(--color--grey);
+}
+.pager li.pager__item--previous {
+  border-right: 1px solid var(--color--grey);
+  margin-right: 4px;
+  padding-right: 16px;
+}
+.pager li.pager__item--next {
+  border-left: 1px solid var(--color--grey);
+  margin-left: 4px;
+  padding-left: 16px;
+}
+
+/**
+ * Add stylistic pipes to lists.
+ */
+ @media all and (min-width: 768px) {
+  .pipe-spaced {}
+  .pipe-spaced li::after {
+    content: '|';
+    display: inline-block;
+    font-weight: 300;
+    opacity: .9;
+    padding: 0 2px;
+    vertical-align: middle;
+  }
+  .pipe-spaced li:last-child::after,
+  .pipe-spaced li.last::after {
+    display: none;
+  }
+}
