@@ -1,9 +1,7 @@
 ## Jekyll configs
-markdown: rdiscount
+markdown: GFM
 permalink: /:year/:month/:day/:title/
 highlighter: rouge
-rdiscount:
-  extensions: [smart]
 sass:
   style: :compressed
 gems:
