@@ -1,7 +1,7 @@
 ## Jekyll configs
 markdown: rdiscount
 permalink: /:year/:month/:day/:title/
-highlighter: pygments
+highlighter: rouge
 rdiscount:
   extensions: [smart]
 sass:
@@ -35,33 +35,33 @@ offering: "Business and corporate services"
 offer_description: "We do a lot of stuff. This is a lengthy paragraph of text."
 
 ## Site and contact bits
-baseurl: "http://www.example.com"
+baseurl: "https://shelbybrad.com"
 # subpath should include leading slash or be an empty string
-subpath: '/jekyll-brochure'
-source_repo: http://www.github.com/ao5357/jekyll-brochure
+subpath: ''
+source_repo: https://www.github.com/shelbybrad/shelbybrad.github.io
 email: ao5357@gmail.com 
-phone: (555) 555-1234
-phonedigits: "5555551234"
+phone: (248) 721-0350
+phonedigits: "2487210350"
 # gaid: UA-697953-3
 
 ## schema.org type (default for site, often "Website")
-schema: LocalBusiness
+schema: Website
 
 ## Open Graph
-og_street_address: 123 Fake St
-og_locality: Noncity
+og_street_address: 1428 Mark Ave
+og_locality: Lincoln Park
 og_region: MI
-og_postal_code: "48888"
+og_postal_code: "48146"
 og_country: USA
 
 ## Social links
 social:
   -
     title: Facebook
-    url: https://www.facebook.com/buyexamplebusiness
+    url: https://www.facebook.com/bradczerniak
   -
     title: Twitter
-    url: https://twitter.com/example
+    url: https://twitter.com/ao5357
 
 ## Colors
 # Secondary especially should not be a regular blue
