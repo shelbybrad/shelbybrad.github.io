@@ -467,3 +467,23 @@ a.button.margin-vertical--4 {
     display: none;
   }
 }
+
+/**
+ * A "street sign", tripe-D style.
+ *
+ * Base class applies to children. Each child pads down, and base element is bottom padded quite a lot.
+ */
+.street-sign {
+  padding: 0 20px 100px;
+  position: relative;
+  text-align: center;
+}
+.street-sign > h1 {
+  margin-bottom: 30px;
+}
+.street-sign > h2 {
+  margin-bottom: 30px;
+}
+.street-sign > h3 {
+  margin-bottom: 30px;
+}
