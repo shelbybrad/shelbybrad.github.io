@@ -107,6 +107,7 @@ layout: compress
 {% include_relative theme/custom-properties.css %}
 
 {% include_relative utility/property--value.css %}
+{% include_relative utility/utility--animation.css %}
 {% include_relative utility/utility--color.css %}
 {% include_relative utility/utility--classes.css %}
 {% include_relative utility/utility--layout.css %}

@@ -80,6 +80,9 @@ all and (max-width: 767px) and (-ms-high-contrast: none) {
 .layout--stripe {
   padding: calc(10 * var(--spacing--single)) calc(2 * var(--spacing--single));
 }
+.layout--strip {
+  padding: calc(2 * var(--spacing--single)) calc(2 * var(--spacing--single));
+}
 @media all and (max-width: 767px) {
   .layout--stripe {
     padding: calc(6 * var(--spacing--single)) calc(2 * var(--spacing--single));
@@ -111,6 +114,11 @@ all and (max-width: 767px) and (-ms-high-contrast: none) {
 }
 @media all and (min-width: 1024px) {
   .layout--hide--wide {
+    display: none;
+  }
+}
+@media all and (prefers-reduced-motion: reduce) {
+  .layout--hide--animations {
     display: none;
   }
 }

@@ -11,20 +11,9 @@ plugins:
 
 ## Site structure
 collections:
-  testimonials:
-    output: true
-    permalink: /testimonials/:title/
   sections:
     output: false
     permalink: /:title/
-
-defaults:
-  -
-    scope:
-      path: ""
-      type: "testimonials"
-    values:
-      layout: "testimonial"
 
 ## Basic company info
 title: "Shelby and Brad"

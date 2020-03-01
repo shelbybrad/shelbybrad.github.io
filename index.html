@@ -1,5 +1,7 @@
 ---
 layout: layout
+title: "Home"
+
 front: true
 ---
 <section class="layout--stripe color--white background-color--main-light" id="home"><div class="layout--stripe--inner">
@@ -8,8 +10,6 @@ front: true
     <h2 class="font-family--primary text-transform--uppercase">&amp; Brad's</h2>
     <h3 class="font-family--primary text-transform--uppercase">Wedding</h3>
   </div>
-  <h1 class="title">{{ site.offering }}</h1>
-  <p itemprop="description">{{ site.offer_description }}</p>
 </div></section>
 {% for section in site.sections %}
 {% include section.html section=section %}

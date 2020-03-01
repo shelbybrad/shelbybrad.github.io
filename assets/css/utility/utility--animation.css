@@ -1,0 +1,85 @@
+/**
+ * @file
+ * Classes in a property--value style used across projects.
+ */
+
+/**
+ * Animation delay.
+ */
+.animation-delay--1s {
+  animation-delay: 1s;
+}
+
+/**
+ * Animation direction.
+ */
+.animation-direction--normal {
+  animation-direction: normal;
+}
+.animation-direction--reverse {
+  animation-direction: reverse;
+}
+.animation-direction--alernate {
+  animation-direction: alternate;
+}
+.animation-direction--alternate-reverse {
+  animation-direction: alternate-reverse;
+}
+
+/**
+ * Animation delay.
+ */
+.animation-duration--1s {
+  animation-duration: 1s;
+}
+.animation-duration--2s {
+  animation-duration: 2s;
+}
+.animation-duration--3s {
+  animation-duration: 3s;
+}
+
+/**
+ * Animation iteration count.
+ */
+.animation-iteration-count--infinite {
+  animation-iteration-count: infinite;
+}
+
+/**
+ * Named animations per the keyframes below.
+ */
+.animation-name--slide {
+  animation-name: slide;
+  position: relative;
+}
+.animation-name--slide-spin {
+  animation-name: slide, spin;
+  position: relative;
+}
+.animation-name--spin {
+  animation-name: spin;
+}
+
+
+@keyframes slide {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateZ(0);
+  }
+  50% {
+    transform: rotateZ(360deg);
+  }
+  100% {
+    transform: rotateZ(0);
+  }
+}
+

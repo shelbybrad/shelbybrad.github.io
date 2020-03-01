@@ -135,6 +135,12 @@ body {
   min-height: 100vh;
   scroll-behavior: smooth;
 }
+@media all and (prefers-color-scheme: dark) {
+  body {
+    background: var(--color--grey-dark);
+    color: var(--color--white);
+  }
+}
 
 /**
  * Links.
