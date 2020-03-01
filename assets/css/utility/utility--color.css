@@ -109,7 +109,7 @@
 }
 
 /**
- * Color classes for the settings dropdowns. Add here as needed.
+ * Color classes for text.
  */
 .color--black {
   color: var(--color--black);

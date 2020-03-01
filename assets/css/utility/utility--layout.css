@@ -33,10 +33,10 @@ main,
 }
 @media all and (max-width: 767px) {
   .layout--column {
-    padding-top: 20px;
+    padding-top: calc(2 * var(--spacing--single));
   }
   .layout--column:last-child {
-    padding-bottom: 20px;
+    padding-bottom: calc(2 * var(--spacing--single));
   }
 }
 
@@ -78,11 +78,11 @@ all and (max-width: 767px) and (-ms-high-contrast: none) {
  * Place the overriding class after it in order for cascade purposes.
  */
 .layout--stripe {
-  padding: 100px 20px;
+  padding: calc(10 * var(--spacing--single)) calc(2 * var(--spacing--single));
 }
 @media all and (max-width: 767px) {
   .layout--stripe {
-    padding: 60px 20px;
+    padding: calc(6 * var(--spacing--single)) calc(2 * var(--spacing--single));
   }
 }
 
@@ -132,7 +132,7 @@ all and (max-width: 767px) and (-ms-high-contrast: none) {
 }
 .layout--multiple--horizontal > * ,
 .layout--multiple--carousel:not(.slick-initialized) > * {
-  margin: 0 0 40px;
+  margin: 0 0 calc(4 * var(--spacing--single));
 }
 
 @media all and (min-width: 768px) {
@@ -141,14 +141,8 @@ all and (max-width: 767px) and (-ms-high-contrast: none) {
   }
   .layout--multiple--horizontal > *,
   .layout--multiple--carousel:not(.slick-initialized) > * {
-    -webkit-flex-basis: 23%;
-    -ms-flex-preferred-size: 23%;
-    flex-basis: 23%; /* This should safely be a 1/3 layout */
-    -webkit-flex-basis: -webkit-calc(33% - 40px);
-    -ms-flex-preferred-size: calc(33% - 40px);
-    flex-basis: -moz-calc(33% - 40px);
-    flex-basis: calc(33% - 40px); /* Explicit for browsers that support calc. */
-    margin: 0 20px 40px;
+    flex-basis: calc(33% - (2 * var(--spacing--single)));
+    margin: 0 calc(2 * var(--spacing--single)) calc(4 * var(--spacing--single));
     max-width: 347px;
     min-width: 205px;
   }

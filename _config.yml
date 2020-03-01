@@ -6,7 +6,7 @@ highlighter: rouge
 sass:
   sass_dir: assets/css
   style: :compressed
-gems:
+plugins:
   - jekyll-sitemap
 
 ## Site structure
@@ -50,6 +50,10 @@ og_locality: Lincoln Park
 og_region: MI
 og_postal_code: "48146"
 og_country: USA
+
+## PWA and other SEO
+background_color: "#fff"
+theme_color: "#003f80"
 
 ## Social links
 social:

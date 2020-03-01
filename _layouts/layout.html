@@ -11,7 +11,13 @@ layout: compress
 {% else %}
   <title>{{ page.title }} | {{ site.title }}</title>
 {% endif %}
+{% include loading.html %}
+<link rel="stylesheet" type="text/css" href="{{ site.subpath }}/assets/css/style.css" media="print" onload="this.media='all'" />
+
 <meta name="apple-mobile-web-app-title" content="{{ site.shortname }}" />
+<meta name="theme-color" content="{{ site.theme_color }}">
+<link rel="apple-touch-icon" href="{{ site.baseurl }}{{ site.subpath }}/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
 <meta name="author" content="{{ site.primary_author }}" />
 <meta property="og:image" content="{{ site.baseurl }}{{ site.subpath }}/apple-touch-icon.png" />
 <meta property="og:site_name" content="{{ site.title }}" />
@@ -26,18 +32,19 @@ layout: compress
   <meta property="og:description" content="{{ content | strip_html | strip_newlines | replace: '  ', ' ' | truncate: 155, '' }}" />
 {% endif %}
 <link rel="canonical" href="{{ site.baseurl }}{{ site.subpath }}{{ page.url }}" />
-<link rel="stylesheet" type="text/css" href="{{ site.subpath }}/assets/css/style.css" />
+
 </head><body class="page-{{ page.url | slugify }}">
-  {% if site.gaid %}{% include analytics.html %}{% endif %}
   {% if page.schema %}
-    <div class="page" itemscope itemtype="http://schema.org/{{ page.schema }}">
+    <main class="page" itemscope itemtype="http://schema.org/{{ page.schema }}">
   {% else %}
-    <div class="page" itemscope itemtype="http://schema.org/{{ site.schema }}">
+    <main class="page" itemscope itemtype="http://schema.org/{{ site.schema }}">
   {% endif %}
   {% include header.html %}
   {% include nav.html %}
   {% if page.front %}{% include splash.html %}{% endif %}
 	{{ content }}
   {% include footer.html %}
-</div>
+  {% if site.gaid %}{% include analytics.html %}{% endif %}
+  <script async defer src="{{ site.subpath }}/assets/js/behavior.js"></script>
+</main>
 </body></html>
