@@ -482,6 +482,14 @@
   justify-content: stretch;
 }
 
+/**
+ * List-style and list-style-type.
+ */
+.list-style--none,
+.list-style-type--none {
+  list-style: none;
+}
+
 .overflow--visible {
   overflow: visible;
 }

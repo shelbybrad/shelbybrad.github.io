@@ -1,0 +1,31 @@
+---
+title: "RSVP"
+menus:
+  main: 5
+  footer: 5
+sections:
+  - cta
+---
+
+<section class="layout--stripe"><div class="layout--stripe--inner">
+  <p>Here is some intro text for the RSVP form.</p>
+  <form method="POST" action="https://formsubmit.co/ao5357@gmail.com">
+    <input type="text" name="_honey" class="display--none" />
+    <input type="hidden" name="_next" value="https://shelbybrad.com/thank-you/" />
+    <input type="hidden" name="_template" value="box" />
+    <input type="hidden" name="_subject" value="[shelbybrad.com] Wedding RSVP form submission" />
+
+    <fieldset><legend>About you</legend>
+      <div class="form-item">
+        <label for="OwnerName">Full Name</label>
+        <input type="text" id="primaryName" name="primaryName" placeholder="John Doe" required />
+      </div>
+      <div class="form-item">
+        <label for="_replyto">Email</label>
+        <input type="email" id="_replyto" name="_replyto" placeholder="johndoe@example.com" required />
+      </div>
+    </fieldset>
+
+    <button type="submit">Send</button>
+  </form>
+</div></section>

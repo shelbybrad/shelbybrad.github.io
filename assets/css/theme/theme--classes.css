@@ -1,0 +1,416 @@
+/**
+ * @file
+ * Component and class-level styles.
+ */
+
+/**
+ * Skip-to-main-content links for accessibility.
+ */
+.a11y--skip-hide {
+  background: var(--color--grey);
+  position: relative;
+  text-align: center;
+}
+.a11y--skip-hide a {
+  color: var(--color--grey);
+  display: block;
+  height: 1px;
+  left: -10000px;
+  overflow: hidden;
+  padding: 10px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+}
+.a11y--skip-hide a:focus {
+  height: auto;
+  outline: 0 none;
+  position: static;
+  width: auto;
+}
+
+/**
+ * Background images and gradients.
+ */
+.background-image--gradient--second-white-starburst {
+  background-image: repeating-conic-gradient(
+    from 3deg at -15% 115%,
+    var(--color--second-light) 0 1deg,
+    var(--color--white) 0 4deg,
+    transparent 0 7deg
+  );
+}
+.background-image--star {
+  background-image: url('../images/star.svg');
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+.background-image--stars {
+  background-image: url('../images/stars.svg');
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+/**
+ * Add stylistic pipes to lists.
+ */
+.border-spaced {}
+.border-spaced > li {
+  border-bottom: 1px solid;
+}
+.border-spaced li:last-child {
+  border-bottom: 0 none;
+}
+@media all and (min-width: 768px) {
+  .border-spaced > li {
+    border-right: 1px solid;
+    border-bottom: 0 none;
+  }
+  .border-spaced li:last-child {
+    border-right: 0 none;
+  }
+}
+
+/**
+ * Sticky main header for the site.
+ */
+@media all and (min-width: 1024px) {
+  .headroom {
+    left: 0;
+    position: fixed;
+    right: 0;
+    -webkit-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+    will-change: transform;
+    z-index: 100;
+  }
+  .headroom--pinned {
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+  .headroom--unpinned {
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+}
+.headroom--not-top .region--overhang {
+  background-color: var(--color--grey-light);
+}
+
+/**
+ * Clickable card hover states.
+ */
+.hover--bg {
+  -webkit-transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+}
+.hover--bg:hover,
+.hover--bg:active,
+.hover--bg:focus {
+  /* Potentially add a hover style. */
+}
+
+/**
+ * Trigger animated visibility.
+ */
+.js .animateOnScroll {}
+.js .revealOnScroll {
+  opacity: 0;
+}
+.js .revealOnScroll.animated {
+  opacity: 1;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+/**
+ * Menus.
+ */
+.menu {}
+.menu-item {
+  margin: calc(0.5 * var(--spacing--single)) 0 calc(0.5 * var(--spacing--single)) calc(0.5 * var(--spacing--single));
+  padding-right: calc(0.5 * var(--spacing--single));
+}
+.menu-item > a {
+  color: inherit;
+  display: block;
+  margin: 0 auto;
+  max-width: calc(var(--layout--content-area) / 5);
+  padding: calc(2 * var(--spacing--single)) calc(2 * var(--spacing--single));
+}
+.color--white .menu-item > a:hover {
+  background-color: var(--color--second);
+  text-decoration: underline;
+}
+@media all and (min-width: 768px) {
+  .menu-item--menu-main {
+    text-align: center;
+  }
+}
+
+/**
+ * Messages.
+ */
+.messages {
+  font-style: italic;
+  margin: 10px 0;
+  padding: 10px;
+}
+.messages--error {
+  background-color: var(--color--error-background);
+  color: var(--color--error);
+}
+.messages--status {
+  background-color: var(--color--status-background);
+  color: var(--color--status);
+}
+.messages--warning {
+  background-color: var(--color--warning-background);
+  color: var(--color--warning);
+}
+
+/**
+ * Dismissable messages.
+ */
+.messages[id] {
+  padding: 10px 30px 10px 10px;
+  position: relative;
+}
+.messages[id] button {
+  background: none;
+  color: inherit;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  top: -webkit-calc(50% - 14px);
+  top: -moz-calc(50% - 14px);
+  top: calc(50% - 14px);
+  -webkit-transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+}
+.messages[id] button:hover,
+.messages[id] button:active {
+  background: rgba(255,255,255,.5);
+}
+
+
+
+/**
+ * Core pagers.
+ */
+.pager {
+  font-weight: 600;
+  margin: 40px auto;
+  text-align: center;
+  text-transform: uppercase;
+}
+.pager ul {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.pager ul > li {
+  display: inline-block;
+  line-height: 1;
+  margin: 0;
+}
+.pager li > a,
+.pager li > span {
+  color: var(--color--grey);
+  display: inline-block;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+.pager li > a:hover {
+  border-color: var(--color--grey);
+}
+.pager li.pager-current > span,
+.pager li.pager-current > a,
+.pager li.is-active > span,
+.pager li.is-active > a {
+  border-color: var(--color--grey);
+}
+.pager li.pager__item--previous {
+  border-right: 1px solid var(--color--grey);
+  margin-right: 4px;
+  padding-right: 16px;
+}
+.pager li.pager__item--next {
+  border-left: 1px solid var(--color--grey);
+  margin-left: 4px;
+  padding-left: 16px;
+}
+
+/**
+ * Add stylistic pipes to lists.
+ */
+ @media all and (min-width: 768px) {
+  .pipe-spaced {}
+  .pipe-spaced > li::after {
+    content: '|';
+    display: inline-block;
+    font-weight: 300;
+    opacity: .9;
+    padding: 0 2px;
+    vertical-align: middle;
+  }
+  .pipe-spaced > li:last-child::after {
+    display: none;
+  }
+}
+
+/**
+ * A "street sign", tripe-D style.
+ *
+ * Base class applies to children. Each child pads down, and base element is bottom padded quite a lot.
+ */
+.street-sign {
+  bottom: calc(-2 * var(--spacing--single));
+  display: block;
+  font-size: 2rem;
+  margin: calc(2 * var(--spacing--single)) auto 0;
+  max-width: calc(100vw - 4em);
+  padding: 0 calc(2 * var(--spacing--single)) calc(10 * var(--spacing--single));
+  position: relative;
+  text-align: center;
+  transform: rotate(5deg);
+}
+@media all and (min-width: 480px) {
+  .street-sign {
+    max-width: 6em;
+  }
+}
+@media all and (min-width: 768px) {
+  .street-sign {
+    font-size: 4vw;
+    margin: calc(8 * var(--spacing--single)) auto 0;
+  }
+}
+@media all and (min-width: 1080px) {
+  .street-sign {
+    font-size: 3rem;
+    margin-left: 0;
+  }
+}
+.street-sign::before {
+  background-color: var(--color--grey);
+  background-image: linear-gradient(
+    to right,
+    var(--color--grey),
+    var(--color--grey-dark)
+  );
+  bottom: 0;
+  content: '';
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: 10%;
+  width: 20px;
+  z-index: 1;
+}
+.street-sign > * {
+  display: block;
+  margin: 0 auto calc(3 * var(--spacing--single));
+  padding: calc(1 * var(--spacing--single));
+  position: relative;
+  transition: all .3s ease-in;
+  z-index: 4;
+}
+.street-sign > :first-child {
+  background-color: var(--color--grey-dark);
+  background-image: repeating-conic-gradient(
+    from 3deg at -10% -10%,
+    transparent 0,
+    var(--color--grey) 8deg,
+    transparent 16deg
+  );
+  border: 3px solid var(--color--street-sign--glow);
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 3px var(--color--black),
+    0 0 2px 6px var(--color--street-sign--glow),
+    -6px 6px 0 12px var(--color--black)
+  ;
+  color: var(--color--black);
+  font-size: 2em;
+  text-shadow: 0 0 8px var(--color--street-sign--glow);
+  transform: rotate(-15deg) skew(10deg, 10deg);
+}
+.street-sign > :nth-child(2) {
+  color: var(--color--street-sign--red);
+  filter: drop-shadow(0 0 3px var(--color--second));
+  font-style: italic;
+  padding: 0;
+  text-shadow:
+    0 0 2px var(--color--street-sign--red-light),
+    1px 3px 4px var(--color--street-sign--red-dark)
+  ;
+  transform: rotate(-2deg);
+}
+.street-sign > :nth-child(2) > * {
+  background-color: var(--color--street-sign--peach);
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color--second-light) 0 3px,
+    transparent 0 9px
+  );
+  clip-path: polygon(0 20%, 80% 20%, 80% 0, 100% 50%, 80% 100%, 80% 80%, 0 80%, 10% 50%);
+  display: block;
+  padding: 15% 10% 15% 7.5%;
+}
+.street-sign > :nth-child(n + 3) {
+  background-color: var(--color--street-sign--peach);
+  background-image: url('../images/bg-dirt.png');
+  border: 3px solid var(--color--second);
+  border-radius: 9px;
+  color: rgba(65,32,28,0.65);
+  letter-spacing: -0.1em;
+  transform: rotate(-8deg);
+}
+.street-sign > :nth-child(n + 3) > b {
+  display: inline-block;
+  filter: url('../images/css-filters.svg#feTurbulence');
+  font-weight: 900;
+  text-shadow: 0 0 1px var(--color--street-sign--peach);
+  transform: rotate(15deg);
+}
+.street-sign > :nth-child(n + 3) > b:nth-child(2n) {
+  transform: rotate(-15deg);
+}
+.street-sign > :nth-child(n + 3) > b:nth-child(1),
+.street-sign > :nth-child(n + 3) > b:nth-child(3),
+.street-sign > :nth-child(n + 3) > b:nth-child(6) {
+  color: var(--color--second-light);
+  font-family: var(--font-family--primary);
+  font-weight: 400;
+  position: relative;
+  text-shadow:
+    0 0 6px var(--color--second),
+    4px 4px 4px var(--color--black)
+  ;
+  top: -10px;
+}
+
+/**
+ * Text-shadows to match the theme.
+ */
+.text-shadow--second-light--solid {
+  text-shadow: 3px 3px 0 var(--color--second-light);
+}

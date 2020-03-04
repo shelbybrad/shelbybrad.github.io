@@ -1,0 +1,16 @@
+---
+title: "Blog"
+menus:
+  main: 4
+  footer: 4
+sections:
+  - aservice
+---
+
+<section class="layout--stripe "><div class="layout--stripe--inner">
+  <ul>
+    {% for post in site.posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div></section>

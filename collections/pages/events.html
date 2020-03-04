@@ -1,0 +1,16 @@
+---
+title: "Events"
+menus:
+  main: 3
+  footer: 3
+sections:
+  - cta
+---
+
+<h2>This is a section on the events page.</h2>
+
+<ul>
+  {% for event in site.events %}
+    <li><a href="{{ event.url }}">{{ event.title }}</a></li>
+  {% endfor %}
+</ul>

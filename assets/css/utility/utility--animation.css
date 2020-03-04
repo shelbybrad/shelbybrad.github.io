@@ -49,18 +49,32 @@
 /**
  * Named animations per the keyframes below.
  */
+.animation-name--scale {
+  animation-name: scale;
+}
 .animation-name--slide {
   animation-name: slide;
   position: relative;
 }
 .animation-name--slide-spin {
   animation-name: slide, spin;
-  position: relative;
+  position: absolute;
 }
 .animation-name--spin {
   animation-name: spin;
 }
 
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 @keyframes slide {
   0% {

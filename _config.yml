@@ -1,8 +1,9 @@
 ## Jekyll configs
 markdown: GFM
 theme: jekyll-theme-primer
-permalink: /:year/:month/:day/:title/
+permalink: /blog/:title/
 highlighter: rouge
+collections_dir: collections
 sass:
   sass_dir: assets/css
   style: :compressed
@@ -11,9 +12,47 @@ plugins:
 
 ## Site structure
 collections:
+  docs:
+    output: true
+    permalink: /docs/:path/
+  events:
+    output: true
+    permalink: /events/:path/
   sections:
     output: false
     permalink: /:title/
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "doc"
+  -
+    scope:
+      path: ""
+      type: "events"
+    values:
+      layout: "event"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: "sections"
+    values:
+      layout: "section"
 
 ## Basic company info
 title: "Shelby and Brad"

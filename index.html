@@ -1,16 +1,32 @@
 ---
-layout: layout
 title: "Home"
-
 front: true
+menus:
+  main: 1
+  footer: 1
+sections:
+  - aservice
 ---
-<section class="layout--stripe color--white background-color--main-light" id="home"><div class="layout--stripe--inner">
-  <div class="street-sign">
-    <h1>Shelby</h1>
-    <h2 class="font-family--primary text-transform--uppercase">&amp; Brad's</h2>
-    <h3 class="font-family--primary text-transform--uppercase">Wedding</h3>
+
+<section class="layout--strip layout--hide--animations background-color--third-light"><div class="layout--stripe--inner">
+  <div class="animation--container position--relative">
+    <figure class="animation-name--slide-spin animation-iteration-count--infinite animation-direction--alernate animation-duration--3s">
+      <img src="/assets/images/brad_head_100x100.png" alt="Bizarro Brad" />
+    </figure>
+
+    <figure class="animation-name--slide-spin animation-iteration-count--infinite animation-direction--alternate-reverse animation-duration--3s">
+      <img src="/assets/images/shelby_head_100x100.png" alt="Bizarro Shelby" />
+    </figure>
   </div>
 </div></section>
-{% for section in site.sections %}
-{% include section.html section=section %}
-{% endfor %}
+
+<section class="layout--stripe color--white background-color--main-light" id="home"><div class="layout--stripe--inner">
+  <h2>This is a section on the home page.</h2>
+
+  <ul>
+    <li>EMPTY LIST ITEM</li>
+    {% for post in site.posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div></section>

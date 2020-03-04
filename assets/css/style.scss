@@ -104,7 +104,7 @@ layout: compress
   url('../fonts/lato/lato-v16-latin-ext_latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-{% include_relative theme/custom-properties.css %}
+{% include_relative theme/theme--custom-properties.css %}
 
 {% include_relative utility/property--value.css %}
 {% include_relative utility/utility--animation.css %}
@@ -114,6 +114,6 @@ layout: compress
 {% include_relative utility/utility--spacing.css %}
 {% include_relative utility/utility--typography.css %}
 
-{% include_relative theme/base.css %}
-{% include_relative theme/components.css %}
-{% include_relative theme/shame.css %}
+{% include_relative theme/theme--base.css %}
+{% include_relative theme/theme--classes.css %}
+{% include_relative theme/theme--shame.css %}

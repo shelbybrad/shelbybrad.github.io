@@ -1,0 +1,16 @@
+<footer class="footer layout--strip background-color--main-light color--white"><div class="layout--stripe--inner">
+  <address class="inline-block" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+    <span>{{ site.primary_author }}</span><br>
+    <span itemprop="streetAddress">{{ site.og_street_address }}</span><br>
+    <span itemprop="addressLocality">{{ site.og_locality }}</span>, 
+    <span itemprop="addressRegion">{{ site.og_region }}</span> 
+    <span itemprop="postalCode">{{ site.og_postal_code }}</span>
+  </address>
+  {% if site.social %}
+    <div class="social">
+    {% for link in site.social %}
+      <a href="{{ link.url }}">{{ link.title }}</a>
+    {% endfor %}
+    </div>
+  {% endif %}
+</div></footer>

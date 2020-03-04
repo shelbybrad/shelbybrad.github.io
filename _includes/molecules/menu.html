@@ -1,0 +1,11 @@
+{% capture where_exp_str %}item.menus.{{ include.menu }} >= 1{% endcapture %}
+{% capture sort_str %}menus.{{ include.menu }}{% endcapture %}
+{% assign pages = site.pages | where_exp:"item", where_exp_str | sort:sort_str %}
+<ul class="menu menu--{{ include.menu | slugify }} list-style--none margin-horizontal--0 {% if include.classes %}{{ include.classes }}{% endif %}">
+  {% for p in pages %}
+  <li class="menu-item menu-item--menu-{{ include.menu | slugify }} menu-item--page-{{ p.title | slugify }}
+  menu-item--menu-{{ include.menu | slugify }}--page-{{ p.title | slugify }} flex--1">
+    <a {% if p.url == page.url %}class="active"{% endif %} href="{{ p.url | relative_url }}">{{ p.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
