@@ -1,6 +1,6 @@
 ---
 title: A Service
-classes: "divided"
+classes: "background-color--grey-light"
 image:
   file: aservice.jpg
   alt: "Shows service"

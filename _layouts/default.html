@@ -41,7 +41,7 @@ layout: compress
       {% if page.hero_classes %}
         {% assign hero_classes = page.hero_classes %}
       {% else %}
-        {% capture hero_classes %}background-color--main-light background-image--stars color--white text-align--center background-image-display-mobile--hide text-shadow--second-light--solid{% endcapture %}
+        {% capture hero_classes %}background-color--main background-image--stars color--white text-align--center background-image-display-mobile--hide text-shadow--second-light--solid{% endcapture %}
       {% endif %}
       <section class="layout--stripe {{ hero_classes }}"><div class="layout--stripe--inner">
         <h1>{{ page.title }}</h1>

@@ -1,6 +1,6 @@
 ---
 title: B Service
-classes: "divided"
+classes: "background-color--grey-light"
 image:
   file: bservice.jpg
   alt: "Shows bservice"

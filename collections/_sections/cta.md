@@ -1,6 +1,6 @@
 ---
 title: "We're different"
-classes: "region-cta"
+classes: "background-color--grey-light"
 ---
 
 ...Find out how our business differentiates itself.
