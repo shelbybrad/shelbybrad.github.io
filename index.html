@@ -1,32 +1,40 @@
 ---
-title: "Home"
+description: "Brad and Shelby are getting married in October in Michigan."
 front: true
+#hero_classes: "background-color--main-dark color--white"
 menus:
   main: 1
   footer: 1
+#schema: Website
 sections:
   - aservice
+title: "Home"
 ---
 
 <section class="layout--strip layout--hide--animations background-color--third-light"><div class="layout--stripe--inner">
   <div class="animation--container position--relative">
-    <figure class="animation-name--slide-spin animation-iteration-count--infinite animation-direction--alernate animation-duration--3s">
-      <img src="/assets/images/brad_head_100x100.png" alt="Bizarro Brad" />
-    </figure>
-
-    <figure class="animation-name--slide-spin animation-iteration-count--infinite animation-direction--alternate-reverse animation-duration--3s">
-      <img src="/assets/images/shelby_head_100x100.png" alt="Bizarro Shelby" />
-    </figure>
+    {% include atoms/image.html
+      src="brad_head_100x100.png"
+      alt="Bizarro Brad"
+      classes="animation-name--slide-spin animation-iteration-count--infinite animation-direction--alernate animation-duration--3s"
+    %}
+    {% include atoms/image.html
+      src="shelby_head_100x100.png"
+      alt="Bizarro Shelby"
+      classes="animation-name--slide-spin animation-iteration-count--infinite animation-direction--alternate-reverse animation-duration--3s"
+    %}
   </div>
 </div></section>
 
-<section class="layout--stripe color--white background-color--main" id="home"><div class="layout--stripe--inner">
-  <h2>This is a section on the home page.</h2>
-
-  <ul>
-    <li>EMPTY LIST ITEM</li>
-    {% for post in site.posts %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+<section class="layout--stripe background-color--main background-image--stars color--white text-align--center background-image-display-mobile--hide" id="home"><div class="layout--stripe--inner">
+  <div class="display--flex layout--row justify-content--center">
+    <aside class="display--flex flex-direction--column justify-content--center">
+      {% include atoms/image.html src="FB_IMG_1567973636993.jpg" alt="Shelby and Brad embracing while watching F1" caption="We enjoyed the F1 race." %}
+      {% include atoms/spacer.html size="4" %}
+      <p class="font-size--2em">
+        Hey, <em>we're Brad and Shelby</em>, and <strong class="text-shadow--second-light--solid">we're rolling out</strong>, looking for America's greatest
+        having, holding, and loving.
+      </p>
+    </aside>
+  </div>
 </div></section>

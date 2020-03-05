@@ -1,0 +1,51 @@
+{% comment %}
+  Components/includes use captures for content and documentation. The 'content' area is the component proper.
+
+  The component is rendered at the end via the 'mode' conditional.
+
+  Please thoroughly document all components.
+{% endcomment %}
+
+{% capture content %}
+  <figure class="figure figure--image figure--image--{{ include.src | slugify }} {% if include.classes %}{{ include.classes }}{% endif %}">
+    {% if include.link_url %}<a href="{{ include.link_url }}">{% endif %}
+      <img src="{{ site.baseurl }}{{ site.subpath }}/assets/images/{{ include.src | default "IMG_20190810_135403.jpg" }}" alt="{{ include.alt }}" loading="lazy" />
+    {% if include.link_url %}</a>{% endif %}
+    {% if include.caption %}
+      <figcaption class="figcaption figure--image--figcaption">{{ include.caption }}</figcaption>
+    {% endif %}
+  </figure>
+{% endcapture %}
+
+{% capture usage %}
+  ## General guidance
+
+  Images are visual representations.
+{% endcapture %}
+
+{% capture accessibility %}
+  Just some sample text in the accessibility section for now.
+{% endcapture %}
+
+{% capture props %}
+  alt| appropriate alt text| A circus clown,
+  caption| an optional caption| We saw this guy at the circus,
+  classes| css classes applied to parent| color--main-dark,
+  link_url| an optional link to wrap it| http://www.google.com,
+  src| the filename/subpath of the image in /assets/images/| circus-clown.jpg
+{% endcapture %}
+{% assign classes = "image--polaroid, font-family--secondary" | split: ", " %}
+
+{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% if include.mode == "docblock" %}
+  {% include molecules/docblock.html
+    accessibility=accessibility
+    classes=classes
+    html=content
+    props=props
+    source=include
+    usage=usage
+  %}
+{% else %}
+  {{ content }}
+{% endif %}

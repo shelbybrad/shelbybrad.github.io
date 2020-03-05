@@ -1,0 +1,33 @@
+{% comment %}
+  Docblocks are special. Please be careful tweaking this component.
+{% endcomment %}
+
+{% capture content %}
+  <section class="docblock">
+    <div class="docblock--example">
+      {{ include.html }}
+    </div>
+
+    {% highlight html %}
+      {{ include.html }}
+    {% endhighlight %}
+
+    <details>
+      <summary>Usage</summary>
+      <div>
+        {{ include.usage | markdownify }}
+        {{ include.classes }}
+        {{ include.props }}
+      </div>
+    </details>
+
+    <details>
+      <summary>Accessibility</summary>
+      <div>
+        {{ include.accessibility | markdownify }}
+      </div>
+    </details>
+  </section>
+{% endcapture %}
+
+{{ content }}

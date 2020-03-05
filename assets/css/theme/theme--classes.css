@@ -32,6 +32,12 @@
 /**
  * Background images and gradients.
  */
+.background-image--brelby-cuyahoga {
+  background-image: url('../images/IMG_20190810_135403.jpg');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .background-image--gradient--second-white-starburst {
   background-image: repeating-conic-gradient(
     from 3deg at -15% 115%,
