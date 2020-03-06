@@ -292,7 +292,7 @@
   display: block;
   font-size: 2rem;
   margin: calc(2 * var(--spacing--single)) auto 0;
-  max-width: calc(100vw - 4em);
+  max-width: calc(100vw - 4.5em);
   padding: 0 calc(2 * var(--spacing--single)) calc(10 * var(--spacing--single));
   position: relative;
   text-align: center;
