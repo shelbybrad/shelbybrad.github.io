@@ -4,6 +4,18 @@
  */
 
 /**
+ * Accessibly hide elements.
+ */
+.a11y--visually-hidden {
+  clip: rect(1px,1px,1px,1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal;
+}
+
+/**
  * Hides background images on mobile.
  */
 @media all and (max-width: 1023px) {

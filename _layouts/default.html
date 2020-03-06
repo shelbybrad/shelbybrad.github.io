@@ -38,14 +38,26 @@ layout: compress
     {% include organisms/nav.html %}
 
     {% if page.front != true %}
+      {% comment %}Using conditionals and assign/capture here because the default filter does not play nice.{% endcomment %}
       {% if page.hero_classes %}
         {% assign hero_classes = page.hero_classes %}
       {% else %}
         {% capture hero_classes %}background-color--main background-image--stars color--white text-align--center background-image-display-mobile--hide text-shadow--second-light--solid{% endcapture %}
       {% endif %}
-      <section class="layout--stripe {{ hero_classes }}"><div class="layout--stripe--inner">
-        <h1>{{ page.title }}</h1>
-      </div></section>
+
+      {% comment %}Demonstration of nesting components using capture. Seems excessive.{% endcomment %}
+      {% capture hero_children %}
+        {% include atoms/heading.html
+          children=page.title
+          classes="text-shadow--second-light--solid"
+          level="1"
+        %}
+      {% endcapture %}
+
+      {% include organisms/section.html
+        classes=hero_classes
+        children=hero_children
+      %}
     {% endif %}
 
     {{ content }}

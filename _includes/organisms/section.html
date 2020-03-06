@@ -1,0 +1,50 @@
+{% comment %}
+  Components/includes use captures for content and documentation. The 'component' area is the component proper.
+
+  The component is rendered at the end via the 'mode' conditional.
+
+  Please thoroughly document all components.
+{% endcomment %}
+
+{% capture component %}
+  <section class="layout--stripe {% if include.classes %}{{ include.classes }}{% endif %}" id="section-{{ include.title | slugify }}">
+    <div class="layout--stripe--inner">
+      {% if include.title %}<h2 class="{{ include.title_classes | default "a11y--visually-hidden" }}">{{ include.title }}</h2>{% endif %}
+      {{ include.children }}
+    </div>
+  </section>
+{% endcapture %}
+
+{% capture usage %}
+  ## General guidance
+
+  Sections separate large distinct portions of content on a page.
+{% endcapture %}
+
+{% capture accessibility %}
+  Just some sample text in the accessibility section for now.
+{% endcapture %}
+
+{% capture props %}
+  classes| css classes applied to parent| background-color--main-dark color--white,
+  children| Contents and sub-contents of the section| Here is some text.,
+  title| Each section should have an h2| This describes what is in the section,
+  title_classes| Styling for the section title| heading--h1
+{% endcapture %}
+{% assign classes = "font-family--secondary" | split: ", " %}
+
+{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% if include.mode == "docblock" %}
+  {% include molecules/docblock.html
+    accessibility=accessibility
+    classes=classes
+    html=component
+    props=props
+    source=include
+    usage=usage
+  %}
+{% elsif include.mode == "ref" %}
+  {{ site.sections | where:"slug",include.slug }}
+{% else %}
+  {{ component }}
+{% endif %}
