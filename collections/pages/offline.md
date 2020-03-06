@@ -1,5 +1,4 @@
 ---
-exclude: true
 permalink: /offline.html
 title: "You're offline"
 regions:

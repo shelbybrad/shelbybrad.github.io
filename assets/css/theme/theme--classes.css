@@ -32,11 +32,10 @@
 /**
  * Background images and gradients.
  */
-.background-image--brelby-cuyahoga {
-  background-image: url('../images/IMG_20190810_135403.jpg');
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.background-image--dirt {
+  background-image: url('../images/bg-dirt.png');
+  background-position: center center;
+  background-repeat: repeat;
 }
 .background-image--gradient--second-white-starburst {
   background-image: repeating-conic-gradient(
@@ -127,6 +126,34 @@
 }
 
 /**
+ * Polaroid-style images for the gallery.
+ */
+.figure--image--polaroid > img {
+  border: 1px solid var(--color--grey);
+  box-shadow:
+    0 0 0 calc(2 * var(--spacing--single)) var(--color--white),
+    0 calc(2 * var(--spacing--single)) 0 calc(2 * var(--spacing--single)) var(--color--white),
+    calc(2 * var(--spacing--single)) calc(6 * var(--spacing--single)) calc(2 * var(--spacing--single)) 0 rgba(0,0,0,.5)
+  ;
+}
+.figure--image--polaroid > figcaption {
+  background-color: var(--color--white);
+  color: var(--color--grey-dark);
+}
+.figure--image--polaroid:nth-of-type(3n + 1) {
+  transform: rotate(-3deg);
+}
+.figure--image--polaroid:nth-of-type(3n + 1) > figcaption {
+  color: var(--color--main-dark);
+}
+.figure--image--polaroid:nth-of-type(3n + 2) {
+  transform: rotate(3deg);
+}
+.figure--image--polaroid:nth-of-type(3n + 2) > figcaption {
+  color: var(--color--accent);
+}
+
+/**
  * Trigger animated visibility.
  */
 .js .animateOnScroll {}
@@ -139,6 +166,38 @@
   -moz-animation-duration: 2s;
   -o-animation-duration: 2s;
   animation-duration: 2s;
+}
+
+/**
+ * Rudimentary lightbox.
+ */
+.js--figure--lightbox {
+  cursor: pointer;
+  transition: all .3s ease-in;
+}
+.js--figure--lightbox--open {
+  bottom: calc(2 * var(--spacing--single));
+  display: block;
+  left: calc(2 * var(--spacing--single));
+  max-width: none !important;
+  position: fixed;
+  right: calc(2 * var(--spacing--single));
+  top: calc(2 * var(--spacing--single));
+  z-index: 9999;
+}
+.js--figure--lightbox--open::after {
+  background-color: rgba(0,0,0,.9);
+  bottom: 0;
+  content: '';
+  display: block;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -2;
+}
+.js--figure--lightbox--open:not(.figure--image--polaroid) > figcaption {
+  color: var(--color--white);
 }
 
 /**

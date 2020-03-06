@@ -1,45 +1,34 @@
 ---
-description: "Brad and Shelby are getting married in October in Michigan."
+description: "Brad Czerniak and Shelby Hassell (nee Sleete) are getting married in October in Michigan."
 front: true
 #hero_classes: "background-color--main-dark color--white"
+image:
+  file: FB_IMG_1567973636993.jpg
+  alt: "Shelby and Brad embracing while watching F1"
 menus:
-  main: 1
+#  copyright: 1
   footer: 1
+  main: 1
+#  utility: 1
+#permalink: /index.html
+#published: true
 #schema: Website
 sections:
-  - aservice
+  - cta
+#sitemap: true
 title: "Home"
 ---
-
-<section class="layout--strip layout--hide--animations background-color--third-light">
-  <div class="layout--stripe--inner">
-    {% include atoms/heading.html
-      children="Shelby and Brad are animated"
-      classes="a11y--visually-hidden"
-      level="1"
-    %}
-    <div class="animation--container position--relative">
-      {% include atoms/image.html
-        src="brad_head_100x100.png"
-        alt="Bizarro Brad"
-        classes="animation-name--slide-spin animation-iteration-count--infinite animation-direction--alernate animation-duration--3s"
-      %}
-      {% include atoms/image.html
-        src="shelby_head_100x100.png"
-        alt="Bizarro Shelby"
-        classes="animation-name--slide-spin animation-iteration-count--infinite animation-direction--alternate-reverse animation-duration--3s"
-      %}
-    </div>
-  </div>
-</section>
 
 <section class="layout--stripe background-color--main background-image--stars color--white text-align--center background-image-display-mobile--hide" id="home">
   <div class="layout--stripe--inner">
     {% include atoms/heading.html
-      children="Two lovebirds enjoying Triple-D"
-      classes="a11y--visually-hidden"
-      level="2"
+      children="Brad and Shelby are getting married!"
+      classes="text-shadow--second-light--solid"
+      level="1"
     %}
+
+    {% include atoms/spacer.html size="4" %}
+
     <div class="display--flex layout--row justify-content--center">
       <aside class="display--flex flex-direction--column justify-content--center">
         {% include atoms/image.html
@@ -47,7 +36,9 @@ title: "Home"
           alt="Shelby and Brad embracing while watching F1"
           caption="We enjoyed the F1 race."
         %}
+
         {% include atoms/spacer.html size="4" %}
+
         <p class="font-size--2em">
           Hey, <em>we're Brad and Shelby</em>, and <strong class="text-shadow--second-light--solid">we're rolling out</strong>,
           looking for America's greatest having, holding, and loving.
@@ -56,3 +47,8 @@ title: "Home"
     </div>
   </div>
 </section>
+
+{% include organisms/section.html
+  mode="ref"
+  slug="animation"
+%}

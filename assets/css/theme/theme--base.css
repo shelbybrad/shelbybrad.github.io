@@ -230,8 +230,8 @@ samp {
   font-size: 1em;
 }
 pre {
+  padding: calc(2 * var(--spacing--single));
   white-space: pre-wrap;
-  white-space: pre;
   word-wrap: break-word;
 }
 
@@ -328,7 +328,6 @@ figure {
   max-width: 100%;
 }
 figcaption {
-  color: var(--color--grey-dark);
   font-size: .75em;
 }
 

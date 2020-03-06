@@ -139,6 +139,7 @@ all and (max-width: 767px) and (-ms-high-contrast: none) {
   flex-direction: column;
 }
 .layout--multiple--horizontal > * ,
+.layout--multiple--horizontal > .flex--1 ,
 .layout--multiple--carousel:not(.slick-initialized) > * {
   margin: 0 0 calc(4 * var(--spacing--single));
 }
@@ -146,10 +147,12 @@ all and (max-width: 767px) and (-ms-high-contrast: none) {
 @media all and (min-width: 768px) {
   .layout--multiple--horizontal {
     flex-direction: row;
+    flex-wrap: wrap;
   }
   .layout--multiple--horizontal > *,
+  .layout--multiple--horizontal > .flex--1,
   .layout--multiple--carousel:not(.slick-initialized) > * {
-    flex-basis: calc(33% - (2 * var(--spacing--single)));
+    flex-basis: calc(33% - (4 * var(--spacing--single)));
     margin: 0 calc(2 * var(--spacing--single)) calc(4 * var(--spacing--single));
     max-width: 347px;
     min-width: 205px;

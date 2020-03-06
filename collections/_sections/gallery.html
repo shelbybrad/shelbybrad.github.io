@@ -1,0 +1,18 @@
+---
+classes: "background-color--second-dark background-image--dirt color--white text-align--center"
+title: Photographs and memories
+title_classes: "text-shadow--second-light--solid heading--h1"
+---
+
+{% include atoms/spacer.html size="4" %}
+
+<div class="layout--multiple--horizontal">
+  {% for image in site.data.gallery %}
+    {% include atoms/image.html
+      alt=image.alt
+      caption=image.caption
+      classes=image.classes
+      src=image.src
+    %}
+  {% endfor %}
+</div>
