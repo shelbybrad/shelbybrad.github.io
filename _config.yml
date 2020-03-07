@@ -1,3 +1,147 @@
+####
+## @file
+## Jekyll configuration
+##
+## We try to push as much sitewide config as possible into this file, so a new deployment can be going through this one
+## place and changing values here and there.
+##
+## When adding new sections, be sure to name them so they make sense to others, and to document with good comments
+## wherever possible/practical.
+####
+
+## Basic site info
+title: "Shelby and Brad"
+primary_author: "Brad Czerniak"
+shortname: brelby
+tagline: "Serving ours customers' needs"
+offering: "Business and corporate services"
+offer_description: "We do a lot of stuff. This is a lengthy paragraph of text."
+
+## Site and contact bits
+source_repo: https://www.github.com/shelbybrad/shelbybrad.github.io
+email: ao5357@gmail.com
+phone: (248) 721-0350
+phonedigits: "2487210350"
+# gaid: UA-697953-3
+
+## schema.org type (default for site, often "Website")
+schema: Website
+
+## Open Graph (appears in footer for schema.org too)
+open_graph:
+  og_street_address: 1428 Mark Ave
+  og_locality: Lincoln Park
+  og_region: MI
+  og_postal_code: "48146"
+  og_country: USA
+
+## PWA and other SEO
+manifest_webmanifest:
+  background_color: "#fff"
+  theme_color: "#003f80"
+
+## Social links
+social:
+  - title: Facebook
+    url: https://www.facebook.com/bradczerniak
+  - title: Twitter
+    url: https://twitter.com/ao5357
+
+## The 'THANKS' and 'SITE' sections of humans.txt
+## (Note: the 'TEAM' section is built from the content in the _people collection
+humans_txt:
+  site:
+    - key: "Components"
+      value: "property--value"
+    - key: "Language"
+      value: "English"
+    - key: "Doctype"
+      value: "HTML5"
+    - key: "IDE"
+      value: "PhpStorm, Sublime Text"
+    - key: "Software"
+      value: "Jekyll"
+    - key: "Standards"
+      value: "CSS3, ES6, HTML5, WCAG 2.1"
+  thanks:
+    - name: "Brad Czerniak"
+      job_title: "finished-starter"
+      contact: "ao5357 [at] gmail.com"
+      twitter: "@ao5357"
+      from: "Lincoln Park, Michigan, USA"
+
+## CSS Custom Properties at the :root
+css:
+  root:
+    - key: "--color--black" # Monochrome colors
+      value: "#222"
+    - key: "--color--grey-dark"
+      value: "#555"
+    - key: "--color--grey"
+      value: "#999"
+    - key: "--color--grey-light"
+      value: "#eee"
+    - key: "--color--white"
+      value: "#fff"
+    - key: "--color--main" # Theme colors
+      value: "#4074a0"
+    - key: "--color--main-dark"
+      value: "#1d3141"
+    - key: "--color--main-light"
+      value: "#74c2ff"
+    - key: "--color--second"
+      value: "#a0781f"
+    - key: "--color--second-dark"
+      value: "#41201c"
+    - key: "--color--second-light"
+      value: "#ffc227"
+    - key: "--color--third"
+      value: "#73a040"
+    - key: "--color--third-dark"
+      value: "#204120"
+    - key: "--color--third-light"
+      value: "#b7ff61"
+    - key: "--color--accent" # UI colors
+      value: "#6d40a0"
+    - key: "--color--status"
+      value: "#004085"
+    - key: "--color--status-background"
+      value: "#cce5ff"
+    - key: "--color--warning"
+      value: "#856404"
+    - key: "--color--warning-background"
+      value: "#fff3cd"
+    - key: "--color--error"
+      value: "#721c24"
+    - key: "--color--error-background"
+      value: "#f8d7da"
+    - key: "--color--street-sign--glow" # Additional colors
+      value: "#b062ff"
+    - key: "--color--street-sign--peach"
+      value: "#fad295"
+    - key: "--color--street-sign--red"
+      value: "#a01022"
+    - key: "--color--street-sign--red-dark"
+      value: "#410e18"
+    - key: "--color--street-sign--red-light"
+      value: "#ff808a"
+    - key: "--font-family--input" # Fonts
+      value: "'Lato'"
+    - key: "--font-family--monospace"
+      value: "'courier new'"
+    - key: "--font-family--primary"
+      value: "'Lato'"
+    - key: "--font-family--secondary"
+      value: "'Engagement'"
+    - key: "--line-height--default" # Typography, spacing, and layout
+      value: "1.425"
+    - key: "--line-height--heading"
+      value: "1"
+    - key: "--layout--content-area"
+      value: "1080px"
+    - key: "--spacing--single"
+      value: "0.625rem"
+
 ## Jekyll configs
 markdown: GFM
 theme: jekyll-theme-primer
@@ -18,76 +162,41 @@ collections:
   events:
     output: true
     permalink: /events/:path/
+  people:
+    output: true
+    permalink: /people/:path/
   sections:
     output: false
     permalink: /:title/
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: "docs"
     values:
       layout: "doc"
-  -
-    scope:
+  - scope:
       path: ""
       type: "events"
     values:
       layout: "event"
-  -
-    scope:
+  - scope:
       path: ""
       type: "pages"
     values:
       layout: "page"
-  -
-    scope:
+  - scope:
+      path: ""
+      type: "people"
+    values:
+      layout: "person"
+  - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
-  -
-    scope:
+  - scope:
       path: ""
       type: "sections"
     values:
       layout: "section"
-
-## Basic company info
-title: "Shelby and Brad"
-primary_author: "Brad Czerniak"
-shortname: brelby
-tagline: "Serving ours customers' needs"
-offering: "Business and corporate services"
-offer_description: "We do a lot of stuff. This is a lengthy paragraph of text."
-
-## Site and contact bits
-source_repo: https://www.github.com/shelbybrad/shelbybrad.github.io
-email: ao5357@gmail.com
-phone: (248) 721-0350
-phonedigits: "2487210350"
-# gaid: UA-697953-3
-
-## schema.org type (default for site, often "Website")
-schema: Website
-
-## Open Graph
-og_street_address: 1428 Mark Ave
-og_locality: Lincoln Park
-og_region: MI
-og_postal_code: "48146"
-og_country: USA
-
-## PWA and other SEO
-background_color: "#fff"
-theme_color: "#003f80"
-
-## Social links
-social:
-  -
-    title: Facebook
-    url: https://www.facebook.com/bradczerniak
-  -
-    title: Twitter
-    url: https://twitter.com/ao5357

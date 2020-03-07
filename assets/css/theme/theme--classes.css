@@ -171,11 +171,11 @@
 /**
  * Rudimentary lightbox.
  */
-.js--figure--lightbox {
+.js--event--click {
   cursor: pointer;
   transition: all .3s ease-in;
 }
-.js--figure--lightbox--open {
+.js--event--click--toggle.click--lightbox {
   bottom: calc(2 * var(--spacing--single));
   display: block;
   left: calc(2 * var(--spacing--single));
@@ -185,7 +185,7 @@
   top: calc(2 * var(--spacing--single));
   z-index: 9999;
 }
-.js--figure--lightbox--open::after {
+.js--event--click--toggle.click--lightbox::after {
   background-color: rgba(0,0,0,.9);
   bottom: 0;
   content: '';
@@ -196,7 +196,7 @@
   top: 0;
   z-index: -2;
 }
-.js--figure--lightbox--open:not(.figure--image--polaroid) > figcaption {
+.js--event--click--toggle.click--lightbox:not(.figure--image--polaroid) > figcaption {
   color: var(--color--white);
 }
 

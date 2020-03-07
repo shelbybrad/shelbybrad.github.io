@@ -2,5 +2,7 @@
 layout: compress
 ---
 
+'use strict';
+
 {% include_relative partials/service-worker.js %}
-{% include_relative partials/js--figure--lightbox.js %}
+{% include_relative partials/js--event.js %}

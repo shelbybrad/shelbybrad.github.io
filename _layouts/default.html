@@ -31,6 +31,7 @@ layout: compress
     <meta name="description" content="{{ content | strip_html | strip_newlines | replace: '  ', ' ' | truncate: 155, '' }}" />
     <meta property="og:description" content="{{ content | strip_html | strip_newlines | replace: '  ', ' ' | truncate: 155, '' }}" />
   {% endif %}
+  <link rel="author" href="{{ site.baseurl }}{{ site.subpath }}/humans.txt" />
   <link rel="canonical" href="{{ site.baseurl }}{{ site.subpath }}{{ page.url }}" />
 </head><body class="page-{{ page.url | slugify }}">
   <main class="page" itemscope itemtype="http://schema.org/{% if page.schema %}{{ page.schema }}{% else %}{{ site.schema }}{% endif %}">
