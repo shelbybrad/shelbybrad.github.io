@@ -27,10 +27,12 @@ sections:
 title: "Events"
 ---
 
-<h2>This is a section on the events page.</h2>
-
-<ul>
-  {% for event in site.events %}
-    <li><a href="{{ event.url }}">{{ event.title }}</a></li>
-  {% endfor %}
-</ul>
+<section class="layout--stripe "><div class="layout--stripe--inner">
+  <ul class="list-style--none layout--multiple--horizontal">
+    {% for event in site.events %}
+      {% include molecules/card.html
+        entity=event
+      %}
+    {% endfor %}
+  </ul>
+</div></section>

@@ -1,12 +1,12 @@
 {% comment %}
-  Components/includes use captures for content and documentation. The 'content' area is the component proper.
+  Components/includes use captures for content and documentation. The 'component' area is the component proper.
 
   The component is rendered at the end via the 'mode' conditional.
 
   Please thoroughly document all components.
 {% endcomment %}
 
-{% capture content %}
+{% capture component %}
   <figure class="figure figure--image figure--image--{{ include.src | slugify }} {% if include.classes %}{{ include.classes }}{% endif %}">
     {% if include.link_url %}<a href="{{ include.link_url }}">{% endif %}
       <img src="{{ site.baseurl }}{{ site.subpath }}/assets/images/{{ include.src | default "IMG_20190810_135403.jpg" }}" alt="{{ include.alt }}" loading="lazy" />
@@ -41,11 +41,11 @@
   {% include molecules/docblock.html
     accessibility=accessibility
     classes=classes
-    html=content
+    html=component
     props=props
     source=include
     usage=usage
   %}
 {% else %}
-  {{ content }}
+  {{ component }}
 {% endif %}

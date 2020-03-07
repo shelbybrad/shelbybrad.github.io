@@ -92,6 +92,19 @@
 }
 
 /**
+ * Order in flexbox. Numeric properties.
+ */
+.order--neg1 {
+  order: -1;
+}
+.order--0 {
+  order: 0;
+}
+.order--1 {
+  order: 1;
+}
+
+/**
  * Printer page breaks.
  */
 @media print {

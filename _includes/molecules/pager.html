@@ -1,0 +1,68 @@
+{% comment %}
+  Components/includes use captures for content and documentation. The 'component' area is the component proper.
+
+  The component is rendered at the end via the 'mode' conditional.
+
+  Please thoroughly document all components.
+{% endcomment %}
+
+{% capture component %}
+  <div class="pager {% if include.classes %}{{ include.classes }}{% endif %}">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}" class="previous">
+        Previous
+      </a>
+    {% else %}
+      <span class="previous">Previous</span>
+    {% endif %}
+
+    <span class="page_number">
+      Page: {{ paginator.page }} of {{ paginator.total_pages }}
+    </span>
+
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+    {% else %}
+      <span class="next ">Next</span>
+    {% endif %}
+  </div>
+{% endcapture %}
+
+{% capture usage %}
+  ## General guidance
+
+  Cards are represent content that has its own page.
+
+  @see https://inclusive-components.design/cards/
+{% endcapture %}
+
+{% capture accessibility %}
+  Just some sample text in the accessibility section for now.
+
+  @see https://inclusive-components.design/cards/
+{% endcapture %}
+
+{% capture props %}
+  classes| css classes applied to parent| color--main-dark,
+  page| The current page number| 1,
+  next_page| Bool whether there is a next page| false,
+  next_page_path| The next page path given to the paginator object| page-4,
+  previous_page| Bool whether there is a previous page| false,
+  previous_page_path| The previous page path given to the paginator object| page-2,
+  total_pages| Total number of paginated pages| 4
+{% endcapture %}
+{% assign classes = "image--polaroid, font-family--secondary" | split: ", " %}
+
+{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% if include.mode == "docblock" %}
+  {% include molecules/docblock.html
+    accessibility=accessibility
+    classes=classes
+    html=component
+    props=props
+    source=include
+    usage=usage
+  %}
+{% else %}
+  {{ component }}
+{% endif %}
