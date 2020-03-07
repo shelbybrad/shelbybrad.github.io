@@ -136,6 +136,16 @@ body {
 }
 
 /**
+ * The main element can take a bigger font-size, since body copy should be legible.
+ *
+ * We set the rem size to 16px in the html/body, but want body copy to be between 18px and 22px (or more),
+ * depending on the font.
+ */
+main {
+  font-size: 1.25em; /* 16 * 1.25 = 20px */
+}
+
+/**
  * Links.
  *
  * Links should have set, at a minimum, :link, :visited, :hover, :active, :focus
@@ -149,10 +159,10 @@ a {
   -moz-transition: all .3s ease-in;
   -o-transition: all .3s ease-in;
   transition: all .3s ease-in;
+  text-decoration: underline;
 }
 a:link {
   color: var(--color--main);
-  text-decoration: none;
 }
 a:visited {
   color:var(--color--accent);
@@ -301,7 +311,7 @@ details[open] {
   padding-bottom: 20px;
 }
 details[open] > summary {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 details[open] > summary:after {
   content: '-';

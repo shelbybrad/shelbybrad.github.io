@@ -1,10 +1,10 @@
 <footer class="footer layout--strip background-color--main color--white"><div class="layout--stripe--inner">
   <address class="inline-block" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
     <span>{{ site.primary_author }}</span><br>
-    <span itemprop="streetAddress">{{ site.og_street_address }}</span><br>
-    <span itemprop="addressLocality">{{ site.og_locality }}</span>, 
-    <span itemprop="addressRegion">{{ site.og_region }}</span> 
-    <span itemprop="postalCode">{{ site.og_postal_code }}</span>
+    <span itemprop="streetAddress">{{ site.open_graph.og_street_address }}</span><br>
+    <span itemprop="addressLocality">{{ site.open_graph.og_locality }}</span>,
+    <span itemprop="addressRegion">{{ site.open_graph.og_region }}</span>
+    <span itemprop="postalCode">{{ site.open_graph.og_postal_code }}</span>
   </address>
   {% if site.social %}
     <div class="social">

@@ -7,12 +7,12 @@
  * Skip-to-main-content links for accessibility.
  */
 .a11y--skip-hide {
-  background: var(--color--grey);
+  background: var(--color--main-dark);
   position: relative;
   text-align: center;
 }
 .a11y--skip-hide a {
-  color: var(--color--grey);
+  color: var(--color--white);
   display: block;
   height: 1px;
   left: -10000px;
@@ -74,6 +74,34 @@
   .border-spaced li:last-child {
     border-right: 0 none;
   }
+}
+
+/**
+ * Browser upgrade prompt for any version of IE.
+ *
+ * Omitting Custom Props here since IE does not support them.
+ */
+.browserupgrade {
+  background-color: #1d3141;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  padding: 20px;
+  text-align: left;
+}
+.browserupgrade a:link,
+.browserupgrade a:visited {
+  color: #fafafa;
+  text-decoration: underline;
+}
+.browserupgrade a:hover,
+.browserupgrade a:hover,
+.browserupgrade a:hover {
+  color: #ffc227;
+}
+.browserupgrade > p {
+  margin: 0 auto;
+  max-width: 960px;
 }
 
 /**
@@ -198,6 +226,29 @@
 }
 .js--event--click--toggle.click--lightbox:not(.figure--image--polaroid) > figcaption {
   color: var(--color--white);
+}
+
+/**
+ * Markdown-processed text.
+ *
+ * For HTML pages we can leverage spacer atoms to provide vertical spacing. When we use plain markdown we need to
+ * introduce automatic vertical rhythm; specifically some margins around headers.
+ */
+.markdownified {}
+.markdownified h2,
+.markdownified h3,
+.markdownified h4,
+.markdownified h5,
+.markdownified h6 {
+  margin-bottom: .25em;
+  margin-top: 1.5em;
+}
+.markdownified h2:first-child,
+.markdownified h3:first-child,
+.markdownified h4:first-child,
+.markdownified h5:first-child,
+.markdownified h6:first-child {
+  margin-top: 0;
 }
 
 /**
@@ -355,6 +406,7 @@
   padding: 0 calc(2 * var(--spacing--single)) calc(10 * var(--spacing--single));
   position: relative;
   text-align: center;
+  text-decoration: none;
   transform: rotate(5deg);
 }
 @media all and (min-width: 480px) {

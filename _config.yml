@@ -143,16 +143,51 @@ css:
       value: "0.625rem"
 
 ## Jekyll configs
-markdown: GFM
-theme: jekyll-theme-primer
-permalink: /blog/:title/
-highlighter: rouge
 collections_dir: collections
+encoding: utf-8
+exclude:
+  - CNAME
+  - CODE_OF_CONDUCT.md
+  - CONTRIBUTING.md
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - node_modules
+  - readme.md
+  - "vendor/bundle/"
+  - "vendor/cache/"
+  - "vendor/gems/"
+  - "vendor/ruby/"
+future: true
+highlighter: rouge
+include:
+  - ".htaccess"
+keep_files:
+  - ".git"
+  - ".svn"
+kramdown:
+  auto_ids: true
+  entity_output: as_char
+  footnote_nr: 1
+  hard_wrap: false
+  input: GFM
+  show_warnings: false
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  toc_levels: [1, 2, 3, 4, 5, 6]
+markdown: kramdown
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+paginate_path: /page-:num
+permalink: /blog/:title/
+plugins:
+  - jekyll-sitemap
+safe: false
 sass:
   sass_dir: assets/css
   style: :compressed
-plugins:
-  - jekyll-sitemap
+strict_front_matter: false
+theme: jekyll-theme-primer
+timezone: Etc/UTC # Allows use to set dates/times without a GMT offset.
+unpublished: false
 
 ## Site structure
 collections:

@@ -13,7 +13,7 @@ permalink: /manifest.webmanifest
       "sizes": "192x192"
     },
     {
-      "src": "/assets/images/logo-mark_512.png",
+      "src": "/assets/images/required/logo-mark_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
