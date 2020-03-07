@@ -4,7 +4,7 @@ permalink: /service-worker.js
 ---
 
 const OFFLINE = 'runtime';
-const PRECACHE = 'precache-v1';
+const PRECACHE = 'precache-v{{ site.cache_bust }}';
 const RUNTIME = 'runtime';
 
 const OFFLINE_URL = 'offline.html';

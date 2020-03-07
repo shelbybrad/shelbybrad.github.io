@@ -1,5 +1,11 @@
 ---
+authors:
+  - brad-czerniak
+#categories: ["one", "two"]
 classes: "background-color--grey-light"
+#date: 2020-03-03 02:02:02
+#published: true
+#tags: ["three", "four"]
 title: "We're different"
 title_classes: "heading--h1"
 ---

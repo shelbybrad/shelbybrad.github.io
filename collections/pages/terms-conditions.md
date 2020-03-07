@@ -1,8 +1,30 @@
 ---
-title: "Terms and conditions"
-permalink: /terms-conditions/
+authors:
+  - brad-czerniak
+#categories: ["one", "two"]
+#date: 2020-03-03 02:02:02
+#hero_classes: "background-color--main-dark color--white"
 menus:
   copyright: 1
+#  footer: 2
+#  main: 2
+#  utility: 1
+meta:
+  description: "Rules and regulations for the use of this website."
+#  image:
+#    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
+#    src: required/meta-image--default.jpg
+#  robots: "index,follow"
+#  title: "Overrides the tab title and social titles"
+permalink: /terms-conditions/
+#published: true
+#schema:
+#  type: "Thing"
+#sections:
+#  - cta
+#sitemap: true
+#tags: ["three", "four"]
+title: "Terms and conditions"
 ---
 
 ## Table of contents

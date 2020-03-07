@@ -5,7 +5,7 @@ layout: none
   {% for person in site.people %}
     {{ person.job_title }}: {{ person.title }}
     {% if person.contact %}Contact: {{ person.contact }}{% endif %}
-    {% if person.twitter %}Twitter: {{ person.twitter }}{% endif %}
+    {% if person.twitter.creator %}Twitter: {{ person.twitter.creator }}{% endif %}
     {% if person.from %}From: {{ person.from }}{% endif %}
   {% endfor %}
 

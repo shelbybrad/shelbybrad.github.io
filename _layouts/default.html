@@ -53,24 +53,25 @@ layout: compress
     <meta property="og:url" content="{{ site.url }}{{ site.subpath }}{{ page.url }}" />
 
     {% comment %}<!-- Identification/Specification tags --> {% endcomment %}
+    <meta name="author" content="{% if page.authors[0] %}{% for author in page.authors %}{% assign person = site.people | where: 'slug', author | first %}{{ person.title }}, {% endfor %}{% else %}{{ site.primary_author }}{% endif %}" />
     <meta property="og:site_name" content="{{ site.title }}" />
-    <meta name="twitter:creator" content="{% if page.twitter.creator %}{{ page.twitter.creator }}{% else %}{{ site.twitter.creator }}{% endif %}">
-    <meta name="twitter:site" content="{{ site.twitter.site }}">
+    <meta name="twitter:creator" content="{% if page.authors[0] %}{% assign person = site.people | where: 'slug', page.authors[0] | first %}{{ person.twitter.creator }}{% elsif page.twitter.creator %}{{ page.twitter.creator }}{% else %}{{ site.twitter.creator }}{% endif %}" />
+    <meta name="twitter:site" content="{{ site.twitter.site }}" />
     {% if site.open_graph.fb_app_id %}
       <meta property="fb:app_id" content="{{ site.open_graph.fb_app_id }}" />
     {% endif %}
-    <meta name="twitter:card" content="{% if page.twitter.card %}{{ page.twitter.card }}{% else %}{{ site.twitter.card }}{% endif %}">
+    <meta name="twitter:card" content="{% if page.twitter.card %}{{ page.twitter.card }}{% else %}{{ site.twitter.card }}{% endif %}" />
     <meta property="og:type" content="{% if page.open_graph.og_type %}{{ page.open_graph.og_type }}{% else %}{{ site.open_graph.og_type }}{% endif %}" />
 
     {% comment %}<!-- Geo/contact tags --> {% endcomment %}
     <meta property="og:locale" content="{% if page.html.locale %}{{ page.html.locale }}{% else %}{{ site.html.locale }}{% endif %}" />
-    <meta property="og:street_address" content="{% if page.locations[0].street_address %}{{ page.locations[0].street_address }}{% else %}{{ site.locations[0].street_address }}{% endif %}">
-    <meta property="og:locality" content="{% if page.locations[0].locality %}{{ page.locations[0].locality }}{% else %}{{ site.locations[0].locality }}{% endif %}">
-    <meta property="og:region" content="{% if page.locations[0].region %}{{ page.locations[0].region }}{% else %}{{ site.locations[0].region }}{% endif %}">
-    <meta property="og:postal_code" content="{% if page.locations[0].postal_code %}{{ page.locations[0].postal_code }}{% else %}{{ site.locations[0].postal_code }}{% endif %}">
-    <meta property="og:country_name" content="{% if page.locations[0].country_name %}{{ page.locations[0].country_name }}{% else %}{{ site.locations[0].country_name }}{% endif %}">
-    <meta property="og:email" content="{% if page.email %}{{ page.email }}{% else %}{{ site.email }}{% endif %}">
-    <meta property="og:phone_number" content="{% if page.phone.mailto %}{{ page.phone.mailto }}{% else %}{{ site.phone.mailto }}{% endif %}">
+    <meta property="og:street_address" content="{% if page.locations[0].street_address %}{{ page.locations[0].street_address }}{% else %}{{ site.locations[0].street_address }}{% endif %}" />
+    <meta property="og:locality" content="{% if page.locations[0].locality %}{{ page.locations[0].locality }}{% else %}{{ site.locations[0].locality }}{% endif %}" />
+    <meta property="og:region" content="{% if page.locations[0].region %}{{ page.locations[0].region }}{% else %}{{ site.locations[0].region }}{% endif %}" />
+    <meta property="og:postal_code" content="{% if page.locations[0].postal_code %}{{ page.locations[0].postal_code }}{% else %}{{ site.locations[0].postal_code }}{% endif %}" />
+    <meta property="og:country_name" content="{% if page.locations[0].country_name %}{{ page.locations[0].country_name }}{% else %}{{ site.locations[0].country_name }}{% endif %}" />
+    <meta property="og:email" content="{% if page.email %}{{ page.email }}{% else %}{{ site.email }}{% endif %}" />
+    <meta property="og:phone_number" content="{% if page.phone.mailto %}{{ page.phone.mailto }}{% else %}{{ site.phone.mailto }}{% endif %}" />
     {% if page.fax.mailto %}
       <meta property="og:fax_number" content="{{ page.fax.mailto }}" />
     {% elsif site.fax.mailto %}
@@ -81,18 +82,18 @@ layout: compress
     {% if page.meta.image.src %}
       <meta property="og:image" content="{{ site.url }}{{ site.subpath }}/assets/images/{{ page.meta.image.src }}" />
       <link rel="image_src" href="{{ site.url }}{{ site.subpath }}/assets/images/{{ page.meta.image.src }}" />
-      <meta name="og:image:alt" content="{{ page.meta.image.alt }}">
-      <meta name="twitter:image:alt" content="{{ page.meta.image.alt }}">
+      <meta name="og:image:alt" content="{{ page.meta.image.alt }}" />
+      <meta name="twitter:image:alt" content="{{ page.meta.image.alt }}" />
     {% else %}
       <meta property="og:image" content="{{ site.url }}{{ site.subpath }}/assets/images/{{ site.meta.image.src }}" />
       <link rel="image_src" href="{{ site.url }}{{ site.subpath }}/assets/images/{{ site.meta.image.src }}" />
-      <meta name="og:image:alt" content="{{ site.meta.image.alt }}">
-      <meta name="twitter:image:alt" content="{{ site.meta.image.alt }}">
+      <meta name="og:image:alt" content="{{ site.meta.image.alt }}" />
+      <meta name="twitter:image:alt" content="{{ site.meta.image.alt }}" />
     {% endif %}
 
     {% comment %}<!-- Description/brief/abstract tags --> {% endcomment %}
-    {% if page.description %}
-      {% assign content_description=page.description %}
+    {% if page.meta.description %}
+      {% assign content_description=page.meta.description %}
     {% else %}
       {% capture content_description %}{{ content | strip_html | strip_newlines | replace: '  ', ' ' | truncate: 155, '' }}}{% endcapture %}
     {% endif %}
@@ -106,11 +107,13 @@ layout: compress
         -->
     {% endcomment %}
     <meta name="apple-mobile-web-app-title" content="{{ site.shortname }}" />
-    <meta name="theme-color" content="{{ site.manifest_webmanifest.theme_color }}">
-    <meta name="Generator" content="{{ site.meta.generator }}">
+    <meta name="theme-color" content="{{ site.manifest_webmanifest.theme_color }}" />
+    <meta name="Generator" content="{{ site.meta.generator }}" />
     <link rel="apple-touch-icon" href="{{ site.url }}{{ site.subpath }}/apple-touch-icon.png" />
     <link rel="manifest" href="{{ site.subpath }}/manifest.webmanifest" />
     <link rel="author" href="{{ site.url }}{{ site.subpath }}/humans.txt" />
+    <link rel="alternate" type="application/rss+xml" href="/rss/blog/" title="Blog feed" />
+    <link rel="alternate" type="application/rss+xml" href="/rss/events/" title="Events feed" />
   </head>
   <body class="page-{{ page.url | slugify }}" itemscope itemtype="http://schema.org/{% if page.schema.type %}{{ page.schema.type }}{% else %}{{ site.schema.type }}{% endif %}">
     {% include head/ie-upgrade-warning.html %}

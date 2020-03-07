@@ -11,6 +11,7 @@
 
 ## Technical site info
 baseurl: "" # This is better empty
+cache_bust: 2 # Increment to clear the service-worker cache
 subpath: "" # Could be a subsite of a domain at a path, ex. "/sub-site"
 
 ## Basic site info
@@ -203,6 +204,7 @@ exclude:
   - LICENSE
   - node_modules
   - readme.md
+  - SECURITY.md
   - "vendor/bundle/"
   - "vendor/cache/"
   - "vendor/gems/"
@@ -245,7 +247,7 @@ collections:
     permalink: /docs/:path/
   events:
     output: true
-    permalink: /events/:path/
+    permalink: /events//:year/:month/:title/
   people:
     output: true
     permalink: /people/:path/
@@ -265,6 +267,8 @@ defaults:
       type: "events"
     values:
       layout: "event"
+      schema:
+        type: "Event"
   - scope:
       path: ""
       type: "pages"
@@ -275,11 +279,15 @@ defaults:
       type: "people"
     values:
       layout: "person"
+      schema:
+        type: "Person"
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
+      schema:
+        type: "Article"
   - scope:
       path: ""
       type: "sections"
