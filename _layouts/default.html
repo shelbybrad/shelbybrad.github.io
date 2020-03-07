@@ -2,22 +2,21 @@
 layout: compress
 ---
 <!doctype html>
-<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<html dir="{% if page.html.dir %}{{ page.html.dir }}{%else %}{{ site.html.dir }}{% endif %}"
+  lang="{% if page.html.lang %}{{ page.html.lang }}{%else %}{{ site.html.lang }}{% endif %}"
+  prefix="og: http://ogp.me/ns#"
+>
   <head>
-    <meta charset="utf-8" />
+    <meta charset="{{ site.encoding }}" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0" />
-
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
     {% comment %}
-      <!-- The above meta tags are blocking, so don't move them. Title is a good next step.
+      <!-- The above meta tags are blocking, so don't move them.
         -- Note that Lighthouse has a test to ensure maximum-scale is at least 5 above.
         -->
     {% endcomment %}
-    {% if page.front %}
-      <title>{{ site.title }} | {{ page.title }}</title>
-    {% else %}
-      <title>{{ page.title }} | {{ site.title }}</title>
-    {% endif %}
 
     {% comment %}
       <!-- Main CSS and Loading interstitial. Grabbing main CSS first since it's an HTTP round-trip to prioritize.
@@ -28,24 +27,77 @@ layout: compress
     {% include head/loading.html %}
 
     {% comment %}
+      <!-- Page title (auto-appended with site title). Allow a different title tag string than the title that appears
+        -- on the page, in case there's an SEO or tab-brevity advantage. May also be useful for social.
+        --
+        -- See in the SEO/social meta sections for how these titles are handled, too.
+        -->
+    {% endcomment %}
+    {% if page.front %}
+      <title>{{ site.title }} | {{ page.title }}</title>
+    {% elsif page.meta.title %}
+      <title>{{ page.meta.title }} | {{ site.title }}</title>
+    {% else %}
+      <title>{{ page.title }} | {{ site.title }}</title>
+    {% endif %}
+
+    {% comment %}
       <!-- Link/meta tags primarily for semantics/SEO/social.
         -- Where possible setting a site-wide value from _config.yml that can be overridden on a page-by-page basis using
         -- the same value in the YAML front-matter (page. instead of site.)
         -->
     {% endcomment %}
-    <link rel="canonical" href="{{ site.baseurl }}{{ site.subpath }}{{ page.url }}" />
-    <meta property="og:image" content="{{ site.baseurl }}{{ site.subpath }}/apple-touch-icon.png" />
+    <meta property="og:title" content="{% if page.meta.title %}{{ page.meta.title }}{% else %}{{ page.title }}{% endif %}" />
+    <meta name="robots" content="{% if page.meta.robots %}{{ page.meta.robots }}{% else %}{{ site.meta.robots }}{% endif %}" />
+    <link rel="canonical" href="{{ site.url }}{{ site.subpath }}{{ page.url }}" />
+    <meta property="og:url" content="{{ site.url }}{{ site.subpath }}{{ page.url }}" />
+
+    {% comment %}<!-- Identification/Specification tags --> {% endcomment %}
     <meta property="og:site_name" content="{{ site.title }}" />
-    <meta property="og:title" content="{{ page.title }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ site.baseurl }}{{ site.subpath }}/{{ page.url }}" />
-    {% if page.description %}
-      <meta name="description" content="{{ page.description }}" />
-      <meta property="og:description" content="{{ page.description }}" />
-    {% else %}
-      <meta name="description" content="{{ content | strip_html | strip_newlines | replace: '  ', ' ' | truncate: 155, '' }}" />
-      <meta property="og:description" content="{{ content | strip_html | strip_newlines | replace: '  ', ' ' | truncate: 155, '' }}" />
+    <meta name="twitter:creator" content="{% if page.twitter.creator %}{{ page.twitter.creator }}{% else %}{{ site.twitter.creator }}{% endif %}">
+    <meta name="twitter:site" content="{{ site.twitter.site }}">
+    {% if site.open_graph.fb_app_id %}
+      <meta property="fb:app_id" content="{{ site.open_graph.fb_app_id }}" />
     {% endif %}
+    <meta name="twitter:card" content="{% if page.twitter.card %}{{ page.twitter.card }}{% else %}{{ site.twitter.card }}{% endif %}">
+    <meta property="og:type" content="{% if page.open_graph.og_type %}{{ page.open_graph.og_type }}{% else %}{{ site.open_graph.og_type }}{% endif %}" />
+
+    {% comment %}<!-- Geo/contact tags --> {% endcomment %}
+    <meta property="og:locale" content="{% if page.html.locale %}{{ page.html.locale }}{% else %}{{ site.html.locale }}{% endif %}" />
+    <meta property="og:street_address" content="{% if page.locations[0].street_address %}{{ page.locations[0].street_address }}{% else %}{{ site.locations[0].street_address }}{% endif %}">
+    <meta property="og:locality" content="{% if page.locations[0].locality %}{{ page.locations[0].locality }}{% else %}{{ site.locations[0].locality }}{% endif %}">
+    <meta property="og:region" content="{% if page.locations[0].region %}{{ page.locations[0].region }}{% else %}{{ site.locations[0].region }}{% endif %}">
+    <meta property="og:postal_code" content="{% if page.locations[0].postal_code %}{{ page.locations[0].postal_code }}{% else %}{{ site.locations[0].postal_code }}{% endif %}">
+    <meta property="og:country_name" content="{% if page.locations[0].country_name %}{{ page.locations[0].country_name }}{% else %}{{ site.locations[0].country_name }}{% endif %}">
+    <meta property="og:email" content="{% if page.email %}{{ page.email }}{% else %}{{ site.email }}{% endif %}">
+    <meta property="og:phone_number" content="{% if page.phone.mailto %}{{ page.phone.mailto }}{% else %}{{ site.phone.mailto }}{% endif %}">
+    {% if page.fax.mailto %}
+      <meta property="og:fax_number" content="{{ page.fax.mailto }}" />
+    {% elsif site.fax.mailto %}
+      <meta property="og:fax_number" content="{{ site.fax.mailto }}" />
+    {% endif %}
+
+    {% comment %}<!-- Image (social share) tags --> {% endcomment %}
+    {% if page.meta.image.src %}
+      <meta property="og:image" content="{{ site.url }}{{ site.subpath }}/assets/images/{{ page.meta.image.src }}" />
+      <link rel="image_src" href="{{ site.url }}{{ site.subpath }}/assets/images/{{ page.meta.image.src }}" />
+      <meta name="og:image:alt" content="{{ page.meta.image.alt }}">
+      <meta name="twitter:image:alt" content="{{ page.meta.image.alt }}">
+    {% else %}
+      <meta property="og:image" content="{{ site.url }}{{ site.subpath }}/assets/images/{{ site.meta.image.src }}" />
+      <link rel="image_src" href="{{ site.url }}{{ site.subpath }}/assets/images/{{ site.meta.image.src }}" />
+      <meta name="og:image:alt" content="{{ site.meta.image.alt }}">
+      <meta name="twitter:image:alt" content="{{ site.meta.image.alt }}">
+    {% endif %}
+
+    {% comment %}<!-- Description/brief/abstract tags --> {% endcomment %}
+    {% if page.description %}
+      {% assign content_description=page.description %}
+    {% else %}
+      {% capture content_description %}{{ content | strip_html | strip_newlines | replace: '  ', ' ' | truncate: 155, '' }}}{% endcapture %}
+    {% endif %}
+    <meta name="description" content="{{ content_description  }}" />
+    <meta property="og:description" content="{{ content_description }}" />
 
     {% comment %}
       <!-- PWA and browser-specific tweaks.
@@ -55,25 +107,14 @@ layout: compress
     {% endcomment %}
     <meta name="apple-mobile-web-app-title" content="{{ site.shortname }}" />
     <meta name="theme-color" content="{{ site.manifest_webmanifest.theme_color }}">
-    <link rel="apple-touch-icon" href="{{ site.baseurl }}{{ site.subpath }}/apple-touch-icon.png" />
-    <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="author" href="{{ site.baseurl }}{{ site.subpath }}/humans.txt" />
+    <meta name="Generator" content="{{ site.meta.generator }}">
+    <link rel="apple-touch-icon" href="{{ site.url }}{{ site.subpath }}/apple-touch-icon.png" />
+    <link rel="manifest" href="{{ site.subpath }}/manifest.webmanifest" />
+    <link rel="author" href="{{ site.url }}{{ site.subpath }}/humans.txt" />
   </head>
-  <body class="page-{{ page.url | slugify }}" itemscope itemtype="http://schema.org/{% if page.schema %}{{ page.schema }}{% else %}{{ site.schema }}{% endif %}">
-    <!--[if IE]>
-      <div class="browserupgrade">
-        <p>
-          You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a>
-          to improve your experience and security.
-        </p>
-      </div>
-    <![endif]-->
-
-    <!-- Skip link to get past the header and nav and into the main page content. -->
-    <div class="a11y--skip-hide">
-      <a href="#main-content" class="focusable">Skip to main content</a>
-    </div>
-
+  <body class="page-{{ page.url | slugify }}" itemscope itemtype="http://schema.org/{% if page.schema.type %}{{ page.schema.type }}{% else %}{{ site.schema.type }}{% endif %}">
+    {% include head/ie-upgrade-warning.html %}
+    {% include head/a11y--skip-hide.html %}
     {% include organisms/header.html %}
     {% include organisms/nav.html %}
 

@@ -1,5 +1,7 @@
 ---
-#categories: test 
+authors:
+  - brad-czerniak
+#categories: test
 #date: 2020-03-03 02:02:02
 #published: true
 #tags: testing

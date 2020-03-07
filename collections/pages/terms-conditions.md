@@ -32,7 +32,7 @@ capitalisation and/or he/she or they, are taken as interchangeable and therefore
 ## Cookies
 
 We employ the use of cookies. By using this website you consent to the use of cookies
-in accordance with <a href="/privacy-policy">our privacy policy</a>.
+in accordance with [our privacy policy](/privacy-policy).
 
 Most of the modern day interactive web sites use cookies to enable us to retrieve user
 details for each visit. Cookies are used in some areas of our site to enable the functionality

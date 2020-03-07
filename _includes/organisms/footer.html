@@ -1,15 +1,22 @@
 <footer class="footer layout--strip background-color--main color--white"><div class="layout--stripe--inner">
-  <address class="inline-block" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-    <span>{{ site.primary_author }}</span><br>
-    <span itemprop="streetAddress">{{ site.open_graph.og_street_address }}</span><br>
-    <span itemprop="addressLocality">{{ site.open_graph.og_locality }}</span>,
-    <span itemprop="addressRegion">{{ site.open_graph.og_region }}</span>
-    <span itemprop="postalCode">{{ site.open_graph.og_postal_code }}</span>
-  </address>
+  {% for location in site.locations %}
+    <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+      <span>{{ location.name }}</span><br>
+      <span itemprop="streetAddress">{{ location.street_address }}</span><br>
+      <span itemprop="addressLocality">{{ location.locality }}</span>,
+      <span itemprop="addressRegion">{{ location.region }}</span>
+      <span itemprop="postalCode">{{ location.postal_code }}</span>
+    </address>
+  {% endfor %}
   {% if site.social %}
     <div class="social">
     {% for link in site.social %}
-      <a href="{{ link.url }}">{{ link.title }}</a>
+      <a href="{{ link.url }}">
+        {% if link.icon %}
+          {% include atoms/icon.html library=link.icon.library symbol=link.icon.symbol %}
+        {% endif %}
+        <span>{{ link.title }}</span>
+      </a>
     {% endfor %}
     </div>
   {% endif %}

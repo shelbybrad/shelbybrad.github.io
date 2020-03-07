@@ -1,10 +1,24 @@
-<section class="copyright layout--strip background-color--main-dark color--white">
+<section class="copyright layout--strip background-color--main-dark color--white font-size--p875em">
   <div class="layout--stripe--inner">
     <p>
-      &copy; Copyright {{ site.time | date: '%Y' }} {{ site.primary_author }}. Text is available under the
-      <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+      &copy; Copyright {{ site.time | date: '%Y' }} {{ site.primary_author }}.
+      {% if site.content_license %}
+        Content is available under the
+        <a class="display--inline-block" href="{{ site.content_license.url }}">
+          {% if site.content_license.icon.symbol %}
+            {% include atoms/icon.html library=site.content_license.icon.library symbol=site.content_license.icon.symbol %}
+          {% endif %}
+          {{ site.content_license.name }}
+        </a>.
+      {% endif %}
+      {% if site.github.repository_url and site.github.license.url %}
+        <a class="display--inline-block" href="{{ site.github.repository_url }}">
+          {% include atoms/icon.html library="octicons" symbol="mark-github" %}
+          Code
+        </a>
+        is subject to the <a href="{{ site.github.license.url }}">{{ site.github.license.name }}</a>.
+      {% endif %}
     </p>
-    <p><a href="{{ site.source_repo }}">Github source</a></p>
     {% include molecules/menu.html menu="copyright" classes="border-spaced display--flex layout--row menu-layout--horizontal" %}
   </div>
 </section>

@@ -1,0 +1,42 @@
+---
+layout: none
+title: "Events"
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+  xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+  >
+<channel>
+  <title>{{ site.title }} | {{ page.title }}</title>
+  <atom:link href="{{ site.url }}{{ site.subpath }}{{ page.dir }}" rel="self" type="application/rss+xml" />
+  <link>{{ page.url }}</link>
+  <description>{{ site.meta.description }}</description>
+  <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %Z" }}</lastBuildDate>
+  <language>{{ site.html.lang }}</language>
+  <sy:updatePeriod>hourly</sy:updatePeriod>
+  <sy:updateFrequency>1</sy:updateFrequency>
+  <generator>{{ site.meta.generator }}</generator>
+  {% for post in site.events limit:20 %}
+    <item>
+      <title>{{ post.title }}</title>
+      <link>{{ site.url }}{{ site.subpath }}{{ post.url }}</link>
+      <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %Z" }}</pubDate>
+      {% for author in post.authors %}
+        {% assign person = site.people | where: 'slug', author | first %}
+        <dc:creator>{{ person.title }}</dc:creator>
+      {% endfor %}
+      {% for category in post.categories %}
+        <category><![CDATA[{{ category }}l]]></category>
+      {% endfor %}
+      <guid isPermaLink="false">{{ site.url }}{{ site.subpath }}{{ post.url }}</guid>
+      <description><![CDATA[{{ post.content | strip_html | xml_escape }}]]></description>
+      <content:encoded><![CDATA[{{ post.content }}]]></content:encoded>
+    </item>
+  {% endfor %}
+</channel>
+</rss>

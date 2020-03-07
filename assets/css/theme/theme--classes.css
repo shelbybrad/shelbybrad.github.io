@@ -105,6 +105,14 @@
 }
 
 /**
+ * The page-bottom copyright section.
+ */
+.copyright {}
+.copyright p {
+  max-width: none;
+}
+
+/**
  * Sticky main header for the site.
  */
 @media all and (min-width: 1024px) {
@@ -151,6 +159,20 @@
 .hover--bg:active,
 .hover--bg:focus {
   /* Potentially add a hover style. */
+}
+
+/**
+ * Icons.
+ *
+ * By default set icon wrappers to a character wide and hight.
+ */
+.figure--icon {
+  height: 1.25ch;
+  vertical-align: top;
+  width: 1.25ch;
+}
+.figure--icon > svg {
+  fill: currentColor;
 }
 
 /**
@@ -271,7 +293,7 @@
   text-decoration: underline;
 }
 @media all and (min-width: 768px) {
-  .menu-item--menu-main {
+  .menu-layout--horizontal {
     text-align: center;
   }
 }
