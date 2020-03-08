@@ -27,7 +27,15 @@ permalink: /docs/
 title: "Documentation"
 ---
 
-<section class="layout--stripe"><div class="layout--stripe--inner">
-  <h2>We have a lot of documents</h2>
-  <p>Check it out.</p>
-</div></section>
+<section class="layout--stripe">
+  <div class="layout--stripe--inner">
+    <h2>We have a lot of documents</h2>
+    <p>Check it out.</p>
+
+    <ul>
+    {% for doc in site.docs %}
+      <li><a href="{{ doc.url | relative_url }}">{{ doc.title }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
