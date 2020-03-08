@@ -1,6 +1,7 @@
 ---
 authors:
   - brad-czerniak
+  - shelby-hassell
 #categories: ["one", "two"]
 #date: 2020-03-03 02:02:02
 #hero_classes: "background-color--main-dark color--white"
@@ -13,8 +14,6 @@ meta:
 #  title: "Overrides the tab title and social titles"
 #permalink: /blog/post-title/
 #published: true
-sections:
-  - cta
 #sitemap: true
 #tags: ["three", "four"]
 title: "Test post, please ignore"

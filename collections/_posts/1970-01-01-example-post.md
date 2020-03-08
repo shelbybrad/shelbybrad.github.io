@@ -13,8 +13,6 @@ meta:
 #  title: "Overrides the tab title and social titles"
 #permalink: /blog/post-title/
 #published: true
-sections:
-  - cta
 #sitemap: true
 #tags: ["three", "four"]
 title: "Example post"

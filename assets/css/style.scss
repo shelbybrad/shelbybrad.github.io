@@ -13,6 +13,8 @@
   {% endfor %}
 }
 
+{% include_relative theme/theme--base.css %}
+
 {% include_relative utility/property--value.css %}
 {% include_relative utility/utility--animation.css %}
 {% include_relative utility/utility--color.css %}
@@ -21,7 +23,6 @@
 {% include_relative utility/utility--layout.css %}
 {% include_relative utility/utility--spacing.css %}
 
-{% include_relative theme/theme--base.css %}
 {% include_relative theme/theme--pygments.css %}
 {% include_relative theme/theme--classes.css %}
 {% include_relative theme/theme--shame.css %}

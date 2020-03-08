@@ -4,28 +4,48 @@
   The component is rendered at the end via the 'mode' conditional.
 
   Please thoroughly document all components.
+
+aria-current="true"
 {% endcomment %}
 
 {% capture component %}
-  <div class="pager {% if include.classes %}{{ include.classes }}{% endif %}">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path }}" class="previous">
-        Previous
-      </a>
-    {% else %}
-      <span class="previous">Previous</span>
+  <nav role="navigation" aria-label="Pagination. On page {{ include.page }} of {{ include.total_pages }}"
+    class="display--flex layout--row {% if include.classes %}{{ include.classes }}{% endif %}">
+    {% if include.previous_page %}
+      <div class="flex--1 text-align--left">
+        <a class="pager--link pager--link--prev button" href="{{ include.previous_page_path | relative_url }}">
+          Previous<span class="a11y--visually-hidden"> page, {{ include.previous_page }}</span>
+        </a>
+      </div>
     {% endif %}
 
-    <span class="page_number">
-      Page: {{ paginator.page }} of {{ paginator.total_pages }}
-    </span>
+    <ul class="pager--numbered list-style--none flex--2 align-items--center display--flex justify-content--center">
+      {% for page in (1..paginator.total_pages) %}
+        <li class="pager--numbered--number flex--1 {% if page == paginator.page %}pager--number--current{% endif %}">
+          <a class="pager--link pager--numbered--link button {% if page == paginator.page %}pager--link--current active{% endif %}"
+             {% if page == 1 %}
+               href="{{ include.base_url }}"
+             {% else %}
+              href="{{ site.paginate_path | relative_url | replace: ':num', page }}"
+             {% endif %}
+             {% if page == paginator.page %}
+               aria-current="true" aria-label="Current Page, Page {{ page }}"
+             {% endif %}
+          >
+            <span class="a11y--visually-hidden">Page </span>{{ page }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
 
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path }}" class="next">Next</a>
-    {% else %}
-      <span class="next ">Next</span>
+    {% if include.next_page %}
+      <div class="flex--1 text-align--right">
+        <a class="pager--link pager--link--next button" href="{{ include.next_page_path | relative_url }}">
+          Next<span class="a11y--visually-hidden"> page, {{ include.next_page }}</span>
+        </a>
+      </div>
     {% endif %}
-  </div>
+  </nav>
 {% endcapture %}
 
 {% capture usage %}
@@ -39,10 +59,11 @@
 {% capture accessibility %}
   Just some sample text in the accessibility section for now.
 
-  @see https://inclusive-components.design/cards/
+  @see https://www.a11ymatters.com/pattern/pagination/
 {% endcapture %}
 
 {% capture props %}
+  base_url| The URL of the page with the pager| /blog/
   classes| css classes applied to parent| color--main-dark,
   page| The current page number| 1,
   next_page| Bool whether there is a next page| false,

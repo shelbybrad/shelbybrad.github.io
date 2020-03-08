@@ -104,8 +104,6 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
-  height: 100%;
-  overflow-y: scroll;
   text-rendering: optimizeLegibility;
 }
 
@@ -118,14 +116,13 @@ html {
  * declarations in the CSS codebase.
  */
 body {
-  background: var(--color--white);
+  background-color: var(--color--white);
+  background-image: linear-gradient(320deg, #C3D1E4 0%, #DDE7F3 55%, #D4E0ED 100%);
   color: var(--color--black);
   font-size: 16px;
   font-weight: 400;
-  height: 100%;
   line-height: var(--line-height--default);
   margin: 0;
-  min-height: 100vh;
   scroll-behavior: smooth;
 }
 @media all and (prefers-color-scheme: dark) {
@@ -264,8 +261,8 @@ dfn {
  */
 details {
   background-color: rgba(255, 255, 255, 0.5);
-  margin: 10px 0;
-  padding: 5px 15px 5px 55px;
+  margin: calc(1 * var(--spacing--single)) 0;
+  padding: calc(.5 * var(--spacing--single)) calc(1.5 * var(--spacing--single)) calc(.5 * var(--spacing--single)) calc(6 * var(--spacing--single));
   text-align: left;
   position: relative;
 }
@@ -308,7 +305,7 @@ details > summary::after {
   width: 40px;
 }
 details[open] {
-  padding-bottom: 20px;
+  padding-bottom: calc(2 * var(--spacing--single));
 }
 details[open] > summary {
   margin-bottom: 0;
@@ -467,7 +464,7 @@ hr {
   color: var(--color--grey-dark);
   height: 1px;
   line-height: 0;
-  margin: 10px 0;
+  margin: calc(1 * var(--spacing--single)) 0;
 }
 
 /**
@@ -500,7 +497,7 @@ mark,
 }
 
 p {
-  margin: 0 0 10px;
+  margin: 0 0 calc(1 * var(--spacing--single));
   max-width: 75ch;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -726,64 +723,51 @@ input {
   line-height: 1;
 }
 
-.child-links--as-buttons a,
 .button,
-a.button,
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  background-color: var(--color--main);
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(40,40,41,.375)), to(transparent));
-  background-image: -webkit-linear-gradient(left, rgba(40,40,41,.375) 0%, transparent 100%);
-  background-image: -moz-linear-gradient(left, rgba(40,40,41,.375) 0%, transparent 100%);
-  background-image: -o-linear-gradient(left, rgba(40,40,41,.375) 0%, transparent 100%);
-  background-image: linear-gradient(90deg, rgba(40,40,41,.375) 0%, transparent 100%);
-  border-color: transparent;
-  -webkit-border-radius: 3em;
-  -moz-border-radius: 3em;
-  border-radius: 3em;
-  color: var(--color--white);
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: .5em;
+  box-shadow:
+    4px 2px 6px rgba(136,165,191,.5),
+    -4px -2px 4px rgba(255,255,255,1)
+  ;
+  color: var(--color--grey);
   cursor: pointer;
   display: inline-block;
-  font-family: "Montserrat", Arial, Helvetica, sans-serif;
   font-size: 1em;
-  font-weight: 500;
-  margin: 0 20px 20px 0;
-  padding: 11px 40px;
+  font-weight: 900;
+  margin: 0 calc(2 * var(--spacing--single)) calc(2 * var(--spacing--single)) 0;
+  padding: calc(1 * var(--spacing--single)) calc(2 * var(--spacing--single));
   text-align: center;
   text-decoration: none;
-  -webkit-transition: all .3s ease-in;
-  -o-transition: all .3s ease-in;
-  -moz-transition: all .3s ease-in;
+  text-shadow: 0 0 2px rgba(0,0,0,.325);
   transition: all .3s ease-in;
 }
-.child-links--as-buttons a:hover,
 .button:hover,
-a.button:hover,
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
-input[type="submit"]:hover {
-  background-color: var(--color--main-light);
-  background-image: -webkit-gradient(linear, right top, left top, from(rgba(40,40,41,.375)), to(transparent));
-  background-image: -webkit-linear-gradient(right, rgba(40,40,41,.375) 0%, transparent 100%);
-  background-image: -moz-linear-gradient(right, rgba(40,40,41,.375) 0%, transparent 100%);
-  background-image: -o-linear-gradient(right, rgba(40,40,41,.375) 0%, transparent 100%);
-  background-image: linear-gradient(270deg, rgba(40,40,41,.375) 0%, transparent 100%);;
-}
-.child-links--as-buttons a:active,
+input[type="submit"]:hover,
+.button.active,
 .button:active,
-a.button:active,
 button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-  background-color: var(--color--grey);
+  border-color: rgba(255,255,255,.2);
+  box-shadow:
+    4px 2px 6px rgba(136,165,191,.5),
+    -4px -2px 4px rgba(255,255,255,1),
+    inset 2px 1px 3px rgba(136,165,191,.5),
+    inset -2px -1px 3px rgba(255,255,255,.9)
+  ;
+  color: var(--color--black);
 }
-.child-links--as-buttons a:focus,
 .button:focus,
-a.button:focus,
 button:focus,
 input[type="button"]:focus,
 input[type="reset"]:focus,
@@ -791,11 +775,8 @@ input[type="submit"]:focus {
   outline: 1px dashed;
   outline-offset: 1px;
 }
-.child-links--as-buttons a.disabled, .child-links--as-buttons a[disabled],
 .button.disabled,
 .button[disabled],
-a.button.disabled,
-a.button[disabled],
 button.disabled,
 button[disabled],
 input[type="button"].disabled,
@@ -804,8 +785,8 @@ input[type="reset"].disabled,
 input[type="reset"][disabled],
 input[type="submit"].disabled,
 input[type="submit"][disabled] {
-  background-color: var(--color--grey);
-  color: var(--color--grey);
+  background-color: var(--color--grey-dark);
+  color: var(--color--white);
   cursor: default;
 }
 

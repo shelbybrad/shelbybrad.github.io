@@ -16,8 +16,11 @@
 {% capture component %}
   <li class="card js--child--link display--flex flex-direction--column {% if include.classes %}{{ include.classes }}{% endif %}">
     <div class="card--text padding-horizontal--4 padding-vertical--4">
-      <h3 class="card--title"><a href="{{ include.entity.url }}">{{ include.entity.title }}</a></h3>
-      <p class="card--description">{{ entity_description }}</p>
+      <h3 class="card--title font-size--1p25em"><a href="{{ include.entity.url }}">{{ include.entity.title }}</a></h3>
+      {% if include.entity.job_title %}
+        <h4 class="card--subtitle font-size--p875em font-style--italic">{{ include.entity.job_title }}</h4>
+      {% endif %}
+      <p class="card--description font-size--p75em">{{ entity_description }}</p>
     </div>
 
     <figure class="figure figure--card--image order--neg1">

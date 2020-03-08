@@ -15,7 +15,7 @@
   margin-right: calc(.5 * var(--spacing--single));
 }
 @media all and (max-width: 767px) {
-  .margin-horizontal--1 {
+  .margin-horizontal--1.margin-horizontal--collapse {
     margin-left: 0;
     margin-right: 0;
   }
@@ -25,7 +25,7 @@
   margin-right: calc(1 * var(--spacing--single));
 }
 @media all and (max-width: 767px) {
-  .margin-horizontal--2 {
+  .margin-horizontal--2.margin-horizontal--collapse {
     margin-left: 0;
     margin-right: 0;
   }
@@ -35,7 +35,7 @@
   margin-right: calc(2 * var(--spacing--single));
 }
 @media all and (max-width: 767px) {
-  .margin-horizontal--4 {
+  .margin-horizontal--4.margin-horizontal--collapse {
     margin-left: 0;
     margin-right: 0;
   }
@@ -45,7 +45,7 @@
   margin-right: calc(4 * var(--spacing--single));
 }
 @media all and (max-width: 767px) {
-  .margin-horizontal--8 {
+  .margin-horizontal--8.margin-horizontal--collapse {
     margin-left: 0;
     margin-right: 0;
   }
@@ -55,7 +55,7 @@
   margin-right: calc(8 * var(--spacing--single));
 }
 @media all and (max-width: 767px) {
-  .margin-horizontal--16 {
+  .margin-horizontal--16.margin-horizontal--collapse {
     margin-left: 0;
     margin-right: 0;
   }
@@ -65,7 +65,7 @@
   margin-right: calc(16 * var(--spacing--single));
 }
 @media all and (max-width: 767px) {
-  .margin-horizontal--32 {
+  .margin-horizontal--32.margin-horizontal--collapse {
     margin-left: 0;
     margin-right: 0;
   }
@@ -141,7 +141,7 @@ a.button.margin-vertical--4 {
   padding-right: calc(.5 * var(--spacing--single));
 }
 @media all and (max-width: 767px) {
-  .padding-horizontal--1 {
+  .padding-horizontal--1.padding-horizontal--collapse {
     padding-left: 0;
     padding-right: 0;
   }
@@ -151,7 +151,7 @@ a.button.margin-vertical--4 {
   padding-right: calc(1 * var(--spacing--single));
 }
 @media all and (max-width: 767px) {
-  .padding-horizontal--2 {
+  .padding-horizontal--2.padding-horizontal--collapse {
     padding-left: 0;
     padding-right: 0;
   }
@@ -161,7 +161,7 @@ a.button.margin-vertical--4 {
   padding-right: calc(2 * var(--spacing--single));
 }
 @media all and (max-width: 767px) {
-  .padding-horizontal--4 {
+  .padding-horizontal--4.padding-horizontal--collapse {
     padding-left: 0;
     padding-right: 0;
   }
@@ -171,7 +171,7 @@ a.button.margin-vertical--4 {
   padding-right: calc(4 * var(--spacing--single));
 }
 @media all and (max-width: 767px) {
-  .padding-horizontal--8 {
+  .padding-horizontal--8.padding-horizontal--collapse {
     padding-left: 0;
     padding-right: 0;
   }
@@ -181,7 +181,7 @@ a.button.margin-vertical--4 {
   padding-right: calc(8 * var(--spacing--single));
 }
 @media all and (max-width: 767px) {
-  .padding-horizontal--16 {
+  .padding-horizontal--16.padding-horizontal--collapse {
     padding-left: 0;
     padding-right: 0;
   }
@@ -191,7 +191,7 @@ a.button.margin-vertical--4 {
   padding-right: calc(16 * var(--spacing--single));
 }
 @media all and (max-width: 767px) {
-  .padding-horizontal--32 {
+  .padding-horizontal--32.padding-horizontal--collapse {
     padding-left: 0;
     padding-right: 0;
   }

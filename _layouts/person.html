@@ -11,3 +11,29 @@ layout: default
     </div>
   </section>
 {% endif %}
+
+{% capture where_exp_str %}item.authors contains page.slug{% endcapture %}
+{% assign posts = site.posts | where_exp:"item", where_exp_str %}
+<section class="layout--stripe text-align--center">
+  <div class="layout--stripe--inner">
+    {% include atoms/heading.html
+      children="This author's blog posts"
+      classes="text-shadow--second-light--solid"
+      level="2"
+    %}
+
+    {% include atoms/spacer.html size="4" %}
+
+    {% if posts[0] %}
+      <ul class="list-style--none layout--multiple--horizontal">
+        {% for post in posts %}
+          {% include molecules/card.html
+            entity=post
+          %}
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="listing--no-results">This person has not authored any posts on this site yet.</p>
+    {% endif %}
+  </div>
+</section>

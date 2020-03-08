@@ -149,7 +149,7 @@ layout: compress
 
       {% if page.sections %}
         {% for slug in page.sections %}
-          {{ site.sections | where:"slug",slug }}
+          {{ site.sections | where:"slug",slug | first }}
         {% endfor %}
       {% endif %}
     </main>

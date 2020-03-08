@@ -134,6 +134,8 @@ all and (max-width: 767px) and (-ms-high-contrast: none) {
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
+  margin-left: 0;
+  margin-right: 0;
 }
 .layout--multiple--horizontal {
   flex-direction: column;
@@ -141,6 +143,7 @@ all and (max-width: 767px) and (-ms-high-contrast: none) {
 .layout--multiple--horizontal > * ,
 .layout--multiple--horizontal > .flex--1 ,
 .layout--multiple--carousel:not(.slick-initialized) > * {
+  box-sizing: border-box;
   margin: 0 0 calc(4 * var(--spacing--single));
 }
 

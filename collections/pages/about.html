@@ -22,15 +22,29 @@ permalink: /about/
 #  type: "Thing"
 sections:
   - cta
-  - animation
 #sitemap: true
 #tags: ["three", "four"]
 title: "About"
 ---
 
-## Section after hero on the About page
+<section class="layout--stripe background-color--white">
+  <div class="layout--stripe--inner">
+    {% include atoms/heading.html
+      children="Our story, right quick"
+      classes="text-shadow--second-light--solid"
+      level="2"
+    %}
 
-Fancy!
+    {% include atoms/spacer.html size="4" %}
+
+    <p>Here is some information.</p>
+  </div>
+</section>
+
+{% include organisms/section.html
+mode="ref"
+slug="people"
+%}
 
 {% include organisms/section.html
   mode="ref"

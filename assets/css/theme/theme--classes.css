@@ -105,6 +105,43 @@
 }
 
 /**
+ * Cards (teasers).
+ */
+.card {
+  border: 2px solid transparent;
+  border-radius: .5em;
+  box-shadow:
+    8px 4px 12px rgba(136,165,191,.5),
+    -8px -4px 8px rgba(248,248,248,.5)
+  ;
+  text-shadow: 0 0 2px rgba(0,0,0,.325);
+  transition: all .3s ease-in;
+}
+.card figure {
+  border-top-left-radius: .45em;
+  border-top-right-radius: .45em;
+  overflow: hidden;
+}
+.card h3 {
+  margin-bottom: calc(1.5 * var(--spacing--single));
+}
+.card h3 + h4 {
+  margin-bottom: calc(1.5 * var(--spacing--single));
+  margin-top: calc(-1 * var(--spacing--single));
+}
+.card--hover:hover,
+.card--hover:active,
+.card--hover:focus-within {
+  border-color: rgba(255,255,255,.2);
+  box-shadow:
+    8px 4px 12px rgba(136,165,191,.5),
+    -8px -4px 8px rgba(248,248,248,.5),
+    inset 4px 2px 6px rgba(136,165,191,.5),
+    inset -4px -2px 6px rgba(248,248,248,.5)
+  ;
+}
+
+/**
  * The page-bottom copyright section.
  */
 .copyright {}

@@ -27,12 +27,22 @@ sections:
 title: "Events"
 ---
 
-<section class="layout--stripe "><div class="layout--stripe--inner">
-  <ul class="list-style--none layout--multiple--horizontal">
-    {% for event in site.events %}
-      {% include molecules/card.html
-        entity=event
-      %}
-    {% endfor %}
-  </ul>
-</div></section>
+<section class="layout--stripe ">
+  <div class="layout--stripe--inner">
+    <p>Event intro text. Link to events archive (liquid, permanent)</p>
+
+    {% include atoms/spacer.html size="8" %}
+
+    {% if site.events[0] %}
+      <ul class="list-style--none layout--multiple--horizontal">
+        {% for event in site.events %}
+          {% include molecules/card.html
+            entity=event
+          %}
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="listing--no-results">There are presently no future events.</p>
+    {% endif %}
+  </div>
+</section>

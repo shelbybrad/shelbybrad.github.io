@@ -39,8 +39,9 @@ title: "Blog"
   {% include atoms/spacer.html size="8" %}
 
   {% if paginator.total_pages >= 2 %}
+    {% capture this_page_url %}{{ site.url }}{{ site.subpath }}/blog/{% endcapture %}
     {% include molecules/pager.html
-      classes="background-color--second-light"
+      base_url=this_page_url
       page=paginator.page
       next_page=paginator.next_page
       next_page_path=paginator.next_page_path
