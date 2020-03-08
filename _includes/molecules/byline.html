@@ -6,21 +6,28 @@
   Please thoroughly document all components.
 {% endcomment %}
 
+{% assign word_count = content | strip_html | strip_newlines | replace: '  ', ' ' | split: " " | size %}
 {% capture component %}
-  <div class="byline {% if include.classes %}{{ include.classes }}{% endif %}">
+  <div class="byline byline--{{ include.entity.collection | slugify }} display--flex layout--row justify-content--center
+    {% if include.classes %}{{ include.classes }}{% endif %}">
     {% if include.entity.authors[0] %}
       <address class="byline--authors author">
+        <strong>Author(s):</strong>
         <ol class="byline--authors--list">
           {% for author in include.entity.authors %}
             {% assign person = site.people | where: 'slug', author | first %}
             <li class="byline--authors--list-item">
-              <a rel="author" href="{{ person.url | relative_url }}">{{ person.title }}</a>
+              <a rel="author" itemprop="author" href="{{ person.url | relative_url }}">{{ person.title }}</a>
             </li>
           {% endfor %}
         </ol>
       </address>
     {% endif %}
-    <time pubdate datetime="{{ include.entity.date | date: "%Y-%m-%d" }}">{{ include.entity.date | date: "%B %e, %Y" }}</time>
+    <time pubdate datetime="{{ include.entity.date | date: "%Y-%m-%d" }}" itemprop="datePublished">{{ include.entity.date | date: "%B %e, %Y" }}</time>
+    <div class="byline--word-count">
+      <span>Word count</span>: <span itemprop="wordCount">{{ word_count }}</span>, which is
+      <span>{{ word_count | divided_by: 225.0 | round: 1 }}</span> minutes of reading
+    </div>
   </div>
 {% endcapture %}
 

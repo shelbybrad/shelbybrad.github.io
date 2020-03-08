@@ -127,7 +127,7 @@ layout: compress
         {% if page.hero_classes %}
           {% assign hero_classes = page.hero_classes %}
         {% else %}
-          {% capture hero_classes %}background-color--main background-image--stars color--white text-align--center background-image-display-mobile--hide text-shadow--second-light--solid{% endcapture %}
+          {% capture hero_classes %}background-color--main background-image--stars color--white text-align--center background-image-display-mobile--hide{% endcapture %}
         {% endif %}
 
         {% comment %}Demonstration of nesting components using capture. Seems excessive.{% endcomment %}
@@ -137,6 +137,15 @@ layout: compress
             classes="text-shadow--second-light--solid"
             level="1"
           %}
+
+          {% if page.collection == "posts" %}
+            {% include atoms/spacer.html size="2" %}
+
+            {% include molecules/byline.html
+              classes="test"
+              entity=page
+            %}
+          {% endif %}
         {% endcapture %}
 
         {% include organisms/section.html
