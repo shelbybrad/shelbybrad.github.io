@@ -38,6 +38,21 @@ title: "About"
     {% include atoms/spacer.html size="4" %}
 
     <p>Here is some information.</p>
+
+    <div class="layout--row display--flex">
+      <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
+        padding-horizontal--4 padding-horizontal--collapse">
+        <p>Our story here.</p>
+      </aside>
+      <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
+        padding-horizontal--4 padding-horizontal--collapse">
+        {% include atoms/image.html
+          src="bears-clipart-animated.gif"
+          alt="An artist depiction of our wedding"
+          classes="animation-name--spin animation-iteration-count--infinite animation-direction--alernate animation-duration--3s"
+        %}
+      </aside>
+    </div>
   </div>
 </section>
 

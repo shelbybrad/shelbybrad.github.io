@@ -19,7 +19,7 @@
 .animation-direction--reverse {
   animation-direction: reverse;
 }
-.animation-direction--alernate {
+.animation-direction--alternate {
   animation-direction: alternate;
 }
 .animation-direction--alternate-reverse {
@@ -49,19 +49,21 @@
 /**
  * Named animations per the keyframes below.
  */
-.animation-name--scale {
-  animation-name: scale;
-}
-.animation-name--slide {
-  animation-name: slide;
-  position: relative;
-}
-.animation-name--slide-spin {
-  animation-name: slide, spin;
-  position: absolute;
-}
-.animation-name--spin {
-  animation-name: spin;
+@media all and (prefers-reduced-motion: no-preference) {
+  .animation-name--scale {
+    animation-name: scale;
+  }
+  .animation-name--slide {
+    animation-name: slide;
+    position: relative;
+  }
+  .animation-name--slide-spin {
+    animation-name: slide, spin;
+    position: absolute;
+  }
+  .animation-name--spin {
+    animation-name: spin;
+  }
 }
 
 @keyframes scale {

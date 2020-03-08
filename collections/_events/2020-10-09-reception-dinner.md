@@ -1,6 +1,6 @@
 ---
 authors:
-  - shelby-hassell
+  - shelby-sleete
 #categories: ["one", "two"]
 date: 2020-10-09 18:30:00
 date_end: 2020-10-09 21:00:00
