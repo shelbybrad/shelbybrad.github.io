@@ -22,3 +22,5 @@ title: "Ceremony, wedding, private"
 ## Section after hero on the Example post
 
 Fancy!
+
+GG

@@ -8,7 +8,7 @@
 
 {% capture component %}
   <figure class="figure figure--icon {% if include.classes %}{{ include.classes }}{% endif %}">
-    {% include icons/{{ include.library | default "octicons" }}/{{ include.symbol }}.svg %}
+    {% include icons/{{ include.library }}/{{ include.symbol }}.svg %}
   </figure>
 {% endcapture %}
 

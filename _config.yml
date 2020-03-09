@@ -62,7 +62,9 @@ open_graph:
 ## schema.org
 ## @see https://schema.org/docs/schemas.html
 schema:
-  type: "Thing" # (default for site, often "Organization")
+  type: "CreativeWork" # (default for site, often "CreativeWork")
+  publisher:
+    type: "Person" # Whether a "Person" or "Organization" is the publisher of the site.
 
 ## Twitter cards
 ## @see https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started
@@ -223,10 +225,14 @@ kramdown:
   hard_wrap: false
   input: GFM
   parse_block_html: true
-  parse_span_html: true
+  parse_span_html: false
   show_warnings: false
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   toc_levels: [1, 2, 3, 4, 5, 6]
+liquid:
+  error_mode: strict
+  strict_filters: true
+  strict_variables: false
 markdown: kramdown
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 paginate: 30
@@ -234,11 +240,12 @@ paginate_path: /blog/page-:num/
 permalink: /blog/:title/
 plugins:
   - jekyll-sitemap
-safe: false
+profile: true
+safe: true
 sass:
   sass_dir: assets/css
   style: :compressed
-strict_front_matter: false
+strict_front_matter: true
 theme: jekyll-theme-primer
 timezone: Etc/UTC # Allows use to set dates/times without a GMT offset.
 unpublished: false
@@ -288,6 +295,7 @@ defaults:
       path: ""
       type: "posts"
     values:
+      classes: ""
       layout: "post"
       schema:
         type: "Article"

@@ -7,9 +7,14 @@
 {% endcomment %}
 
 {% capture component %}
-  <section class="layout--stripe {% if include.classes %}{{ include.classes }}{% endif %}" id="section-{{ include.title | slugify }}">
+  <section class="include include--organisms include--organisms--section layout--stripe
+    {% if include.classes %}{{ include.classes }}{% endif %}"
+    {% if include.title %}id="section-{{ include.title | slugify }}"{% endif %}>
     <div class="layout--stripe--inner">
-      {% if include.title %}<h2 class="{{ include.title_classes | default "a11y--visually-hidden" }}">{{ include.title }}</h2>{% endif %}
+      {% if include.title %}
+        <h2 class="{{ include.title_classes }}">{{ include.title }}</h2>
+      {% endif %}
+
       {{ include.children }}
     </div>
   </section>

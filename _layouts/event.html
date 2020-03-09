@@ -1,11 +1,11 @@
 ---
 layout: default
 ---
-{% assign extension = page.name | slice: -2, 2 %}
-{% if extension == "ml" %}
+
+{% if page.ext == ".html" %}
   {{ content }}
 {% else %}
-  <section class="layout--stripe {% if page.classes %}{{ page.classes }}{% endif %}" id="section-{{ page.title | slugify }}">
+  <section class="layout--stripe markdownified {% if page.classes %}{{ page.classes }}{% endif %}">
     <div class="layout--stripe--inner">
       {{ content }}
     </div>

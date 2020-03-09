@@ -2,8 +2,8 @@
 layout: compress
 ---
 <!doctype html>
-<html dir="{% if page.html.dir %}{{ page.html.dir }}{%else %}{{ site.html.dir }}{% endif %}"
-  lang="{% if page.html.lang %}{{ page.html.lang }}{%else %}{{ site.html.lang }}{% endif %}"
+<html dir="{% if page.html.dir %}{{ page.html.dir }}{% else %}{{ site.html.dir }}{% endif %}"
+  lang="{% if page.html.lang %}{{ page.html.lang }}{% else %}{{ site.html.lang }}{% endif %}"
   prefix="og: http://ogp.me/ns#"
 >
   <head>
@@ -118,6 +118,10 @@ layout: compress
   <body class="page-{{ page.url | slugify }}" itemscope itemtype="http://schema.org/{% if page.schema.type %}{{ page.schema.type }}{% else %}{{ site.schema.type }}{% endif %}">
     {% include head/ie-upgrade-warning.html %}
     {% include head/a11y--skip-hide.html %}
+    {% include organisms/section.html
+      mode="ref"
+      slug="alerts"
+    %}
     {% include organisms/header.html %}
     {% include organisms/nav.html %}
 
@@ -132,11 +136,27 @@ layout: compress
 
         {% comment %}Demonstration of nesting components using capture. Seems excessive.{% endcomment %}
         {% capture hero_children %}
-          {% include atoms/heading.html
-            children=page.title
-            classes="text-shadow--second-light--solid"
-            level="1"
-          %}
+          <div class="hero--title layout--row display--flex justify-content--center">
+            <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
+              padding-horizontal--4 padding-horizontal--collapse">
+              {% include atoms/heading.html
+                children=page.title
+                classes="text-shadow--second-light--solid"
+                level="1"
+              %}
+            </aside>
+
+            {% if page.meta.image.src %}
+              <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
+                padding-horizontal--4 padding-horizontal--collapse">
+                {% include atoms/image.html
+                  src=page.meta.image.src
+                  alt=page.meta.image.alt
+                  classes="hero--figure hero--image"
+                %}
+              </aside>
+            {% endif %}
+          </div>
 
           {% if page.collection == "posts" %}
             {% include atoms/spacer.html size="2" %}

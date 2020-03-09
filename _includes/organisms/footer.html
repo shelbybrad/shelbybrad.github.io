@@ -1,4 +1,5 @@
-<footer class="footer layout--strip background-color--main color--white"><div class="layout--stripe--inner">
+<footer itemprop="publisher" itemscope itemtype="http://schema.org/{{ site.schema.publisher.type }}" class="footer layout--strip background-color--main color--white"><div class="layout--stripe--inner">
+  <h2 class="a11y--visually-hidden" itemprop="name">{{ location.name }}</h2>
   {% for location in site.locations %}
     <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
       <span>{{ location.name }}</span><br>

@@ -17,7 +17,9 @@
           {% for author in include.entity.authors %}
             {% assign person = site.people | where: 'slug', author | first %}
             <li class="byline--authors--list-item">
-              <a rel="author" itemprop="author" href="{{ person.url | relative_url }}">{{ person.title }}</a>
+              <a rel="author" itemprop="author" href="{{ person.url | relative_url }}">
+                <span itemprop="name">{{ person.title }}</span>
+              </a>
             </li>
           {% endfor %}
         </ol>

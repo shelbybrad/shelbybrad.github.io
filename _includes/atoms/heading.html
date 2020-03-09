@@ -7,11 +7,12 @@
 {% endcomment %}
 
 {% capture component %}
-  <h{{ include.level | default "2" }} class="heading {% if include.classes %}{{ include.classes }}{% endif %}">
+  <h{{ include.level }} class="heading {% if include.classes %}{{ include.classes }}{% endif %}
+    {% if include.level == "1" %}itemprop="headline"{% endif %}">
     {% if include.children %}
-      {{ include.children | default "Heading content, default" }}
+      {{ include.children }}
     {% endif %}
-  </h{{ include.level | default "2" }}>
+  </h{{ include.level }}>
 {% endcapture %}
 
 {% capture usage %}
