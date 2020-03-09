@@ -28,16 +28,23 @@ title: "Events Archive"
 ---
 
 {% assign events = site.events | where_exp:"item", "item.date_end <= site.time" %}
-<section class="layout--stripe "><div class="layout--stripe--inner">
-  {% if events[0] %}
-    <ul class="list-style--none layout--multiple--horizontal">
-      {% for event in events %}
-        {% include molecules/card.html
-          entity=event
-        %}
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p class="listing--no-results">None of the events are in the past yet!</p>
-  {% endif %}
-</div></section>
+<section class="layout--stripe ">
+  <div class="layout--stripe--inner">
+    <p>Here's an archival list of past events, for posterity. To see current events, check out the
+      <a href="{% link collections/pages/events.html %}">main Events page</a></p>
+
+    {% include atoms/spacer.html size="8" %}
+
+    {% if events[0] %}
+      <ul class="list-style--none layout--multiple--horizontal">
+        {% for event in events %}
+          {% include molecules/card.html
+            entity=event
+          %}
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="listing--no-results">None of the events are in the past yet!</p>
+    {% endif %}
+  </div>
+</section>

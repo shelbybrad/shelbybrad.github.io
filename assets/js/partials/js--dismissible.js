@@ -14,6 +14,7 @@ if (dismissibles.length) {
       let storedInfo = localStorage.getItem('js--dismissible--' + dismissible.getAttribute('id'));
       if (storedInfo === 'hidden') {
         dismissible.classList.add('display--none', 'js--dismissible--closed');
+        dismissible.parentNode.removeChild(dismissible);
       }
     }
 
@@ -34,6 +35,7 @@ if (dismissibles.length) {
       dismissible = event.target.closest('.js--dismissible');
 
       dismissible.classList.add('display--none', 'js--dismissible--closed');
+      dismissible.parentNode.removeChild(dismissible);
 
       if (dismissible.hasAttribute('id')) {
         localStorage.setItem('js--dismissible--' + dismissible.getAttribute('id'), 'hidden');

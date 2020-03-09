@@ -35,6 +35,13 @@
 }
 
 /**
+ * Positioning helpers: bottom.
+ */
+.bottom--0 {
+  bottom: 0;
+}
+
+/**
  * When you need to set text in columns that auto-adjust to their container.
  */
 .columnar--2-column,
@@ -76,6 +83,13 @@
 }
 
 /**
+ * Positioning helpers: left.
+ */
+.left--0 {
+  left: 0;
+}
+
+/**
  * Line-heights.
  */
 .line-height--0 {
@@ -111,4 +125,51 @@
   .print---page-break-before--always {
     page-break-before: always;
   }
+}
+
+/**
+ * Positioning helpers: right.
+ */
+.right--0 {
+  right: 0;
+}
+
+/**
+ * Positioning helpers: top.
+ */
+.top--0 {
+  top: 0;
+}
+
+/**
+ * Positioning helpers: z-index.
+ *
+ * If you need more z-indices than these then it's a big code smell; you're doing something very wrong.
+ */
+.z-index--neg2 {
+  z-index: -2;
+}
+.z-index--neg1 {
+  z-index: -1;
+}
+.z-index--0 {
+  z-index: 0;
+}
+.z-index--1 {
+  z-index: 1;
+}
+.z-index--2 {
+  z-index: 2;
+}
+.z-index--3 {
+  z-index: 3;
+}
+.z-index--4 {
+  z-index: 4;
+}
+.z-index--9998 {
+  z-index: 0;
+}
+.z-index--9999 {
+  z-index: 0;
 }
