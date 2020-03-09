@@ -173,6 +173,13 @@
 }
 
 /**
+ * GDPR Cookie disclosure dialog (fixed to bottom of screen).
+ */
+.dialog--cookie-disclosure {
+  box-shadow: 0 -2px 6px rgba(136,165,191,0.9);
+}
+
+/**
  * Sticky main header for the site.
  */
 @media all and (min-width: 1024px) {
@@ -324,6 +331,14 @@
 }
 .js--event--click--toggle.click--lightbox:not(.figure--image--polaroid) > figcaption {
   color: var(--color--white);
+}
+
+/**
+ * Toggle below (Open/Close below) buttons.
+ */
+.js--toggle-below {}
+.js--toggle-below--closed {
+  display: none;
 }
 
 /**

@@ -92,16 +92,9 @@ if (Element.prototype.closest) {
 
   eventTypes.forEach((eventType) => {
     document.addEventListener(eventType, function (event) {
-      let elem;
-      const eventTypeCamel =  eventType.charAt(0).toUpperCase() + eventType.slice(1).toLowerCase();
-
-      if (event.target === document || event.target.closest('.js--event--' + eventType)) {
-        if (event.target === document) {
-          elem = document.body;
-        }
-        else {
-          elem = event.target.closest('.js--event--' + eventType);
-        }
+      if (event.target !== document && event.target.closest('.js--event--' + eventType)) {
+        let elem = event.target.closest('.js--event--' + eventType);
+        const eventTypeCamel =  eventType.charAt(0).toUpperCase() + eventType.slice(1).toLowerCase();
 
         /* Once */
         elem.classList.add('js--event--' + eventType + '--once');

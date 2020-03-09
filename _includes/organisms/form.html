@@ -1,0 +1,77 @@
+{% comment %}
+  Components/includes use captures for content and documentation. The 'component' area is the component proper.
+
+  The component is rendered at the end via the 'mode' conditional.
+
+  Please thoroughly document all components.
+{% endcomment %}
+
+{% if include.action %}
+  {% assign action = include.action %}
+{% else %}
+  {% capture action %}https://formsubmit.co/{{ site.email }}{% endcapture %}
+{% endif %}
+
+{% if include.thank_you %}
+  {% assign thank_you = include.thank_you %}
+{% else %}
+  {% capture thank_you %}{% link collections/pages/thank-you.md %}{% endcapture %}
+{% endif %}
+
+{% if include.submit %}
+  {% assign submit = include.submit %}
+{% else %}
+  {% assign submit = "Send" %}
+{% endif %}
+
+{% capture component %}
+  <form method="POST" action="{{ action }}"
+    class="form include include--organism include--organism--form
+    {% if include.classes %}{{ include.classes }}{% endif %}">
+    <input type="text" name="_honey" class="display--none" />
+    <input type="hidden" name="_next" value="{{ thank_you }}" />
+    <input type="hidden" name="_template" value="box" />
+    <input type="hidden" name="_subject" value="[{{ site.url }}] {{ include.title }}" />
+
+    {{ include.children }}
+
+    <div class="form--actions {% if include.action_classes %}{{ include.action_classes }}{% endif %}">
+      <button class="form--button form--button--submit form--actions--button form--actions--button--submit" type="submit">{{ submit }}</button>
+      <button class="form--button form--button--reset form--actions--button form--actions--button--reset" type="reset">Reset</button>
+    </div>
+  </form>
+{% endcapture %}
+
+{% capture usage %}
+  ## General guidance
+
+  Sections separate large distinct portions of content on a page.
+{% endcapture %}
+
+{% capture accessibility %}
+  Just some sample text in the accessibility section for now.
+{% endcapture %}
+
+{% capture props %}
+  classes| css classes applied to parent| background-color--main-dark color--white,
+  children| Contents and sub-contents of the section| Here is some text.,
+  title| Each section should have an h2| This describes what is in the section,
+  title_classes| Styling for the section title| heading--h1
+{% endcapture %}
+{% assign classes = "font-family--secondary" | split: ", " %}
+
+{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% if include.mode == "docblock" %}
+  {% include molecules/docblock.html
+    accessibility=accessibility
+    classes=classes
+    html=component
+    props=props
+    source=include
+    usage=usage
+  %}
+{% elsif include.mode == "ref" %}
+  {{ site.forms | where:"slug",include.slug }}
+{% else %}
+  {{ component }}
+{% endif %}

@@ -1,12 +1,30 @@
 /**
  * @file
- * Enable and manage dismissible classed elements.
+ * Show and hide the element below a classed button.
  */
 
-/**
- * Enable and manage dismissible classed elements.
- * @type {NodeListOf<Element>}
- */
+var togglebelowInitializationFunction = function(initType) {
+  let ariaExpanded = this.getAttribute('aria-expanded');
+  if (!ariaExpanded || (ariaExpanded !== "true" && ariaExpanded !== "false")) {
+    this.setAttribute('aria-expanded', "false");
+    ariaExpanded = "false";
+  }
+
+  /* Explicitly toggle classes on the next element, in case this is the first time. */
+  if (ariaExpanded === "true") {
+    this.textContent = "Close below";
+    this.nextElementSibling.classList.add('js--toggle-below--open');
+    this.nextElementSibling.classList.remove('js--toggle-below--closed');
+  }
+  else {
+    this.textContent = "Open below";
+    this.nextElementSibling.classList.add('js--toggle-below--closed');
+    this.nextElementSibling.classList.remove('js--toggle-below--open');
+  }
+};
+utilityInitializer('js--toggle-below', 'togglebelowInitializationFunction');
+
+/* Use event delegation for any dynamically-added events. */
 document.addEventListener('click', function (event) {
   let toggleBelow, ariaExpanded;
 
@@ -15,9 +33,15 @@ document.addEventListener('click', function (event) {
 
     /* Add or toggle the aria-expanded attribute. */
     ariaExpanded = toggleBelow.getAttribute('aria-expanded');
-    toggleBelow.textContent = (!ariaExpanded || ariaExpanded === "false") ? "Close below" : "Open below";
-    ariaExpanded = (!ariaExpanded || ariaExpanded === "false") ? "true" : "false";
-    toggleBelow.setAttribute('aria-expanded');
+    if (!ariaExpanded || ariaExpanded === "false") {
+      toggleBelow.textContent = "Close below";
+      ariaExpanded = "true";
+    }
+    else {
+      toggleBelow.textContent = "Open below";
+      ariaExpanded = "false";
+    }
+    toggleBelow.setAttribute('aria-expanded', ariaExpanded);
 
     /* Explicitly toggle classes on the next element, in case this is the first time. */
     if (ariaExpanded === "true") {

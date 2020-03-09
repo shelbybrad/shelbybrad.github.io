@@ -9,7 +9,7 @@
 {% capture component %}
   <section class="include include--organisms include--organisms--section layout--stripe
     {% if include.classes %}{{ include.classes }}{% endif %}"
-    {% if include.title %}id="section-{{ include.title | slugify }}"{% endif %}>
+    {% if include.title %}id="section--{{ include.title | slugify }}"{% endif %}>
     <div class="layout--stripe--inner">
       {% if include.title %}
         <h2 class="{{ include.title_classes }}">{{ include.title }}</h2>
