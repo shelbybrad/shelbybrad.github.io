@@ -2,14 +2,35 @@
 authors:
   - brad-czerniak
 #categories: ["one", "two"]
-classes: "background-color--grey-light"
+classes: "padding-vertical--0"
 #date: 2020-03-03 02:02:02
 #published: true
 #tags: ["three", "four"]
-title: "We're different"
-title_classes: "heading--h1"
+title: "Site alerts"
+title_classes: "a11y--visually-hidden"
 ---
 
-<p>...Find out how our business differentiates itself.</p>
+{% comment %}
+  To add a site-wide alert to the alerts section, copy one of these from the comment block and put it below.
 
-<a class="button cta" href="{{ site.subpath }}/about">Learn more</a>
+  {% include molecules/alert.html
+    children="<p>Brad made a status alert</p>"
+    classes=""
+    dismissible=true
+    level="status"
+  %}
+
+  {% include molecules/alert.html
+    children="This is a warning-level alert using plain text rather than markup."
+    classes=""
+    dismissible=true
+    level="warning"
+  %}
+
+  {% include molecules/alert.html
+    children="<p>Here is an error alert with <strong>bold text</strong> and <a href='https://www.bing.com'>a link</a>.</p>"
+    classes=""
+    dismissible=true
+    level="error"
+  %}
+{% endcomment %}

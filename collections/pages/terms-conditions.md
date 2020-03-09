@@ -95,9 +95,9 @@ You warrant and represent that:
   1. You are entitled to post the Comments on our website and have all necessary licenses and consents to
     do so;
   2. The Comments do not infringe any intellectual property right, including without limitation copyright, patent or
-    trademark, or other proprietary right of any third party;</li>
+    trademark, or other proprietary right of any third party;
   3. The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material
-    or material which is an invasion of privacy</li>
+    or material which is an invasion of privacy
   4. The Comments will not be used to solicit or promote business or custom or present commercial activities
     or unlawful activity.
 

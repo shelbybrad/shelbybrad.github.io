@@ -15,13 +15,13 @@ Array.prototype.forEach.call(cards, card => {
 
   if (link && link.href && link.href.length >= 1) {
     card.classList.add('card--hover', 'cursor--pointer');
-  }
 
-  card.onmousedown = () => down = +new Date();
-  card.onmouseup = () => {
-    up = +new Date();
-    if ((up - down) < 200) {
-      link.click();
+    card.onmousedown = () => down = +new Date();
+    card.onmouseup = () => {
+      up = +new Date();
+      if ((up - down) < 200) {
+        link.click();
+      }
     }
   }
 });

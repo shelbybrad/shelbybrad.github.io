@@ -1,0 +1,49 @@
+{% comment %}
+  Components/includes use captures for content and documentation. The 'component' area is the component proper.
+
+  The component is rendered at the end via the 'mode' conditional.
+
+  Please thoroughly document all components.
+{% endcomment %}
+
+{% capture component %}
+  <div class="alert include include--module include--molecule--alert
+    {% if include.classes %}{{ include.classes }}{% endif %}
+    {% if include.dismissible %}js--dismissible{% endif %}
+    {% if include.level %}alert--{{ include.level }}{% else %}alert--status{% endif %}"
+  id="alert--{{ include.children | strip_html | strip_newlines | slugify | truncate: 30 }}" role="alert">
+    {{ include.children }}
+  </div>
+{% endcapture %}
+
+{% capture usage %}
+  ## General guidance
+
+  Alerts let the user know something more important and timely that body text.
+{% endcapture %}
+
+{% capture accessibility %}
+  Just some sample text in the accessibility section for now.
+{% endcapture %}
+
+{% capture props %}
+  children| content of the alert. Can be plain text or markup| Here is some plain text,
+  classes| css classes applied to parent| color--main-dark,
+  dismissible| Whether the alert should have x to close it| true,
+  level| status, warning, or error| warning
+{% endcapture %}
+{% assign classes = "image--polaroid, font-family--secondary" | split: ", " %}
+
+{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% if include.mode == "docblock" %}
+  {% include molecules/docblock.html
+    accessibility=accessibility
+    classes=classes
+    html=component
+    props=props
+    source=include
+    usage=usage
+  %}
+{% else %}
+  {{ component }}
+{% endif %}

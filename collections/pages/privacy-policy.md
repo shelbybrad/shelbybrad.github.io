@@ -81,7 +81,7 @@ We would like to make sure you are fully aware of all of your data protection ri
   * **The right to access** – You have the right to request from us copies of your personal data. We may charge you a small
     fee for this service.
   * **The right to rectification** – You have the right to request that we correct any information you believe is inaccurate.
-    You also have the right to request we complete the information you believe is incomplete.</p>
+    You also have the right to request we complete the information you believe is incomplete.
   * **The right to erasure** – You have the right to request that we erase your personal data, under certain conditions.
   * **The right to restrict processing** – You have the right to request that we restrict the processing of your personal
     data, under certain conditions.
@@ -114,7 +114,7 @@ There are a number of different types of cookies, however, our website uses:
     preferences. These could include what language you prefer and location you are in. A mix of first-party and third-party
     cookies are used.
   * **Analytics** – We use these cookies to collect information about your visit to our website, the content you viewed,
-    the links you followed and information about your browser, device, and your [anonymized] IP address.
+    the links you followed and information about your browser, device, and your_anonymized_ IP address.
 
 ### How to manage cookies
 

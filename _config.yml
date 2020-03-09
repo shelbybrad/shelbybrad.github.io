@@ -179,6 +179,8 @@ css:
       value: "'Engagement'"
     - key: "--line-height--default" # Typography, spacing, and layout
       value: "1.425"
+    - key: "--border-radius--default"
+      value: ".5em"
     - key: "--line-height--heading"
       value: "1"
     - key: "--layout--content-area"
@@ -226,7 +228,7 @@ kramdown:
   input: GFM
   parse_block_html: true
   parse_span_html: false
-  show_warnings: false
+  show_warnings: true
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   toc_levels: [1, 2, 3, 4, 5, 6]
 liquid:

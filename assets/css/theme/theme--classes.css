@@ -30,6 +30,29 @@
 }
 
 /**
+ * Alerts.
+ */
+.alert {
+  border: 1px solid;
+  border-radius: var(--border-radius--default);
+  font-style: italic;
+  margin: 10px 0;
+  padding: 10px;
+}
+.alert--error {
+  background-color: var(--color--error-background);
+  color: var(--color--error);
+}
+.alert--status {
+  background-color: var(--color--status-background);
+  color: var(--color--status);
+}
+.alert--warning {
+  background-color: var(--color--warning-background);
+  color: var(--color--warning);
+}
+
+/**
  * Background images and gradients.
  */
 .background-image--dirt {
@@ -256,6 +279,23 @@
 }
 
 /**
+ * Dismissible elements.
+ */
+.js--dismissible {
+  min-height: 35px; /* Magic number because of the button height below. */
+  padding-right: 45px !important; /* Magic number because of the button width below. */
+  position: relative;
+}
+.js--dismissible--close {
+  color: currentColor;
+  margin: 0;
+  padding: calc(.75 * var(--spacing--single)) calc(1 * var(--spacing--single));
+  position: absolute;
+  right: 0;
+  top: calc(50% - 17.5px);
+}
+
+/**
  * Rudimentary lightbox.
  */
 .js--event--click {
@@ -333,27 +373,6 @@
   .menu-layout--horizontal {
     text-align: center;
   }
-}
-
-/**
- * Messages.
- */
-.messages {
-  font-style: italic;
-  margin: 10px 0;
-  padding: 10px;
-}
-.messages--error {
-  background-color: var(--color--error-background);
-  color: var(--color--error);
-}
-.messages--status {
-  background-color: var(--color--status-background);
-  color: var(--color--status);
-}
-.messages--warning {
-  background-color: var(--color--warning-background);
-  color: var(--color--warning);
 }
 
 /**
