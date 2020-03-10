@@ -205,7 +205,7 @@
 /**
  * Polaroid-style images for the gallery.
  */
-.figure--image--polaroid > img {
+.figure--image--polaroid:not(.js--event--click--toggle) > img {
   border: 1px solid var(--color--grey);
   box-shadow:
     0 0 0 calc(2 * var(--spacing--single)) var(--color--white),
@@ -213,21 +213,23 @@
     calc(2 * var(--spacing--single)) calc(6 * var(--spacing--single)) calc(2 * var(--spacing--single)) 0 rgba(0,0,0,.5)
   ;
 }
-.figure--image--polaroid > figcaption {
+.figure--image--polaroid:not(.js--event--click--toggle) > figcaption {
   background-color: var(--color--white);
   color: var(--color--grey-dark);
 }
-.figure--image--polaroid:nth-of-type(3n + 1) {
-  transform: rotate(-3deg);
-}
-.figure--image--polaroid:nth-of-type(3n + 1) > figcaption {
-  color: var(--color--main-dark);
-}
-.figure--image--polaroid:nth-of-type(3n + 2) {
-  transform: rotate(3deg);
-}
-.figure--image--polaroid:nth-of-type(3n + 2) > figcaption {
-  color: var(--color--accent);
+@media all and (min-width: 1024px) {
+  .figure--image--polaroid:not(.js--event--click--toggle):nth-of-type(3n + 1) {
+    transform: rotate(-3deg);
+  }
+  .figure--image--polaroid:not(.js--event--click--toggle):nth-of-type(3n + 1) > figcaption {
+    color: var(--color--main-dark);
+  }
+  .figure--image--polaroid:not(.js--event--click--toggle):nth-of-type(3n + 2) {
+    transform: rotate(3deg);
+  }
+  .figure--image--polaroid:not(.js--event--click--toggle):nth-of-type(3n + 2) > figcaption {
+    color: var(--color--accent);
+  }
 }
 
 /**
@@ -290,6 +292,7 @@
   display: block;
   left: calc(2 * var(--spacing--single));
   max-width: none !important;
+  overflow: hidden;
   position: fixed;
   right: calc(2 * var(--spacing--single));
   top: calc(2 * var(--spacing--single));
@@ -305,6 +308,11 @@
   right: 0;
   top: 0;
   z-index: -2;
+}
+.js--event--click--toggle.click--lightbox img {
+  margin: auto auto;
+  max-height: calc(100vh - (8 * var(--spacing--single)));
+  width: auto;
 }
 .js--event--click--toggle.click--lightbox:not(.figure--image--polaroid) > figcaption {
   color: var(--color--white);

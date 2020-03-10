@@ -16,8 +16,6 @@ meta:
 #  title: "Overrides the tab title and social titles"
 #permalink: /people/shelby-hassell/
 #published: true
-sections:
-  - cta
 #sitemap: true
 short_name: shelby
 #tags: ["three", "four"]
@@ -27,6 +25,16 @@ twitter:
 weight: 4
 ---
 
-## Section after hero on Shelby's page
+<section class="layout--stripe background-color--white">
+  <div class="layout--stripe--inner">
+    {% include atoms/heading.html
+      children="Optimistic about components working..."
+      classes="text-shadow--second-light--solid"
+      level="2"
+    %}
 
-Fancy!
+    {% include atoms/spacer.html size="4" %}
+
+    <p>Here is some information.</p>
+  </div>
+</section>

@@ -8,7 +8,7 @@ from: "Troy, Michigan, USA"
 #hero_classes: "background-color--main-dark color--white"
 job_title: "Flower girl"
 meta:
-  description: "Mother, admin worker, empath"
+  description: "Star pupil, aspiring rocket-airplane-dinosaur teacher"
   image:
     alt: "Ellie Hassell"
     src: 1200x630/ellie-hassell.jpg
@@ -16,8 +16,6 @@ meta:
 #  title: "Overrides the tab title and social titles"
 #permalink: /people/shelby-hassell/
 #published: true
-sections:
-  - cta
 #sitemap: true
 short_name: shelby
 #tags: ["three", "four"]
@@ -27,6 +25,16 @@ twitter:
 weight: 3
 ---
 
-## Section after hero on Shelby's page
+<section class="layout--stripe background-color--white">
+  <div class="layout--stripe--inner">
+    {% include atoms/heading.html
+      children="About Ellie"
+      classes="text-shadow--second-light--solid"
+      level="2"
+    %}
 
-Fancy!
+    {% include atoms/spacer.html size="4" %}
+
+    <p>Here is some information.</p>
+  </div>
+</section>
