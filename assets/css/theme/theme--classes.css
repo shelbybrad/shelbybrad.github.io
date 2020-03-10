@@ -83,7 +83,7 @@
     box-shadow: 0 2px 6px rgba(136, 165, 191, 0.9);
     position: sticky;
     top: 0;
-    transition: all .3s ease-in;
+    transition: var(--transition--default);
     z-index: 9999;
   }
 }
@@ -147,7 +147,7 @@
     -8px -4px 8px rgba(248,248,248,.5)
   ;
   text-shadow: 0 0 2px rgba(0,0,0,.325);
-  transition: all .3s ease-in;
+  transition: var(--transition--default);
 }
 .card figure {
   border-top-left-radius: .45em;
@@ -248,7 +248,7 @@
     -4px -2px 4px rgba(255,255,255,1)
   ;
   cursor: pointer;
-  transition: all .3s ease-in;
+  transition: var(--transition--default);
 }
 .form--item--radio:hover,
 .form--item--radio:active,
@@ -283,7 +283,7 @@
  */
 .js--event--click {
   cursor: pointer;
-  transition: all .3s ease-in;
+  transition: var(--transition--default);
 }
 .js--event--click--toggle.click--lightbox {
   bottom: calc(2 * var(--spacing--single));
@@ -356,7 +356,10 @@
   max-width: calc(var(--layout--content-area) / 5);
   padding: calc(2 * var(--spacing--single)) calc(2 * var(--spacing--single));
 }
-.color--white .menu-item > a:hover {
+.color--white .menu-item > a:hover,
+.color--white .menu-item > a:active,
+.color--white .menu-item > a.active,
+.color--white .menu-item > a:focus {
   background-color: var(--color--second);
   text-decoration: underline;
 }
@@ -367,41 +370,12 @@
 }
 
 /**
- * Dismissable messages.
- */
-.messages[id] {
-  padding: 10px 30px 10px 10px;
-  position: relative;
-}
-.messages[id] button {
-  background: none;
-  color: inherit;
-  font-weight: bold;
-  margin: 0;
-  padding: 5px;
-  position: absolute;
-  right: 5px;
-  top: 50%;
-  top: -webkit-calc(50% - 14px);
-  top: -moz-calc(50% - 14px);
-  top: calc(50% - 14px);
-  -webkit-transition: all .3s ease-in;
-  -o-transition: all .3s ease-in;
-  -moz-transition: all .3s ease-in;
-  transition: all .3s ease-in;
-}
-.messages[id] button:hover,
-.messages[id] button:active {
-  background: rgba(255,255,255,.5);
-}
-
-/**
  * Initial "top" state for the main nav, to allow for transitions via body-scroll--
  */
 .nav--main {
   position: static;
   top: -300px;
-  transition: all .3s ease-in;
+  transition: var(--transition--default);
 }
 
 /**
@@ -469,6 +443,13 @@
 }
 
 /**
+ * Social links.
+ */
+.social a {
+  display: block;
+}
+
+/**
  * A "street sign", tripe-D style.
  *
  * Base class applies to children. Each child pads down, and base element is bottom padded quite a lot.
@@ -523,7 +504,7 @@
   margin: 0 auto calc(3 * var(--spacing--single));
   padding: calc(1 * var(--spacing--single));
   position: relative;
-  transition: all .3s ease-in;
+  transition: var(--transition--default);
   z-index: 4;
 }
 .street-sign > :first-child {

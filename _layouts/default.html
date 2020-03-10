@@ -119,11 +119,12 @@ layout: compress
     itemscope itemtype="http://schema.org/{% if page.schema.type %}{{ page.schema.type }}{% else %}{{ site.schema.type }}{% endif %}">
     {% include head/ie-upgrade-warning.html %}
     {% include head/a11y--skip-hide.html %}
-    {% include organisms/section.html
-      mode="ref"
-      slug="alerts"
-    %}
-    {% include head/gdpr--cookie-disclosure.html %}
+    {% if page.front %}
+      {% include organisms/section.html
+        mode="ref"
+        slug="alerts"
+      %}
+    {% endif %}
     {% if page.front %}{% include organisms/header--pre.html %}{% endif %}
     {% include organisms/header.html %}
     {% include organisms/nav.html %}
@@ -188,6 +189,7 @@ layout: compress
 
     {% include organisms/footer.html %}
     {% include organisms/copyright.html %}
+    {% include head/gdpr--cookie-disclosure.html %}
 
     {% if site.gaid %}{% include head/analytics.html %}{% endif %}
     <script async defer src="{{ site.subpath }}/assets/js/behavior.js"></script>

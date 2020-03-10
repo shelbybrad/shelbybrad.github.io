@@ -195,6 +195,8 @@ css:
       value: "1080px"
     - key: "--spacing--single"
       value: "0.625rem"
+    - key: "--transition--default"
+      value: "all .3s ease-in"
 
 ## Content license (comment out to disable entirely)
 content_license:
