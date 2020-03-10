@@ -8,13 +8,14 @@
  * Set a single mutation observer on the body, and let other code subscribe to
  * it by pushing a window-context function name to the registry.
  *
- * The observer has slightly better performance by ignoring Old state.
+ * The observer has slightly better performance by ignoring Old state. We also
+ * forbid mutations to the body.
  */
 let mutationCallbackRegistry = [];
 if ("MutationObserver" in window) {
   var mutationObserver = new MutationObserver(function (mutations) {
     mutations.forEach(function (mutation) {
-      if (mutationCallbackRegistry.length) {
+      if (mutation.target !== document.body && mutationCallbackRegistry.length) {
         mutationCallbackRegistry.forEach((registrant) => {
           if (mutation.type
             && (mutation.type === "attributes" || mutation.type === "childList")
@@ -35,6 +36,7 @@ if ("MutationObserver" in window) {
 
             if (elems.length) {
               Array.prototype.forEach.call(elems, (elem) => {
+                elem.classList.add(registrant.jsClass + '--initialized');
                 window[registrant.initializationFunction].apply(elem, [mutation.type]);
               });
             }

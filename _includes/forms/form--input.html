@@ -1,0 +1,62 @@
+{% comment %}
+  Components/includes use captures for content and documentation. The 'component' area is the component proper.
+
+  The component is rendered at the end via the 'mode' conditional.
+
+  Please thoroughly document all components.
+
+  @todo min, max, placeholder, step (not readonly because that's bad. Not checked because checks and radios will be their
+   own components).
+{% endcomment %}
+
+{% capture component %}
+  <div class="form--item form--item--input form--item--input--{{ include.type }} {% if include.classes %}{{ include.classes }}{% endif %}">
+    <label for="{{ include.name }}">
+      {{ include.label }}
+      {% if include.required %}
+        <sup class="form--item--required" aria-hidden="true">*</sup>
+        <span class="a11y--visually-hidden">required</span>
+      {% endif %}
+    </label>
+    <input name="{{ include.name }}" id="{{ include.name }}" type="{{ include.type }}"
+      {% if include.description %}aria-describedby="{{ include.name }}--description" {% endif %}
+      {% if include.required %}required{% endif %}
+    />
+    {% if include.description %}
+      <p class="form--item--description" id="{{ include.name }}--description">{{ include.description }}</p>
+    {% endif %}
+  </div>
+{% endcapture %}
+
+{% capture usage %}
+  ## General guidance
+
+  Images are visual representations.
+{% endcapture %}
+
+{% capture accessibility %}
+  Just some sample text in the accessibility section for now.
+{% endcapture %}
+
+{% capture props %}
+  alt| appropriate alt text| A circus clown,
+  caption| an optional caption| We saw this guy at the circus,
+  classes| css classes applied to parent| color--main-dark,
+  link_url| an optional link to wrap it| http://www.google.com,
+  src| the filename/subpath of the image in /assets/images/| circus-clown.jpg
+{% endcapture %}
+{% assign classes = "image--polaroid, font-family--secondary" | split: ", " %}
+
+{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% if include.mode == "docblock" %}
+  {% include molecules/docblock.html
+    accessibility=accessibility
+    classes=classes
+    html=component
+    props=props
+    source=include
+    usage=usage
+  %}
+{% else %}
+  {{ component }}
+{% endif %}

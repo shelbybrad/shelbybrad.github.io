@@ -25,19 +25,19 @@
 {% endif %}
 
 {% capture component %}
-  <form method="POST" action="{{ action }}"
+  <form method="POST" action="{{ action }}" enctype="multipart/form-data"
     class="form include include--organism include--organism--form
     {% if include.classes %}{{ include.classes }}{% endif %}">
     <input type="text" name="_honey" class="display--none" />
     <input type="hidden" name="_next" value="{{ thank_you }}" />
     <input type="hidden" name="_template" value="box" />
-    <input type="hidden" name="_subject" value="[{{ site.url }}] {{ include.title }}" />
+    <input type="hidden" name="_subject" value="[{{ site.title }}] {{ include.title }}" />
 
     {{ include.children }}
 
     <div class="form--actions {% if include.action_classes %}{{ include.action_classes }}{% endif %}">
       <button class="form--button form--button--submit form--actions--button form--actions--button--submit" type="submit">{{ submit }}</button>
-      <button class="form--button form--button--reset form--actions--button form--actions--button--reset" type="reset">Reset</button>
+      <button class="form--button form--button--reset form--actions--button form--actions--button--reset a11y--visually-hidden" type="reset">Reset</button>
     </div>
   </form>
 {% endcapture %}

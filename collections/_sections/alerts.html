@@ -35,3 +35,10 @@ title_classes: "a11y--visually-hidden"
     level="error"
   %}
 {% endcomment %}
+
+{% include molecules/alert.html
+  children="<p><strong>Ermahgerd!</strong> Have you <a href='/rsvp/'>RSVPed</a> yet?</p>"
+  classes=""
+  dismissible=true
+  level="warning"
+%}

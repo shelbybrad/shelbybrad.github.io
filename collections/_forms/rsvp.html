@@ -4,7 +4,7 @@ actions_classes: "display--flex"
 authors:
   - brad-czerniak
 #categories: ["one", "two"]
-classes: "background-color--second-light"
+classes: ""
 #date: 2020-03-03 02:02:02
 excerpt: "RSVP Form"
 #published: true
@@ -16,3 +16,26 @@ title_classes: "a11y--visually-hidden"
 ---
 
 <p>Here is some text inside a form.</p>
+
+<fieldset>
+  <legend>Attendee info</legend>
+
+  {% include forms/form--input.html
+    classes=""
+    description=false
+    label="Full name"
+    name="fullname"
+    required=false
+    type="text"
+  %}
+
+  {% include forms/form--input.html
+    classes=""
+    description="The email address you want us contacting you at"
+    label="Email"
+    name="email"
+    required=true
+    type="email"
+  %}
+</fieldset>
+<button class="js--copy-above" type="button">Add another</button>

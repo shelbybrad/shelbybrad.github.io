@@ -259,7 +259,7 @@ collections:
     permalink: /docs/:path/
   events:
     output: true
-    permalink: /events//:year/:month/:title/
+    permalink: /events/:year/:month/:title/
   forms:
     output: false
     permalink: /:title/

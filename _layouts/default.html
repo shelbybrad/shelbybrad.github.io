@@ -115,7 +115,8 @@ layout: compress
     <link rel="alternate" type="application/rss+xml" href="/rss/blog/" title="Blog feed" />
     <link rel="alternate" type="application/rss+xml" href="/rss/events/" title="Events feed" />
   </head>
-  <body class="page-{{ page.url | slugify }}" itemscope itemtype="http://schema.org/{% if page.schema.type %}{{ page.schema.type }}{% else %}{{ site.schema.type }}{% endif %}">
+  <body class="page--{% if page.front %}front{% else %}{{ page.url | slugify }}{% endif %}"
+    itemscope itemtype="http://schema.org/{% if page.schema.type %}{{ page.schema.type }}{% else %}{{ site.schema.type }}{% endif %}">
     {% include head/ie-upgrade-warning.html %}
     {% include head/a11y--skip-hide.html %}
     {% include organisms/section.html
@@ -123,6 +124,7 @@ layout: compress
       slug="alerts"
     %}
     {% include head/gdpr--cookie-disclosure.html %}
+    {% if page.front %}{% include organisms/header--pre.html %}{% endif %}
     {% include organisms/header.html %}
     {% include organisms/nav.html %}
 
@@ -132,7 +134,7 @@ layout: compress
         {% if page.hero_classes %}
           {% assign hero_classes = page.hero_classes %}
         {% else %}
-          {% capture hero_classes %}background-color--main background-image--stars color--white text-align--center background-image-display-mobile--hide{% endcapture %}
+          {% capture hero_classes %}background-color--main background-image--affectation color--white text-align--center background-image-display-mobile--hide{% endcapture %}
         {% endif %}
 
         {% comment %}Demonstration of nesting components using capture. Seems excessive.{% endcomment %}

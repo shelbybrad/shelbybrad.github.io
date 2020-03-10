@@ -55,6 +55,11 @@
 /**
  * Background images and gradients.
  */
+.background-image--affectation {
+  background-image: url('../images/required/bg--affectation.svg');
+  background-position: top right;
+  background-repeat: no-repeat;
+}
 .background-image--dirt {
   background-image: url('../images/bg-dirt.png');
   background-position: center center;
@@ -68,15 +73,19 @@
     transparent 0 7deg
   );
 }
-.background-image--star {
-  background-image: url('../images/star.svg');
-  background-position: top right;
-  background-repeat: no-repeat;
-}
-.background-image--stars {
-  background-image: url('../images/stars.svg');
-  background-position: top right;
-  background-repeat: no-repeat;
+
+/**
+ * Effects based on scroll.
+ */
+.body-scroll--up {}
+@media all and (min-width: 1024px) {
+  .body-scroll--up .nav--main {
+    box-shadow: 0 2px 6px rgba(136, 165, 191, 0.9);
+    position: sticky;
+    top: 0;
+    transition: all .3s ease-in;
+    z-index: 9999;
+  }
 }
 
 /**
@@ -180,55 +189,6 @@
 }
 
 /**
- * Sticky main header for the site.
- */
-@media all and (min-width: 1024px) {
-  .headroom {
-    left: 0;
-    position: fixed;
-    right: 0;
-    -webkit-transition: all .3s ease-in;
-    -o-transition: all .3s ease-in;
-    -moz-transition: all .3s ease-in;
-    transition: all .3s ease-in;
-    will-change: transform;
-    z-index: 100;
-  }
-  .headroom--pinned {
-    -webkit-transform: translateY(0%);
-    -moz-transform: translateY(0%);
-    -ms-transform: translateY(0%);
-    -o-transform: translateY(0%);
-    transform: translateY(0%);
-  }
-  .headroom--unpinned {
-    -webkit-transform: translateY(-100%);
-    -moz-transform: translateY(-100%);
-    -ms-transform: translateY(-100%);
-    -o-transform: translateY(-100%);
-    transform: translateY(-100%);
-  }
-}
-.headroom--not-top .region--overhang {
-  background-color: var(--color--grey-light);
-}
-
-/**
- * Clickable card hover states.
- */
-.hover--bg {
-  -webkit-transition: all .3s ease-in;
-  -o-transition: all .3s ease-in;
-  -moz-transition: all .3s ease-in;
-  transition: all .3s ease-in;
-}
-.hover--bg:hover,
-.hover--bg:active,
-.hover--bg:focus {
-  /* Potentially add a hover style. */
-}
-
-/**
  * Icons.
  *
  * By default set icon wrappers to a character wide and hight.
@@ -268,21 +228,6 @@
 }
 .figure--image--polaroid:nth-of-type(3n + 2) > figcaption {
   color: var(--color--accent);
-}
-
-/**
- * Trigger animated visibility.
- */
-.js .animateOnScroll {}
-.js .revealOnScroll {
-  opacity: 0;
-}
-.js .revealOnScroll.animated {
-  opacity: 1;
-  -webkit-animation-duration: 2s;
-  -moz-animation-duration: 2s;
-  -o-animation-duration: 2s;
-  animation-duration: 2s;
 }
 
 /**
@@ -418,7 +363,14 @@
   background: rgba(255,255,255,.5);
 }
 
-
+/**
+ * Initial "top" state for the main nav, to allow for transitions via body-scroll--
+ */
+.nav--main {
+  position: static;
+  top: -300px;
+  transition: all .3s ease-in;
+}
 
 /**
  * Core pagers.

@@ -6,7 +6,7 @@
 /**
  * Accessibly hide elements.
  */
-.a11y--visually-hidden {
+.a11y--visually-hidden:not(:focus-within) {
   clip: rect(1px,1px,1px,1px);
   height: 1px;
   overflow: hidden;
