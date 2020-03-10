@@ -79,12 +79,11 @@ manifest_webmanifest:
   theme_color: "#003f80"
 
 ## JAMstack form handler globals
-forms:
+form_components:
+  handler_url: "https://formsubmit.co"
+  honeypot_name: "_honey"
+  thankyou_name: "_next"
   default_submit: "Send" # or "Submit"
-  handler:
-    base_url: "https://formsubmit.co"
-    honeypot_name: "_honey"
-    thankyou_name: "_next"
 
 ## Social links
 social:

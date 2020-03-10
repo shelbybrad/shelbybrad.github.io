@@ -9,7 +9,7 @@
 {% if include.action %}
   {% assign action = include.action %}
 {% else %}
-  {% capture action %}{{ site.forms.handler.base_url }}/{{ site.email }}{% endcapture %}
+  {% capture action %}{{ site.form_components.handler_url }}/{{ site.email }}{% endcapture %}
 {% endif %}
 
 {% if include.thank_you %}
@@ -21,15 +21,15 @@
 {% if include.submit %}
   {% assign submit = include.submit %}
 {% else %}
-  {% assign submit = site.forms.default_submit %}
+  {% assign submit = site.form_components.default_submit %}
 {% endif %}
 
 {% capture component %}
   <form method="POST" action="{{ action }}" enctype="multipart/form-data"
     class="form include include--organism include--organism--form
     {% if include.classes %}{{ include.classes }}{% endif %}">
-    <input type="text" name="{{ site.forms.handler.honeypot_name }}" class="display--none" />
-    <input type="hidden" name="{{ site.forms.handler.thankyou_name }}" value="{{ thank_you }}" />
+    <input type="text" name="{{ site.form_components.honeypot_name }}" class="display--none" />
+    <input type="hidden" name="{{ site.form_components.thankyou_name }}" value="{{ thank_you }}" />
     <input type="hidden" name="_template" value="box" />
     <input type="hidden" name="_subject" value="[{{ site.title }}] {{ include.title }}" />
 
