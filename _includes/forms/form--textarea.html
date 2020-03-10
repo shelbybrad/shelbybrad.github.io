@@ -10,7 +10,7 @@
 {% endcomment %}
 
 {% capture component %}
-  <div class="form--item form--item--input form--item--input--{{ include.type }} {% if include.classes %}{{ include.classes }}{% endif %}">
+  <div class="form--item form--item--textarea {% if include.classes %}{{ include.classes }}{% endif %}">
     <label class="label form--item--label display--block font-size--p75em" for="{{ include.name }}">
       {{ include.label }}
       {% if include.required %}
@@ -18,10 +18,10 @@
         <span class="a11y--visually-hidden">required</span>
       {% endif %}
     </label>
-    <input name="{{ include.name }}" id="{{ include.name }}" type="{{ include.type }}"
+    <textarea name="{{ include.name }}" id="{{ include.name }}" rows="{{ include.rows }}"
       {% if include.description %}aria-describedby="{{ include.name }}--description" {% endif %}
       {% if include.required %}required{% endif %}
-    />
+    ></textarea>
     {% if include.description %}
       <p class="form--item--description" id="{{ include.name }}--description">{{ include.description }}</p>
     {% endif %}

@@ -1,6 +1,6 @@
 ---
 action: false # "https://formspree.io/name@example.com"
-actions_classes: "display--flex"
+actions_classes: "display--flex justify-content--center"
 authors:
   - brad-czerniak
 #categories: ["one", "two"]
@@ -15,10 +15,44 @@ title: "RSVP Form"
 title_classes: "a11y--visually-hidden"
 ---
 
-<p>Here is some text inside a form.</p>
+<fieldset name="party">
+  <legend>Your party</legend>
 
-<fieldset>
-  <legend>Attendee info</legend>
+  {% include forms/form--input.html
+    classes=""
+    description=false
+    label="Primary email"
+    name="email"
+    required=true
+    type="email"
+  %}
+
+  {% include forms/form--yes-no.html
+    classes=""
+    default=false
+    description="Will you attend the wedding reception dinner on October 9, 2020?"
+    label="Répondez s'il vous plaît"
+    label_off="With regret"
+    label_on="Looking forward to it!"
+    name="rsvp"
+    required=false
+  %}
+
+  {% include forms/form--yes-no.html
+    classes=""
+    default=false
+    description="We are thinking of going to brunch the next morning. Would you be in for that?"
+    label="Interested in brunch?"
+    label_off="Nah"
+    label_on="You had me at 'brunch'"
+    name="brunch"
+    required=false
+  %}
+
+</fieldset>
+
+<fieldset name="attendee">
+  <legend>Attendee</legend>
 
   {% include forms/form--input.html
     classes=""
@@ -29,13 +63,15 @@ title_classes: "a11y--visually-hidden"
     type="text"
   %}
 
-  {% include forms/form--input.html
-    classes=""
-    description="The email address you want us contacting you at"
-    label="Email"
-    name="email"
-    required=true
-    type="email"
-  %}
 </fieldset>
-<button class="js--copy-above" type="button">Add another</button>
+<button class="js--copy-above" type="button">+ Add person</button>
+
+{% include atoms/spacer.html size="2" %}
+{% include forms/form--textarea.html
+  classes=""
+  description="Questions, dietary info, well-wishes, <em>your single greatest piece of advice besides wash-your-hands and wear-sunscreen</em>."
+  label="Commentary"
+  name="comment"
+  required=false
+  rows="4"
+%}

@@ -1,0 +1,91 @@
+{% comment %}
+  Components/includes use captures for content and documentation. The 'component' area is the component proper.
+
+  The component is rendered at the end via the 'mode' conditional.
+
+  Please thoroughly document all components.
+
+  @todo inputmode, min, max, placeholder, step (not readonly because that's bad. Not checked because checks and radios will be their
+   own components).
+{% endcomment %}
+
+{% capture component %}
+  <fieldset class="fieldset form--fieldset form--fieldset--yes-no">
+    <legend>{{ include.label }}</legend>
+
+    <div class="layout--row display--flex flex-direction--row justify-content--space-around">
+      <div class="form--item form--item--radio flex--0 padding-horizontal--4
+        {% if include.classes %}{{ include.classes }}{% endif %}">
+        <input type="radio" name="{{ include.name }}" id="{{ include.name }}--on"
+          {% if include.description %}aria-describedby="{{ include.name }}--description" {% endif %}
+          {% if include.default == "on" %}checked{% endif %}
+          value="Yes"
+        />
+        <label class="label form--item--label display--inline-block font-size--p75em" for="{{ include.name }}--on">
+          {{ include.label_on }}
+          {% if include.required %}
+            <sup class="form--item--required" aria-hidden="true">*</sup>
+            <span class="a11y--visually-hidden">required</span>
+          {% endif %}
+        </label>
+      </div>
+
+      <div class="form--item form--item--radio flex--0 padding-horizontal--4
+        {% if include.classes %}{{ include.classes }}{% endif %}">
+        <input type="radio" name="{{ include.name }}" id="{{ include.name }}--off"
+          {% if include.description %}aria-describedby="{{ include.name }}--description" {% endif %}
+          {% if include.default == "off" %}checked{% endif %}
+          value="No"
+        />
+        <label class="label form--item--label display--inline-block font-size--p75em" for="{{ include.name }}--off">
+          {{ include.label_off }}
+          {% if include.required %}
+            <sup class="form--item--required" aria-hidden="true">*</sup>
+            <span class="a11y--visually-hidden">required</span>
+          {% endif %}
+        </label>
+      </div>
+    </div>
+
+    <div class="text-align--center margin-vertical--2">
+      <div>
+        {% if include.description %}
+          <p class="form--item--description" id="{{ include.name }}--description">{{ include.description }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </fieldset>
+{% endcapture %}
+
+{% capture usage %}
+  ## General guidance
+
+  Images are visual representations.
+{% endcapture %}
+
+{% capture accessibility %}
+  Just some sample text in the accessibility section for now.
+{% endcapture %}
+
+{% capture props %}
+  alt| appropriate alt text| A circus clown,
+  caption| an optional caption| We saw this guy at the circus,
+  classes| css classes applied to parent| color--main-dark,
+  link_url| an optional link to wrap it| http://www.google.com,
+  src| the filename/subpath of the image in /assets/images/| circus-clown.jpg
+{% endcapture %}
+{% assign classes = "image--polaroid, font-family--secondary" | split: ", " %}
+
+{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% if include.mode == "docblock" %}
+  {% include molecules/docblock.html
+    accessibility=accessibility
+    classes=classes
+    html=component
+    props=props
+    source=include
+    usage=usage
+  %}
+{% else %}
+  {{ component }}
+{% endif %}

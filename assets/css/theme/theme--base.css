@@ -628,6 +628,22 @@ video {
 
 /********************************** FORMS *************************************/
 
+form {}
+fieldset {
+  background-color: rgba(255,255,255,.5);
+  border: 1px solid var(--color--grey);
+  border-radius: var(--border-radius--default);
+  margin: calc(2 * var(--spacing--single)) 0;
+  padding: calc(1 * var(--spacing--single)) calc(2 * var(--spacing--single)) calc(2 * var(--spacing--single));
+}
+legend {
+  font-size: .625em;
+  font-weight: 900;
+  line-height: 1;
+  padding: 0 calc(2 * var(--spacing--single));
+  text-align: center;
+}
+
 /**
  * Input elements, general styling.
  */
@@ -675,14 +691,29 @@ textarea {
     max-width: 280px;
   }
 }
+@media all and (min-width: 671px) {
+  input:not([type]),
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="url"],
+  input[size],
+  select {
+    max-width: 415px;
+    width: 100%;
+  }
+
+  textarea:not([cols]) {
+    max-width: 700px; /* Arbitrary, but about right. */
+    width: 100%;
+  }
+}
 button,
 input {
   line-height: 1;
-}
-input[size],
-select {
-  max-width: 415px;
-  width: 100%;
 }
 textarea {
   max-height: inherit;
@@ -746,6 +777,9 @@ button[disabled] {
 input[type="checkbox"],
 input[type="radio"] {
   cursor: pointer;
+}
+input:checked + label {
+  font-weight: 900;
 }
 
 input[type="file"] {

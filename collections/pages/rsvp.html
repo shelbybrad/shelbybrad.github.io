@@ -31,11 +31,24 @@ title: "RSVP"
   <div class="layout--stripe--inner">
     <p>Please let us know if you can make it.</p>
 
-    {% include atoms/spacer.html size="4" %}
+    {% include atoms/spacer.html size="2" %}
 
-    {% include organisms/form.html
-      mode="ref"
-      slug="rsvp"
-    %}
+    <div class="layout--row display--flex">
+      <aside class="layout--column flex--2 display--flex flex-direction--column justify-content--flex-start">
+        {% include organisms/form.html
+          mode="ref"
+          slug="rsvp"
+        %}
+      </aside>
+      <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
+        padding-horizontal--8 padding-horizontal--collapse">
+        {% include atoms/image.html
+          src="download_20191130_095212.jpg"
+          alt="One big happy family"
+          caption="Can't wait to see you!"
+          classes="text-align--center"
+        %}
+      </aside>
+    </div>
   </div>
 </section>

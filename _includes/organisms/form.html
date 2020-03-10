@@ -9,7 +9,7 @@
 {% if include.action %}
   {% assign action = include.action %}
 {% else %}
-  {% capture action %}https://formsubmit.co/{{ site.email }}{% endcapture %}
+  {% capture action %}{{ site.forms.handler.base_url }}/{{ site.email }}{% endcapture %}
 {% endif %}
 
 {% if include.thank_you %}
@@ -21,21 +21,21 @@
 {% if include.submit %}
   {% assign submit = include.submit %}
 {% else %}
-  {% assign submit = "Send" %}
+  {% assign submit = site.forms.default_submit %}
 {% endif %}
 
 {% capture component %}
   <form method="POST" action="{{ action }}" enctype="multipart/form-data"
     class="form include include--organism include--organism--form
     {% if include.classes %}{{ include.classes }}{% endif %}">
-    <input type="text" name="_honey" class="display--none" />
-    <input type="hidden" name="_next" value="{{ thank_you }}" />
+    <input type="text" name="{{ site.forms.handler.honeypot_name }}" class="display--none" />
+    <input type="hidden" name="{{ site.forms.handler.thankyou_name }}" value="{{ thank_you }}" />
     <input type="hidden" name="_template" value="box" />
     <input type="hidden" name="_subject" value="[{{ site.title }}] {{ include.title }}" />
 
     {{ include.children }}
 
-    <div class="form--actions {% if include.action_classes %}{{ include.action_classes }}{% endif %}">
+    <div class="form--actions {% if include.actions_classes %}{{ include.actions_classes }}{% endif %}">
       <button class="form--button form--button--submit form--actions--button form--actions--button--submit" type="submit">{{ submit }}</button>
       <button class="form--button form--button--reset form--actions--button form--actions--button--reset a11y--visually-hidden" type="reset">Reset</button>
     </div>
