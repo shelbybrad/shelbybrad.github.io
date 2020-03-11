@@ -18,11 +18,21 @@
   {% endfor %}
 }
 
+/**
+ * Note: Presently you can only scope to tags and classes, or some combination of those.
+ *
+ * Double-underscores become spaces, single underscores become periods, with double-underscores evaluated first.
+ *
+ * Example:
+ * This file: _data/design-tokens/scoped/div__a_street-sign___font-family--secondary.json
+ * Places all its custom properties in the following scope: div a.street-sign .font-family--secondary
+ */
+ */
 {% for scope in site.data.design-tokens %}
   {% assign scopename = scope[0] %}
   {% unless scopename == "root" %}
     {% for file in site.data.design-tokens[scopename] %}
-      {{ file[0] | replace: "_", "." }} {
+      {{ file[0] | replace: "__", " " | replace: "_", "." }} {
         {% for property in file[1] %}
           {% include head/design-token-nest.html property=property %}
         {% endfor %}
