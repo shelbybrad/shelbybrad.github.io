@@ -6,9 +6,20 @@
 {% include_relative font-face.css %}
 
 /**
-* CSS Custom properties for colors and other variables.
-*/
-
+ * CSS Custom properties for colors and other variables.
+ *
+ * Based on the design tokens specified in _data/design-tokens/
+ */
+:root {
+  {% for scope in site.data.design-tokens %}
+    {% assign scopename = scope[0] %}
+    {% for file in site.data.design-tokens[scopename] %}
+      {% for property in file[1] %}
+        {% include head/design-token-nest.html property=property %}
+      {% endfor %}
+    {% endfor %}
+  {% endfor %}
+}
 
 {% include_relative theme/theme--base.css %}
 
