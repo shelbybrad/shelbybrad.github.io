@@ -11,15 +11,26 @@
  * Based on the design tokens specified in _data/design-tokens/
  */
 :root {
-  {% for scope in site.data.design-tokens %}
-    {% assign scopename = scope[0] %}
-    {% for file in site.data.design-tokens[scopename] %}
-      {% for property in file[1] %}
-        {% include head/design-token-nest.html property=property %}
-      {% endfor %}
+  {% for file in site.data.design-tokens.root %}
+    {% for property in file[1] %}
+      {% include head/design-token-nest.html property=property %}
     {% endfor %}
   {% endfor %}
 }
+
+{% for scope in site.data.design-tokens %}
+  {% assign scopename = scope[0] %}
+  {% unless scopename == "root" %}
+    {% for file in site.data.design-tokens[scopename] %}
+      {{ file[0] | replace: "_", "." }} {
+        {% for property in file[1] %}
+          {% include head/design-token-nest.html property=property %}
+        {% endfor %}
+      }
+    {% endfor %}
+  {% endunless %}
+{% endfor %}
+
 
 {% include_relative theme/theme--base.css %}
 
