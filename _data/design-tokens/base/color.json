@@ -1,0 +1,151 @@
+{
+  "color": {
+    "black": {
+      "category": "Monochrome",
+      "description": "Black or near-black, typically used for body text against a white background.",
+      "type": "color",
+      "value": "#000",
+      "instance": "black"
+    },
+    "grey-dark": {
+      "category": "Monochrome",
+      "description": "",
+      "type": "color",
+      "value": "#555",
+      "instance": "grey-dark"
+    },
+    "grey": {
+      "category": "Monochrome",
+      "description": "",
+      "type": "color",
+      "value": "#999",
+      "instance": "grey"
+    },
+    "grey-light": {
+      "category": "Monochrome",
+      "description": "",
+      "type": "color",
+      "value": "#eee",
+      "instance": "grey-light"
+    },
+    "white": {
+      "category": "Monochrome",
+      "description": "",
+      "type": "color",
+      "value": "#fff",
+      "instance": "white"
+    },
+    "main": {
+      "category": "Theme",
+      "description": "",
+      "type": "color",
+      "value": "#4074a0",
+      "instance": "main"
+    },
+    "main-dark": {
+      "category": "Theme",
+      "description": "",
+      "type": "color",
+      "value": "#1d3141",
+      "instance": "main-dark"
+    },
+    "main-light": {
+      "category": "Theme",
+      "description": "",
+      "type": "color",
+      "value": "#74c2ff",
+      "instance": "main-light"
+    },
+    "second": {
+      "category": "Theme",
+      "description": "",
+      "type": "color",
+      "value": "#a0781f",
+      "instance": "second"
+    },
+    "second-dark": {
+      "category": "Theme",
+      "description": "",
+      "type": "color",
+      "value": "#41201c",
+      "instance": "second-dark"
+    },
+    "second-light": {
+      "category": "Theme",
+      "description": "",
+      "type": "color",
+      "value": "#ffc227",
+      "instance": "second-light"
+    },
+    "third": {
+      "category": "Theme",
+      "description": "",
+      "type": "color",
+      "value": "#73a040",
+      "instance": "third"
+    },
+    "third-dark": {
+      "category": "Theme",
+      "description": "",
+      "type": "color",
+      "value": "#204120",
+      "instance": "third-dark"
+    },
+    "third-light": {
+      "category": "Theme",
+      "description": "",
+      "type": "color",
+      "value": "#b7ff61",
+      "instance": "third-light"
+    },
+    "accent": {
+      "category": "Theme",
+      "description": "",
+      "type": "color",
+      "value": "#6d40a0",
+      "instance": "accent"
+    },
+    "status": {
+      "category": "UI",
+      "description": "",
+      "type": "color",
+      "value": "#004085",
+      "instance": "status"
+    },
+    "status-background": {
+      "category": "UI",
+      "description": "",
+      "type": "color",
+      "value": "#cce5ff",
+      "instance": "status-background"
+    },
+    "warning": {
+      "category": "UI",
+      "description": "",
+      "type": "color",
+      "value": "#856404",
+      "instance": "warning"
+    },
+    "warning-background": {
+      "category": "UI",
+      "description": "",
+      "type": "color",
+      "value": "#fff3cd",
+      "instance": "warning-background"
+    },
+    "error": {
+      "category": "UI",
+      "description": "",
+      "type": "color",
+      "value": "#721c24",
+      "instance": "error"
+    },
+    "error-background": {
+      "category": "UI",
+      "description": "",
+      "type": "color",
+      "value": "#f8d7da",
+      "instance": "error-background"
+    }
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "hex": {
+    "0": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "00",
+      "instance": "0"
+    },
+    "5": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "0d",
+      "instance": "5"
+    },
+    "10": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "1a",
+      "instance": "10"
+    },
+    "15": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "26",
+      "instance": "15"
+    },
+    "20": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "33",
+      "instance": "20"
+    },
+    "25": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "40",
+      "instance": "25"
+    },
+    "30": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "4d",
+      "instance": "30"
+    },
+    "35": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "59",
+      "instance": "35"
+    },
+    "40": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "66",
+      "instance": "40"
+    },
+    "45": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "73",
+      "instance": "45"
+    },
+    "50": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "80",
+      "instance": "50"
+    },
+    "55": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "8c",
+      "instance": "55"
+    },
+    "60": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "99",
+      "instance": "60"
+    },
+    "65": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "a6",
+      "instance": "65"
+    },
+    "70": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "b3",
+      "instance": "70"
+    },
+    "75": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "bf",
+      "instance": "75"
+    },
+    "80": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "cc",
+      "instance": "80"
+    },
+    "85": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "d9",
+      "instance": "85"
+    },
+    "90": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "e6",
+      "instance": "90"
+    },
+    "95": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "f2",
+      "instance": "95"
+    },
+    "100": {
+      "category": "Helpers",
+      "description": "A two-character hex code for defining alpha transparency",
+      "type": "hex",
+      "value": "ff",
+      "instance": "100"
+    }
+  }
+}

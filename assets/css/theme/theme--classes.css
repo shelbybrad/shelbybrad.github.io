@@ -242,7 +242,7 @@
 .form--item--description {
   font-size: .75em;
 }
-.form--item--radio {
+.form--item--radio.position--relative > label {
   border: 2px solid transparent;
   border-radius: .5em;
   box-shadow:
@@ -252,9 +252,10 @@
   cursor: pointer;
   transition: var(--transition--default);
 }
-.form--item--radio:hover,
-.form--item--radio:active,
-.form--item--radio:focus-within {
+.form--item--radio.position--relative > label:hover,
+.form--item--radio.position--relative > label:active,
+.form--item--radio.position--relative > label:focus-within,
+.form--item--radio.position--relative > input:checked + label {
   border-color: rgba(255,255,255,.2);
   box-shadow:
     4px 2px 6px rgba(136,165,191,.5),
@@ -262,6 +263,16 @@
     inset 2px 1px 3px rgba(136,165,191,.5),
     inset -2px -1px 3px rgba(255,255,255,.9)
   ;
+}
+.form--item--radio.position--relative > label {
+  padding-left: calc(3 * var(--spacing--single));
+  padding-right: calc(1 * var(--spacing--single));
+}
+.form--item--radio.position--relative > input {
+  left: calc(1 * var(--spacing--single));
+  position: absolute;
+  top: calc(50% - 7px); /* Magic number guess for OS radio size. */
+  z-index: 2;
 }
 
 /**

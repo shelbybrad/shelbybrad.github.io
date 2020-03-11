@@ -10,50 +10,49 @@
 {% endcomment %}
 
 {% capture component %}
-  <fieldset class="fieldset form--fieldset form--fieldset--yes-no">
-    <legend>{{ include.label }}</legend>
+  <fieldset class="fieldset form--fieldset form--fieldset--yes-no {% if include.classes %}{{ include.classes }}{% endif %}">
+    <legend>{{ include.label }}
+      {% if include.required %}
+        <sup class="form--item--required" aria-hidden="true">*</sup>
+        <span class="a11y--visually-hidden">required</span>
+      {% endif %}
+    </legend>
 
     <div class="layout--row display--flex flex-direction--row justify-content--space-around">
-      <div class="form--item form--item--radio flex--0 padding-horizontal--4
-        {% if include.classes %}{{ include.classes }}{% endif %}">
+      <div class="form--item form--item--radio flex--0 margin-vertical--1 position--relative">
         <input type="radio" name="{{ include.name }}" id="{{ include.name }}--on"
           {% if include.description %}aria-describedby="{{ include.name }}--description" {% endif %}
           {% if include.default == "on" %}checked{% endif %}
           value="Yes"
         />
-        <label class="label form--item--label display--inline-block font-size--p75em" for="{{ include.name }}--on">
+        <label class="label form--item--label display--block font-size--p75em padding-vertical--2"
+          for="{{ include.name }}--on">
           {{ include.label_on }}
-          {% if include.required %}
-            <sup class="form--item--required" aria-hidden="true">*</sup>
-            <span class="a11y--visually-hidden">required</span>
-          {% endif %}
         </label>
       </div>
 
-      <div class="form--item form--item--radio flex--0 padding-horizontal--4
-        {% if include.classes %}{{ include.classes }}{% endif %}">
+      <div class="form--item form--item--radio flex--0 margin-vertical--1 position--relative">
         <input type="radio" name="{{ include.name }}" id="{{ include.name }}--off"
           {% if include.description %}aria-describedby="{{ include.name }}--description" {% endif %}
           {% if include.default == "off" %}checked{% endif %}
           value="No"
         />
-        <label class="label form--item--label display--inline-block font-size--p75em" for="{{ include.name }}--off">
+        <label class="label form--item--label display--block font-size--p75em padding-vertical--2"
+          for="{{ include.name }}--off">
           {{ include.label_off }}
-          {% if include.required %}
-            <sup class="form--item--required" aria-hidden="true">*</sup>
-            <span class="a11y--visually-hidden">required</span>
-          {% endif %}
         </label>
       </div>
     </div>
 
-    <div class="text-align--center margin-vertical--2">
-      <div>
-        {% if include.description %}
+    {% if include.description %}
+      {% include atoms/spacer.html size="2" %}
+      {% comment %}Divs ensure aria-describedby is the same level in the DOM for copying.{% endcomment %}
+      <div class="text-align--center">
+        <div>
           <p class="form--item--description" id="{{ include.name }}--description">{{ include.description }}</p>
-        {% endif %}
+        </div>
       </div>
-    </div>
+    {% endif %}
   </fieldset>
 {% endcapture %}
 
