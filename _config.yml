@@ -5,6 +5,10 @@
 ## We try to push as much sitewide config as possible into this file, so a new deployment can be going through this one
 ## place and changing values here and there.
 ##
+## If you need help with YAML syntax, here are some quick references for you:
+## https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+## https://learnxinyminutes.com/docs/yaml/
+##
 ## When adding new sections, be sure to name them so they make sense to others, and to document with good comments
 ## wherever possible/practical.
 ####
@@ -174,6 +178,7 @@ paginate: 30
 paginate_path: /blog/page-:num/
 permalink: /blog/:title/
 plugins:
+  - jekyll-redirect-from
   - jekyll-sitemap
 profile: true
 safe: true
@@ -184,8 +189,10 @@ strict_front_matter: true
 theme: jekyll-theme-primer
 timezone: Etc/UTC # Allows use to set dates/times without a GMT offset.
 unpublished: false
+whitelist:
+  - jekyll-redirect-from
 
-## Site structure
+  ## Site structure
 collections:
   docs:
     output: true
