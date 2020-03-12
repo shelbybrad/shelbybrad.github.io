@@ -228,7 +228,7 @@ merror {
   outline: solid thin red;
 }
 merror:before {
-  content: "Error: ";
+  content: var(--content--error);
 }
 
 /* annotations */

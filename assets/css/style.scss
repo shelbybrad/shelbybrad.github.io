@@ -19,6 +19,17 @@
 }
 
 /**
+ * CSS Custom properties for translating pseudo-element content.
+ */
+{% for file in site.data.design-tokens.lang %}
+  [lang="{{ file[0] }}"] {
+    {% for property in file[1] %}
+      {% include head/design-token-nest.html property=property %}
+    {% endfor %}
+  }
+{% endfor %}
+
+/**
  * Note: Presently you can only scope to tags and classes, or some combination of those.
  *
  * Double-underscores become spaces, single underscores become periods, with double-underscores evaluated first.
@@ -27,10 +38,9 @@
  * This file: _data/design-tokens/scoped/div__a_street-sign___font-family--secondary.json
  * Places all its custom properties in the following scope: div a.street-sign .font-family--secondary
  */
- */
 {% for scope in site.data.design-tokens %}
   {% assign scopename = scope[0] %}
-  {% unless scopename == "root" %}
+  {% unless scopename == "root" or scopename == "lang" %}
     {% for file in site.data.design-tokens[scopename] %}
       {{ file[0] | replace: "__", " " | replace: "_", "." }} {
         {% for property in file[1] %}

@@ -4,36 +4,31 @@
       "category": "Component",
       "description": "",
       "type": "color",
-      "value": "#b062ff",
-      "instance": "street-sign--glow"
+      "value": "#b062ff"
     },
     "street-sign--peach": {
       "category": "Component",
       "description": "",
       "type": "color",
-      "value": "#fad295",
-      "instance": "street-sign--peach"
+      "value": "#fad295"
     },
     "street-sign--red": {
       "category": "Component",
       "description": "",
       "type": "color",
-      "value": "#a01022",
-      "instance": "street-sign--red"
+      "value": "#a01022"
     },
     "street-sign--red-dark": {
       "category": "Component",
       "description": "",
       "type": "color",
-      "value": "#410e18",
-      "instance": "street-sign--red-dark"
+      "value": "#410e18"
     },
     "street-sign--red-light": {
       "category": "Component",
       "description": "",
       "type": "color",
-      "value": "#ff808a",
-      "instance": "street-sign--red-light"
+      "value": "#ff808a"
     }
   }
 }

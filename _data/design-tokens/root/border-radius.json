@@ -4,8 +4,7 @@
       "category": "Mood",
       "description": "The roundedness of corners on items that have rounded corners",
       "type": "border-radius",
-      "value": ".5em",
-      "instance": "default"
+      "value": ".5em"
     }
   }
 }

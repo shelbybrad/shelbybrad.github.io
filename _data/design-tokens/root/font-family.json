@@ -4,29 +4,25 @@
       "category": "Typography",
       "description": "One of the four font groups",
       "type": "font-family",
-      "value": "'Lato', Arial, Helvetica, sans-serif",
-      "instance": "input"
+      "value": "'Lato', Arial, Helvetica, sans-serif"
     },
     "monospace": {
       "category": "Typography",
       "description": "One of the four font groups",
       "type": "font-family",
-      "value": "'courier new', courier, monospace",
-      "instance": "monospace"
+      "value": "'courier new', courier, monospace"
     },
     "primary": {
       "category": "Typography",
       "description": "One of the four font groups",
       "type": "font-family",
-      "value": "'Lato', Arial, Helvetica, sans-serif",
-      "instance": "primary"
+      "value": "'Lato', Arial, Helvetica, sans-serif"
     },
     "secondary": {
       "category": "Typography",
       "description": "One of the four font groups",
       "type": "font-family",
-      "value": "'Engagement', 'Comic Sans MS', cursive",
-      "instance": "secondary"
+      "value": "'Engagement', 'Comic Sans MS', cursive"
     }
   }
 }
