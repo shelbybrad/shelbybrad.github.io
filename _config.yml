@@ -13,6 +13,7 @@
 baseurl: "" # This is better empty
 cache_bust: 2 # Increment to clear the service-worker cache
 subpath: "" # Could be a subsite of a domain at a path, ex. "/sub-site"
+#google_analytics: UA-697953-3 # The UA- code provided by GA
 
 ## Basic site info
 title: "Shelby and Brad"
@@ -35,7 +36,6 @@ locations:
 phone:
   display: "(248) 721-0350" # Phone number as displayed
   mailto: "12487210350" # Phone number with country code for the link
-# gaid: UA-697953-3
 
 ## The <html> tag has language and language direction. We can make it configurable
 html:
@@ -51,7 +51,7 @@ meta:
     alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
     src: required/meta-image--default.jpg
   robots: "index,follow"
-# title: "Overrides the tab title and social titles"
+# title: "Do not use" # site.meta.title is not used for anything, but is included for completeness.
 
 ## Open Graph - the parts not inferred from other site/meta info above
 ## @see https://ogp.me/

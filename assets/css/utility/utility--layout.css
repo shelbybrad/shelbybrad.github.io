@@ -124,10 +124,9 @@ all and (max-width: 767px) and (-ms-high-contrast: none) {
 }
 
 /**
- * Content and term listing layout classes.
+ * Set cards and things in easy rows of 3.
  */
-.layout--multiple--horizontal,
-.layout--multiple--carousel {
+.layout--multiple--horizontal {
   /* https://github.com/philipwalton/flexbugs */
   display: -webkit-box;
   display: -webkit-flex;
@@ -140,24 +139,19 @@ all and (max-width: 767px) and (-ms-high-contrast: none) {
 .layout--multiple--horizontal {
   flex-direction: column;
 }
-.layout--multiple--horizontal > * ,
-.layout--multiple--horizontal > .flex--1 ,
-.layout--multiple--carousel:not(.slick-initialized) > * {
+.layout--multiple--horizontal > *  {
   box-sizing: border-box;
   margin: 0 0 calc(4 * var(--spacing--single));
 }
-
 @media all and (min-width: 768px) {
   .layout--multiple--horizontal {
     flex-direction: row;
     flex-wrap: wrap;
   }
-  .layout--multiple--horizontal > *,
-  .layout--multiple--horizontal > .flex--1,
-  .layout--multiple--carousel:not(.slick-initialized) > * {
+  .layout--multiple--horizontal > * {
     flex-basis: calc(33% - (4 * var(--spacing--single)));
     margin: 0 calc(2 * var(--spacing--single)) calc(4 * var(--spacing--single));
-    max-width: 347px;
+    max-width: calc(33% - (4 * var(--spacing--single)));
     min-width: 205px;
   }
 }

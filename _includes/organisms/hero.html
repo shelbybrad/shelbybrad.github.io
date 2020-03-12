@@ -1,0 +1,47 @@
+{% if page.front != true %}
+  {% comment %}Using conditionals and assign/capture here because the default filter does not play nice.{% endcomment %}
+  {% if page.hero_classes %}
+    {% assign hero_classes = page.hero_classes %}
+  {% else %}
+    {% capture hero_classes %}background-color--main background-image--affectation color--white text-align--center background-image-display-mobile--hide{% endcapture %}
+  {% endif %}
+
+  {% comment %}Demonstration of nesting components using capture. Seems excessive.{% endcomment %}
+  {% capture hero_children %}
+    <div class="hero--title layout--row display--flex justify-content--center">
+      <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
+        padding-horizontal--4 padding-horizontal--collapse">
+        {% include atoms/heading.html
+          children=page.title
+          classes="text-shadow--second-light--solid"
+          level="1"
+        %}
+      </aside>
+
+      {% if page.meta.image.src %}
+        <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
+          padding-horizontal--4 padding-horizontal--collapse">
+          {% include atoms/image.html
+            src=page.meta.image.src
+            alt=page.meta.image.alt
+            classes="hero--figure hero--image"
+          %}
+        </aside>
+      {% endif %}
+    </div>
+
+    {% if page.collection == "posts" %}
+      {% include atoms/spacer.html size="2" %}
+
+      {% include molecules/byline.html
+        classes=""
+        entity=page
+      %}
+    {% endif %}
+  {% endcapture %}
+
+  {% include organisms/section.html
+    classes=hero_classes
+    children=hero_children
+  %}
+{% endif %}

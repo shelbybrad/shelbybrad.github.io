@@ -717,12 +717,9 @@ textarea {
 .button,
 button {
   background-color: transparent;
-  border: 2px solid transparent;
+  border: var(--neumorphic--border);
   border-radius: .5em;
-  box-shadow:
-    4px 2px 6px rgba(136,165,191,.5),
-    -4px -2px 4px rgba(255,255,255,1)
-  ;
+  box-shadow: var(--neumorphic--box-shadow);
   color: currentColor;
   cursor: pointer;
   display: inline-block;
@@ -732,7 +729,7 @@ button {
   padding: calc(1 * var(--spacing--single)) calc(2 * var(--spacing--single));
   text-align: center;
   text-decoration: none;
-  text-shadow: 0 0 2px rgba(0,0,0,.325);
+  text-shadow: var(--neumorphic--text-shadow);
   transition: var(--transition--default);
 }
 .button:hover,
@@ -740,13 +737,8 @@ button:hover,
 .button.active,
 .button:active,
 button:active {
-  border-color: rgba(255,255,255,.2);
-  box-shadow:
-    4px 2px 6px rgba(136,165,191,.5),
-    -4px -2px 4px rgba(255,255,255,1),
-    inset 2px 1px 3px rgba(136,165,191,.5),
-    inset -2px -1px 3px rgba(255,255,255,.9)
-  ;
+  border: var(--neumorphic--border--active);
+  box-shadow: var(--neumorphic--box-shadow--active);
   color: currentColor;
 }
 .button:focus,

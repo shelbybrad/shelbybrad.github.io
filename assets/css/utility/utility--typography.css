@@ -24,8 +24,8 @@
 .font-size--1em {
   font-size: 1em;
 }
-.font-size--16px {
-  font-size: 16px;
+.font-size--1rem {
+  font-size: 1rem; /* Reset a container to 16px and scale text relatively from there. */
 }
 .font-size--1p125em {
   font-size: 1.125em;
@@ -76,7 +76,7 @@
 .text-align--justify table,
 .text-align--justify video,
 [class*="text-align--"] .text-align--center img {
-  margin: 0 auto 10px;
+  margin: 0 auto var(--spacing--single);
 }
 .text-align--left figure,
 .text-align--left img,
@@ -93,7 +93,7 @@
 }
 .text-align--left p,
 .text-align--right p {
-  margin: 0 0 10px;
+  margin: 0 0 var(--spacing--single);
 }
 .text-align--center p:last-child,
 .text-align--justify p:last-child,

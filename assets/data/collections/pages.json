@@ -8,7 +8,7 @@ limit: 100
   {
     {% for property in entity %}
       {% unless property == "output" or property == "next" or property == "previous" %}
-        {{ property | jsonify }}: {{ entity[property] | jsonify }}{% unless forloop.last %},{% endunless %}
+        {{ property[0] | jsonify }}: {{ property[1] | jsonify }}{% unless forloop.last %},{% endunless %}
       {% endunless %}
     {% endfor %}
   }{% unless forloop.last %},{% endunless %}

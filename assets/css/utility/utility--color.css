@@ -100,13 +100,6 @@
 .background-color--accent.button--ghost {
   color: var(--color--accent);
 }
-.button--ghost {
-  background-color: var(--color--white);
-  border: 1px solid;
-}
-.button--ghost:hover {
-  color: var(--color--grey-dark);
-}
 
 /**
  * Color classes for text.

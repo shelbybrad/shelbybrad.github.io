@@ -78,6 +78,9 @@
  * Effects based on scroll.
  */
 .body-scroll--up {}
+.body-scroll--up .fab {
+  bottom: -200px;
+}
 @media all and (min-width: 1024px) {
   .body-scroll--up .nav--main {
     box-shadow: 0 2px 6px rgba(136, 165, 191, 0.9);
@@ -137,21 +140,31 @@
 }
 
 /**
+ * Inverted "ghost" buttons (anti-pattern, but common).
+ *
+ * @see ../utility/utility--color.css for the background-to-border conversion.
+ */
+.button--ghost {
+  background-color: var(--color--white); /* Could be transparent depending on theme. */
+  border: 1px solid;
+}
+.button--ghost:hover {
+  color: var(--color--grey-dark);
+}
+
+/**
  * Cards (teasers).
  */
 .card {
-  border: 2px solid transparent;
-  border-radius: .5em;
-  box-shadow:
-    8px 4px 12px rgba(136,165,191,.5),
-    -8px -4px 8px rgba(248,248,248,.5)
-  ;
-  text-shadow: 0 0 2px rgba(0,0,0,.325);
+  border: var(--neumorphic--border);
+  border-radius: var(--border-radius--default);
+  box-shadow: var(--neumorphic--box-shadow--large);
+  text-shadow: var(--neumorphic--text-shadow);
   transition: var(--transition--default);
 }
 .card figure {
-  border-top-left-radius: .45em;
-  border-top-right-radius: .45em;
+  border-top-left-radius: var(--border-radius--default);
+  border-top-right-radius: var(--border-radius--default);
   overflow: hidden;
 }
 .card h3 {
@@ -164,13 +177,8 @@
 .card--hover:hover,
 .card--hover:active,
 .card--hover:focus-within {
-  border-color: rgba(255,255,255,.2);
-  box-shadow:
-    8px 4px 12px rgba(136,165,191,.5),
-    -8px -4px 8px rgba(248,248,248,.5),
-    inset 4px 2px 6px rgba(136,165,191,.5),
-    inset -4px -2px 6px rgba(248,248,248,.5)
-  ;
+  border: var(--neumorphic--border--active);
+  box-shadow: var(--neumorphic--box-shadow--large--active);
 }
 
 /**
@@ -243,26 +251,19 @@
   font-size: .75em;
 }
 .form--item--radio.position--relative > label {
-  border: 2px solid transparent;
-  border-radius: .5em;
-  box-shadow:
-    4px 2px 6px rgba(136,165,191,.5),
-    -4px -2px 4px rgba(255,255,255,1)
-  ;
+  border: var(--neumorphic--border);
+  border-radius: var(--border-radius--default);
+  box-shadow: var(--neumorphic--box-shadow);
   cursor: pointer;
+  text-shadow: var(--neumorphic--text-shadow);
   transition: var(--transition--default);
 }
 .form--item--radio.position--relative > label:hover,
 .form--item--radio.position--relative > label:active,
 .form--item--radio.position--relative > label:focus-within,
 .form--item--radio.position--relative > input:checked + label {
-  border-color: rgba(255,255,255,.2);
-  box-shadow:
-    4px 2px 6px rgba(136,165,191,.5),
-    -4px -2px 4px rgba(255,255,255,1),
-    inset 2px 1px 3px rgba(136,165,191,.5),
-    inset -2px -1px 3px rgba(255,255,255,.9)
-  ;
+  border: var(--neumorphic--border--active);
+  box-shadow: var(--neumorphic--box-shadow--active);
 }
 .form--item--radio.position--relative > label {
   padding-left: calc(3 * var(--spacing--single));
@@ -380,7 +381,7 @@
 .color--white .menu-item > a.active,
 .color--white .menu-item > a:focus {
   background-color: var(--color--second);
-  text-decoration: underline;
+  text-decoration: underline dashed var(--color--grey-light);
 }
 @media all and (min-width: 768px) {
   .menu-layout--horizontal {
@@ -393,54 +394,8 @@
  */
 .nav--main {
   position: static;
-  top: -300px;
+  top: -300px; /* Need a set negative position taller than the nav but not huge for transition */
   transition: var(--transition--default);
-}
-
-/**
- * Core pagers.
- */
-.pager {
-  font-weight: 600;
-  margin: 40px auto;
-  text-align: center;
-  text-transform: uppercase;
-}
-.pager ul {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-}
-.pager ul > li {
-  display: inline-block;
-  line-height: 1;
-  margin: 0;
-}
-.pager li > a,
-.pager li > span {
-  color: var(--color--grey);
-  display: inline-block;
-  padding: 5px 10px;
-  text-decoration: none;
-}
-.pager li > a:hover {
-  border-color: var(--color--grey);
-}
-.pager li.pager-current > span,
-.pager li.pager-current > a,
-.pager li.is-active > span,
-.pager li.is-active > a {
-  border-color: var(--color--grey);
-}
-.pager li.pager__item--previous {
-  border-right: 1px solid var(--color--grey);
-  margin-right: 4px;
-  padding-right: 16px;
-}
-.pager li.pager__item--next {
-  border-left: 1px solid var(--color--grey);
-  margin-left: 4px;
-  padding-left: 16px;
 }
 
 /**
