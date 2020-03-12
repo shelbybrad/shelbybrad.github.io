@@ -35,26 +35,16 @@ if ("canShare" in navigator && navigator.canShare()) {
   };
 
   document.body.insertAdjacentHTML('beforeEnd', shareToNativeButton);
-  document.querySelector('button').addEventListener('click', () => {
-    share(
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Rick_Astley_Dallas.jpg/267px-Rick_Astley_Dallas.jpg',
-      'https://en.wikipedia.org/wiki/Rick_Astley',
-      'Rick Astley',
-      'Never gonna give you up!'
-    );
-  });
+  document.addEventListener('click', function (event) {
+    if (event.target !== document
+      && event.target.closest('.js--share-to-native')
+    ) {
+      shareToNative(
+        window.location.href,
+        document.title,
+        document.querySelector('[property="og:description"]').getAttribute('content'),
+        document.querySelector('[property="og:image"]').getAttribute('content')
+      );
+    }
+  }, false);
 }
-
-document.body.insertAdjacentHTML('beforeEnd', shareToNativeButton);
-document.addEventListener('click', function (event) {
-  if (event.target !== document
-    && event.target.closest('.js--share-to-native')
-  ) {
-    console.log({
-      'shareUrl': window.location.href,
-      'shareTitle': document.title,
-      'shareText': document.querySelector('[property="og:description"]').getAttribute('content'),
-      'shareImg': document.querySelector('[property="og:image"]').getAttribute('content')
-    });
-  }
-}, false);
