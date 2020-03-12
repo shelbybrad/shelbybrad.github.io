@@ -15,7 +15,7 @@ const shareToNativeButton = `
     </button>
   `;
 
-if ("canShare" in navigator && navigator.canShare()) {
+if ("share" in navigator) {
   const shareToNative = async function(shareUrl, shareTitle, shareText, shareImg) {
     const shareFileName = shareImg.substr(shareImg.lastIndexOf("/") + 1);
     try {
