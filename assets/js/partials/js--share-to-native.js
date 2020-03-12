@@ -47,4 +47,4 @@ if ("canShare" in navigator && navigator.canShare()) {
       );
     }
   }, false);
-} 
+}
