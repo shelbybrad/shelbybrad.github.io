@@ -5,7 +5,7 @@
 
 const shareToNativeButton = `
     <button type="button" class="js--share-to-native fab position--fixed bottom--0 color--grey
-      right--0 font-size--2em margin-horizontal--4 margin-horizontal--4 z-index--9998"
+      right--0 font-size--2em margin-horizontal--4 margin-horizontal--4 z-index--3"
       aria-label="Share this page">
       <figure class="figure figure--icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 54">
