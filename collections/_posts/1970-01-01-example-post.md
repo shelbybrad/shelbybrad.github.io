@@ -1,6 +1,6 @@
 ---
 authors:
-  - shelby-sleete
+  - shelby-hassell
 #categories: ["one", "two"]
 #date: 2020-03-03 02:02:02
 #hero_classes: "background-color--main-dark color--white"
