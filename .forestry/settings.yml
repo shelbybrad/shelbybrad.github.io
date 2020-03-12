@@ -7,31 +7,33 @@ sections:
 - type: jekyll-pages
   label: Pages
   create: all
-- type: jekyll-posts
+- type: directory
+  path: collections/_posts
   label: Posts
   create: all
+  match: "**/*"
 - type: directory
-  path: _sections
+  path: collections/_sections
   label: Sections
   create: all
   match: "**/*"
 - type: directory
-  path: _people
+  path: collections/_people
   label: People
   create: all
   match: "**/*"
 - type: directory
-  path: _forms
+  path: collections/_forms
   label: Forms
   create: all
   match: "**/*"
 - type: directory
-  path: _events
+  path: collections/_events
   label: Events
   create: all
   match: "**/*"
 - type: directory
-  path: _docs
+  path: collections/_docs
   label: Docs
   create: all
   match: "**/*"
