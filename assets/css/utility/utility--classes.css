@@ -175,8 +175,8 @@
   z-index: 4;
 }
 .z-index--9998 {
-  z-index: 0;
+  z-index: 9998;
 }
 .z-index--9999 {
-  z-index: 0;
+  z-index: 9999;
 }

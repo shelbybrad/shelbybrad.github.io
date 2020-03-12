@@ -16,22 +16,32 @@ const shareToNativeButton = `
   `;
 
 if ("share" in navigator) {
-  const shareToNative = async function(shareUrl, shareTitle, shareText, shareImg) {
-    const shareFileName = shareImg.substr(shareImg.lastIndexOf("/") + 1);
-    try {
-      const response = await fetch(shareImg);
-      const blob = await response.blob();
-      const file = new File([blob], shareFileName, { type: blob.type });
+  const shareToNative = async function(shareUrl, shareTitle, shareText, shareImgUrl) {
+    let share = {
+      url: shareUrl,
+      title: shareTitle,
+      text: shareText,
+    };
 
-      await navigator.share({
-        url: shareUrl,
-        title: shareTitle,
-        text: shareText,
-        files: [file]
-      });
-    } catch (err) {
-      console.log(err.name, err.message);
+    if (shareImgUrl) {
+      const shareFileName = shareImgUrl.substr(shareImgUrl.lastIndexOf("/") + 1);
+      let fetchImgUrl = shareImgUrl;
+
+      if (fetchImgUrl.indexOf(window.location.hostname) !== -1) {
+        fetchImgUrl = fetchImgUrl.substr(fetchImgUrl.indexOf(window.location.origin) + window.location.origin.length);
+      }
+
+      try {
+        const response = await fetch(fetchImgUrl);
+        const blob = await response.blob();
+        const file = new File([blob], shareFileName, { type: blob.type });
+        share.files = [file];
+      } catch (err) {
+        console.log(err.name, err.message);
+      }
     }
+
+    await navigator.share(share);
   };
 
   document.body.insertAdjacentHTML('beforeEnd', shareToNativeButton);
@@ -39,11 +49,11 @@ if ("share" in navigator) {
     if (event.target !== document
       && event.target.closest('.js--share-to-native')
     ) {
+      /* Append document.querySelector('[property="og:image"]').getAttribute('content') to share it as image. */
       shareToNative(
         window.location.href,
         document.title,
-        document.querySelector('[property="og:description"]').getAttribute('content'),
-        document.querySelector('[property="og:image"]').getAttribute('content')
+        document.querySelector('[property="og:description"]').getAttribute('content')
       );
     }
   }, false);
