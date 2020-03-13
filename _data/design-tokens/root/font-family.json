@@ -4,7 +4,7 @@
       "category": "Typography",
       "description": "One of the four font groups",
       "type": "font-family",
-      "value": "'Lato', Arial, Helvetica, sans-serif"
+      "value": "'Public Sans', Arial, Helvetica, sans-serif"
     },
     "monospace": {
       "category": "Typography",
@@ -16,7 +16,7 @@
       "category": "Typography",
       "description": "One of the four font groups",
       "type": "font-family",
-      "value": "'Lato', Arial, Helvetica, sans-serif"
+      "value": "'Public Sans', Arial, Helvetica, sans-serif"
     },
     "secondary": {
       "category": "Typography",
