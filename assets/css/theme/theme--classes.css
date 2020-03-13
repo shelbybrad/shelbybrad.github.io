@@ -65,7 +65,7 @@
   background-repeat: no-repeat;
 }
 .background-image--dirt {
-  background-image: url('../images/bg-dirt.png');
+  background-image: url('../images/bg-dirt.svg');
   background-position: center center;
   background-repeat: repeat;
 }
@@ -529,7 +529,6 @@
 }
 .street-sign > :nth-child(n + 3) {
   background-color: var(--color--street-sign--peach);
-  background-image: url('../images/bg-dirt.png');
   border: 3px solid var(--color--second);
   border-radius: 9px;
   color: rgba(65,32,28,0.65);
