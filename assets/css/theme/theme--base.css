@@ -125,6 +125,16 @@ body {
   margin: 0;
   scroll-behavior: smooth;
 }
+@media all and (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--color--grey-dark);
+    background-image: none;
+    filter: grayscale(100%) invert(100%);
+  }
+  figure {
+    filter: invert(100%);
+  }
+}
 
 /**
  * Change the transition value for folks who prefer reduced motion.
