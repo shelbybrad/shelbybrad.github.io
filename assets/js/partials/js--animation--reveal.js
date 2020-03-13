@@ -41,7 +41,10 @@ if ('IntersectionObserver' in window) {
     animationObserver.observe(this);
   };
   utilityInitializer('js--animation--reveal', 'animationInitializationFunction');
-  utilityInitializer('picture--lazy-load', 'animationInitializationFunction');
+  /* Wait until blocking resources have loaded to bring in images. */
+  window.addEventListener('load', (event) => {
+    utilityInitializer('picture--lazy-load', 'animationInitializationFunction');
+  });
 }
 else {
   const pictureLazyLoad = elem.querySelectorAll('.picture--lazy-load');
