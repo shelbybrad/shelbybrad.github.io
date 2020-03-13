@@ -1,36 +1,43 @@
-<footer itemprop="publisher" itemscope itemtype="http://schema.org/{{ site.schema.publisher.type }}" class="footer layout--strip background-color--main color--white"><div class="layout--stripe--inner">
-  <h2 class="a11y--visually-hidden" itemprop="name">{{ location.name }}</h2>
+<footer itemprop="publisher" itemscope itemtype="http://schema.org/{{ site.schema.publisher.type }}"
+  class="footer layout--strip background-color--main color--white">
+  <div class="layout--stripe--inner">
+    {% for location in site.locations limit: 1 %}
+      <h2 class="a11y--visually-hidden" itemprop="name">{{ location.name }}</h2>
+    {% endfor %}
 
-  <div class="layout--row display--flex">
-    <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
-      padding-horizontal--4 padding-horizontal--collapse">
-      {% for location in site.locations %}
-        <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-          <span>{{ location.name }}</span><br>
-          <span itemprop="streetAddress">{{ location.street_address }}</span><br>
-          <span itemprop="addressLocality">{{ location.locality }}</span>,
-          <span itemprop="addressRegion">{{ location.region }}</span>
-          <span itemprop="postalCode">{{ location.postal_code }}</span>
-        </address>
-      {% endfor %}
-      {% if site.social %}
-        <div class="social">
-        {% for link in site.social %}
-          <a href="{{ link.url }}">
-            {% if link.icon %}
-              {% include atoms/icon.html library=link.icon.library symbol=link.icon.symbol %}
-            {% endif %}
-            <span>{{ link.title }}</span>
-          </a>
+    <div class="layout--row display--flex">
+      <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
+        padding-horizontal--4 padding-horizontal--collapse">
+        {% for location in site.locations %}
+          <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <span>{{ location.name }}</span><br>
+            <span itemprop="streetAddress">{{ location.street_address }}</span><br>
+            <span itemprop="addressLocality">{{ location.locality }}</span>,
+            <span itemprop="addressRegion">{{ location.region }}</span>
+            <span itemprop="postalCode">{{ location.postal_code }}</span>
+          </address>
         {% endfor %}
-        </div>
-      {% endif %}
-    </aside>
-    <aside class="layout--column flex--3 display--flex flex-direction--column justify-content--center">
-      {% include molecules/menu.html
-        classes="border-spaced display--flex layout--row menu-layout--horizontal font-weight--600 font-size--1p25em"
-        menu="footer"
-      %}
-    </aside>
+
+        {% if site.social %}
+          <div class="social">
+          {% for link in site.social %}
+            <a href="{{ link.url }}">
+              {% if link.icon %}
+                {% include atoms/icon.html library=link.icon.library symbol=link.icon.symbol %}
+              {% endif %}
+              <span>{{ link.title }}</span>
+            </a>
+          {% endfor %}
+          </div>
+        {% endif %}
+      </aside>
+
+      <aside class="layout--column flex--3 display--flex flex-direction--column justify-content--center">
+        {% include molecules/menu.html
+          classes="border-spaced display--flex layout--row menu-layout--horizontal font-weight--600 font-size--1p25em"
+          menu="footer"
+        %}
+      </aside>
+    </div>
   </div>
-</div></footer>
+</footer>

@@ -7,8 +7,8 @@
 {% endcomment %}
 
 {% capture component %}
-  <h{{ include.level }} class="heading {% if include.classes %}{{ include.classes }}{% endif %}
-    {% if include.level == "1" %}itemprop="headline"{% endif %}">
+  <h{{ include.level }} class="heading {% if include.classes %}{{ include.classes }}{% endif %}"
+    {% if include.level == "1" %}itemprop="headline"{% endif %}>
     {% if include.children %}
       {{ include.children }}
     {% endif %}

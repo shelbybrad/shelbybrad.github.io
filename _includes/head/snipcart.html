@@ -2,7 +2,7 @@
 <div id="snipcart" data-api-key="{{ site.snipcart.api_key }}" hidden></div>
 
 <script async defer src="{{ site.subpath }}/assets/js/conditional/snipcart-checkout.js"></script>
-<script async defer>
+<script>
   /* This CSS file loads a Google font that adds a GA cookie, so only do that if we absolutely have to. */
   window.addEventListener('load', (event) => {
     if ("Snipcart" in window) {

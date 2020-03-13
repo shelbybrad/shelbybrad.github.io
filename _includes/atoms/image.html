@@ -9,13 +9,13 @@
 {% capture component %}
   <figure class="figure figure--image figure--image--{{ include.src | slugify }} {% if include.classes %}{{ include.classes }}{% endif %}">
     {% if include.link_url %}<a href="{{ include.link_url }}">{% endif %}
-      <picture class="picture picture--lazy-load" itemprop="image">
+      <picture class="picture picture--lazy-load layout--hide--no-javascript" itemprop="image">
         {% capture webp_path %}/assets/images/{{ include.src }}.webp{% endcapture %}
         {% assign webp_version = site.static_files | where: "path", webp_path | first %}
         {% if webp_version %}
-          <source data-srcset="{{ webp_version.path | relative_url }}" type="image/webp">
+          <source srcset data-srcset="{{ webp_version.path | relative_url }}" type="image/webp">
         {% endif %}
-        <img data-src="{{ site.subpath }}/assets/images/{{ include.src }}" alt="{{ include.alt }}" loading="lazy" />
+        <img src data-src="{{ site.subpath }}/assets/images/{{ include.src }}" alt="{{ include.alt }}" loading="lazy" />
       </picture>
       <noscript>
         <img src="{{ site.subpath }}/assets/images/{{ include.src }}" alt="{{ include.alt }}" loading="lazy" />
