@@ -122,6 +122,12 @@ all and (max-width: 767px) and (-ms-high-contrast: none) {
     display: none;
   }
 }
+.layout--hide--no-javascript {
+  display: none;
+}
+.js .layout--hide--no-javascript {
+  display: inherit;
+}
 
 /**
  * Set cards and things in easy rows of 3.

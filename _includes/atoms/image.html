@@ -9,7 +9,7 @@
 {% capture component %}
   <figure class="figure figure--image figure--image--{{ include.src | slugify }} {% if include.classes %}{{ include.classes }}{% endif %}">
     {% if include.link_url %}<a href="{{ include.link_url }}">{% endif %}
-      <img src="{{ site.baseurl }}{{ site.subpath }}/assets/images/{{ include.src }}"
+      <img src="{{ site.url }}{{ site.subpath }}/assets/images/{{ include.src }}"
         alt="{{ include.alt }}" itemprop="image" loading="lazy" />
     {% if include.link_url %}</a>{% endif %}
     {% if include.caption %}

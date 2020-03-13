@@ -25,9 +25,9 @@
 
     <figure class="figure figure--card--image order--neg1">
       {% if include.entity.meta.image.src %}
-        <img src="{{ site.baseurl }}{{ site.subpath }}/assets/images/{{ include.entity.meta.image.src }}" alt="{{ include.entity.meta.image.alt }}" loading="lazy" />
+        <img src="{{ site.url }}{{ site.subpath }}/assets/images/{{ include.entity.meta.image.src }}" alt="{{ include.entity.meta.image.alt }}" loading="lazy" />
       {% else %}
-        <img src="{{ site.baseurl }}{{ site.subpath }}/assets/images/{{ site.meta.image.src }}" alt="{{ include.alt }}" loading="lazy" />
+        <img src="{{ site.url }}{{ site.subpath }}/assets/images/{{ site.meta.image.src }}" alt="{{ include.alt }}" loading="lazy" />
       {% endif %}
     </figure>
   </li>

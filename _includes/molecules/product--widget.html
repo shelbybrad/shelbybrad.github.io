@@ -7,7 +7,7 @@
 {% endcomment %}
 
 {% capture component %}
-  <div class="product--widget {% if include.classes %}{{ include.classes }}{% endif %}">
+  <div class="product--widget layout--hide--no-javascript {% if include.classes %}{{ include.classes }}{% endif %}">
     <div class="product--widget--quantity">
       <label for="{{ include.entity.sku | slugify }}-quantity">Quantity:</label>
       <input type="number" id="{{ include.entity.sku | slugify }}-quantity" name="{{ include.entity.sku | slugify }}-quantity"
@@ -21,7 +21,7 @@
         data-item-name={{ include.entity.title | jsonify }}
         data-item-price="{{ include.entity.price }}"
         {% if include.entity.meta.image.src %}
-          data-item-image="{{ site.baseurl }}{{ site.subpath }}/assets/images/{{ include.entity.meta.image.src }}"
+          data-item-image="{{ site.url }}{{ site.subpath }}/assets/images/{{ include.entity.meta.image.src }}"
         {% endif %}
         data-item-url="{{ include.entity.url | absolute_url }}"
         data-item-description="{{ include.entity.meta.description }}"
@@ -30,6 +30,14 @@
       </button>
     </div>
   </div>
+  <noscript>
+    {% include molecules/alert.html
+      children="<p><strong>Notice</strong>: Shopping cart functionality requires JavaScript to be enabled.</p>"
+      classes=""
+      dismissible=true
+      level="error"
+    %}
+  </noscript>
 {% endcapture %}
 
 {% capture usage %}
