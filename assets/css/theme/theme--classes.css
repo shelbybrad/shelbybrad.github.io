@@ -39,6 +39,10 @@
   margin: 10px 0;
   padding: 10px;
 }
+.alert a {
+  color: inherit;
+  font-weight: 600;
+}
 .alert--error {
   background-color: var(--color--error-background);
   color: var(--color--error);
@@ -213,7 +217,7 @@
 /**
  * Polaroid-style images for the gallery.
  */
-.figure--image--polaroid:not(.js--event--click--toggle) > img {
+.figure--image--polaroid:not(.js--event--click--toggle) > picture {
   border: 1px solid var(--color--grey);
   box-shadow:
     0 0 0 calc(2 * var(--spacing--single)) var(--color--white),
@@ -321,7 +325,7 @@
   top: 0;
   z-index: -2;
 }
-.js--event--click--toggle.click--lightbox img {
+.js--event--click--toggle.click--lightbox picture {
   margin: auto auto;
   max-height: calc(100vh - (8 * var(--spacing--single)));
   width: auto;

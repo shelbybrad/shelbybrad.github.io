@@ -75,7 +75,8 @@
 .text-align--justify svg,
 .text-align--justify table,
 .text-align--justify video,
-[class*="text-align--"] .text-align--center img {
+[class*="text-align--"] .text-align--center img,
+[class*="text-align--"] .text-align--center picture {
   margin: 0 auto var(--spacing--single);
 }
 .text-align--left figure,

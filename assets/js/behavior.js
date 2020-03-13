@@ -1,5 +1,5 @@
 ---
-layout: none # compress
+layout: compress
 ---
 
 'use strict';

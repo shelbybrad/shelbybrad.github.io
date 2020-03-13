@@ -472,7 +472,8 @@ iframe {
  * There's a render prop for old version of IE.
  * And the display and line-height props are normalize-ish for spacing.
  */
-img {
+img,
+picture {
   border: 0;
   display: block;
   height: auto !important;
