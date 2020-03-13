@@ -9,8 +9,13 @@
 {% capture component %}
   <figure class="figure figure--image figure--image--{{ include.src | slugify }} {% if include.classes %}{{ include.classes }}{% endif %}">
     {% if include.link_url %}<a href="{{ include.link_url }}">{% endif %}
-      <img src="{{ site.url }}{{ site.subpath }}/assets/images/{{ include.src }}"
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+        data-src="{{ site.url }}{{ site.subpath }}/assets/images/{{ include.src }}"
         alt="{{ include.alt }}" itemprop="image" loading="lazy" />
+      <noscript>
+        <img src="{{ site.url }}{{ site.subpath }}/assets/images/{{ include.src }}"
+          alt="{{ include.alt }}" itemprop="image" loading="lazy" />
+      </noscript>
     {% if include.link_url %}</a>{% endif %}
     {% if include.caption %}
       <figcaption class="figcaption figure--image--figcaption">{{ include.caption }}</figcaption>
