@@ -15,6 +15,7 @@ var swapPictureSrc = function(elem) {
       delete thisSrc.dataset.srcset;
     }
   });
+  elem.classList.add('picture--lazy-load--loaded');
 };
 
 if ('IntersectionObserver' in window) {

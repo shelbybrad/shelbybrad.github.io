@@ -203,7 +203,7 @@
 /**
  * Icons.
  *
- * By default set icon wrappers to a character wide and hight.
+ * By default set icon wrappers to a character wide and high.
  */
 .figure--icon {
   height: 1.25ch;
@@ -400,6 +400,18 @@
   position: static;
   top: -300px; /* Need a set negative position taller than the nav but not huge for transition */
   transition: var(--transition--default);
+}
+
+/**
+ * Giving lazy-loaded images a default size around average to reduce paints.
+ */
+.picture--lazy-load {
+  height: 315px;
+  width: 315px;
+}
+.picture--lazy-load--loaded {
+  height: inherit;
+  width: inherit;
 }
 
 /**
