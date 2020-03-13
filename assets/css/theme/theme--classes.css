@@ -443,6 +443,7 @@
   text-align: center;
   text-decoration: none;
   transform: rotate(5deg);
+  transition: none;
 }
 @media all and (min-width: 480px) {
   .street-sign {
@@ -482,7 +483,6 @@
   margin: 0 auto calc(3 * var(--spacing--single));
   padding: calc(1 * var(--spacing--single));
   position: relative;
-  transition: var(--transition--default);
   z-index: 4;
 }
 .street-sign > :first-child {
