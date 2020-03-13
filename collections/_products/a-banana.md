@@ -2,8 +2,7 @@
 authors:
   - alex-inman
 #categories: ["one", "two"]
-date: 2020-07-03 17:00:00
-date_end: 2020-07-06 08:00:00
+#date: 2020-07-03 17:00:00
 #hero_classes: "background-color--main-dark color--white"
 meta:
   description: "Affordable, portable fruiting"
