@@ -107,6 +107,20 @@ form_components:
 snipcart:
   api_key: "N2Q1OWZiOTMtODcyZi00OTUzLWFiYjAtNTAwMGYzZmE5YmI4NjM3MTk2NDYyNTQ4MTA5ODMx"
 
+## Woff2 files declared as webfonts in your css, relative to /assets/fonts/
+## Placing them here sets them to be preloaded in the head, which reduces request chaining for better performance.
+## @see https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content
+woff:
+  - "engagement/engagement-v9-latin-regular.woff2"
+  - "lato/lato-v16-latin-ext_latin-100.woff2"
+  - "lato/lato-v16-latin-ext_latin-100italic.woff2"
+  - "lato/lato-v16-latin-ext_latin-300.woff2"
+  - "lato/lato-v16-latin-ext_latin-300italic.woff2"
+  - "lato/lato-v16-latin-ext_latin-700.woff2"
+  - "lato/lato-v16-latin-ext_latin-900.woff2"
+  - "lato/lato-v16-latin-ext_latin-italic.woff2"
+  - "lato/lato-v16-latin-ext_latin-regular.woff2"
+
 ## The 'THANKS' and 'SITE' sections of humans.txt
 ## (Note: the 'TEAM' section is built from the content in the _people collection
 humans_txt:

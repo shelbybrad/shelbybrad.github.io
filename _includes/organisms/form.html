@@ -28,7 +28,11 @@
   <form method="POST" action="{{ action }}" enctype="multipart/form-data"
     class="form include include--organism include--organism--form
     {% if include.classes %}{{ include.classes }}{% endif %}">
-    <input type="text" name="{{ site.form_components.honeypot_name }}" class="display--none" />
+    <label for="{{ site.form_components.honeypot_name }}" class="display--none">
+      Math CAPTCHA: What's the number of stars on the American flag divided by two?
+    </label>
+    <input type="text" id="{{ site.form_components.honeypot_name }}" name="{{ site.form_components.honeypot_name }}"
+      class="display--none" />
     <input type="hidden" name="{{ site.form_components.thankyou_name }}" value="{{ thank_you }}" />
     <input type="hidden" name="_template" value="box" />
     <input type="hidden" name="_subject" value="[{{ site.title }}] {{ include.title }}" />
