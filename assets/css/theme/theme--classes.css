@@ -87,7 +87,7 @@
     position: sticky;
     top: 0;
     transition: var(--transition--default);
-    z-index: 9999;
+    z-index: 8;
   }
 }
 

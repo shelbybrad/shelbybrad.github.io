@@ -52,9 +52,8 @@ layout: compress
     {% include organisms/copyright.html %}
     {% include head/gdpr--cookie-disclosure.html %}
 
-    {% if site.google_analytics %}
-      {% include head/google_analytics.html %}
-    {% endif %}
     <script async defer src="{{ site.subpath }}/assets/js/behavior.js"></script>
+    {% if site.google_analytics %} {% include head/google_analytics.html %}{% endif %}
+    {% if site.snipcart.api_key %}{% include head/snipcart.html %}{% endif %}
   </body>
 </html>

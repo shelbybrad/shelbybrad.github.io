@@ -41,6 +41,19 @@ phone:
   display: "(248) 721-0350" # Phone number as displayed
   mailto: "12487210350" # Phone number with country code for the link
 
+## Social links
+social:
+  - title: Facebook
+    url: https://www.facebook.com/bradczerniak
+    icon:
+      library: simple-icons
+      symbol: facebook
+  - title: Twitter
+    url: https://twitter.com/ao5357
+    icon:
+      library: simple-icons
+      symbol: twitter
+
 ## The <html> tag has language and language direction. We can make it configurable
 html:
   dir: "ltr"
@@ -89,18 +102,10 @@ form_components:
   thankyou_name: "_next"
   default_submit: "Send" # or "Submit"
 
-## Social links
-social:
-  - title: Facebook
-    url: https://www.facebook.com/bradczerniak
-    icon:
-      library: simple-icons
-      symbol: facebook
-  - title: Twitter
-    url: https://twitter.com/ao5357
-    icon:
-      library: simple-icons
-      symbol: twitter
+## JAMstack product handling, courtesy of snipcart
+## @see https://snipcart.com/
+snipcart:
+  api_key: "N2Q1OWZiOTMtODcyZi00OTUzLWFiYjAtNTAwMGYzZmE5YmI4NjM3MTk2NDYyNTQ4MTA5ODMx"
 
 ## The 'THANKS' and 'SITE' sections of humans.txt
 ## (Note: the 'TEAM' section is built from the content in the _people collection
@@ -192,7 +197,7 @@ unpublished: false
 whitelist:
   - jekyll-redirect-from
 
-  ## Site structure
+## Site structure
 collections:
   docs:
     output: true
@@ -206,6 +211,9 @@ collections:
   people:
     output: true
     permalink: /people/:path/
+  products:
+    output: true
+    permalink: /products/:path/
   sections:
     output: false
     permalink: /:title/
@@ -249,6 +257,13 @@ defaults:
       layout: "post"
       schema:
         type: "Article"
+  - scope:
+      path: ""
+      type: "products"
+    values:
+      layout: "product"
+      schema:
+        type: "Product"
   - scope:
       path: ""
       type: "sections"

@@ -1,4 +1,18 @@
 ---
+####
+## @file
+## Blog listing page
+##
+## This page exists in the repo file structure here because jekyll's built-in paginator requires the pager be
+## inserted on an html page named index.html in order to build the additional paths
+## @see https://jekyllrb.com/docs/pagination/
+##
+## Note that the molecules/pager.html include does not require this, though without native paging this will not
+## be useful unless you host where you can use a plugin.
+##
+## The setting for the paginator path is in _config.yml , and as you can see below the permalink option is commented
+## out. This is all important for ensuring posts render paged at /blog
+####
 authors:
   - brad-czerniak
 #categories: ["one", "two"]
