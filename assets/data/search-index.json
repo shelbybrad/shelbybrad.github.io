@@ -11,7 +11,7 @@ layout: compress
     {% for doc in docs %}
       {
         "title": {{ doc.title | jsonify }},
-        "content": {{ doc.content | markdownify | strip_html | normalize_whitespace | jsonify }},
+        "content": {{ doc.content | strip_html | normalize_whitespace | jsonify }},
         {% if doc.meta.image %}
           "image": {{ doc.meta.image | jsonify }}
         {% else %}
@@ -25,7 +25,7 @@ layout: compress
   {% for doc in pages %}
     {
       "title": {{ doc.title | jsonify }},
-      "content": {{ doc.content | markdownify | strip_html | normalize_whitespace | jsonify }},
+      "content": {{ doc.content | strip_html | normalize_whitespace | jsonify }},
       {% if doc.meta.image %}
         "image": {{ doc.meta.image | jsonify }}
       {% else %}
