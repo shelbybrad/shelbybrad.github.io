@@ -117,8 +117,14 @@ all and (max-width: 767px) and (-ms-high-contrast: none) {
     display: none;
   }
 }
-@media all and (prefers-reduced-motion: reduce) {
+@media all and (prefers-reduced-motion: reduce),
+  print {
   .layout--hide--animations {
+    display: none;
+  }
+}
+@media print {
+  .layout--hide--print {
     display: none;
   }
 }

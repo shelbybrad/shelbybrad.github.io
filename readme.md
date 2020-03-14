@@ -14,6 +14,9 @@ This is a great repo to clone/fork if you want:
     * It can also be any name, typically using the `gh-pages` branch
   3. Edit to your heart's content
 
+If you want to use netlify,
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/shelbybrad/shelbybrad.github.io)
+
 ### Creating a local version for development
 
   3. Run the command `bundle install` in the root of project

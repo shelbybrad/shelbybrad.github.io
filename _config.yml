@@ -154,6 +154,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - LICENSE
+  - netlify.toml
   - node_modules
   - readme.md
   - "vendor/bundle/"
