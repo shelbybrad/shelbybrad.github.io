@@ -151,14 +151,11 @@ collections_dir: collections
 encoding: utf-8
 exclude:
   - CNAME
-  - CODE_OF_CONDUCT.md
-  - CONTRIBUTING.md
   - Gemfile
   - Gemfile.lock
   - LICENSE
   - node_modules
   - readme.md
-  - SECURITY.md
   - "vendor/bundle/"
   - "vendor/cache/"
   - "vendor/gems/"

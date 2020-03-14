@@ -269,17 +269,17 @@ dfn {
  */
 details {
   background-color: rgba(255, 255, 255, 0.5);
-  margin: calc(1 * var(--spacing--single)) 0;
-  padding: calc(.5 * var(--spacing--single)) calc(1.5 * var(--spacing--single)) calc(.5 * var(--spacing--single)) calc(6 * var(--spacing--single));
-  text-align: left;
-  position: relative;
+  border-radius: var(--border-radius--default);
+  margin: calc(2 * var(--spacing--single)) auto;
+  padding: calc(.5 * var(--spacing--single)) calc(1.5 * var(--spacing--single));
 }
 details > summary {
+  border-radius: var(--border-radius--default);
   display: block;
   cursor: pointer;
   font-weight: 500;
-  padding: 20px 36px 15px 0;
-  text-transform: uppercase;
+  line-height: var(--line-height--heading);
+  padding: calc(2 * var(--spacing--single)) calc(4 * var(--spacing--single)) calc(2 * var(--spacing--single)) calc(1 * var(--spacing--single));
 }
 details > summary::-webkit-details-marker {
   display: none;
@@ -287,27 +287,39 @@ details > summary::-webkit-details-marker {
 details > summary::marker {
   display: none;
 }
+details > summary:focus {
+  box-shadow: 0 0 3px;
+  outline: none;
+}
+details > summary:hover,
+details > summary:active,
+details > summary:focus-within,
+details[open] > summary {
+  background-color: rgba(255, 255, 255, 0.5);
+}
 details > summary::after {
   background-color: var(--color--white);
   border-radius: 50%;
-  color: var(--color--second);
+  color: var(--color--accent);
   content: '+';
-  font-size: 30px;
-  line-height: 1;
-  padding: 5px 0;
+  padding: calc(.5 * var(--spacing--single)) calc(1 * var(--spacing--single));
   position: absolute;
-  right: 24px;
+  right: calc(.5 * var(--spacing--single));
   text-align: center;
-  top: 15px;
-  transform: scaleY(1);
-  transition: var(--transition--default);
-  width: 40px;
+  top: calc(1.5 * var(--spacing--single));
+}
+details > summary:hover::after,
+details > summary:active::after,
+details > summary:focus-within::after,
+details[open] > summary::after {
+  background-color: var(--color--accent);
+  color: var(--color--white);
 }
 details[open] {
   padding-bottom: calc(2 * var(--spacing--single));
 }
 details[open] > summary {
-  margin-bottom: 0;
+  margin-bottom: calc(1 * var(--spacing--single));
 }
 details[open] > summary:after {
   content: '-';

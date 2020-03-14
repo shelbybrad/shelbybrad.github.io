@@ -37,7 +37,7 @@ title: "Tags"
 
     {% if site.tags[0] %}
       {% for term in site.tags %}
-        <h3>{{ term[0] }}</h3>
+        <h3 id="tag--{{ term[0] | slugify }}">{{ term[0] }}</h3>
         {% include atoms/spacer.html size="1" %}
         <ul class="list-style--none layout--multiple--horizontal">
           {% for entity in term[1] %}
@@ -49,7 +49,7 @@ title: "Tags"
         {% include atoms/spacer.html size="4" %}
       {% endfor %}
     {% else %}
-      <p class="listing--no-results">There are presently no categories defines on the site.</p>
+      <p class="listing--no-results">There are presently no tags defined on the site.</p>
     {% endif %}
   </div>
 </section>

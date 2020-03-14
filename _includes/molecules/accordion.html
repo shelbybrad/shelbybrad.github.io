@@ -1,0 +1,52 @@
+{% comment %}
+  Components/includes use captures for content and documentation. The 'component' area is the component proper.
+
+  The component is rendered at the end via the 'mode' conditional.
+
+  Please thoroughly document all components.
+{% endcomment %}
+
+{% capture component %}
+  <details class="accordion include include--molecule include--molecule--accordion text-align--left
+    {% if include.classes %}{{ include.classes }}{% endif %}" {% if include.open %}open{% endif %}>
+    <summary class="position--relative font-weight--900">{{ include.title }}</summary>
+    {{ include.children }}
+  </details>
+{% endcapture %}
+
+{% capture usage %}
+## General guidance
+
+Accordions are used for progressive disclosure. Specifically, they can be used for things like FAQs, where the
+alternativue would be anchor links in a table of contents for showing the headings, then clicking to show the
+answer/detail.
+
+Accordions should not be used to hide large amounts of content. That is being dishonest to the user about the content
+on the page. To mediate this, the accordion could be open by default.
+{% endcapture %}
+
+{% capture accessibility %}
+Just some sample text in the accessibility section for now.
+{% endcapture %}
+
+{% capture props %}
+  children| content . Can be plain text or markup| Here is some plain text,
+  classes| css classes applied to parent| color--main-dark,
+  open| whether or not the accordion is open by default| true,
+  title| The summary of the children contents| Plaintext
+{% endcapture %}
+{% assign classes = "image--polaroid, font-family--secondary" | split: ", " %}
+
+{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% if include.mode == "docblock" %}
+  {% include molecules/docblock.html
+    accessibility=accessibility
+    classes=classes
+    html=component
+    props=props
+    source=include
+    usage=usage
+  %}
+{% else %}
+  {{ component }}
+{% endif %}

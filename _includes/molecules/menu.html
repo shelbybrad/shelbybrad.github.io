@@ -5,8 +5,10 @@
   {% for p in pages %}
     {% unless p.url contains "page-" %}
       <li class="menu-item menu-item--menu-{{ include.menu | slugify }} menu-item--page-{{ p.title | slugify }}
-      menu-item--menu-{{ include.menu | slugify }}--page-{{ p.title | slugify }} flex--1">
-        <a {% if p.url == page.url %}class="active"{% endif %} href="{{ p.url | relative_url }}">{{ p.title }}</a>
+        menu-item--menu-{{ include.menu | slugify }}--page-{{ p.title | slugify }} flex--1 display--flex
+        flex-direction--column justify-content--center">
+        <a {% if p.url == page.url %}class="active"{% endif %} href="{{ p.url | relative_url }}"
+          class="menu-item--link display--flex flex-direction--column justify-content--center">{{ p.title }}</a>
       </li>
     {% endunless %}
   {% endfor %}

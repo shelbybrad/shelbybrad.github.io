@@ -1,0 +1,49 @@
+---
+####
+## @file
+## Search page
+##
+## This page is part of the jekyll SSG system overall, but acts like its own app. This is both because it has a lot of
+## special functionality that other pages don't need to load, but also for demonstration purposes of having an SPA
+## 'siloed' within the overall system.
+##
+## Tools like React, Vue, Svelte, Alpine, Stimulus, etc. can be used in their own
+## contexts without affecting the operation of the rest of the site.
+####
+authors:
+  - brad-czerniak
+#categories: ["one", "two"]
+#date: 2020-03-03 02:02:02
+#hero_classes: "background-color--main-dark color--white"
+menus:
+#  copyright: 1
+#  footer: 4
+#  main: 4
+#  utility: 1
+meta:
+  description: "Textually find content on the site via a form with a text box."
+#  image:
+#    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
+#    src: required/meta-image--default.jpg
+#  robots: "index,follow"
+#  title: "Overrides the tab title and social titles"
+permalink: /search/
+#published: true
+#schema:
+#  type: "Thing"
+sections:
+  - cta
+#sitemap: true
+#tags: ["three", "four"]
+title: "Search"
+---
+
+<section class="layout--stripe "><div class="layout--stripe--inner">
+  <ul class="list-style--none layout--multiple--horizontal">
+    {% for post in site.posts %}
+      {% include molecules/card.html
+        entity=post
+      %}
+    {% endfor %}
+  </ul>
+</div></section>

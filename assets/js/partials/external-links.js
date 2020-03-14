@@ -18,7 +18,7 @@ if (allAnchors.length) {
       && thisAnchor.href.substring(0, 1) !== '#'
     ) {
       thisAnchor.setAttribute('target', '_blank');
-      thisAnchor.setAttribute('rel', 'noopener noreferrer');
+      thisAnchor.setAttribute('rel', 'external noopener noreferrer');
     }
   });
 }
