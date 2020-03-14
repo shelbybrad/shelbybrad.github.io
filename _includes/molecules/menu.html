@@ -7,8 +7,8 @@
       <li class="menu-item menu-item--menu-{{ include.menu | slugify }} menu-item--page-{{ p.title | slugify }}
         menu-item--menu-{{ include.menu | slugify }}--page-{{ p.title | slugify }} flex--1 display--flex
         flex-direction--column justify-content--center">
-        <a {% if p.url == page.url %}class="active"{% endif %} href="{{ p.url | relative_url }}"
-          class="menu-item--link display--flex flex-direction--column justify-content--center">{{ p.title }}</a>
+        <a href="{{ p.url | relative_url }}" class="menu-item--link {% if p.url == page.url %}active{% endif %}
+          display--flex flex-direction--column justify-content--center">{{ p.title }}</a>
       </li>
     {% endunless %}
   {% endfor %}

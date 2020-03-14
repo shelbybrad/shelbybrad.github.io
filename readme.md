@@ -1,4 +1,8 @@
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![GitHub top language](https://img.shields.io/github/languages/top/shelbybrad/shelbybrad.github.io)
+![GitHub language count](https://img.shields.io/github/languages/count/shelbybrad/shelbybrad.github.io)
+
 This is a great repo to clone/fork if you want:
 
   * To make a Jekyll site
