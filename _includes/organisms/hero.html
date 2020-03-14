@@ -6,42 +6,47 @@
     {% capture hero_classes %}background-color--main background-image--affectation color--white text-align--center background-image-display-mobile--hide{% endcapture %}
   {% endif %}
 
-  {% comment %}Demonstration of nesting components using capture. Seems excessive.{% endcomment %}
-  {% capture hero_children %}
-    <div class="hero--title layout--row display--flex justify-content--center">
-      <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
-        padding-horizontal--4 padding-horizontal--collapse">
+  <header class="include include--organisms include--organisms--section layout--stripe {{ hero_classes }}"
+    id="hero--{{ page.title | slugify }}">
+    <div class="layout--stripe--inner">
+
+      {% if page.meta.image.src %}
+        <div class="hero--title layout--row display--flex justify-content--center">
+          <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
+            padding-horizontal--4 padding-horizontal--collapse">
+            {% include atoms/heading.html
+              children=page.title
+              classes="text-shadow--second-light--solid"
+              level="1"
+            %}
+          </aside>
+
+          <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
+            padding-horizontal--4 padding-horizontal--collapse">
+            {% include atoms/image.html
+              src=page.meta.image.src
+              alt=page.meta.image.alt
+              classes="hero--figure hero--image"
+            %}
+          </aside>
+        </div>
+      {% else %}
         {% include atoms/heading.html
           children=page.title
           classes="text-shadow--second-light--solid"
           level="1"
         %}
-      </aside>
-
-      {% if page.meta.image.src %}
-        <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
-          padding-horizontal--4 padding-horizontal--collapse">
-          {% include atoms/image.html
-            src=page.meta.image.src
-            alt=page.meta.image.alt
-            classes="hero--figure hero--image"
-          %}
-        </aside>
       {% endif %}
+
+      {% if page.collection == "posts" %}
+        {% include atoms/spacer.html size="2" %}
+
+        {% include molecules/byline.html
+          classes=""
+          entity=page
+        %}
+      {% endif %}
+
     </div>
-
-    {% if page.collection == "posts" %}
-      {% include atoms/spacer.html size="2" %}
-
-      {% include molecules/byline.html
-        classes=""
-        entity=page
-      %}
-    {% endif %}
-  {% endcapture %}
-
-  {% include organisms/section.html
-    classes=hero_classes
-    children=hero_children
-  %}
+  </header>
 {% endif %}
