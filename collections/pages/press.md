@@ -30,3 +30,21 @@ title: "Press"
 ## Introduction
 
 We are big believers in the power, necessity, and good of the fourth estate. Below are resources for press inquiries.
+
+Please let us know if you're working on a deadline, as we'll work to get you what you need faster.
+
+## Inquiries
+
+If you are looking for someone to get a hold of directly, here is our primary press contact:
+
+### {{ site.press.name }}
+
+**{{ site.press.job_title }}**
+
+Email: [{{ site.press.email }}](mailto:{{ site.press.email }})
+
+Phone: [{{ site.press.phone.display }}](tel:+{{ site.press.phone.mailto }})
+
+### Other
+
+You may also use [the contact form]({% link collections/pages/contact.html %}) for any lower-priority questions.

@@ -42,6 +42,13 @@
 }
 
 /**
+ * Box shadow helpers.
+ */
+.box-shadow--default {
+  box-shadow: var(--box-shadow--default);
+}
+
+/**
  * Flex-basis helpers.
  */
 .flex-basis--100 {

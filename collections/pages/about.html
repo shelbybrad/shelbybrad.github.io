@@ -65,3 +65,33 @@ title: "About"
   mode="ref"
   slug="gallery"
 %}
+
+<section class="layout--stripe">
+  <div class="layout--stripe--inner">
+    {% include atoms/heading.html
+      children="Coming from out of town?"
+      classes="text-shadow--second-light--solid heading--h1 text-align--center"
+      level="2"
+    %}
+
+    {% include atoms/spacer.html size="4" %}
+
+    <div class="layout--row display--flex flex-direction--row-reverse">
+      <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
+        padding-horizontal--4 padding-horizontal--collapse">
+        <p>We'd be delighted to point you in the right direction for accommodations, sightseeing, food, activities, or
+          anything else your heart desires! Just contact either of us by phone, email, social media, or the
+          <a href="/rsvp/">RSVP form</a>.</p>
+        <p>For info on how cool Detroit is, <a href="https://visitdetroit.com/">check out visitdetroit.com</a>.</p>
+      </aside>
+      <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
+        padding-horizontal--4 padding-horizontal--collapse">
+        {% include atoms/image.html
+          src="1200x630/detroit.jpg"
+          alt="An artist depiction of our wedding"
+          classes="box-shadow--default"
+        %}
+      </aside>
+    </div>
+  </div>
+</section>

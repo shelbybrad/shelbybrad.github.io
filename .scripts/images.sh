@@ -11,9 +11,17 @@
 ## Run this script from the repo root (ex: `.scripts/images.sh`).
 ####
 
+##
 # Optimize legacy formats.
-for i in `find assets/ -name "*.jpg"`; do jpegoptim --max=90 --strip-all --all-progressive --preserve --totals $i; done
-for i in `find assets/ -name "*.png"`; do pngcrush -e .png2 -rem allb -brute -reduce $i; mv ${i}2 $i; optipng -o7 $i; done
+#
+# Note: These are disabled in the script because we have webp enabled and all the images already
+# in the repo are optimized. Re-optimizing JPEGs especially is lossy, and PNGs is time-consuming, so if we operated on
+# the assumption that most users can use our webp versions then optimizing the legacies is a more-rare step.
+#
+# @todo Make a flag for this in bash.
+##
+#for i in `find assets/ -name "*.jpg"`; do jpegoptim --max=90 --strip-all --all-progressive --preserve --totals $i; done
+#for i in `find assets/ -name "*.png"`; do pngcrush -e .png2 -rem allb -brute -reduce $i; mv ${i}2 $i; optipng -o7 $i; done
 
 # Create webp copies that are just the original filenames with .webp appended (to make it easy for Jekyll to conditionally
 # find them.

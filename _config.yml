@@ -2,12 +2,15 @@
 ## @file
 ## Jekyll configuration
 ##
-## We try to push as much sitewide config as possible into this file, so a new deployment can be going through this one
-## place and changing values here and there.
+## We try to push as much sitewide config as possible into this file, so a new deployment can start with just editing
+## this file.
 ##
 ## If you need help with YAML syntax, here are some quick references for you:
 ## https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 ## https://learnxinyminutes.com/docs/yaml/
+##
+## Throughout this file, you'll see two # marks at the start of a line for a permanent comment, and a single # for
+## configuration options that can be enabled by removing the #.
 ##
 ## When adding new sections, be sure to name them so they make sense to others, and to document with good comments
 ## wherever possible/practical.
@@ -17,9 +20,11 @@
 baseurl: "" # This is better empty
 cache_bust: 2 # Increment to clear the service-worker cache
 subpath: "" # Could be a subsite of a domain at a path, ex. "/sub-site"
-# @see https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
-#content_security_policy: "default-src 'self'; script-src 'self' 'unsafe-inline'"
 #google_analytics: UA-697953-3 # The UA- code provided by GA
+
+## Content-Security-Policy is preferably something to set in the HTTP headers, but is available here just in case.
+## @see https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+#content_security_policy: "default-src 'self'; script-src 'self' 'unsafe-inline'"
 
 ## Basic site info
 title: "Shelby and Brad"
@@ -44,6 +49,8 @@ phone:
   mailto: "12487210350" # Phone number with country code for the link
 
 ## Social links
+## Find icons in _includes/icons/[library]/[symbol].svg
+## The _includes/icons/simple-icons library has all the social ones.
 social:
   - title: Facebook
     url: https://www.facebook.com/bradczerniak
@@ -56,6 +63,16 @@ social:
       library: simple-icons
       symbol: twitter
 
+## Press contact
+## For small sites this is the same person and contact information as above. For companies... probably not.
+press:
+  name: "Brad Czerniak"
+  job_title: "Webmaster"
+  email: "ao5357@gmail.com"
+  phone:
+    display: "(248) 721-0350" # Phone number as displayed
+    mailto: "12487210350" # Phone number with country code for the link
+
 ## The <html> tag has language and language direction. We can make it configurable
 html:
   dir: "ltr"
@@ -67,7 +84,7 @@ meta:
   description: "Brad Czerniak and Shelby Hassell (nee Sleete) are getting married in October in Michigan."
   generator: "[Jekyll](https://github.com/mojombo/jekyll)"
   image:
-    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
+    alt: "Shelby and Brad among the stars" # It's okay for this to be an empty string if the image is decorative
     src: required/meta-image--default.jpg
   robots: "index,follow"
 # title: "Do not use" # site.meta.title is not used for anything, but is included for completeness.
@@ -93,11 +110,13 @@ twitter:
   site: "@ao5357"
 
 ## PWA and other SEO
+## @see https://developer.mozilla.org/en-US/docs/Web/Manifest
 manifest_webmanifest:
   background_color: "#fff"
   theme_color: "#003f80"
 
 ## JAMstack form handler globals
+## @see https://css-tricks.com/a-comparison-of-static-form-providers/
 form_components:
   handler_url: "https://formsubmit.co"
   honeypot_name: "_honey"
@@ -118,6 +137,7 @@ woff:
   - "public_sans/public_sans_variable_italic.woff2"
 
 ## The 'THANKS' and 'SITE' sections of humans.txt
+## @see http://humanstxt.org/
 ## (Note: the 'TEAM' section is built from the content in the _people collection
 humans_txt:
   site:
@@ -141,6 +161,7 @@ humans_txt:
       from: "Lincoln Park, Michigan, USA"
 
 ## Content license (comment out to disable entirely)
+## @see https://creativecommons.org/share-your-work/
 content_license:
   name: "CC BY-SA 4.0"
   url: "http://creativecommons.org/licenses/by-sa/4.0/"
@@ -149,6 +170,7 @@ content_license:
     symbol: creativecommons
 
 ## Jekyll configs
+## @see https://jekyllrb.com/docs/configuration/
 collections_dir: collections
 encoding: utf-8
 exclude:
@@ -206,6 +228,7 @@ whitelist:
   - jekyll-redirect-from
 
 ## Site structure
+## @see https://jekyllrb.com/docs/collections/
 collections:
   docs:
     output: true
@@ -226,6 +249,8 @@ collections:
     output: false
     permalink: /:title/
 
+## Layout and front matter defaults.
+## @see https://jekyllrb.com/docs/configuration/front-matter-defaults/
 defaults:
   - scope:
       path: ""
