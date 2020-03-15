@@ -41,7 +41,7 @@ if ('IntersectionObserver' in window) {
   var animationInitializationFunction = function(initType) {
     animationObserver.observe(this);
   };
-  utilityInitializer('js--animation--reveal', 'animationInitializationFunction');
+  utilityInitializer('js--to-animate', 'animationInitializationFunction');
   /* Wait until blocking resources have loaded to bring in images. */
   window.addEventListener('load', (event) => {
     utilityInitializer('picture--lazy-load', 'animationInitializationFunction');

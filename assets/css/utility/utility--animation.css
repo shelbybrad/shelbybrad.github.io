@@ -48,23 +48,26 @@
 
 /**
  * Named animations per the keyframes below.
+ *
+ * Despite animations working without JavaScript, all animations here are tied to the js--to-animate IntersectionObserver.
+ * This reduces paints at load-time and prevents below-fold issues with any animated lazy-loaded images.
  */
 @media all and (prefers-reduced-motion: no-preference) {
-  .animation-name--reveal {
+  .animation-name--reveal.js--animation--observed {
     animation-name: reveal;
   }
-  .animation-name--scale {
+  .animation-name--scale.js--animation--observed {
     animation-name: scale;
   }
-  .animation-name--slide {
+  .animation-name--slide.js--animation--observed {
     animation-name: slide;
     position: relative;
   }
-  .animation-name--slide-spin {
+  .animation-name--slide-spin.js--animation--observed {
     animation-name: slide, spin;
     position: absolute;
   }
-  .animation-name--spin {
+  .animation-name--spin.js--animation--observed {
     animation-name: spin;
   }
 }
@@ -73,10 +76,10 @@
  * Trigger animated visibility.
  */
 @media all and (prefers-reduced-motion: no-preference) {
-  .js--animation .js--animation--reveal {
+  .js--animation .animation-name--reveal {
     opacity: 0;
   }
-  .js--animation .js--animation--reveal.js--animation--observed {
+  .js--animation .animation-name--reveal.js--animation--observed {
     opacity: 1;
     animation-duration: 2s;
     animation-name: reveal;
