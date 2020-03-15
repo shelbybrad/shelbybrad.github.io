@@ -45,6 +45,13 @@
           classes=""
           entity=page
         %}
+      {% elsif page.collection == "events" %}
+        {% include atoms/spacer.html size="2" %}
+
+        {% include molecules/event-details.html
+          classes=""
+          entity=page
+        %}
       {% endif %}
 
     </div>

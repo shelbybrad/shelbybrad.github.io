@@ -5,6 +5,13 @@ authors:
 date: 2020-10-08 14:00:00
 date_end: 2020-10-08 15:00:00
 #hero_classes: "background-color--main-dark color--white"
+location:
+  name: "Kensington Metropark"
+  street_address: "4570 Huron River Pkwy"
+  locality: Milford
+  region: MI
+  postal_code: "48380"
+  country_name: USA
 meta:
   description: "When we actually get married."
   image:
