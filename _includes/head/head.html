@@ -95,6 +95,7 @@
     -- so let's throw them at the bottom of the head.
     -->
 {% endcomment %}
+{% if site.content_security_policy %}<meta http-equiv="Content-Security-Policy" content="{{ site.content_security_policy }}">{% endif%}
 <meta name="apple-mobile-web-app-title" content="{{ site.shortname }}" />
 <meta name="theme-color" content="{{ site.manifest_webmanifest.theme_color }}" />
 <meta name="Generator" content="{{ site.meta.generator }}" />

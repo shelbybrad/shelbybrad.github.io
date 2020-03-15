@@ -56,3 +56,14 @@ var checkCookie = function() {
   };
 }();
 window.setInterval(checkCookie, 500);
+
+/* This CSS file loads a Google font that adds a GA cookie, so only do that if
+ we absolutely have to. */
+window.addEventListener('load', (event) => {
+  if ("Snipcart" in window) {
+    var tag = document.createElement("link");
+    tag.rel = "stylesheet";
+    tag.href = "https://cdn.snipcart.com/themes/v3.0.9/default/snipcart.css";
+    document.head.appendChild(tag);
+  }
+});
