@@ -2,20 +2,20 @@
 authors:
   - shelby-hassell
 #categories: ["one", "two"]
-date: 2020-10-08 14:00:00
-date_end: 2020-10-08 15:00:00
+date: 2020-10-08 18:00:00
+date_end: 2020-10-08 19:00:00
 #hero_classes: "background-color--main-dark color--white"
 location:
-  name: "Kensington Metropark"
-  street_address: "4570 Huron River Pkwy"
-  locality: Milford
+  name: "Raintree Park"
+  street_address: "3775 John R Rd"
+  locality: Troy
   region: MI
-  postal_code: "48380"
+  postal_code: "48083"
   country_name: USA
 meta:
   description: "When we actually get married."
   image:
-    alt: "Facade of Pops for Italian in Ferndale"
+    alt: "Generic gazebo"
     src: 1200x630/gazebo.jpg
 #  robots: "index,follow"
 #  title: "Overrides the tab title and social titles"
@@ -26,8 +26,6 @@ meta:
 title: "Ceremony, wedding, private"
 ---
 
-## Section after hero on the Example post
+## Details
 
-Fancy!
-
-GG
+This event will..

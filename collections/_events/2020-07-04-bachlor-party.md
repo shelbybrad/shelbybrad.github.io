@@ -15,7 +15,7 @@ location:
 meta:
   description: "The guys camping or something."
   image:
-    alt: "Facade of Pops for Italian in Ferndale"
+    alt: "Generic camping scene"
     src: 1200x630/camping.jpg
 #  robots: "index,follow"
 #  title: "Overrides the tab title and social titles"
@@ -26,6 +26,6 @@ meta:
 title: "Bachelor party"
 ---
 
-## Section after hero on the Example post
+## Details
 
-Fancy!
+This event will..

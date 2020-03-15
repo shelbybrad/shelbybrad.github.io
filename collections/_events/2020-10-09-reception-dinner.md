@@ -6,11 +6,11 @@ date: 2020-10-09 18:30:00
 date_end: 2020-10-09 21:00:00
 #hero_classes: "background-color--main-dark color--white"
 location:
-  name: "Kensington Metropark"
-  street_address: "4570 Huron River Pkwy"
-  locality: Milford
+  name: "Pop's for Italian"
+  street_address: "280 W Nine Mile Rd #2"
+  locality: Ferndale
   region: MI
-  postal_code: "48380"
+  postal_code: "48220"
   country_name: USA
 meta:
   description: "Delicious dinner for 60-ish of our closest friends and family."
@@ -26,6 +26,8 @@ meta:
 title: "Reception dinner"
 ---
 
-## Section after hero on the Example post
+## Details
 
-Fancy!
+**This event is expressly by invitation only, with RSVP required.**
+
+Come join us to celebrate! Italian dinner and lots of ambiance.

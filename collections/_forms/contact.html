@@ -1,6 +1,6 @@
 ---
-action: false # "https://formspree.io/name@example.com"
-actions_classes: "display--flex"
+#action: "https://formsubmit.co/ao5357@gmail.com"
+actions_classes: "display--flex justify-content--center"
 authors:
   - brad-czerniak
 #categories: ["one", "two"]
@@ -11,8 +11,37 @@ excerpt: "Contact Form"
 submit: "Send"
 #tags: ["three", "four"]
 thank_you: false # "https://www.google.com/"
-title: "Contact form"
+title: "Contact Form"
 title_classes: "a11y--visually-hidden"
 ---
 
-<p>Here is some text inside a form.</p>
+<fieldset name="message">
+  <legend>Shoot us a message</legend>
+
+  {% include forms/form--input.html
+    classes=""
+    description=false
+    label="Name"
+    name="fullname"
+    required=false
+    type="text"
+  %}
+
+  {% include forms/form--input.html
+    classes=""
+    description=false
+    label="Email"
+    name="email"
+    required=true
+    type="email"
+  %}
+
+  {% include forms/form--textarea.html
+    classes=""
+    description="Questions, comments, anything."
+    label="Message"
+    name="message"
+    required=true
+    rows="4"
+  %}
+</fieldset>

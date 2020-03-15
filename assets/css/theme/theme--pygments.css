@@ -6,6 +6,7 @@
 .highlight pre,
 .highlight .hll {
   background-color: var(--color--black);
+  color: var(--color--white);
 }
 
 /* Comment */
