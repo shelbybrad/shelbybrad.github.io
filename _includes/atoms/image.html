@@ -13,11 +13,11 @@
         {% capture webp_path %}/assets/images/{{ include.src }}.webp{% endcapture %}
         {% assign webp_version = site.static_files | where: "path", webp_path | first %}
         {% if webp_version %}
-          <source srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+          <source srcset="{{ site.subpath }}/assets/images/required/s.webp"
             data-srcset="{{ webp_version.path | relative_url }}" type="image/webp" />
         {% endif %}
         <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-          data-src="{{ site.subpath }}/assets/images/{{ include.src }}" alt="{{ include.alt }}" loading="lazy" />
+          data-src="{{ site.subpath }}/assets/images/required/s.gif" alt="{{ include.alt }}" loading="lazy" />
       </picture>
       <noscript>
         <img src="{{ site.subpath }}/assets/images/{{ include.src }}" alt="{{ include.alt }}" loading="lazy" />
