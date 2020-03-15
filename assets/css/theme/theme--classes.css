@@ -422,7 +422,11 @@
  * Make lazy loaded images transition all to see if that is less jarring.
  */
 .picture--lazy-load {
+  transform: scale(1, 0);
   transition: var(--transition--default);
+}
+.picture--lazy-load--loaded {
+  transform: scale(1, 1);
 }
 
 /**
