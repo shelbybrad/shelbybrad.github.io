@@ -178,10 +178,10 @@
   text-shadow: var(--neumorphic--text-shadow);
   transition: var(--transition--default);
 }
-.card figure {
+.card figure,
+.card figure img {
   border-top-left-radius: var(--border-radius--default);
   border-top-right-radius: var(--border-radius--default);
-  overflow: hidden;
 }
 .card h3 {
   margin-bottom: calc(1.5 * var(--spacing--single));
@@ -231,11 +231,6 @@
  */
 .figure--image--polaroid:not(.js--event--click--toggle) {
   margin-bottom: calc(1 * var(--spacing--single));
-}
-.figure--image--polaroid:not(.js--event--click--toggle) img,
-.figure--image--polaroid:not(.js--event--click--toggle) picture,
-.figure--image--polaroid:not(.js--event--click--toggle) source {
-  margin-bottom: 0;
 }
 .figure--image--polaroid:not(.js--event--click--toggle) > picture {
   border: 1px solid var(--color--grey);
