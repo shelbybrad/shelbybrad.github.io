@@ -28,4 +28,4 @@ title: "Ceremony, wedding, private"
 
 ## Details
 
-This event will..
+TBD.

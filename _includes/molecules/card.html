@@ -6,6 +6,18 @@
   Please thoroughly document all components.
 {% endcomment %}
 
+{% comment %} Subtitle, if applicable {% endcomment %}
+{% case include.entity.collection %}
+  {% when "events" %}
+    {% capture card_subtitle %}{{ include.entity.date | date: "%a, %b %e, %Y" }}{% endcapture %}
+  {% when "people" %}
+    {% if include.entity.job_title %}{% assign card_subtitle=include.entity.job_title %}{% endif %}
+  {% when "posts" %}
+    {% capture card_subtitle %}{{ include.entity.date | date: "%B %e, %Y" }}{% endcapture %}
+  {% when "products" %}
+    {% capture card_subtitle %}${{ include.entity.price }}{% endcapture %}
+{% endcase %}
+
 {% comment %} Get a pre-made description or derive it. {% endcomment %}
 {% if include.entity.meta.description %}
   {% assign entity_description=include.entity.meta.description %}
@@ -31,8 +43,8 @@
   <li class="card js--child--link display--flex flex-direction--column {% if include.classes %}{{ include.classes }}{% endif %}">
     <div class="card--text padding-horizontal--4 padding-vertical--4">
       <h3 class="card--title font-size--1p25em"><a href="{{ include.entity.url }}">{{ include.entity.title }}</a></h3>
-      {% if include.entity.job_title %}
-        <h4 class="card--subtitle font-size--p875em font-style--italic">{{ include.entity.job_title }}</h4>
+      {% if card_subtitle %}
+        <strong class="card--subtitle display--block font-size--p875em font-weight--100 font-style--italic">{{ card_subtitle }}</strong>
       {% endif %}
       <p class="card--description font-size--p75em">{{ entity_description }}</p>
     </div>

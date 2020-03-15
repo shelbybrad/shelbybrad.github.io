@@ -77,6 +77,18 @@
     transparent 0 7deg
   );
 }
+.background-image--gradient--main {
+  background-image: linear-gradient(-5deg, transparent 50%, var(--color--main) 200%);
+}
+.background-image--gradient--second {
+  background-image: linear-gradient(-5deg, transparent 50%, var(--color--second) 200%);
+}
+.background-image--gradient--third {
+  background-image: linear-gradient(-5deg, transparent 50%, var(--color--third) 200%);
+}
+.background-image--gradient--accent {
+  background-image: linear-gradient(-5deg, transparent 50%, var(--color--accent) 200%);
+}
 
 /**
  * Effects based on scroll.
@@ -174,7 +186,7 @@
 .card h3 {
   margin-bottom: calc(1.5 * var(--spacing--single));
 }
-.card h3 + h4 {
+.card h3 + strong {
   margin-bottom: calc(1.5 * var(--spacing--single));
   margin-top: calc(-1 * var(--spacing--single));
 }
@@ -294,6 +306,17 @@
 .gallery-item {}
 .text-align--center figure.gallery-item {
   margin: 0 auto calc(4 * var(--spacing--single));
+}
+
+/**
+ * Site header and its elements.
+ */
+.header {}
+.header--logo {
+  text-decoration: none;
+}
+.header--logo--tagline {
+  text-shadow: var(--neumorphic--text-shadow);
 }
 
 /**
@@ -419,7 +442,7 @@
 }
 
 /**
- * Make lazy loaded images transition all to see if that is less jarring.
+ * Make lazy loaded images transition all for perceived performance.
  */
 .picture--lazy-load {
   transform: scale(1, 0);
@@ -464,7 +487,7 @@
 }
 
 /**
- * A "street sign", tripe-D style.
+ * A "street sign", triple-D style.
  *
  * Base class applies to children. Each child pads down, and base element is bottom padded quite a lot.
  */

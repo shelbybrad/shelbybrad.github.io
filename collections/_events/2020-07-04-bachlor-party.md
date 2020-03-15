@@ -28,4 +28,4 @@ title: "Bachelor party"
 
 ## Details
 
-This event will..
+We're still ironing out the details on this. Everything is subject to change.

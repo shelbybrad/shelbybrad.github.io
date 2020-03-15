@@ -38,21 +38,96 @@ title: "About"
 
     {% include atoms/spacer.html size="4" %}
 
-    <div class="layout--row display--flex">
+    <div class="layout--row display--flex flex-direction--row-reverse">
       <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
         padding-horizontal--4 padding-horizontal--collapse js--to-animate animation-name--reveal">
         <p>Shelby and Brad met on Tinder, where they discovered an instant chemistry as well as a bunch of coincidences.</p>
-        <p>Our story here.</p>
+        <p>First, some coincidences:</p>
+        <ul>
+          <li>When they started chatting, Brad was supposed to be on a Tinder date with Shelby's friend, Emma. Instead,
+            <i>Shelby</i> was with Emma, looking at Tinder.
+          </li>
+          <li>Shelby's older brother, Tyson, was friends with Brad back in elementary school. Small world! Go Barnard
+            Bluejays!
+          </li>
+        </ul>
+
+        {% include atoms/spacer.html size="2" %}
+
+        <p>Needless to say, they had plenty to talk about, and had a grand time getting phở and bánh mì on their first date.</p>
       </aside>
       <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
         padding-horizontal--4 padding-horizontal--collapse">
         {% include atoms/image.html
           src="bears-clipart-animated.gif"
-          alt="An artist depiction of our wedding"
+          alt=""
           classes="js--to-animate animation-name--spin animation-iteration-count--infinite animation-direction--alernate animation-duration--3s"
         %}
       </aside>
     </div>
+
+  </div>
+</section>
+
+<section class="layout--stripe background-color--main-dark color--white background-image--gradient--main">
+  <div class="layout--stripe--inner">
+    {% include atoms/heading.html
+      children="What we've been up to"
+      classes="text-shadow--second-light--solid"
+      level="2"
+    %}
+
+    {% include atoms/spacer.html size="4" %}
+
+    <div class="layout--row display--flex">
+      <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center">
+        <h3>Places we've gone</h3>
+
+        {% include atoms/spacer.html size="1" %}
+
+        <ul>
+          <li><em>Benton Harbor, MI</em>: Watched Kat do an Ironman!</li>
+          <li><em>Cuyahoga Valley National Park, OH</em>: Rocks, trees, rivers, all that jazz. We even camped</li>
+          <li><em>Philadelphia, PA</em>: Reading Terminal Market and Guy Fieri's Kitchen</li>
+          <li><em>Madison Heights, MI</em>: Augie's really does have great chicken tenders (and it's where we got engaged)</li>
+          <li><em>Rocky Mountain National Park and Fort Collins, CO</em>: Alex and Kat throw great parties. We saw moose!</li>
+        </ul>
+
+        {% include atoms/spacer.html size="4" %}
+        {% include atoms/spacer.html size="2" %}
+
+        <h3>Things we've watched</h3>
+
+        {% include atoms/spacer.html size="1" %}
+
+        <ul>
+          <li>Diners, Drive-ins, and Dives</li>
+          <li>LOST</li>
+          <li>Doughboys, live!</li>
+          <li>Sports Night</li>
+          <li>Brick</li>
+          <li>Parasite</li>
+          <li>Hereditary</li>
+          <li>Idiocracy</li>
+          <li>About Time</li>
+          <li>Sorry to bother you</li>
+          <li>A Detroit Pistons game (in person)</li>
+        </ul>
+      </aside>
+
+      <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--flex-end
+        padding-horizontal--4 padding-horizontal--collapse">
+        {% include atoms/image.html
+          src="1200x630/hereditary.jpg"
+          alt=""
+          classes=""
+        %}
+      </aside>
+    </div>
+
+    {% include atoms/spacer.html size="2" %}
+
+    <p>And the fun doesn't stop there! We've got big plans for 2020 and beyond.</p>
   </div>
 </section>
 
@@ -76,7 +151,7 @@ title: "About"
 
     {% include atoms/spacer.html size="4" %}
 
-    <div class="layout--row display--flex flex-direction--row-reverse">
+    <div class="layout--row display--flex">
       <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
         padding-horizontal--4 padding-horizontal--collapse">
         <p>We'd be delighted to point you in the right direction for accommodations, sightseeing, food, activities, or

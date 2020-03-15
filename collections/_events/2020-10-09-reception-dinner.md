@@ -31,3 +31,21 @@ title: "Reception dinner"
 **This event is expressly by invitation only, with RSVP required.**
 
 Come join us to celebrate! Italian dinner and lots of ambiance.
+
+### Dress code
+
+Dressy casual preferred? Like, what you'd wear to go to a nice dinner, knowing that some people there will be really
+dressed up, but other people might just be in their nicest jeans. A sweet spot between there that matches your personality.
+
+If you want to wear a white dress, you can, though it is after Labor Day, so... All we ask is that you don't wear anything
+outrageous.
+
+### Gifts and other things
+
+We're a little packed up in the venue, so please do not bring any gifts or other large items without discussing it with
+us first.
+
+### After-party
+
+When we get kicked out of Pop's, we're all 100% definitely going to [Rosie O'Grady's](http://rosieogradysirishpub.com/)
+across the street for some nightcaps and dancing. Please bring your dancing shoes, and join us if you can stay out that late.

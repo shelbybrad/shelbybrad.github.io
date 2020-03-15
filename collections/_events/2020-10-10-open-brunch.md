@@ -28,4 +28,4 @@ title: "Open brunch"
 
 ## Details
 
-This event will..
+TBD.

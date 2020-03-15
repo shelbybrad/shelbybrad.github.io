@@ -8,7 +8,7 @@ meta:
   description: "Lesser fruit"
   image:
     alt: "Stylish banana"
-    src: 1200x630/banana.jpg
+    src: 1200x630/banana-invert.jpg
 #  robots: "index,follow"
 #  title: "Overrides the tab title and social titles"
 #permalink: /event/YYYY/MM/title/
