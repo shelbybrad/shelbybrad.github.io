@@ -19,16 +19,19 @@
         {% endfor %}
 
         {% if site.social %}
-          <div class="social">
+          <ul class="social margin-horizontal--0">
           {% for link in site.social %}
-            <a href="{{ link.url }}">
+            <li class="display--inline-block">
               {% if link.icon %}
-                {% include atoms/icon.html library=link.icon.library symbol=link.icon.symbol %}
+                <a href="{{ link.url }}" class="font-size--2em" aria-label="{{ link.title }}">
+                  {% include atoms/icon.html library=link.icon.library symbol=link.icon.symbol %}
+                </a>
+              {% else %}
+                <a href="{{ link.url }}"><span>{{ link.title }}</span></a>
               {% endif %}
-              <span>{{ link.title }}</span>
-            </a>
+            </li>
           {% endfor %}
-          </div>
+          </ul>
         {% endif %}
       </aside>
 

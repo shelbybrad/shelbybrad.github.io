@@ -423,8 +423,17 @@
 /**
  * Social links.
  */
+.social {}
 .social a {
   display: block;
+  margin: 0 calc(.5 * var(--spacing--single)) calc(.5 * var(--spacing--single)) 0;
+  min-height: 48px;
+  min-width: 48px;
+}
+.social a:hover,
+.social a:active,
+.social a:focus-within {
+  color: var(--color--second-light);
 }
 
 /**
