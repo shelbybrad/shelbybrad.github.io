@@ -182,6 +182,8 @@
 .card figure img {
   border-top-left-radius: var(--border-radius--default);
   border-top-right-radius: var(--border-radius--default);
+  margin-bottom: 0;
+  transition: var(--transition--default);
 }
 .card h3 {
   margin-bottom: calc(1.5 * var(--spacing--single));
@@ -190,11 +192,19 @@
   margin-bottom: calc(1.5 * var(--spacing--single));
   margin-top: calc(-1 * var(--spacing--single));
 }
+.card picture {
+  overflow: hidden;
+}
 .card--hover:hover,
 .card--hover:active,
 .card--hover:focus-within {
   border: var(--neumorphic--border--active);
   box-shadow: var(--neumorphic--box-shadow--large--active);
+}
+.card--hover:hover figure img ,
+.card--hover:active figure img ,
+.card--hover:focus-within figure img {
+  transform: scale(1.125);
 }
 
 /**

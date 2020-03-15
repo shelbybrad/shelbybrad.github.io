@@ -35,6 +35,19 @@
 }
 
 /**
+ * Border radius helpers
+ */
+.border-radius--default {
+  border-radius: var(--border-radius--default);
+}
+.border-radius--none {
+  border-radius: 0;
+}
+.border-radius--round {
+  border-radius: 50%;
+}
+
+/**
  * Positioning helpers: bottom.
  */
 .bottom--0 {
