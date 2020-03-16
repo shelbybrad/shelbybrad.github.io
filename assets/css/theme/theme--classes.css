@@ -188,6 +188,9 @@
 .card h3 {
   margin-bottom: calc(1.5 * var(--spacing--single));
 }
+.card h3 > a {
+  text-decoration: underline;
+}
 .card h3 + strong {
   margin-bottom: calc(1.5 * var(--spacing--single));
   margin-top: calc(-1 * var(--spacing--single));
@@ -205,6 +208,9 @@
 .card--hover:active figure img ,
 .card--hover:focus-within figure img {
   transform: scale(1.125);
+}
+.card--hover:focus-within h3 > a {
+  text-decoration: underline dashed;
 }
 
 /**

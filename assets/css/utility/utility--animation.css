@@ -87,6 +87,15 @@
 }
 
 /**
+ * Stop animations on hover or click.
+ */
+.js--event--click--toggle[class*="animation-name--"],
+.js--event--mouseenter--toggle[class*="animation-name--"],
+.js--event--mouseover--toggle[class*="animation-name--"] {
+  animation-name: none;
+}
+
+/**
  * All the named keyframes in alphabetical order.
  */
 @keyframes reveal {

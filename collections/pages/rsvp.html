@@ -21,7 +21,6 @@ permalink: /rsvp/
 #schema:
 #  type: "Thing"
 sections:
-  - animation
   - cta
 #sitemap: true
 #tags: ["three", "four"]
@@ -55,12 +54,38 @@ title: "RSVP"
   </div>
 </section>
 
-<section class="layout--stripe background-color--white">
+<section class="layout--stripe background-color--third-dark background-image--gradient--third color--white">
   <div class="layout--stripe--inner">
-    <h2>Gifts/Registries/etc.</h2>
+    <h2 class="heading--h1 text-align--center">Gifts/Registries/etc.</h2>
 
-    {% include atoms/spacer.html size="2" %}
+    {% include atoms/spacer.html size="4" %}
 
-    <p>Info here about a honeymoon fund.</p>
+    <div class="layout--row display--flex flex-direction--row-reverse">
+      <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center padding-horizontal--8
+        padding-horizontal--collapse">
+        <p>
+          We are blessed couple, wanting for very little, and exercising Marie-Kondo-levels of decluttering. If possible,
+          we ask not to receive any gifts of physical/household items, except of course for those of sentimental value.
+        </p>
+
+        <p>
+          If you would like to help celebrate our special occasion by giving us a gift, we'd certainly appreciate it. Our
+          plan is to use financial contributions by cash, check, or <a href="http://paypal.me/ao5357/50usd">online</a> to
+          go on an awesome honeymoon.
+        </p>
+
+        <p>
+          Thank you!
+        </p>
+      </aside>
+
+      <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center">
+        {% include atoms/image.html
+          src="1200x630/marie-kondo.jpg"
+          alt="Marie Kondo"
+          classes="js--to-animate js--event--click js--event--mouseover animation-name--scale animation-iteration-count--infinite animation-duration--3s box-shadow--lifted-edges"
+        %}
+      </aside>
+    </div>
   </div>
 </section>

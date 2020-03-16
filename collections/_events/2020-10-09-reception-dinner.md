@@ -42,8 +42,7 @@ outrageous.
 
 ### Gifts and other things
 
-We're a little packed up in the venue, so please do not bring any gifts or other large items without discussing it with
-us first.
+It's not a big venue, so please do not bring in any gifts or other large items without discussing it with us first.
 
 ### After-party
 

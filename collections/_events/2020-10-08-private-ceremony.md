@@ -28,4 +28,15 @@ title: "Ceremony, wedding, private"
 
 ## Details
 
-TBD.
+**We are planning a very small, private ceremony, and are hoping you'll respect our wishes.**
+
+In front of our immediate families (who will be personally invited), Shelby and Brad will wed.
+
+### Dress code
+
+Please dress for the weather.
+
+### Afterward
+
+There's a pretty solid chance we'll all go out to dinner afterward, so if you're invited to the ceremony it's probably
+advisable not to make elaborate plans for that evening.

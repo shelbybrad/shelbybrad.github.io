@@ -29,3 +29,14 @@ title: "Open brunch"
 ## Details
 
 TBD.
+
+We will either designate a restaurant that serves brunch within a few miles of the reception dinner venue for everyone to
+meet at, or will have an open house-style brunch at a private residence.
+
+In either event, any friends or family are welcome to come, regardless of whether you were invited to the other events. We
+would love to see you!
+
+## Contact
+
+If you have questions, or would like to join the brunch planning committee, please contact
+[Linda Czerniak](mailto:linda.czerniak@gmail.com).

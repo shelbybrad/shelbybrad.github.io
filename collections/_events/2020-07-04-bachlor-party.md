@@ -29,3 +29,12 @@ title: "Bachelor party"
 ## Details
 
 We're still ironing out the details on this. Everything is subject to change.
+
+Since the ceremony and reception dinner are so small, this weekend will be the main opportunity for Brad to celebrate with
+his cohort of guy friends. The current plan is a night or two of not-too-primitive camping somewhere in Michigan; not
+aggressively far from the Metro-Detroit area.
+
+## Contact
+
+If you have questions, or would like to assist in the planning in some way, please contact
+[Alex Inman](mailto:inman.alex@gmail.com).
