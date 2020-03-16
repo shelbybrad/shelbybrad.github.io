@@ -779,6 +779,14 @@ button[disabled] {
   color: var(--color--white);
   cursor: default;
 }
+a.button {
+  text-decoration: underline;
+}
+a.button:hover,
+a.button:active,
+a.button:focus-within {
+  text-decoration: underline dashed;
+}
 
 input[type="checkbox"],
 input[type="radio"] {

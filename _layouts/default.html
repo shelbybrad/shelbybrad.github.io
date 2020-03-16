@@ -52,7 +52,7 @@ layout: compress
     {% include organisms/copyright.html %}
     {% include head/gdpr--cookie-disclosure.html %}
 
-    {% if jekyll.environment != "development" or site.no_pre_commit_dependencies != true %}
+    {% if jekyll.environment != "development" and site.no_pre_commit_dependencies != true %}
       <script async defer src="{{ site.subpath }}/assets/js/pre-commit-dependency/behavior.js"></script>
     {% else %}
       <script async defer src="{{ site.subpath }}/assets/js/behavior.js"></script>
