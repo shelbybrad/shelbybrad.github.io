@@ -126,6 +126,7 @@ manifest_webmanifest:
 form_components:
   handler_url: "https://formsubmit.co"
   honeypot_name: "_honey"
+  method: "POST"
   thankyou_name: "_next"
   default_submit: "Send" # or "Submit"
 

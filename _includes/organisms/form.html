@@ -6,40 +6,60 @@
   Please thoroughly document all components.
 {% endcomment %}
 
-{% if include.action %}
-  {% assign action = include.action %}
+{% if include.entity.action %}
+  {% assign action = include.entity.action %}
 {% else %}
   {% capture action %}{{ site.form_components.handler_url }}/{{ site.email }}{% endcapture %}
 {% endif %}
 
-{% if include.thank_you %}
-  {% assign thank_you = include.thank_you %}
+{% if include.entity.honeypot_name %}
+  {% assign honeypot_name = include.entity.honeypot_name %}
+{% else %}
+  {% assign honeypot_name = site.form_components.honeypot_name %}
+{% endif %}
+
+{% if include.entity.method %}
+  {% assign method = include.entity.method %}
+{% else %}
+  {% assign method = site.form_components.method %}
+{% endif %}
+
+{% if include.entity.thank_you %}
+  {% assign thank_you = include.entity.thank_you %}
 {% else %}
   {% capture thank_you %}{% link collections/pages/thank-you.md %}{% endcapture %}
 {% endif %}
 
-{% if include.submit %}
-  {% assign submit = include.submit %}
+{% if include.entity.thankyou_name %}
+  {% assign thankyou_name = include.entity.thankyou_name %}
+{% else %}
+  {% assign thankyou_name = site.form_components.thankyou_name %}
+{% endif %}
+
+{% if include.entity.submit %}
+  {% assign submit = include.entity.submit %}
 {% else %}
   {% assign submit = site.form_components.default_submit %}
 {% endif %}
 
 {% capture component %}
-  <form method="POST" action="{{ action }}" enctype="multipart/form-data"
+  <form method="{{ method }}" action="{{ action }}"
+    {% if include.entity.enctype != false %}enctype="multipart/form-data"{% endif %}
+    {% if include.form_name %}name="{{ include.entity.form_name }}"{% endif %}
     class="form include include--organism include--organism--form
-    {% if include.classes %}{{ include.classes }}{% endif %}">
-    <label for="{{ site.form_components.honeypot_name }}" class="display--none">
+    {% if include.entity.classes %}{{ include.classes }}{% endif %}">
+    <label for="{{ honeypot_name }}" class="a11y--visually-hidden" aria-hidden="true">
       Math CAPTCHA: What's the number of stars on the American flag divided by two?
     </label>
-    <input type="text" id="{{ site.form_components.honeypot_name }}" name="{{ site.form_components.honeypot_name }}"
-      class="display--none" />
-    <input type="hidden" name="{{ site.form_components.thankyou_name }}" value="{{ thank_you }}" />
+    <input type="text" id="{{ honeypot_name }}" name="{{ honeypot_name }}"
+      placeholder="(if you're human leave this blank)" class="a11y--visually-hidden" aria-hidden="true" />
+    <input type="hidden" name="{{ thankyou_name }}" value="{{ thank_you }}" />
     <input type="hidden" name="_template" value="box" />
-    <input type="hidden" name="_subject" value="[{{ site.title }}] {{ include.title }}" />
+    <input type="hidden" name="_subject" value="[{{ site.title }}] {{ include.entity.title }}" />
 
-    {{ include.children }}
+    {{ include.entity.content }}
 
-    <div class="form--actions {% if include.actions_classes %}{{ include.actions_classes }}{% endif %}">
+    <div class="form--actions {% if include.entity.actions_classes %}{{ include.entity.actions_classes }}{% endif %}">
       <button class="form--button form--button--submit form--actions--button form--actions--button--submit" type="submit">{{ submit }}</button>
       <button class="form--button form--button--reset form--actions--button form--actions--button--reset a11y--visually-hidden" type="reset">Reset</button>
     </div>
