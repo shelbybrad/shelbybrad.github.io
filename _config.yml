@@ -18,9 +18,15 @@
 
 ## Technical site info
 baseurl: "" # This is better empty
-cache_bust: 2 # Increment to clear the service-worker cache
 subpath: "" # Could be a subsite of a domain at a path, ex. "/sub-site"
+cache_bust: 2 # Increment to clear the service-worker cache
 #google_analytics: UA-697953-3 # The UA- code provided by GA
+
+## The option below lets you choose between having Jekyll process and minify your CSS and JS (good enough), or adding a
+## step whenever you work on a CSS or JS file to run the .scripts/pre-commit.sh script before committing. This extra
+## step minimizes the size of the CSS/JS files for better front-end performance, but is obviously kind of a pain in the
+## butt.
+no_pre_commit_dependencies: "false, style and script" # Set to true to make the site work without added script hooks
 
 ## Content-Security-Policy is preferably something to set in the HTTP headers, but is available here just in case.
 ## @see https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
@@ -180,6 +186,8 @@ exclude:
   - LICENSE
   - netlify.toml
   - node_modules
+  - package.json
+  - package-lock.json
   - readme.md
   - "vendor/bundle/"
   - "vendor/cache/"

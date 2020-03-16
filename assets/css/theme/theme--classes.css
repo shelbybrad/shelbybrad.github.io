@@ -60,12 +60,12 @@
  * Background images and gradients.
  */
 .background-image--affectation {
-  background-image: url('../images/required/bg--affectation.svg');
+  background-image: url('/assets/images/required/bg--affectation.svg');
   background-position: top right;
   background-repeat: no-repeat;
 }
 .background-image--dirt {
-  background-image: url('../images/bg-dirt.svg');
+  background-image: url('/assets/images/bg-dirt.svg');
   background-position: center center;
   background-repeat: repeat;
 }
@@ -607,7 +607,7 @@
 }
 .street-sign > :nth-child(n + 3) > b {
   display: inline-block;
-  filter: url('../images/css-filters.svg#feTurbulence');
+  filter: url('/assets/images/css-filters.svg#feTurbulence');
   font-weight: 900;
   text-shadow: 0 0 1px var(--color--street-sign--peach);
   transform: rotate(15deg);

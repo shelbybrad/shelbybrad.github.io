@@ -8,7 +8,12 @@
     <link rel="preload" href="{{ site.subpath }}/assets/fonts/{{ woff }}" as="font" type="font/woff2" crossorigin />
   {% endfor %}
 {% endif %}
-<link rel="stylesheet" type="text/css" href="{{ site.subpath }}/assets/css/style.css" media="print" onload="this.media='all'" />
+
+{% if site.no_pre_commit_dependencies != true %}
+  <link rel="stylesheet" type="text/css" href="{{ site.subpath }}/assets/css/pre-commit-dependency/style.css" media="print" onload="this.media='all'" />
+{% else %}
+  <link rel="stylesheet" type="text/css" href="{{ site.subpath }}/assets/css/style.css" media="print" onload="this.media='all'" />
+{% endif %}
 <noscript><link rel="stylesheet" type="text/css" href="{{ site.subpath }}/assets/css/style.css" /></noscript>
 {% include head/loading.html %}
 
