@@ -9,7 +9,7 @@
   {% endfor %}
 {% endif %}
 
-{% if site.no_pre_commit_dependencies != true %}
+{% if jekyll.environment != "development" or site.no_pre_commit_dependencies != true %}
   <link rel="stylesheet" type="text/css" href="{{ site.subpath }}/assets/css/pre-commit-dependency/style.css" media="print" onload="this.media='all'" />
 {% else %}
   <link rel="stylesheet" type="text/css" href="{{ site.subpath }}/assets/css/style.css" media="print" onload="this.media='all'" />
