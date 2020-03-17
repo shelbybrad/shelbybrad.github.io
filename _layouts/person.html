@@ -3,7 +3,11 @@ layout: default
 ---
 
 {% if page.ext == ".html" %}
-  {{ content }}
+  <section class="layout--stripe {% if page.classes %}{{ page.classes }}{% endif %}">
+    <div class="layout--stripe--inner">
+      {{ content }}
+    </div>
+  </section>
 {% else %}
   <section class="layout--stripe markdownified {% if page.classes %}{{ page.classes }}{% endif %}">
     <div class="layout--stripe--inner">

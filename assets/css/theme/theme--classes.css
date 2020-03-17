@@ -435,6 +435,7 @@
 .color--white .menu-item > a.active,
 .color--white .menu-item > a:focus {
   background-color: var(--color--second);
+  font-weight: 700;
   text-decoration: underline dashed var(--color--grey-light);
 }
 @media all and (min-width: 768px) {

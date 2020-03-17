@@ -37,39 +37,5 @@ title: "Documentation"
       <li><a href="{{ doc.url | relative_url }}">{{ doc.title }}</a></li>
     {% endfor %}
     </ul>
-
-    {% include atoms/spacer.html size="4" %}
-
-    {% include atoms/heading.html
-      children="Browser support (temp location)"
-      classes="text-shadow--second-light--solid"
-      level="3"
-    %}
-
-    {% include atoms/spacer.html size="1" %}
-
-    <p>
-      Browser support information in ./_includes/.browserslistrc and can be used in node.js by ensuring
-      <code>env BROWSERSLIST_CONFIG=./_includes/.browserslistrc</code>.
-    </p>
-
-    <table>
-      <thead>
-        <th>Browser versions</th>
-        <th>Notes</th>
-      </thead>
-      <tbody>
-        {% capture browserslist %}{% include .browserslistrc %}{% endcapture %}
-        {% assign browserslist_arr = browserslist | split: "|" %}
-        {% for browser in browserslist_arr %}
-          {% assign browser_arr = browser | normalize_whitespace | split: "#" %}
-          <tr>
-            <td>{{ browser_arr[0] | normalize_whitespace }}</td>
-            <td>{{ browser_arr[1] | normalize_whitespace }}</td>
-          </tr>
-
-        {% endfor %}
-      </tbody>
-    </table>
   </div>
 </section>
