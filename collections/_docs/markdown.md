@@ -178,7 +178,7 @@ footer.
 
 ### Images
 
-Images can be added in the manner shown below. Just... don't do it this way. Keep reading this section.
+Images can be added in the manner shown below. Just... **don't do it this way**. Keep reading this section.
 
 ```markdown
 ![Default meta image](/assets/images/required/meta-image--default.jpg)
@@ -187,13 +187,15 @@ Images can be added in the manner shown below. Just... don't do it this way. Kee
 Since this site is obscenely high-performance, it does a bunch of things to images when the site regenerates to make images
 load faster. The way of adding images above won't do it, but the way below will:
 
-```markdown
+{% raw %}
+```smarty
 {% include atoms/image.html
   src="required/meta-image--default.jpg"
   alt="Default meta image"
   caption="Look how shareable the page is!"
 %}
 ```
+{% endraw %}
 
 The example code above becomes:
 

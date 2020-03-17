@@ -60,11 +60,14 @@
 .box-shadow--default {
   box-shadow: var(--box-shadow--default);
 }
-.box-shadow--lifted-edges {
+.box-shadow--lifted-edges,
+pre.highlight {
   position: relative;
 }
 .box-shadow--lifted-edges:before,
-.box-shadow--lifted-edges:after {
+pre.highlight:before,
+.box-shadow--lifted-edges:after,
+pre.highlight:after {
   bottom: calc(1.5 * var(--spacing--single));
   box-shadow: 0 calc(1.5 * var(--spacing--single)) calc(1 * var(--spacing--single)) rgba(0,0,0,.75);
   content: '';
@@ -76,7 +79,8 @@
   width: 50%;
   z-index: -1;
 }
-.box-shadow--lifted-edges:after {
+.box-shadow--lifted-edges:after,
+pre.highlight:after {
   transform: rotate(3deg);
   right: calc(1 * var(--spacing--single));
   left: auto;
