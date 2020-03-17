@@ -29,7 +29,11 @@ title: "RSVP"
 
 <section class="layout--stripe">
   <div class="layout--stripe--inner">
-    <h2 class="text-shadow--second-light--solid">Please let us know if you can make it.</h2>
+    {% include atoms/heading.html
+      children="Please let us know if you can make it."
+      classes="text-shadow--second-light--solid"
+      level="2"
+    %}
 
     <div class="layout--row display--flex">
       <aside class="layout--column flex--2 display--flex flex-direction--column justify-content--flex-start">
@@ -54,7 +58,11 @@ title: "RSVP"
 
 <section class="layout--stripe background-color--main-dark background-image--gradient--main color--white">
   <div class="layout--stripe--inner">
-    <h2 class="heading--h1 text-align--center">Gifts/Registries/etc.</h2>
+    {% include atoms/heading.html
+      children="Gifts/Registries/etc."
+      classes="heading--h1 text-align--center"
+      level="2"
+    %}
 
     {% include atoms/spacer.html size="2" %}
 

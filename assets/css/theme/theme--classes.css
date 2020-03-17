@@ -43,6 +43,9 @@
   color: inherit;
   font-weight: 600;
 }
+.alert p:first-of-type {
+  margin-top: 0;
+}
 .alert--error {
   background-color: var(--color--error-background);
   color: var(--color--error);

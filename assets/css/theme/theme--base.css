@@ -526,10 +526,13 @@ mark,
 }
 
 p {
-  margin: 0 0 calc(1 * var(--spacing--single));
+  margin: calc(1 * var(--spacing--single)) 0;
   max-width: 75ch;
   overflow-wrap: break-word;
   word-wrap: break-word;
+}
+p:first-child {
+  margin-top: 0;
 }
 p:last-child {
   margin-bottom: 0;

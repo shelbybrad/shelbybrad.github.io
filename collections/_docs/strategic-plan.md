@@ -17,11 +17,11 @@ meta:
 title: "Strategic Plan"
 ---
 
-## Vision, mission, values, goals, objectives
+## Vision, mission, values, goals & objectives
 
 The following strategic direction encompasses the strategy of this site _qua_ website; that is, it is a website strategy
 rather than an organization strategy. The vision, mission, values, goals, and objectives herein define what is to be
-accomplished by the site _in service_ or a greater organizational vision.
+accomplished by the site _in service_ of a greater organizational vision.
 
 ### Vision
 
