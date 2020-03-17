@@ -43,7 +43,7 @@ media, and web-standards-based technologies.
   5. **Understandable**: plain language, plenty of documentation, nothing _too_ clever
   6. **Standard**: avoid overbuilt frameworks and abstractions in favor of 'vanilla' solutions
 
-### What we avoid
+#### What we avoid
 
   1. **Dishonesty**: don't plagiarize and always cite your sources
   2. **Window-dressing**: we don't design for design's sake, and we don't remove focus outlines just for the aesthetic
@@ -57,6 +57,8 @@ media, and web-standards-based technologies.
      * One-week or faster turnaround on repairing any reported accessibility issues
   2. **Blazing front-end performance** that improves conversions and SEO, works for slow connections, and reduces hardware costs
      * Lighthouse performance tests always over 90%
+     * Conversion improvement over time via _user tests_ rather than CRO/A-B tests
+     * Reduced mobile bounce rate
   3. **Users don't need to contact support** because the information was right there on the site and easy to find and understand
      * Fewer client support contacts year-over-year
   4. **Demonstrable journey paths for all personas**, and no cheating by deleting personas
