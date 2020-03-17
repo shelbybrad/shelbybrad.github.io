@@ -1,6 +1,8 @@
 ---
 extension: ".json"
 layout: compress
+meta:
+  description: "A meta-listing of all publicly-available JSON feeds on the site"
 ---
 [
   {% assign neg_ext_size = page.extension | size | times: -1 %}
@@ -10,6 +12,7 @@ layout: compress
       {% if file_ext == page.extension and file.name != "data-feeds.json" %}
         {
           "name": {{ file.name | jsonify }},
+          "description": {{ file.meta.description | jsonify }},
           "path": "{{ file.url | relative_url }}",
           "url": "{{ file.url | absolute_url }}"
         },

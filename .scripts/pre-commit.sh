@@ -10,5 +10,6 @@
 ####
 
 npm run purgecss
+npm run csso-cli
 npm run terser
 bundle exec jekyll build --verbose

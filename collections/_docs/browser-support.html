@@ -23,32 +23,27 @@ title: "Browser support"
   level="2"
 %}
 
-{% include atoms/spacer.html size="2" %}
-
 <p>
   For human testing and automated tools, this project is committed to supporting the following browsers:
 </p>
 
 <table>
   <thead>
-  <th>Browser versions</th>
-  <th>Notes</th>
+    <th>Browser versions</th>
+    <th>Notes</th>
   </thead>
   <tbody>
-  {% capture browserslist %}{% include .browserslistrc %}{% endcapture %}
-  {% assign browserslist_arr = browserslist | split: "|" %}
-  {% for browser in browserslist_arr %}
-  {% assign browser_arr = browser | normalize_whitespace | split: "#" %}
-  <tr>
-    <td>{{ browser_arr[0] | normalize_whitespace }}</td>
-    <td>{{ browser_arr[1] | normalize_whitespace }}</td>
-  </tr>
-
-  {% endfor %}
+    {% capture browserslist %}{% include .browserslistrc %}{% endcapture %}
+    {% assign browserslist_arr = browserslist | split: "|" %}
+    {% for browser in browserslist_arr %}
+      {% assign browser_arr = browser | normalize_whitespace | split: "#" %}
+      <tr>
+        <td>{{ browser_arr[0] | normalize_whitespace }}</td>
+        <td>{{ browser_arr[1] | normalize_whitespace }}</td>
+      </tr>
+    {% endfor %}
   </tbody>
 </table>
-
-{% include atoms/spacer.html size="2" %}
 
 <p>
   Browser support information is in ./_includes/.browserslistrc and can be used in node.js (autoprefixer and the like)

@@ -1,6 +1,6 @@
 [
   {
-    "resourceSizes": [
+    "resourceCounts": [
       {
         "resourceType": "document",
         "budget": 1
@@ -38,7 +38,7 @@
         "budget": 40
       }
     ],
-    "resourceCounts": [
+    "resourceSizes": [
       {
         "resourceType": "document",
         "budget": 20
@@ -73,7 +73,7 @@
       },
       {
         "resourceType": "total",
-        "budget": 15000
+        "budget": 1500
       }
     ]
   }

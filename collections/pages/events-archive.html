@@ -30,8 +30,10 @@ title: "Events Archive"
 {% assign events = site.events | where_exp:"item", "item.date_end <= site.time" %}
 <section class="layout--stripe ">
   <div class="layout--stripe--inner">
-    <p>Here's an archival list of past events, for posterity. To see current events, check out the
-      <a href="{% link collections/pages/events.html %}">main Events page</a></p>
+    <p>
+      Here's an archival list of past events, for posterity. To see current events, check out the
+      <a href="{% link collections/pages/events.html %}">main Events page</a>
+    </p>
 
     {% include atoms/spacer.html size="8" %}
 

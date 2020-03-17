@@ -2,6 +2,8 @@
 entity_type: people
 layout: compress
 limit: 100
+meta:
+  description: "Listing of all people on the site"
 ---
 [
   {% for entity in site[page.entity_type] limit: page.limit %}

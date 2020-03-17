@@ -3,6 +3,8 @@
 ##
 ## Search from the title/content, include props for building cards.
 layout: compress
+meta:
+  description: "All the published textual content of the site split out by page, for searching on the front end"
 ---
 [
   {% assign collections = site.collections | where_exp:'collection','collection.output != false' %}

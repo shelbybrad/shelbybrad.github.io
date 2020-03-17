@@ -391,7 +391,7 @@ h2,
   font-size: 3.5em;
   font-weight: 500;
   line-height: var(--line-height--heading);
-  margin: 0;
+  margin: 1.5em 0 .25em;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -400,6 +400,9 @@ h2,
   .heading--h2 {
     font-size: 2.5em;
   }
+}
+h2:first-child {
+  margin-top: 0;
 }
 h2 > a:link,
 h2 > a:visited {
@@ -412,9 +415,12 @@ h3,
   font-size: 2em;
   font-weight: 500;
   line-height: var(--line-height--heading);
-  margin: 0;
+  margin: 1.5em 0 .25em;
   overflow-wrap: break-word;
   word-wrap: break-word;
+}
+h3:first-child {
+  margin-top: 0;
 }
 h3 > a:link,
 h3 > a:visited {
@@ -427,9 +433,12 @@ h4,
   font-size: 1.5em;
   font-weight: 400;
   line-height: var(--line-height--heading);
-  margin: 0;
+  margin: 1.5em 0 .25em;
   overflow-wrap: break-word;
   word-wrap: break-word;
+}
+h4:first-child {
+  margin-top: 0;
 }
 h4 > a:link,
 h4 > a:visited {
@@ -442,7 +451,10 @@ h5,
   font-size: 1.125em;
   font-weight: 500;
   line-height: var(--line-height--heading);
-  margin: 0;
+  margin: 1.5em 0 .25em;
+}
+h5:first-child {
+  margin-top: 0;
 }
 h5 > a:link,
 h5 > a:visited {
@@ -455,7 +467,10 @@ h6,
   font-size: 1em;
   font-weight: 600;
   line-height: var(--line-height--heading);
-  margin: 0;
+  margin: 1.5em 0 .25em;
+}
+h6:first-child {
+  margin-top: 0;
 }
 h6 > a:link,
 h6 > a:visited {
@@ -567,7 +582,7 @@ svg:not(:root) {
 table {
   background-color: transparent;
   border-spacing: 0;
-  margin: 0;
+  margin: 0 0 1.5em;
   text-align: left;
   border: 0 none;
 }

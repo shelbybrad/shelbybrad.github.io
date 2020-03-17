@@ -35,10 +35,11 @@ title: "Tags"
       level="2"
     %}
 
-    {% if site.tags[0] %}
+    {% assign taxonomy_size = site.tags | size %}
+    {% if taxonomy_size >= 1 %}
       {% for term in site.tags %}
         <h3 id="tag--{{ term[0] | slugify }}">{{ term[0] }}</h3>
-        {% include atoms/spacer.html size="1" %}
+
         <ul class="list-style--none layout--multiple--horizontal">
           {% for entity in term[1] %}
             {% include molecules/card.html
@@ -46,7 +47,8 @@ title: "Tags"
             %}
           {% endfor %}
         </ul>
-        {% include atoms/spacer.html size="4" %}
+
+        {% include atoms/spacer.html size="2" %}
       {% endfor %}
     {% else %}
       <p class="listing--no-results">There are presently no tags defined on the site.</p>
