@@ -14,14 +14,12 @@
   },
   "scripts": {
     "browserslist": "env BROWSERSLIST_CONFIG=./_includes/.browserslistrc browserslist",
-    "csso-cli": "csso assets/css/pre-commit-dependency/style.css -o assets/css/pre-commit-dependency/style.css",
     "purgecss": "purgecss -c .node_config/purgecss.config.js -o assets/css/pre-commit-dependency/",
     "terser": "terser _site/assets/js/behavior.js -o assets/js/pre-commit-dependency/behavior.js"
   },
   "dependencies": {},
   "devDependencies": {
     "browserslist": "^4.9.1",
-    "csso-cli": "^3.0.0",
     "dotenv": "^8.2.0",
     "dotenv-flow": "^3.1.0",
     "purgecss": "^2.1.0",
