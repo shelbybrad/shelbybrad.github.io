@@ -57,6 +57,13 @@ layout: compress
     {% else %}
       <script async defer src="{{ site.subpath }}/assets/js/behavior.js"></script>
     {% endif %}
+
+    {% if page.attached.js[0] %}
+      {% for js in page.attached.js %}
+        <script async defer src="{{ site.subpath }}{{ js }}"></script>
+      {% endfor %}
+    {% endif %}
+
     {% if site.google_analytics %} {% include head/google_analytics.html %}{% endif %}
     {% if site.snipcart.api_key %}{% include head/snipcart.html %}{% endif %}
   </body>

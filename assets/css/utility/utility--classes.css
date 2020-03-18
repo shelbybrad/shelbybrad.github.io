@@ -192,6 +192,9 @@ pre.highlight:after {
 .top--0 {
   top: 0;
 }
+.top--50p {
+  top: 50%;
+}
 
 /**
  * Positioning helpers: z-index.

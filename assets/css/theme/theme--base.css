@@ -750,12 +750,6 @@ input {
 textarea {
   max-height: inherit;
 }
-.color--white input,
-.color--white select,
-.color--white textarea {
-  background-color: var(--color--grey-dark);
-  color: var(--color--white);
-}
 
 .button,
 button {

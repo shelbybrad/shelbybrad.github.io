@@ -1,9 +1,11 @@
 <header class="header layout--strip background-color--main color--white text-align--center">
-  <div class="layout--stripe--inner">
+  <div class="layout--stripe--inner position--relative has--search-widget">
     <a class="header--logo logo" itemprop="url" href="{{ site.subpath }}/">
       <img src="{{ site.subpath }}/assets/images/required/logo.svg" alt="{{ site.title }}"
         class="image header--image header--logo--image" loading="lazy" />
       <span class="header--logo--tagline tagline font-weight--900 font-style--italic">{{ site.tagline }}</span>
     </a>
+
+    {% include molecules/search-widget.html %}
   </div>
 </header>

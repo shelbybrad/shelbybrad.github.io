@@ -391,7 +391,7 @@
  * Toggle below (Open/Close below) buttons.
  */
 .js--toggle-below {}
-.js--toggle-below--closed {
+.js .js--toggle-below--closed {
   display: none;
 }
 
@@ -465,6 +465,38 @@
   .pipe-spaced > li:last-child::after {
     display: none;
   }
+}
+
+/**
+ * The search widget in the header.
+ */
+.search-widget {
+  top: calc(25% - (2 * var(--spacing--single)));
+}
+.search-widget form {
+  max-width: calc(100vw - (4 * var(--spacing--single)));
+  width: calc(24 * var(--spacing--single));
+}
+.has--search-widget {
+  padding-right: calc(4 * var(--spacing--single));
+}
+.button--search-widget--submit {
+  background-color: var(--color--accent);
+  box-shadow: none;
+  margin: 0;
+  padding: calc(.5 * var(--spacing--single)) calc(.5 * var(--spacing--single));
+}
+.button--search-widget--toggle {
+  line-height: var(--line-height--heading);
+  margin: 0;
+  padding: calc(.5 * var(--spacing--single)) calc(.5 * var(--spacing--single));
+}
+.button--search-widget--toggle > svg {
+  fill: var(--color--white);
+  margin: 0;
+}
+.button--search-widget--toggle[aria-expanded="true"] > svg {
+  fill: var(--color--second-light);
 }
 
 /**

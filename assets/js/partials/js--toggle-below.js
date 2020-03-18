@@ -12,12 +12,12 @@ var togglebelowInitializationFunction = function(initType) {
 
   /* Explicitly toggle classes on the next element, in case this is the first time. */
   if (ariaExpanded === "true") {
-    this.textContent = "Close below";
+    this.querySelector('.js--toggle-below--label').textContent = "Close below";
     this.nextElementSibling.classList.add('js--toggle-below--open');
     this.nextElementSibling.classList.remove('js--toggle-below--closed');
   }
   else {
-    this.textContent = "Open below";
+    this.querySelector('.js--toggle-below--label').textContent = "Open below";
     this.nextElementSibling.classList.add('js--toggle-below--closed');
     this.nextElementSibling.classList.remove('js--toggle-below--open');
   }
@@ -34,11 +34,11 @@ document.addEventListener('click', function (event) {
     /* Add or toggle the aria-expanded attribute. */
     ariaExpanded = toggleBelow.getAttribute('aria-expanded');
     if (!ariaExpanded || ariaExpanded === "false") {
-      toggleBelow.textContent = "Close below";
+      toggleBelow.querySelector('.js--toggle-below--label').textContent = "Close below";
       ariaExpanded = "true";
     }
     else {
-      toggleBelow.textContent = "Open below";
+      toggleBelow.querySelector('.js--toggle-below--label').textContent = "Open below";
       ariaExpanded = "false";
     }
     toggleBelow.setAttribute('aria-expanded', ariaExpanded);
@@ -47,6 +47,11 @@ document.addEventListener('click', function (event) {
     if (ariaExpanded === "true") {
       toggleBelow.nextElementSibling.classList.add('js--toggle-below--open');
       toggleBelow.nextElementSibling.classList.remove('js--toggle-below--closed');
+
+      /* Focus into the first form input if there's one in the next element. */
+      if (toggleBelow.nextElementSibling.querySelector('input')) {
+        toggleBelow.nextElementSibling.querySelector('input').focus();
+      }
     }
     else {
       toggleBelow.nextElementSibling.classList.add('js--toggle-below--closed');

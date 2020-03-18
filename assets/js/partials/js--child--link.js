@@ -1,27 +1,29 @@
 /**
  * @file
- * Bubbling and manipulation of elements based on their children.
- */
-
-/**
  * Cards with links inside them should be clickable, and take cursor/hover.
- *
- * @see https://inclusive-components.design/cards/
- * @type {NodeListOf<Element>}
  */
-const childLinks = document.querySelectorAll('.js--child--link');
-Array.prototype.forEach.call(childLinks, (childLink) => {
-  let down, up, link = childLink.querySelector('a[href]');
 
-  if (link && link.href && link.href.length >= 1) {
-    childLink.classList.add('card--hover', 'cursor--pointer');
+var childLinkInitializationFunction = function(initType) {
+  const thisLink = this.querySelector('a[href]');
 
-    childLink.onmousedown = () => down = +new Date();
-    childLink.onmouseup = () => {
-      up = +new Date();
-      if ((up - down) < 200) {
-        link.click();
-      }
+  if (thisLink && thisLink.href && thisLink.href.length >= 1) {
+    this.classList.add('card--hover', 'cursor--pointer');
+  }
+};
+utilityInitializer('js--child--link', 'childLinkInitializationFunction');
+
+/* Use event delegation for any dynamically-added events. */
+let childLinkDown, childLinkUp;
+document.addEventListener('mousedown', (event) => {
+  childLinkDown = +new Date();
+}, false);
+
+document.addEventListener('mouseup', function (event) {
+  if (event.target !== document && event.target.closest('.js--child--link')) {
+    childLinkUp = +new Date();
+
+    if ((childLinkUp - childLinkDown) < 200) {
+      event.target.closest('.js--child--link').querySelector('a[href]').click();
     }
   }
-});
+}, false);
