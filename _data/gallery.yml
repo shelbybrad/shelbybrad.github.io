@@ -1,3 +1,10 @@
+####
+## @file
+## Info that feeds the images in the gallery section
+##
+## The section that renders this info can be found at:
+## ./collections/_sections/gallery.html
+####
 - alt: "Shelby's Twitter profile"
   caption: "Shelby waiting for Brad, patiently"
   classes: "gallery-item flex--1 js--event--click click--lightbox"
@@ -87,20 +94,3 @@
   caption: "Scooby Doo is weirder than Brad remembers"
   classes: "gallery-item flex--1 js--event--click click--lightbox"
   src: download_20200227_194337.jpg
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

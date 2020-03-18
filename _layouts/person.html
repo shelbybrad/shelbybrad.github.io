@@ -41,3 +41,15 @@ layout: default
     {% endif %}
   </div>
 </section>
+
+<section class="layout--stripe background-color--white">
+  <div class="layout--stripe--inner">
+    {% include atoms/heading.html
+      children="Navigate to other people"
+      classes="a11y--visually-hidden"
+      level="2"
+    %}
+
+    {% include molecules/prev-next.html entity=page %}
+  </div>
+</section>

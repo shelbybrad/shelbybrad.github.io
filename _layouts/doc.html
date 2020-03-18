@@ -6,12 +6,20 @@ layout: default
   <section class="layout--stripe {% if page.classes %}{{ page.classes }}{% endif %}">
     <div class="layout--stripe--inner">
       {{ content }}
+
+      {% include atoms/spacer.html size="8" %}
+
+      {% include molecules/prev-next.html entity=page %}
     </div>
   </section>
 {% else %}
   <section class="layout--stripe markdownified {% if page.classes %}{{ page.classes }}{% endif %}">
     <div class="layout--stripe--inner">
       {{ content }}
+
+      {% include atoms/spacer.html size="8" %}
+
+      {% include molecules/prev-next.html entity=page %}
     </div>
   </section>
 {% endif %}
