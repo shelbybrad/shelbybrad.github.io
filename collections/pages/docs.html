@@ -37,10 +37,9 @@ title: "Documentation"
 
     <p>Check it out.</p>
 
-    <ul>
-    {% for doc in site.docs %}
-      <li><a href="{{ doc.url | relative_url }}">{{ doc.title }}</a></li>
-    {% endfor %}
-    </ul>
+    {% include molecules/collection-hierarchy.html
+      collection="docs"
+      entity=page
+    %}
   </div>
 </section>
