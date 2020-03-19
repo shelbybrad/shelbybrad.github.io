@@ -9,47 +9,23 @@ aria-current="true"
 {% endcomment %}
 
 {% capture component %}
-  <nav role="navigation" aria-label="Pagination. On page {{ include.page }} of {{ include.total_pages }}"
-    class="display--flex flex-direction--row {% if include.classes %}{{ include.classes }}{% endif %}">
-    {% if include.entity.collection %}
-      {% assign collection_name = include.entity.collection %}
-    {% else %}
-      {% assign collection_name = "html_pages" %}
+  <div class="collection-hierarchy molecule molecule--collection-hierarchy {% if include.classes %}{{ include.classes }}{% endif %}">
+    {% if site[include.collection] %}
+      <ul>
+        {% for entity in site[include.collection] %}
+          <li class="collection-hierarchy--item
+            {% if entity.url == include.entity.url %}active--item{% endif %}
+          ">
+            <a href="{{ entity.url | relative_url }}" class="collection-hierarchy--link
+              {% if entity.url == include.entity.url %}active{% endif %}
+            ">
+              {{ entity.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
     {% endif %}
-    {% assign collection = site[collection_name] | where_exp:'doc','doc.sitemap != false' | where_exp:'doc','doc.title != null' %}
-
-    {% for entity in collection  %}
-      {% if entity.title == include.entity.title %}
-        {% unless forloop.first %}
-          {% assign prev = previous_entity %}
-        {% endunless %}
-
-        {% unless forloop.last %}
-          {% assign next = collection[forloop.index] %}
-        {% endunless %}
-      {% endif %}
-
-      {% assign previous_entity = entity %}
-    {% endfor %}
-
-    {% if prev %}
-      <div class="flex--1 text-align--left">
-        <a class="pager--link pager--link--prev button" href="{{ prev.url | relative_url }}">
-          Previous<span class="a11y--visually-hidden"> page, {{ prev.title }}</span>
-        </a>
-        <span class="pager--link--title layout--hide--narrow" aria-hidden="true">{{ prev.title }}</span>
-      </div>
-    {% endif %}
-
-    {% if next %}
-      <div class="flex--1 text-align--right">
-        <a class="pager--link pager--link--next button" href="{{ next.url | relative_url }}">
-          Next<span class="a11y--visually-hidden"> page, {{ next.title }}</span>
-        </a>
-        <span class="pager--link--title layout--hide--narrow" aria-hidden="true">{{ next.title }}</span>
-      </div>
-    {% endif %}
-  </nav>
+  </div>
 {% endcapture %}
 
 {% capture usage %}

@@ -131,6 +131,7 @@ form_components:
   default_submit: "Send" # or "Submit"
 
 ## JAMstack product handling, courtesy of snipcart
+## Comment out the below section if you don't have products, to prevent a small script from running on every page load.
 ## @see https://snipcart.com/
 snipcart:
   api_key: "N2Q1OWZiOTMtODcyZi00OTUzLWFiYjAtNTAwMGYzZmE5YmI4NjM3MTk2NDYyNTQ4MTA5ODMx"
