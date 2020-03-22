@@ -14,7 +14,7 @@ meta:
 #permalink: docs/path/page-title/
 #published: true
 #tags: ["three", "four"]
-title: "Strategic Plan"
+title: "Third party"
 ---
 
 ## Vision, mission, values, goals & objectives
