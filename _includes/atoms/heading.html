@@ -1,11 +1,3 @@
-{% comment %}
-  Components/includes use captures for content and documentation. The 'component' area is the component proper.
-
-  The component is rendered at the end via the 'mode' conditional.
-
-  Please thoroughly document all components.
-{% endcomment %}
-
 {% capture component %}
   <h{{ include.level }} class="heading {% if include.classes %}{{ include.classes }}{% endif %}"
     {% if include.level == "1" %}itemprop="headline"{% endif %}>
@@ -14,6 +6,16 @@
     {% endif %}
   </h{{ include.level }}>
 {% endcapture %}
+
+{% capture name %}Heading{% endcapture %}
+
+{% capture liquid %}{% raw %}
+  {% include atoms/heading.html
+    children="About this section"
+    classes="text-shadow--second-light--solid"
+    level="2"
+  %}
+{% endraw %}{% endcapture %}
 
 {% capture usage %}
   ## General guidance
@@ -38,6 +40,8 @@
     accessibility=accessibility
     classes=classes
     html=component
+    liquid=liquid
+    name=name
     props=props
     source=include
     usage=usage

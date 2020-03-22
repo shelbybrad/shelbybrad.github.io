@@ -17,4 +17,25 @@ meta:
 title: "Atoms"
 ---
 
-<p>This page used to have a huge payload.</p>
+<p>These are the smallest constituent components of the system.</p>
+
+{% include atoms/heading.html
+  children="About this section"
+  classes="text-shadow--second-light--solid"
+  level="2"
+  mode="docblock"
+%}
+
+{% include atoms/icon.html
+  library='octicons'
+  mode='docblock'
+  symbol='octoface'
+%}
+
+{% include atoms/image.html
+  mode='docblock'
+%}
+
+{% include atoms/spacer.html
+  mode='docblock'
+%}

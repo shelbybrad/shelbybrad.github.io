@@ -4,6 +4,8 @@
 
 {% capture component %}
   <section class="docblock">
+    <h3>{{ include.name }}</h3>
+
     <div class="docblock--example">
       {{ include.html }}
     </div>
@@ -12,11 +14,17 @@
       {{ include.html }}
     {% endhighlight %}
 
+    {% highlight smarty %}
+      {{ include.liquid }}
+    {% endhighlight %}
+
     <details>
       <summary>Usage</summary>
       <div>
         {{ include.usage | markdownify }}
+
         {{ include.classes }}
+
         {{ include.props }}
       </div>
     </details>
