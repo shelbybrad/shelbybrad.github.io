@@ -18,23 +18,23 @@
 {% endraw %}{% endcapture %}
 
 {% capture usage %}
-  ## General guidance
+## General guidance
 
-  Headings provide your document with an hierarchical outline.
+Headings provide your document with an hierarchical outline.
 {% endcapture %}
 
 {% capture accessibility %}
-  Just some sample text in the accessibility section for now.
+Just some sample text in the accessibility section for now.
 {% endcapture %}
 
 {% capture props %}
-  children| The textual content of the heading| New section,
-  classes| css classes applied to parent| color--main-dark,
-  level| Number from 1-6 for the heading level| 2,
+children| The textual content of the heading| New section,
+classes| css classes applied to parent| color--main-dark,
+level| Number from 1-6 for the heading level| 2
 {% endcapture %}
+
 {% assign classes = "a11y--visually-hidden, font-family--secondary, heading--h3" | split: ", " %}
 
-{% comment %} "Mode conditional" for rendering. {% endcomment %}
 {% if include.mode == "docblock" %}
   {% include molecules/docblock.html
     accessibility=accessibility

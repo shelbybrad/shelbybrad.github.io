@@ -1,13 +1,3 @@
-{% comment %}
-  Components/includes use captures for content and documentation. The 'component' area is the component proper.
-
-  The component is rendered at the end via the 'mode' conditional.
-
-  Please thoroughly document all components.
-
-aria-current="true"
-{% endcomment %}
-
 {% capture component %}
   {% if site[include.collection] %}
     <ul class="collection-hierarchy--list list-style--none {% if include.classes %}{{ include.classes }}{% endif %}">
