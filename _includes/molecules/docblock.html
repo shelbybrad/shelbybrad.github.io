@@ -3,29 +3,92 @@
 {% endcomment %}
 
 {% capture component %}
-  <section class="docblock">
-    <h3>{{ include.name }}</h3>
+  <section class="docblock border-radius--default background-color--grey-light padding-vertical--4 padding-horizontal--4
+    padding-horizontal--collapse">
 
+    <h3 class="text-align--center">{{ include.name }}</h3>
+
+    <h4 class="docblock--example--label">Example</h4>
     <div class="docblock--example">
       {{ include.html }}
     </div>
 
-    {% highlight html %}
-      {{ include.html }}
-    {% endhighlight %}
+    <details>
+      <summary>Options</summary>
 
-    {% highlight smarty %}
-      {{ include.liquid }}
-    {% endhighlight %}
+      <div class="layout--row display--flex">
+        <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
+          padding-horizontal--4 padding-horizontal--collapse">
+          <fieldset class="docblock--classes">
+            <legend>Toggle classes</legend>
+            {% for class in include.classes %}
+              <div class="form--item form--item--checkbox position--relative">
+                <input type="checkbox" name="{{ include.name | slugify }}--{{ class | slugify }}"
+                  id="{{ include.name | slugify }}--{{ class | slugify }}"
+                  value="{{ class }}" class="docblock--classes--class">
+                <label class="label form--item--label display--block font-size--p75em padding-vertical--2"
+                  for="{{ include.name | slugify }}--{{ class | slugify }}">
+                  <code>{{ class }}</code>
+                </label>
+              </div>
+            {% endfor %}
+          </fieldset>
+        </aside>
+        <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
+          padding-horizontal--4 padding-horizontal--collapse">
+          <h4>Props</h4>
+          <table>
+            <thead>
+             <tr>
+               <th>Name</th>
+               <th>Description</th>
+               <th>Example</th>
+             </tr>
+            </thead>
+            <tbody>
+              {% assign props = include.props | split: "," %}
+              {% for prop in props %}
+                <tr>
+                  {% assign columns = prop | split: "|" %}
+                  {% for column in columns %}
+                    <td>{{ column }}</td>
+                  {% endfor %}
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </aside>
+      </div>
+
+    </details>
 
     <details>
+      <summary>Code</summary>
+
+      <div class="layout--row display--flex">
+        <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
+          padding-horizontal--4 padding-horizontal--collapse">
+          <h4>HTML</h4>
+          {% highlight html %}
+          {{ include.html }}
+          {% endhighlight %}
+        </aside>
+        <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center
+          padding-horizontal--4 padding-horizontal--collapse">
+          <h4>Liquid template</h4>
+          {% highlight smarty %}
+          {{ include.liquid }}
+          {% endhighlight %}
+        </aside>
+      </div>
+    </details>
+
+    <details open>
       <summary>Usage</summary>
       <div>
         {{ include.usage | markdownify }}
 
-        {{ include.classes }}
 
-        {{ include.props }}
       </div>
     </details>
 

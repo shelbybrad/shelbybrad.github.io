@@ -13,6 +13,7 @@ document.body.classList.add('js');
 {% include_relative partials/utility--initializer.js %}
 
 /* Alphabetical partials. */
+{% include_relative partials/docblock.js %}
 {% include_relative partials/external-links.js %}
 {% include_relative partials/js--animation--reveal.js %}
 {% include_relative partials/js--child--link.js %}

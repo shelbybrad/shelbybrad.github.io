@@ -232,6 +232,37 @@
 }
 
 /**
+ * Docblocks, the example containers for components.
+ */
+.docblock {
+  margin: 0 0 calc(4 * var(--spacing--single));
+}
+.docblock--example {
+  border: 1px dashed;
+  padding: calc(2 * var(--spacing--single));
+}
+
+/**
+ * Docs sidebar for navigating documentation.
+ */
+.docs-sidebar {}
+.docs-sidebar a.active {
+  font-style: italic;
+  text-decoration: underline dashed;
+}
+@media all and (min-width: 1440px) {
+  .has--docs-sidebar > .layout--stripe--inner {
+    margin-left: 360px;
+  }
+  .docs-sidebar {
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+    width: 360px;
+  }
+}
+
+/**
  * Icons.
  *
  * By default set icon wrappers to a character wide and high.
@@ -288,6 +319,7 @@
 .form--item--description {
   font-size: .75em;
 }
+.form--item--checkbox.position--relative > label,
 .form--item--radio.position--relative > label {
   border: var(--neumorphic--border);
   border-radius: var(--border-radius--default);
@@ -296,6 +328,10 @@
   text-shadow: var(--neumorphic--text-shadow);
   transition: var(--transition--default);
 }
+.form--item--checkbox.position--relative > label:hover,
+.form--item--checkbox.position--relative > label:active,
+.form--item--checkbox.position--relative > label:focus-within,
+.form--item--checkbox.position--relative > input:checked + label,
 .form--item--radio.position--relative > label:hover,
 .form--item--radio.position--relative > label:active,
 .form--item--radio.position--relative > label:focus-within,
@@ -303,10 +339,12 @@
   border: var(--neumorphic--border--active);
   box-shadow: var(--neumorphic--box-shadow--active);
 }
+.form--item--checkbox.position--relative > label,
 .form--item--radio.position--relative > label {
   padding-left: calc(3 * var(--spacing--single));
   padding-right: calc(1 * var(--spacing--single));
 }
+.form--item--checkbox.position--relative > input,
 .form--item--radio.position--relative > input {
   left: calc(1 * var(--spacing--single));
   position: absolute;

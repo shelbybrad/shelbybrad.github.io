@@ -14,7 +14,7 @@ meta:
 #permalink: docs/path/page-title/
 #published: true
 #tags: ["three", "four"]
-title: "Markdown"
+title: "JavaScript"
 ---
 
 ## Table of contents

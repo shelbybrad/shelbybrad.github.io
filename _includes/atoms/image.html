@@ -1,11 +1,3 @@
-{% comment %}
-  Components/includes use captures for content and documentation. The 'component' area is the component proper.
-
-  The component is rendered at the end via the 'mode' conditional.
-
-  Please thoroughly document all components.
-{% endcomment %}
-
 {% capture component %}
   <figure class="figure figure--image figure--image--{{ include.src | slugify }} {% if include.classes %}{{ include.classes }}{% endif %}">
     {% if include.link_url %}<a href="{{ include.link_url }}">{% endif %}
@@ -29,31 +21,52 @@
   </figure>
 {% endcapture %}
 
-{% capture usage %}
-  ## General guidance
+{% capture name %}Image{% endcapture %}
 
-  Images are visual representations.
+{% capture liquid %}{% raw %}
+  {% include atoms/image.html
+    alt="Shelby and Brad flanking a star"
+    caption="You will see this as the default on the site"
+    classes=""
+    src="required/meta-image--default.jpg"
+  %}
+{% endraw %}{% endcapture %}
+
+{% capture usage %}
+#### General guidance
+
+Images represent ideas visually. They should be used to make an impact where communicating an idea is more effective with
+visual aids.
+
+#### Technical
+
+Images should be inserted using the liquid template include whenever possible, since the liquid template uses conditional
+checks to insert next-generation optimized images if available.
 {% endcapture %}
 
 {% capture accessibility %}
-  Just some sample text in the accessibility section for now.
+It is required for all images to have an alt attribute. If an image has no communicative value (ie. it is purely decorative),
+its alt attribute should be an empty string. Otherwise, the alt attribute's text should be a description of the image's role
+in the corpus of the page.
 {% endcapture %}
 
 {% capture props %}
-  alt| appropriate alt text| A circus clown,
-  caption| an optional caption| We saw this guy at the circus,
-  classes| css classes applied to parent| color--main-dark,
-  link_url| an optional link to wrap it| http://www.google.com,
-  src| the filename/subpath of the image in /assets/images/| circus-clown.jpg
+alt| appropriate alt text| A circus clown,
+caption| an optional caption| We saw this guy at the circus,
+classes| css classes applied to parent| color--main-dark,
+link_url| an optional link to wrap it| http://www.google.com,
+src| the filename/subpath of the image in /assets/images/| circus-clown.jpg
 {% endcapture %}
-{% assign classes = "image--polaroid, font-family--secondary" | split: ", " %}
 
-{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% assign classes = "background-color--third-light" | split: ", " %}
+
 {% if include.mode == "docblock" %}
   {% include molecules/docblock.html
     accessibility=accessibility
     classes=classes
     html=component
+    liquid=liquid
+    name=name
     props=props
     source=include
     usage=usage
