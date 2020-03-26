@@ -2,7 +2,7 @@
 authors:
   - shelby-hassell
 #categories: ["one", "two"]
-date: 2020-10-09 18:30:00
+date: 2020-10-09 18:00:00
 date_end: 2020-10-09 21:00:00
 #hero_classes: "background-color--main-dark color--white"
 location:
