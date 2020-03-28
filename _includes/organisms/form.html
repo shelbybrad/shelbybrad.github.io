@@ -54,7 +54,7 @@
     <input type="text" id="{{ honeypot_name }}" name="{{ honeypot_name }}"
       placeholder="(if you're human leave this blank)" class="a11y--visually-hidden" aria-hidden="true" />
     {% unless include.entity.hide_handler_fields %}
-      <input type="hidden" name="{{ thankyou_name }}" value="{{ thank_you }}" />
+      <input type="hidden" name="{{ thankyou_name }}" value="{{ thank_you | absolute_url }}" />
       <input type="hidden" name="_template" value="box" />
       <input type="hidden" name="_subject" value="[{{ site.title }}] {{ include.entity.title }}" />
     {% endunless %}
