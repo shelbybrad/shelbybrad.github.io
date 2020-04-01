@@ -107,8 +107,8 @@ You're not allowed to go beyond six levels. Typically if you get past four you'r
 
 ### Emphasis
 
-On this site we use bold and italic text in a specific way, and avoid underlined plain text since it can be mistaken for 
-links. Italic text is useful for the titles of media, or for _non-confident_ emphasis. When **confident** of what is being 
+On this site we use bold and italic text in a specific way, and avoid underlined plain text since it can be mistaken for
+links. Italic text is useful for the titles of media, or for _non-confident_ emphasis. When **confident** of what is being
 emphasized, use bold text instead.
 
 #### Italic text
@@ -137,8 +137,8 @@ This text is regular, while **this text is bold**. We're back to regular.
 
 ### Links
 
-Links are the backbone of the web. They allow you to write a little in one place and refer to information that exists on 
-another site or page. In markdown there is a straightforward way to make links. Be advised, though, that linking to content 
+Links are the backbone of the web. They allow you to write a little in one place and refer to information that exists on
+another site or page. In markdown there is a straightforward way to make links. Be advised, though, that linking to content
 on the site is different from link to external sites.
 
 The main syntax to know is the squares-and-parentheses for links: `[descriptive text](https://...)`
@@ -157,7 +157,7 @@ Learn more [at the Google home page](https://www.google.com).
 
 #### Internal links
 
-Internal links can be done in one of two ways. The first is if you're **certain** that a particular path exists and will 
+Internal links can be done in one of two ways. The first is if you're **certain** that a particular path exists and will
 always exist, you can refer to it directly:
 
 ```markdown
@@ -168,10 +168,10 @@ This renders as:
 
 We go into our history on the [About us page](/about/).
 
-Note that the link starts with a slash. Typically you want all links of this type to be "root relative", or beginning with 
+Note that the link starts with a slash. Typically you want all links of this type to be "root relative", or beginning with
 a slash (`/`) and showing the full path from the home page.
 
-_However_, pretty link paths can change for SEO or usability purposes, whereas the file and its location is much less likely 
+_However_, pretty link paths can change for SEO or usability purposes, whereas the file and its location is much less likely
 to change. Given this, we can use a method of linking that the underlying (Jekyll) system provides:
 
 {% raw %}
@@ -184,12 +184,12 @@ This renders similar to the above link:
 
 We go into our history on the [About us page]({% link collections/pages/about.html %}).
 
-If the pretty path to the About page changes, the Jekyll method will automatically update the link, while the hard-coded 
+If the pretty path to the About page changes, the Jekyll method will automatically update the link, while the hard-coded
 method will still point to the old path.
 
 When working with content files and their paths and links, please abide by the following:
 
-  1. Use the Jekyll, file-based method for links whenever possible 
+  1. Use the Jekyll, file-based method for links whenever possible
   2. Avoid changing the file name or location of existing content files, especially of the Page and Doc type
   3. When changing the "pretty path" ('Permalink' in the YAML front matter), be sure to [use the redirect-from plugin](https://github.com/jekyll/jekyll-redirect-from#usage)
     to preserve the old path and prevent link rot
@@ -242,7 +242,7 @@ list, try whenever possible to use the correct number order so that the plain ma
 
 ### Quotes
 
-A blockquote is started using the `>` marker followed by a space; all following lines that are also started with the 
+A blockquote is started using the `>` marker followed by a space; all following lines that are also started with the
 blockquote marker belong to the blockquote. You can use other markdown within a quote as necessary:
 
 ```markdown
@@ -259,21 +259,42 @@ The above quote code renders as:
 > Between the lines of fear and blame
 > You begin to wonder why you came
 
-The principle behind using a blockquote rather than a "sentence quote" is similar to the usage of code blocks below; a brief 
-quote is most appropriate inline with its surrounding text, whereas a longer quote or one deserving emphasis should be in 
+The principle behind using a blockquote rather than a "sentence quote" is similar to the usage of code blocks below; a brief
+quote is most appropriate inline with its surrounding text, whereas a longer quote or one deserving emphasis should be in
 a blockquote like above.
 
 ### Code
 
-sdsdsda
+If you would like to place code samples within some of the text on a page, you can either use inline code, which can appear
+on the same line as the rest of the text, or in a block with smart highlighting. Inline code is good for brief examples
+where highlighting and other concerns are minimal, whereas a block of code is appropriate for multi-line samples.
 
 #### Big blocks of code
 
-sdfdsfsd
+To insert a multi-line, highlighted code sample, wrap it top and bottom with three backticks. Optionally, you can add
+a notation after the opening backticks to indicate the [kind of syntax to highlight within](https://rouge-ruby.github.io/docs/Rouge/Lexers.html):
+
+``````markdown
+```javascript
+alert("This is a bad example of JavaScript!");
+```
+``````
+
+This renders on the screen as:
+
+```javascript
+alert("This is a bad example of JavaScript!");
+```
 
 #### Little code examples
 
-sdfdsfsfsd
+Inline code can be added with single backticks, within a sentence if desired.
+
+```markdown
+In markdown, `### Example` becomes `<h3>Example</h3>` in HTML.
+```
+
+This renders on the front end as: In markdown, `### Example` becomes `<h3>Example</h3>` in HTML.
 
 ### Tables
 
@@ -302,7 +323,7 @@ This renders out as:
 | cell1   | cell2   | cell3   |
 | cellA   | cellB   | cellC   |
 
-Tables in both markdown and HTML are some of the most complicated syntax. If you find yourself making a table, it may be 
+Tables in both markdown and HTML are some of the most complicated syntax. If you find yourself making a table, it may be
 time to discuss your needs with a developer.
 
 ### Images
@@ -369,4 +390,16 @@ CSS classes can be added to certain elements using the `{: .classname }` syntax.
 
 ### HTML elements
 
-asdsasdas
+Any valid HTML can be entered as-is into a markdown file and it will come out the other side as rendered HTML. Any text
+within the HTML will not be interpreted as markdown, though, so ensure the contents of a wrapping HTML element are also
+pre-written as HTML.
+
+Something like:
+
+```markdown
+Here is some plain text. <em>This text is italic</em> but this text is not.
+```
+
+Renders to the screen as:
+
+Here is some plain text. <em>This text is italic</em> but this text is not.

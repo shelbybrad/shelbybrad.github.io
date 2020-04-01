@@ -5,7 +5,7 @@ authors:
 #date: 2020-03-03 02:02:02
 #hero_classes: "background-color--main-dark color--white"
 meta:
-  description: "All markdown syntax and its usage for this site."
+  description: "Scripts and behaviors available for use on the site."
 #  image:
 #    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
 #    src: required/meta-image--default.jpg
@@ -17,227 +17,394 @@ meta:
 title: "JavaScript"
 ---
 
-## Table of contents
-{: .no_toc}
+The site comes pre-installed with some JavaScript that allows you to accomplish some common interface conventions without
+having to write any front-end code.
 
-1. TOC
-{:toc}
+These scripts can be used in conjunction with one another, and can be used dynamically on the page (new DOM elements with
+relevant classes are initialized via a mutationObserver, and all event code uses bubbling).
 
-A table of contents, based on the headings in the documents, can be added to the **top** \[only] of a markdown (.md) file
-with the following code exactly:
+Per the Technical section of the site documentation, all additional JavaScript should be either:
 
-```markdown
-## Table of contents
-{: .no_toc}
+  1. Vanilla JS with no dependencies, and following the patterns and format of the existing scripts
+  2. Relegated to its own context, such as an 'SPA' page. The search functionality is an example of a single-page app that
+    has its own JavaScript that doesn't appear elsewhere on the site
 
-1. TOC
-{:toc}
+## Initializer
+
+The core utility among all these scripts is `/assets/js/partials/utility--initizalizer.js`. It allows you to easily perform
+initialization operations on classed elements when they appear in the DOM.
+
+The initializer runs first once the DOM is ready during page load, operating on all registered elements that exist at the
+time of page load.
+
+A mutationObserver, the only one on the site for performance, then listens for DOM changes, and relatively-efficiently detects
+whether any registered elements are among the changes. If they are, the registered initialization function is run and a class
+is added to the element to signify that its initializer has run.
+
+For example, if an element should be given a particular class once it's found in the DOM, the initialization function might
+be:
+
+```javascript
+var exampleInitializationFunction = function(initType) {
+  this.classList.add('js--event--click');
+};
 ```
 
-## Introduction
-{: .text-shadow--second-light--solid}
+Notice that the targeted element is the `this` within the function scope.
 
-On this site we use a text format called markdown for much of the content. This format is plain old text with some extra
-'syntax' (symbols and spacing) to let you make things like links, headings, bold and italic text, and a bunch of other stuff,
-all in a way that looks mostly natural on its own.
+To register it to run both on load and on DOM mutations, call the `utilityInitializer()`:
 
-A big advantage of this format is that you can learn it without having to learn the nitty-gritty of HTML, and end up with
-beautiful pages. Anywhere you see a file that ends in `.md` you can use this markdown stuff outlined below and spice the
-heck out of your content without bugging a developer!
-
-## All syntax
-{: .text-shadow--second-light--solid}
-
-This site renders markdown using the [kramdown engine](https://kramdown.gettalong.org/syntax.html), and as such can take
-any syntax accepted by the engine as a whole. In circumstances where there are multiple ways to make an element, this
-guide is prescriptive about the preferred style to use for consistency on this site.
-
-### Plain paragraph text
-
-Regular text can be typed as you naturally would in a word-processing program; just type out the text and then hit Enter
-twice to create a new paragraph.
-
-One thing we do as a convention on this site is hit Enter once (start a new line) when the line you're on gets to 120
-letters/characters long. This makes the text readable and manageable in a plain text editor without fancy wrapping settings.
-
-Here's an example of some plain old paragraph text in a markdown file:
-
-```markdown
-Regular text can be typed as you naturally would in a word-processing program; just type out the text and then hit Enter
-twice to create a new paragraph.
-
-One thing we do as a convention on this site is hit Enter once (start a new line) when the line you're on gets to 120
-letters/characters long. This makes the text readable and manageable in a plain text editor without fancy wrapping settings.
-
-Here's an example of some plain old paragraph text in a markdown file:
+```javascript
+utilityInitializer('js--example', 'exampleInitializationFunction');
 ```
 
-### Headings
+Any element that enters the DOM with the `js--example` class will then have the `js--event--click` class added by the function
+you've written, either at page load or when a mutation is observed. In order to prevent the initializer from running multiple
+times on the same element, an appended class is also added to the element. In the example, that class would be `js--example--initialized`.
 
-Headings are a great way to split your content into meaningful, bite-size sections. Usability researchers have found time
-and again that users respond very poorly to long paragraphs and big walls of text, so headings are a great solve for that.
-They also give people waypoints in the document to skim, and are necessary if you want a table of contents like the one at
-the top of this page.
+Only single classes may be used for the first argument of the `utilityInitializer()`, and the class should not have a preceding
+period (it's a class string rather than a selector). Similarly, the second argument should be the function name of the
+initialization function as a string, allowing for a `this` caller into the function as desired.
 
-Headings must follow a logical outline order... you can't start a page with a fourth-level heading just because you like
-the way it looks. In fact, every page on the web should have just one first-level heading. That's why every markdown page
-you see on the site should start with a second-level heading!
+By convention, the functions passed into the `utilityInitializer()` should be named for the partial and appended with
+'InitializationFunction'. For instance, in `/assets/js/partials/js--copy-above.js` (named for the class in the first place,
+where the class is descriptive of the behavior), the initialization function passed to `utilityInitializer()` is named
+`copyaboveInitializationFunction`.
 
-You can add a heading like this:
+The utility works purely on classes and keeps track of initializations using classes as well. This is by design, since other
+solves may leak or prevent multiple different initializations on a single element. It also keeps the majority of DOM work
+as class manipulation rather than costly operations.
 
-```markdown
-### Headings
+### Event bubbling
+
+While not technically part of the initializer, the common pattern on the site for new JavaScript is to use a bubbling event
+listener to ensure any element matching the correct criteria triggers the event, even if it was not registered to the listener
+at load-time.
+
+```javascript
+/* Use event delegation for any dynamically-added events. */
+document.addEventListener('click', function (event) {
+  if (event.target !== document
+    && event.target.closest('.js--example')
+  ) {
+    let exampleElement = event.target.closest('.js--example');
+  }
+}, false);
 ```
 
-And here are all the heading levels available to you when writing:
+The `closest()` method facilitates the bubbling with vanilla methods, narrowing events bubbled to the `document` to only elements
+with a specific selector.
 
-```markdown
-## Second-level heading
+## Utility
 
-### Third-level heading
+### Feature detection
 
-#### Fourth-level heading
+The main JavaScript on the site includes adding a 'js' class to the body, which can be used for Progressive enhancement
+in CSS and elsewhere.
 
-##### Fifth-level heading
-
-###### Sixth-level heading
+```javascript
+document.body.classList.add('js');
 ```
 
-You're not allowed to go beyond six levels. Typically if you get past four you're probably writing too much on one page.
+### Scroll
 
-### Emphasis
+The window has a single, lightweight, debounced scroll listener that toggles classes on the body for whether the user is
+scrolling up, down, or if they have reached the top of the page. These classes can be used in the CSS for things like sticky
+headers:
 
-dassdfsd
+  * `.body-scroll--down`
+  * `.body-scroll--top`
+  * `.body-scroll--up`
 
-#### Italic text
+#### Animate upon scroll reveal
 
-sdfsdfs
+The `window` also has a single intersectionObserver: it does the lazy-loaded pictures and some classes for doing animations
+once the user scrolls to reveal the element.
 
-#### Bold text
+If you have animations defined, as in the `utility--animation.css` stylesheet, and applied to an element, you can make the animation
+trigger via the intersectionObserver by putting the `js--to-animate` class on it. This observer is dynamic, so you can put
+reveal animations on elements added via AJAX if so desired.
 
-sfsdfsdsfd
+An example of a reveal animation on an element is as follows:
 
-### Links
-
-sdfsdfsd
-
-### Lists
-
-sdfsfsd
-
-#### Bulleted lists
-
-sdfdfsd
-
-#### Numbered lists
-
-sdfsfsfsdfs
-
-### Quotes
-
-A blockquote is started using the `>` marker followed by an optional space; all following lines that
-are also started with the blockquote marker belong to the blockquote. You can use any block-level
-elements inside a blockquote:
-
-### Code
-
-sdsdsda
-
-#### Big blocks of code
-
-sdfdsfsd
-
-### Little code examples
-
-sdfdsfsfsd
-
-### Tables
-
-kramdown supports a syntax for creating simple tables. A line starting with a pipe character (`|`)
-starts a table row. However, if the pipe characters is immediately followed by a dash (`-`), a
-separator line is created. Separator lines are used to split the table header from the table body
-(and optionally align the table columns) and to split the table body into multiple parts. If the
-pipe character is followed by an equal sign (`=`), the tables rows below it are part of the table
-footer.
-
-| Header1 | Header2 | Header3 |
-|:--------|:-------:|--------:|
-| cell1   | cell2   | cell3   |
-| cellA   | cellB   | cellC   |
-| cell1   | cell2   | cell3   |
-| cellA   | cellB   | cellC   |
-
-```markdown
-| Header1 | Header2 | Header3 |
-|:--------|:-------:|--------:|
-| cell1   | cell2   | cell3   |
-| cellA   | cellB   | cellC   |
-| cell1   | cell2   | cell3   |
-| cellA   | cellB   | cellC   |
+```html
+<div class="js--to-animate animation-name--reveal">This text will use the 'reveal' animation once observed.</div>
 ```
 
-### Images
+### "Block links"
 
-Images can be added in the manner shown below. Just... **don't do it this way**. Keep reading this section.
+Per [Heydon Pickering's work on the Inclusive card component](https://inclusive-components.design/cards/), the class
+`js--child--link` applied to a card or other block-level context will turn the element into the most functional block-link-like
+item possible. The class dynamically does the following (conditional on the classed element containing a valid link):
 
-```markdown
-![Default meta image](/assets/images/required/meta-image--default.jpg)
+  * Adds a utility class to change the cursor to `pointer` so hover makes it feel like a link
+  * Adds the `card--hover` class, which can be used in CSS to add hover effects
+  * Triggers a timed event listener that links for clicks, but ignores for highlights and drags
+
+### Docblocks
+
+On the 'atomic' pages (atoms, molecules, organisms, etc.) of the documentation, each component is itself within a 'docblock'
+component: `molecules/docblock.html`. Any class declared and passed to the docblock via the 'classes' parameter may then
+be toggled on the front end to the top-level element of the component (note that every component should have configurable
+classes at the top level so authors may modify the appearance and functionality to suit their needs).
+
+### Event classes
+
+For the following events:
+
+```javascript
+    'animationcancel',
+    'animationend',
+    'animationiteration',
+    'animationstart',
+    'blur',
+    'canplay',
+    'canplaythrough',
+    'change',
+    'click',
+    'compositionend',
+    'compositionstart',
+    'compositionupdate',
+    'contextmenu',
+    'dblclick',
+    'drag',
+    'dragend',
+    'dragenter',
+    'dragleave',
+    'dragover',
+    'dragstart',
+    'drop',
+    'durationchange',
+    'emptied',
+    'ended',
+    'focus',
+    'focusin',
+    'focusout',
+    'fullscreenchange',
+    'fullscreenerror',
+    'gotpointercapture',
+    'input',
+    'loadeddata',
+    'loadedmetadata',
+    'lostpointercapture',
+    'mousedown',
+    'mouseenter',
+    'mouseleave',
+    'mousemove',
+    'mouseout',
+    'mouseover',
+    'mouseup',
+    'pause',
+    'play',
+    'playing',
+    'pointercancel',
+    'pointerdown',
+    'pointerenter',
+    'pointerleave',
+    'pointermove',
+    'pointerout',
+    'pointerover',
+    'pointerup',
+    'ratechange',
+    'reset',
+    'seeked',
+    'seeking',
+    'show',
+    'slotchange',
+    'stalled',
+    'submit',
+    'suspend',
+    'SVGAbort',
+    'SVGError',
+    'SVGLoad',
+    'SVGResize',
+    'SVGScroll',
+    'SVGUnload',
+    'SVGZoom',
+    'timeupdate',
+    'touchcancel',
+    'touchend',
+    'touchmove',
+    'touchstart',
+    'transitionend',
+    'unload',
+    'volumechange',
+    'waiting'
 ```
 
-Since this site is obscenely high-performance, it does a bunch of things to images when the site regenerates to make images
-load faster. The way of adding images above won't do it, but the way below will:
+...you can add `js--event--` and then the event name, and the classed element will have some things happen automatically
+when that event triggers:
 
-{% raw %}
-```smarty
-{% include atoms/image.html
-  src="required/meta-image--default.jpg"
-  alt="Default meta image"
-  caption="Look how shareable the page is!"
-%}
+  * If the event occurs once, the `js--event--[eventName]--once` class is added and persists. So, if you add `js--event--click`
+    to a `<div>` and then click it, that element will have the `js--event--click--once` class on it
+  * The element will have a data attribute after the event occurs at least once: `data-js-event-eventname-count` and its
+    value will increment as the event occurs on the element
+  * Like the 'once' class, the event triggers a 'toggle' class. So, if you add `js--event--click` to a `<div>` and then
+    click it, that element will have the `js--event--click--toggle` class on it. Clicking again removes the class, and so forth
+
+A great deal of what we do as front-end JavaScript developers comes down to event handling and class manipulation, so this
+generalized utility can often be used to create functionality without writing additional JavaScript. Toogled items like
+lightboxes, dropdown menus, etc. can all be accomplished by addressing the `js--event--...--toggle` classes in CSS, usually
+with an additional class to avoid conflicts.
+
+This functionality is not expressly dynamic (ie. it does not register with the mutationObserver), but it _does_ use event
+bubbling, so dynamically-added elements can also use these utility event classes.
+
+The list of events does not include scroll, resize, or other events that would require a debounce, and are usually best
+accomplished with an observer pattern rather than an event listener.
+
+### External links
+
+External links, for usability and security purposes, are set to open in a new tab/window via `target="_blank"`, with `rel`
+set with the `noopener` and `noreferrer` flags so the browser does not leak private information across sites.
+
+This script is not presently set to be dynamic like other scripts, so any dynamically-added external links may open in the
+same tab and may leak opener and referrer information to the destination.
+
+### Lazy-loaded pictures
+
+Rather than using a library for lazy loading, since this site only supports evergreen browsers we can let our intersectionObserver
+lazy load our images, with only a minimal fallback.
+
+To lazy-load an `<img>` or `<picture>`, simply:
+
+  1. Set all instances of `src` to `data-src` and `srcset` to `data-srcset`
+  2. Put in a placeholder for `src` and `srcset` as `src="/assets/images/required/s.gif"` (a tiny pixel) in order to maintain
+    HTML validity
+  3. Ideally, place a working original version of the tag within a `<noscript>` element as a fallback
+  4. Add the `picture--lazy-load` class to the `<img>` or `<picture>` element, whichever is at the top level
+
+## Special, classed elements
+
+There are a few classes/utilities that either change their parent element or work in tandem with adjacent elements. These
+classes can be used for some of the most frequent interface conventions:
+
+### Copy above
+
+The `.js--copy-above` class, applied usually to a `<button>` like so:
+
+```html
+<button class="js--copy-above layout--hide--no-javascript" type="button">+ Add another</button>
 ```
-{% endraw %}
 
-The example code above becomes:
+...clones the DOM element preceding it upon click, inserts another version, and does some interesting modification to the
+cloned element to ensure proper operation and accessibility.
 
-{% include atoms/image.html
-  src="required/meta-image--default.jpg"
-  alt="Default meta image"
-  caption="Look how shareable the page is!"
-%}
+Mainly, it increments the value of any attribute that should be unique on the page, such as `for`, `id`, `name`, and the `aria-`
+attributes corresponding to those. These increments are delimited by between 1 and infinity colons (`:`) that represent the
+depth of the element within the DOM element being cloned.
 
-## Footnotes
+Cloned elements are dismissible, allowing the application to be returned to its original state by the user.
 
-Footnotes can easily be used. Just set a footnote marker[^1] in the text and somewhere else the footnote definition[^2].
-It looks like this:
+If the original element is:
 
-```markdown
-This is some text with a footnote[^3]. We breeze past it into the next sentence.
-
-[^3]: And here is the definition.
+```html
+<fieldset name="attendee">
+  <legend>Attendee</legend>
+  <div class="form--item form--item--input form--item--input--text ">
+    <label class="label form--item--label display--block font-size--p75em" for="fullname"> Full name </label>
+    <input name="fullname" id="fullname" type="text">
+  </div>
+</fieldset>
 ```
 
-Typically you'd put all the footnote definitions at the bottom of a heading-ed section, or perhaps the page, depending on
-how much you have written.
+The first clone created by pressing the js--copy-above button would be augmented to be:
 
-[^1]: The bracket with the caret and 1 in the footnote example above
-[^2]: The bracket-y dealie with the colon after it in the footnote example above
-
-## Advanced
-{: .text-shadow--second-light--solid}
-
-The elements below get into murky territory, since if you're using them it's often a sign you should be using an HTML file
-instead of a markdown one.
-
-### Classes
-
-CSS classes can be added to certain elements using the `{: .classname }` syntax. For example, here's how we made the
-'Advanced' heading above:
-
-```markdown
-## Advanced
-{: .text-shadow--second-light--solid}
+```html
+<fieldset name="attendee:2" class="js--dismissible js--dismissible--initialized position--relative">
+  <button type="button" class="js--dismissible--close" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+  <legend>Attendee</legend>
+  <div class="form--item form--item--input form--item--input--text ">
+    <label class="label form--item--label display--block font-size--p75em" for="fullname:::2"> Full name </label>
+    <input name="fullname:::2" id="fullname:::2" type="text">
+  </div>
+</fieldset>
 ```
 
-### HTML elements
+The colon delimiters can conceivably be used to predict, template, or reconstruct cloned elements on subsequent page loads,
+based on form data or some other state persistence mechanism not currently used on the site. Note that the `service-worker.js`
+can be modified to persist application state across the session, though this is not implemented in an appreciable way on the
+site (except for the search page where the History API is used to persist a GET parameter).
 
-asdsasdas
+Since the delimiters are based on depth in the cloned element, it's important to ensure any referenced elements within (
+such as a paragraph referenced with `aria-describedby`) are at the same DOM level within the element. Often this can be
+achieved by wrapping an element with a semantically-empty element such as `<div>` or `<span>`. If you don't place elements
+at the same DOM level, assistive technologies or the browser itself may issue a warning about duplicates or a mismatch.
+
+### Dismissible
+
+The `js--dismissible` class is really cool.
+
+If you add it to an element, it will initialize by adding some padding and a close button. When a user presses the close
+button, the classed element will be removed from the DOM entirely.
+
+If the dismissed element had a stable-valued `id` attribute and also has the `js--dismissible` class on subsequent page loads,
+a localStorage check will hide the element on DOMReady.
+
+This class functionality is dynamic, so it can be used in conjunction with the "Copy Above" classed element above, for instance,
+which opens a lot of possibilities for `<form>` and other interfaces.
+
+### Share to native
+
+Share links are the worst. The JavaScript that ships with this site includes a "floating action button" (FAB) that uses the
+browser/OS native sharing mechanism rather than a third-party script for sharing links and content. The button will only
+appear if native sharing is supported by the browser (progressive enhancement).
+
+### Toggle below
+
+The `.js--toggle-below` class, applied typically to a `<button>`, can be used to toggle the visibility of the element immediately
+following the control in the DOM.
+
+Adding a button to the page like so:
+
+```html
+<button type="button" class="js--toggle-below" aria-expanded="false">
+  Example hidden content<br />
+  <span class="js--toggle-below--label">Open below</span>
+</button>
+```
+
+will hide the element following it, with the button toggling the element's appearance in an accessible way on click.
+
+If the `aria-expanded` attribute is not present or set to `"true"`, the element following the button is visible and the
+text of the `<span class="js--toggle-below--label>` will automatically switch to "Close below".
+
+If JavaScript is not present, this toggle fails safe, and the contents will be visible.
+
+## Products (snipcart)
+
+The site's codebase contains the ability to sell products using the third-party Snipcart e-commerce utility. The snipcart
+code is dynamically added to the page as needed, for both performance and privacy reasons.
+
+### Product quantity
+
+For a product widget of the following construction (automatic using collections and includes/layouts):
+
+```html
+<div class="product--widget layout--hide--no-javascript ">
+  <div class="product--widget--quantity">
+    <label for="sbfrt-0001-quantity">Quantity:</label>
+    <input type="number" id="sbfrt-0001-quantity" name="sbfrt-0001-quantity" class="product--widget--quantity--input" min="1" value="1">
+  </div>
+  <div class="product--widget--buy-button">
+    <button type="button" class="buy-button snipcart-add-item"
+      data-item-quantity="1"
+      data-item-id="SBFRT-0001"
+      data-item-name="A banana"
+      data-item-price="82.99"
+      data-item-image="http://localhost:4000/assets/images/1200x630/banana.jpg"
+      data-item-url="http://localhost:4000/products/a-banana/"
+      data-item-description="Affordable, portable fruiting"
+    > Add to cart </button>
+  </div>
+</div>
+```
+
+An event listener is in place to update the `data-item-quantity` attribute on the button (as specified by snipcart's API)
+when the `.product--widget--quantity` number input changes.
+
+For this to work, the parent must be a `.product--widget` and the number `<input>` itself must have the class `.product--widget--quantity--input`
+
+### Cart/checkout FAB
+
+If a snipcart cookie is present, a "floating action button" for accessing the shopping cart will appear to the user.

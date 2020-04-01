@@ -5,6 +5,12 @@
       "description": "String that can be translated.",
       "type": "content",
       "value": "'Error: '"
+    },
+    "footnotes": {
+      "category": "i18n/l10n",
+      "description": "String denoting footnotes that can be translated",
+      "type": "content",
+      "value": "'Footnotes'"
     }
   }
 }
