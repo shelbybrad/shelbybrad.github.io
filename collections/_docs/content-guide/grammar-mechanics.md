@@ -5,7 +5,7 @@ authors:
 #date: 2020-03-03 02:02:02
 #hero_classes: "background-color--main-dark color--white"
 meta:
-  description: "The mission, vision, and goals of the website qua website."
+  description: "Formatting and consistency in language on the site."
 #  image:
 #    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
 #    src: required/meta-image--default.jpg
@@ -14,7 +14,7 @@ meta:
 #permalink: docs/path/page-title/
 #published: true
 #tags: ["three", "four"]
-title: "Formatting"
+title: "Grammar and mechanics"
 ---
 
 Adapted from [mailchimp's guide](https://styleguide.mailchimp.com/grammar-and-mechanics/) under a CC-BY-NC-4.0 license.
@@ -46,6 +46,10 @@ Be consistent. Stick to the copy patterns and style points outlined in this guid
 
 ## Guidelines
 
+The guiding principle behind these guidelines is _trueness to form_: a word, phrase, number, etc. should look like what it
+is. The more a date, time, phone number, quote, or similar looks to the user like its affordance, the more likely the user 
+will understand and consume that information.
+
 ### Abbreviations and acronyms
 
 If there’s a chance your reader won’t recognize an abbreviation or acronym, spell it out the first time you mention it. 
@@ -53,9 +57,12 @@ Then use the short version for all other references. If the abbreviation isn’t
 specify in parentheses.
 
 > First use: Network Operations Center
+
 > Second use: NOC
 
+
 > First use: Coordinated Universal Time (UTC)
+
 > Second use: UTC
 
 If the abbreviation or acronym is well known, like API or HTML, use it instead (and don’t worry about spelling it out).
@@ -68,6 +75,7 @@ In active voice, the subject of the sentence does the action. In passive voice, 
 done to it.
 
 > **Yes**: Marti logged into the account.
+
 > **No**: The account was logged into by Marti.
 
 Words like “was” and “by” may indicate that you’re writing in passive voice. Scan for these words and rework sentences 
@@ -106,16 +114,22 @@ Emoji are a fun way to add humor and visual interest to your writing, but use th
 Spell out a number when it begins a sentence. Otherwise, use the numeral. This includes ordinals.
 
 > Ten new employees started on Monday, and 12 start next week.
+
 > I ate 3 donuts at Coffee Hour.
+
 > Meg won 1st place in last year’s Walktober contest.
+
 > We hosted a group of 8th graders who are learning to code.
 
 Sometimes it feels weird to use the numeral. If it's an expression that typically uses spelled-out numbers, leave them 
 that way.
 
 > A friendly welcome email can help you make a great first impression.
+
 > That is a third-party integration.
+
 > Put your best foot forward with the all-in-one Marketing Platform that grows with you.
+
 > After you send your newsletter, Freddie will give you a high-five.
 
 Numbers over 3 digits get commas:
@@ -131,6 +145,7 @@ Write out big numbers in full. Abbreviate them if there are space restraints, as
 Generally, spell out the day of the week and the month. Abbreviate only if space is an issue.
 
 > Saturday, January 24
+
 > Sat., Jan. 24
 
 ### Decimals and fractions
@@ -138,6 +153,7 @@ Generally, spell out the day of the week and the month. Abbreviate only if space
 Spell out fractions.
 
 > **Yes**: two-thirds
+
 > **No**: 2/3
 
 Use decimal points when a number can’t be easily written out as a fraction, like 1.375 or 47.2.
@@ -157,12 +173,20 @@ Use a hyphen (-) to indicate a range or span of numbers.
 When writing about US currency, use the dollar sign before the amount. Include a decimal and number of cents if more than 0.
 
 > $20
+
 > $19.99
 
 When writing about other currencies, follow the same symbol-amount format:
 
 > ¥1
 > €1
+
+Defer to Nick Kolenda's [Pricing psychology](https://www.nickkolenda.com/psychological-pricing-strategies/) when setting 
+the price of any product on the site. The goal for any price should be:
+
+  1. Ensuring an acceptable profit margin
+  2. Being honest
+  3. Enticing the prospective buyer
 
 ### Telephone numbers
 
@@ -186,8 +210,8 @@ Use the degree symbol and the capital F abbreviation for Fahrenheit.
 Use numerals and AM or PM, with a space in between. Always add minutes, even on the hour, as it makes times within text 
 far more recognizable and skimmable.
 
-> 7:00 AM 
-> 7:30 PM
+  * 7:00 AM 
+  * 7:30 PM
 
 Use a hyphen between times to indicate a time period. 
 
@@ -206,13 +230,13 @@ does not have a set name, use its Coordinated Universal Time (UTC) offset.
 
 Abbreviate decades when referring to those within the past 100 years.
 
-> the 00s
-> the 90s
+  * the 00s
+  * the 90s
 
 When referring to decades more than 100 years ago, be more specific:
 
-> the 1900s
-> the 1890s
+  * the 1900s
+  * the 1890s
 
 ## Punctuation
 
@@ -220,14 +244,18 @@ Punctuation marks, such as the colon, should be outside of bolding or emphasis i
 similarly should be "programmer style", where commas are outside of quotes and the like. This is not exactly to AP/MLA/Chicago 
 style standards, but matches the personality of our voice.
 
+In some cases, such as apostrophes, quotes, and others, there exist 'smart' marks that are curly or otherwise-affected. Using 
+these marks rather than plain or straight quotes is left to your discretion — plain marks are entirely acceptable in all 
+usages.
+
 ### Apostrophes
 
 The apostrophe’s most common use is making a word possessive. If the word already ends in an s and it’s singular, you also 
 add an ‘s. If the word ends in an s and is plural, just add an apostrophe.
 
-> The donut thief ate Sam’s donut.
-> The donut thief ate Chris’s donut.
-> The donut thief ate the managers’ donuts.
+  * The donut thief ate Sam’s donut.
+  * The donut thief ate Chris’s donut.
+  * The donut thief ate the managers’ donuts.
 
 Apostrophes can also be used to denote that you’ve dropped some letters from a word, usually for humor or emphasis. This 
 is fine, but do it sparingly.
@@ -247,6 +275,7 @@ You can also use a colon to join 2 related phrases. If a complete sentence follo
 When writing a list, use the serial comma (also known as the Oxford comma). 
 
 > **Yes**: David admires his parents, Oprah, and Justin Timberlake.
+
 > **No**: David admires his parents, Oprah and Justin Timberlake.
 
 Otherwise, use common sense. If you’re unsure, read the sentence out loud. Where you find yourself taking a breath, use 
@@ -256,14 +285,15 @@ a comma.
 
 Use a hyphen (-) without spaces on either side to link words into single phrase, or to indicate a span or range. 
 
-> first-time user
-> Monday-Friday
+  * first-time user
+  * Monday-Friday
 
 Use an em dash (—) _with_ spaces on either side to offset an aside.
 
 Use a true em dash, not hyphens (- or --).
 
 > Multivariate testing — just one of our new Pro feature — can help you grow your business.
+
 > Austin thought Brad was the donut thief, but he was wrong — it was Lain.
 
 ### Ellipses
@@ -276,7 +306,7 @@ use them for emphasis or drama, and don’t use them in titles or headers.
 Ellipses, in brackets, can also be used to show that you're omitting words in a quote.
 
 > “When in the Course of human events it becomes necessary for one people to dissolve the political bands which have 
-> connected them with another and to assume among the powers of the earth, [...] a decent respect to the opinions of 
+> connected them with another and to assume among the powers of the earth, \[...] a decent respect to the opinions of 
 > mankind requires that they should declare the causes which impel them to the separation.”
 
 ### Periods
@@ -285,7 +315,9 @@ Periods go outside of quotation marks, programmer-style. They go outside parenth
 larger sentence, and inside parentheses when the parenthetical stands alone.
 
 > Christy said, “I ate a donut”.
+
 > I ate a donut (and I ate a bagel, too).
+
 > I ate a donut and a bagel. (The donut was Sam’s.)
 
 Leave a single space between sentences.
@@ -316,6 +348,7 @@ mark is part of the quotation, it goes within. If you’re asking a question tha
 Use single quotation marks for quotes within quotes.
 
 > Who was it that said, “A fool and his donut are easily parted”?
+
 > Brad said, “A wise man once told me, ‘A fool and his donut are easily parted.’”
 
 Use single quotes for single words or hyphenated phrases. For multi-word quotations, use double quotes on the outside and 
@@ -330,8 +363,8 @@ Go easy on semicolons. They usually support long, complicated sentences that cou
 
 Don't use ampersands unless one is part of a company or brand name.
 
-> Ben and Dan
-> Ben & Jerry’s
+  * Ben and Dan
+  * Ben & Jerry’s
 
 ## People, places, and things
 
@@ -374,6 +407,7 @@ Capitalize the names of departments and teams (but not the word "team" or "depar
 Capitalize individual job titles when referencing to a specific role. Don't capitalize when referring to the role in general terms.
 
 > Our new Marketing Manager starts today.
+
 > All the managers ate donuts.
 
 Don't refer to someone as a “ninja,” “rockstar,” or “wizard” unless they literally are one.
@@ -384,6 +418,7 @@ The first time you mention a school, college, or university in a piece of writin
 On all other mentions, use its more common abbreviation.
 
 > Georgia Institute of Technology, Georgia Tech
+
 > Georgia State University, GSU
 
 ### States, cities, and countries
@@ -425,4 +460,5 @@ Use positive language rather than negative language. One way to detect negative 
 “don’t,” etc.
 
 > **Yes**: To get a donut, stand in line.
+
 > **No**: You can’t get a donut if you don’t stand in line.
