@@ -281,6 +281,7 @@ The core ideas around which decisions were made for this kit:
     giant libraries and CSS-in-JS
   * SPAs and JS libraries have their place, and can be used within a vanilla base site. But the vanilla site comes first
   * JavaScript works best for the most circumstances when it listens to both DOM mutations and event bubbling
+  * CSS class names can be long and descriptive, and gzip will do its job
   * Code can often pull double duty as the source for documentation
   * Content can and should be represented all the ways a consumer might use it. JSON is easy enough to generate
   * Code comments should be all over the place. jQuery was used because it was useful. It was loved because it was well-documented
