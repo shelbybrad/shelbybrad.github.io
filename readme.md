@@ -35,7 +35,7 @@ Also the following:
     and [social icons](https://simpleicons.org/) included out of the box
   * Zero front-end dependencies and _clever_ **vanilla JavaScript** so there's less code to write
   * Utility-_first_ CSS using a syntax everyone on your team can fully memorize in less than five minutes
-    (ex: `.font-style--italic` and `.display--flex`)
+    (ex: `.font-style--italic`, `.background-color--main-dark`, and `.display--flex`)
   * "Vanilla CSS": full embrace of CSS custom properties that makes Sass unnecessary. Very flat
     [specificity graph](https://jonassebastianohlsson.com/specificity-graph/)
   * Clean break = [**no** Internet Explorer support](https://support.microsoft.com/en-us/help/17454/lifecycle-faq-internet-explorer-and-edge).
