@@ -14,62 +14,33 @@
   margin-left: calc(.5 * var(--spacing--single));
   margin-right: calc(.5 * var(--spacing--single));
 }
-@media all and (max-width: 767px) {
-  .margin-horizontal--1.margin-horizontal--collapse {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
 .margin-horizontal--2 {
   margin-left: calc(1 * var(--spacing--single));
   margin-right: calc(1 * var(--spacing--single));
-}
-@media all and (max-width: 767px) {
-  .margin-horizontal--2.margin-horizontal--collapse {
-    margin-left: 0;
-    margin-right: 0;
-  }
 }
 .margin-horizontal--4 {
   margin-left: calc(2 * var(--spacing--single));
   margin-right: calc(2 * var(--spacing--single));
 }
-@media all and (max-width: 767px) {
-  .margin-horizontal--4.margin-horizontal--collapse {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
 .margin-horizontal--8 {
   margin-left: calc(4 * var(--spacing--single));
   margin-right: calc(4 * var(--spacing--single));
 }
-@media all and (max-width: 767px) {
-  .margin-horizontal--8.margin-horizontal--collapse {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
 .margin-horizontal--16 {
   margin-left: calc(8 * var(--spacing--single));
   margin-right: calc(8 * var(--spacing--single));
-}
-@media all and (max-width: 767px) {
-  .margin-horizontal--16.margin-horizontal--collapse {
-    margin-left: 0;
-    margin-right: 0;
-  }
 }
 .margin-horizontal--32 {
   margin-left: calc(16 * var(--spacing--single));
   margin-right: calc(16 * var(--spacing--single));
 }
 @media all and (max-width: 767px) {
-  .margin-horizontal--32.margin-horizontal--collapse {
+  .margin-horizontal--collapse {
     margin-left: 0;
     margin-right: 0;
   }
 }
+
 
 .margin-top--auto {
   margin-top: auto;
@@ -140,58 +111,28 @@ a.button.margin-vertical--4 {
   padding-left: calc(.5 * var(--spacing--single));
   padding-right: calc(.5 * var(--spacing--single));
 }
-@media all and (max-width: 767px) {
-  .padding-horizontal--1.padding-horizontal--collapse {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
 .padding-horizontal--2 {
   padding-left: calc(1 * var(--spacing--single));
   padding-right: calc(1 * var(--spacing--single));
-}
-@media all and (max-width: 767px) {
-  .padding-horizontal--2.padding-horizontal--collapse {
-    padding-left: 0;
-    padding-right: 0;
-  }
 }
 .padding-horizontal--4 {
   padding-left: calc(2 * var(--spacing--single));
   padding-right: calc(2 * var(--spacing--single));
 }
-@media all and (max-width: 767px) {
-  .padding-horizontal--4.padding-horizontal--collapse {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
 .padding-horizontal--8 {
   padding-left: calc(4 * var(--spacing--single));
   padding-right: calc(4 * var(--spacing--single));
 }
-@media all and (max-width: 767px) {
-  .padding-horizontal--8.padding-horizontal--collapse {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
 .padding-horizontal--16 {
   padding-left: calc(8 * var(--spacing--single));
   padding-right: calc(8 * var(--spacing--single));
-}
-@media all and (max-width: 767px) {
-  .padding-horizontal--16.padding-horizontal--collapse {
-    padding-left: 0;
-    padding-right: 0;
-  }
 }
 .padding-horizontal--32 {
   padding-left: calc(16 * var(--spacing--single));
   padding-right: calc(16 * var(--spacing--single));
 }
 @media all and (max-width: 767px) {
-  .padding-horizontal--32.padding-horizontal--collapse {
+  .padding-horizontal--collapse {
     padding-left: 0;
     padding-right: 0;
   }

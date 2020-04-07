@@ -131,6 +131,10 @@ An example of a reveal animation on an element is as follows:
 <div class="js--to-animate animation-name--reveal">This text will use the 'reveal' animation once observed.</div>
 ```
 
+**Result**:
+
+<div class="js--to-animate animation-name--reveal">This text will use the 'reveal' animation once observed.</div>
+
 ### "Block links"
 
 Per [Heydon Pickering's work on the Inclusive card component](https://inclusive-components.design/cards/), the class
@@ -141,12 +145,44 @@ item possible. The class dynamically does the following (conditional on the clas
   * Adds the `card--hover` class, which can be used in CSS to add hover effects
   * Triggers a timed event listener that links for clicks, but ignores for highlights and drags
 
+**Example**:
+
+<ul class="list-style--none layout--multiple--horizontal">
+  <li class="card js--child--link display--flex flex-direction--column">
+    <div class="card--text padding-horizontal--4 padding-vertical--4">
+      <h3 class="card--title font-size--1p25em">
+        <a href="/blog/example-post/">Example card</a>
+      </h3>
+      <strong class="card--subtitle display--block font-size--p875em font-weight--100 font-style--italic">January 1, 1970</strong>
+      <p class="card--description font-size--p75em">Text content for the example card.</p>
+    </div>
+    <figure class="figure figure--image figure--card--image order--neg1">
+      <picture class="picture picture--lazy-load layout--hide--no-javascript" itemprop="image">
+        <source data-srcset="/assets/images/required/meta-image--default.jpg.webp" type="image/webp">
+        <img data-src="/assets/images/required/meta-image--default.jpg" alt="Default alt text" loading="lazy">
+      </picture>
+      <noscript>
+        <img src="/assets/images/required/meta-image--default.jpg" alt="Default alt text" loading="lazy" />
+      </noscript>
+    </figure>
+  </li>
+</ul>
+
 ### Docblocks
 
 On the 'atomic' pages (atoms, molecules, organisms, etc.) of the documentation, each component is itself within a 'docblock'
 component: `molecules/docblock.html`. Any class declared and passed to the docblock via the 'classes' parameter may then
 be toggled on the front end to the top-level element of the component (note that every component should have configurable
 classes at the top level so authors may modify the appearance and functionality to suit their needs).
+
+**Example**:
+
+{% include atoms/heading.html
+  children="About this section"
+  classes="text-shadow--second-light--solid"
+  level="2"
+  mode="docblock"
+%}
 
 ### Event classes
 
@@ -274,6 +310,28 @@ To lazy-load an `<img>` or `<picture>`, simply:
   3. Ideally, place a working original version of the tag within a `<noscript>` element as a fallback
   4. Add the `picture--lazy-load` class to the `<img>` or `<picture>` element, whichever is at the top level
 
+To make lazy loading and modern formats easier, add all images with the image include:
+
+{% raw %}
+```liquid
+{% include atoms/image.html
+  alt="Your alt text here"
+  caption="Optional caption here"
+  classes=""
+  src="required/meta-image--default.jpg"
+%}
+```
+{% endraw %}
+
+**Result**:
+
+{% include atoms/image.html
+  alt="Your alt text here"
+  caption="Optional caption here"
+  classes=""
+  src="required/meta-image--default.jpg"
+%}
+
 ## Special, classed elements
 
 There are a few classes/utilities that either change their parent element or work in tandem with adjacent elements. These
@@ -289,6 +347,20 @@ The `.js--copy-above` class, applied usually to a `<button>` like so:
 
 ...clones the DOM element preceding it upon click, inserts another version, and does some interesting modification to the
 cloned element to ensure proper operation and accessibility.
+
+**Example**:
+
+<div class="helper-wrapper">
+  <fieldset name="attendee">
+    <legend>Attendee</legend>
+    <div class="form--item form--item--input form--item--input--text ">
+      <label class="label form--item--label display--block font-size--p75em" for="fullname"> Full name </label>
+      <input name="fullname" id="fullname" type="text">
+    </div>
+  </fieldset>
+
+  <button class="js--copy-above layout--hide--no-javascript" type="button">+ Add another</button>
+</div>
 
 Mainly, it increments the value of any attribute that should be unique on the page, such as `for`, `id`, `name`, and the `aria-`
 attributes corresponding to those. These increments are delimited by between 1 and infinity colons (`:`) that represent the
@@ -334,6 +406,15 @@ at the same DOM level, assistive technologies or the browser itself may issue a 
 ### Dismissible
 
 The `js--dismissible` class is really cool.
+
+**Example**:
+
+{% include molecules/alert.html
+  children="<p>Dismissible status alert</p>"
+  classes=""
+  dismissible=true
+  level="status"
+%}
 
 If you add it to an element, it will initialize by adding some padding and a close button. When a user presses the close
 button, the classed element will be removed from the DOM entirely.
