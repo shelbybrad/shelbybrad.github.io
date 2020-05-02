@@ -115,7 +115,7 @@ apply
 
 instead. The following class categories are the ones most applicable to layouts.
 
-#### align-content--
+#### `align-content--`
 
 The classes `.align-content--flex-start`, `.align-content--flex-end`, `.align-content--center`, `.align-content--space-between`,
 `.align-content--space-around`, `.align-content--space-evenly`, and `.align-content--stretch` apply the keyword property
@@ -124,107 +124,48 @@ values for [align-content](https://developer.mozilla.org/en-US/docs/Web/CSS/alig
 Typically in layouts the vertical and horizontal alignment is applied to different elements (`layout--row` and `layout--column`),
 so cross-axis settings are rare.
 
-#### align-items--
+#### `align-items--`
 
 `.align-items--flex-start`, `.align-items--flex-end`, `.align-items--center`, `.align-items--baseline`, `.align-items--stretch`
 
-#### align-self--
+#### `align-self--`
 
 `.align-self--flex-start`, `.align-self--flex-end`, `.align-self--center`, `.align-self--baseline`, `.align-self--stretch`
 
-#### display--
+#### `display--`
 
 `.display--flex`
 
-#### flex--
+#### `flex--`
 
 `.flex--auto`, `.flex--initial`, `.flex--none`
 
 
 `.flex--1`, `.flex--2`, `.flex--3`, `.flex--4`, `.flex--5`, `.flex--6`
 
-#### flex-direction--
+#### `flex-direction--`
 
 `.flex-direction--row`, `.flex-direction--row-reverse`, `.flex-direction--column`, `.flex-direction--column-reverse`
 
-#### flex-wrap--
+#### `flex-wrap--`
 
-.flex-wrap--nowrap {
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-}
-.flex-wrap--wrap {
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-.flex-wrap--wrap-reverse {
-  -webkit-flex-wrap: wrap-reverse;
-  -ms-flex-wrap: wrap-reverse;
-  flex-wrap: wrap-reverse;
-}
+`.flex-wrap--nowrap`, `.flex-wrap--wrap`, `.flex-wrap--wrap-reverse`
 
-#### justify-content--
+#### `justify-content--`
 
-.justify-content--flex-start {
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -moz-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-}
-.justify-content--flex-end {
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -moz-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-}
-.justify-content--center {
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-.justify-content--space-between {
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-.justify-content--space-around {
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: justify;
-  justify-content: space-around;
-}
-.justify-content--space-evenly {
-  -webkit-box-pack: justify;
-  -moz-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-evenly;
-  justify-content: space-evenly;
-}
-.justify-content--stretch {
-  -webkit-box-pack: stretch;
-  -webkit-justify-content: stretch;
-  -moz-box-pack: stretch;
-  -ms-flex-pack: stretch;
-  justify-content: stretch;
-}
+`.justify-content--flex-start `, `.justify-content--flex-end`, `.justify-content--center`, `.justify-content--space-between`,
+`.justify-content--space-around`, `.justify-content--space-evenly`, `.justify-content--stretch`
 
 ### utility--classes.css
 
 There are plenty more classes in this file, but the following are most useful for making engaging sections and layouts.
 
-#### a11y--visually-hidden
+#### `a11y--visually-hidden`
 
 The `.a11y--visually-hidden` class is useful for section headings and other elements that should not appear visually, but
 are semantically necessary or accessibly useful. It hides the content except when it or its children has `:focus`.
 
-#### background-image-display-mobile--hide
+#### `background-image-display-mobile--hide`
 
 `.background-image-display-mobile--hide` is useful when you use a busy photographic background image that looks good on
 desktop, but may impede legibility on mobile. It will hide background images for viewports narrower than 1023px.
@@ -266,189 +207,26 @@ there is slighly less vertical padding to account for the smaller screen real es
 
 ### utility--spacing.css
 
-/**
- * @file
- * Margin and padding classes.
- */
+#### `margin-horizontal--`
 
-/**
- * Proportional, responsive margin classes.
- */
-.margin-horizontal--0 {
-  margin-left: 0;
-  margin-right: 0;
-}
-.margin-horizontal--1 {
-  margin-left: calc(.5 * var(--spacing--single));
-  margin-right: calc(.5 * var(--spacing--single));
-}
-.margin-horizontal--2 {
-  margin-left: calc(1 * var(--spacing--single));
-  margin-right: calc(1 * var(--spacing--single));
-}
-.margin-horizontal--4 {
-  margin-left: calc(2 * var(--spacing--single));
-  margin-right: calc(2 * var(--spacing--single));
-}
-.margin-horizontal--8 {
-  margin-left: calc(4 * var(--spacing--single));
-  margin-right: calc(4 * var(--spacing--single));
-}
-.margin-horizontal--16 {
-  margin-left: calc(8 * var(--spacing--single));
-  margin-right: calc(8 * var(--spacing--single));
-}
-.margin-horizontal--32 {
-  margin-left: calc(16 * var(--spacing--single));
-  margin-right: calc(16 * var(--spacing--single));
-}
-@media all and (max-width: 767px) {
-  .margin-horizontal--collapse {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
+`.margin-horizontal--0`, `.margin-horizontal--1`, `.margin-horizontal--2`, `.margin-horizontal--4`, `.margin-horizontal--8`,
+`.margin-horizontal--16`, `.margin-horizontal--32`
+
+`.margin-horizontal--collapse`
 
 
-.margin-top--auto {
-  margin-top: auto;
-}
+`.margin-top--auto`
 
-.margin-vertical--0 {
-  margin-bottom: 0;
-  margin-top: 0;
-}
-.margin-vertical--1 {
-  margin-bottom: calc(.5 * var(--spacing--single));
-  margin-top: calc(.5 * var(--spacing--single));
-}
-.margin-vertical--2 {
-  margin-bottom: calc(1 * var(--spacing--single));
-  margin-top: calc(1 * var(--spacing--single));
-}
-.margin-vertical--4,
-.button.margin-vertical--4,
-a.button.margin-vertical--4 {
-  margin-bottom: calc(2 * var(--spacing--single));
-  margin-top: calc(2 * var(--spacing--single));
-}
-.margin-vertical--8 {
-  margin-bottom: calc(4 * var(--spacing--single));
-  margin-top: calc(4 * var(--spacing--single));
-}
-@media all and (max-width: 960px) {
-  .margin-vertical--8 {
-    margin-bottom: calc(2 * var(--spacing--single));
-    margin-top: calc(2 * var(--spacing--single));
-  }
-}
-.margin-vertical--16 {
-  margin-bottom: calc(8 * var(--spacing--single));
-  margin-top: calc(8 * var(--spacing--single));
-}
-@media all and (max-width: 960px) {
-  .margin-vertical--16 {
-    margin-bottom: calc(4 * var(--spacing--single));
-    margin-top: calc(4 * var(--spacing--single));
-  }
-}
-.margin-vertical--32 {
-  margin-bottom: calc(16 * var(--spacing--single));
-  margin-top: calc(16 * var(--spacing--single));
-}
-@media all and (max-width: 960px) {
-  .margin-vertical--32 {
-    margin-bottom: calc(8 * var(--spacing--single));
-    margin-top: calc(8 * var(--spacing--single));
-  }
-}
 
-/**
- * Padding classes.
- *
- * Horizontal for column section entities. At the mobile breakpoint the padding
- * zeroes out for consistency.
- *
- * Columns are then vertically spaced using flex classes from property--value.
- */
-.padding-horizontal--0 {
-  padding-left: 0;
-  padding-right: 0;
-}
-.padding-horizontal--1 {
-  padding-left: calc(.5 * var(--spacing--single));
-  padding-right: calc(.5 * var(--spacing--single));
-}
-.padding-horizontal--2 {
-  padding-left: calc(1 * var(--spacing--single));
-  padding-right: calc(1 * var(--spacing--single));
-}
-.padding-horizontal--4 {
-  padding-left: calc(2 * var(--spacing--single));
-  padding-right: calc(2 * var(--spacing--single));
-}
-.padding-horizontal--8 {
-  padding-left: calc(4 * var(--spacing--single));
-  padding-right: calc(4 * var(--spacing--single));
-}
-.padding-horizontal--16 {
-  padding-left: calc(8 * var(--spacing--single));
-  padding-right: calc(8 * var(--spacing--single));
-}
-.padding-horizontal--32 {
-  padding-left: calc(16 * var(--spacing--single));
-  padding-right: calc(16 * var(--spacing--single));
-}
-@media all and (max-width: 767px) {
-  .padding-horizontal--collapse {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
+`.margin-vertical--0`, `.margin-vertical--1`, `.margin-vertical--2`, `.margin-vertical--4`, `.margin-vertical--8`,
+`.margin-vertical--16`, `.margin-vertical--32
 
-.padding-vertical--0 {
-  padding-bottom: 0;
-  padding-top: 0;
-}
-.padding-vertical--1 {
-  padding-bottom: calc(.5 * var(--spacing--single));
-  padding-top: calc(.5 * var(--spacing--single));
-}
-.padding-vertical--2 {
-  padding-bottom: calc(1 * var(--spacing--single));
-  padding-top: calc(1 * var(--spacing--single));
-}
-.padding-vertical--4 {
-  padding-bottom: calc(2 * var(--spacing--single));
-  padding-top: calc(2 * var(--spacing--single));
-}
-.padding-vertical--8 {
-  padding-bottom: calc(4 * var(--spacing--single));
-  padding-top: calc(4 * var(--spacing--single));
-}
-@media all and (max-width: 960px) {
-  .padding-vertical--8 {
-    padding-bottom: calc(2 * var(--spacing--single));
-    padding-top: calc(2 * var(--spacing--single));
-  }
-}
-.padding-vertical--16 {
-  padding-bottom: calc(8 * var(--spacing--single));
-  padding-top: calc(8 * var(--spacing--single));
-}
-@media all and (max-width: 960px) {
-  .padding-vertical--16 {
-    padding-bottom: calc(4 * var(--spacing--single));
-    padding-top: calc(4 * var(--spacing--single));
-  }
-}
-.padding-vertical--32 {
-  padding-bottom: calc(16 * var(--spacing--single));
-  padding-top: calc(16 * var(--spacing--single));
-}
-@media all and (max-width: 960px) {
-  .padding-vertical--32 {
-    padding-bottom: calc(8 * var(--spacing--single));
-    padding-top: calc(8 * var(--spacing--single));
-  }
-}
+
+`.padding-horizontal--0`, `.padding-horizontal--1`, `.padding-horizontal--2`, `.padding-horizontal--4`, `.padding-horizontal--8`,
+`.padding-horizontal--16`, `.padding-horizontal--32`,
+
+`.padding-horizontal--collapse`
+
+
+`.padding-vertical--0`, `.padding-vertical--1`, `.padding-vertical--2`, `.padding-vertical--4`, `.padding-vertical--8`,
+`.padding-vertical--16`, `.padding-vertical--32`
