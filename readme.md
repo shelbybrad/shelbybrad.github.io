@@ -86,6 +86,9 @@ Also the following:
 If you want to use netlify,
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/shelbybrad/shelbybrad.github.io)
 
+If you prefer Vercel,
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/shelbybrad/shelbybrad.github.io)
+
 ### Creating a local version for development
 
   1. Clone the repository to your local machine
