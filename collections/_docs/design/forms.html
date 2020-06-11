@@ -17,4 +17,36 @@ meta:
 title: "Forms"
 ---
 
-<p>This page used to have a huge payload.</p>
+<p>Forms, whether standalone or called as the form collection type, can use these well-constructed components.</p>
+
+{% include forms/form--input.html
+  classes=""
+  description="Inputs can have description text."
+  label="Primary email"
+  name="email"
+  required=true
+  type="email"
+  mode="docblock"
+%}
+
+{% include forms/form--yes-no.html
+  classes=""
+  default=false
+  description="Will you attend the wedding reception dinner on October 9, 2020?"
+  label="Répondez s'il vous plaît"
+  label_off="With regret"
+  label_on="Looking forward to it!"
+  name="rsvp"
+  required=false
+  mode="docblock"
+%}
+
+{% include forms/form--textarea.html
+  classes=""
+  description="Questions, dietary info, well-wishes, <em>your single greatest piece of advice besides wash-your-hands and wear-sunscreen</em>."
+  label="Commentary"
+  name="comment"
+  required=false
+  rows="4"
+  mode="docblock"
+%}
