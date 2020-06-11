@@ -18,27 +18,24 @@ title: "Markdown"
 ---
 
 ## Table of contents
-
-{: .no_toc}
+{:.no_toc}
 
 1. TOC
-   {:toc}
+{:toc}
 
 A table of contents, based on the headings in the documents, can be added to the **top** \[only] of a markdown (.md) file
 with the following code exactly:
 
 ```markdown
 ## Table of contents
-
-{: .no_toc}
+{:.no_toc}
 
 1. TOC
-   {:toc}
+{:toc}
 ```
 
 ## Introduction
-
-{: .text-shadow--second-light--solid}
+{:.text-shadow--second-light--solid}
 
 On this site we use a text format called markdown for much of the content. This format is plain old text with some extra
 'syntax' (symbols and spacing) to let you make things like links, headings, bold and italic text, and a bunch of other stuff,
@@ -49,8 +46,7 @@ beautiful pages. Anywhere you see a file that ends in `.md` you can use this mar
 heck out of your content without bugging a developer!
 
 ## All syntax
-
-{: .text-shadow--second-light--solid}
+{:.text-shadow--second-light--solid}
 
 This site renders markdown using the [kramdown engine](https://kramdown.gettalong.org/syntax.html), and as such can take
 any syntax accepted by the engine as a whole. In circumstances where there are multiple ways to make an element, this

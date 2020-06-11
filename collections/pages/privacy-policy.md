@@ -28,11 +28,10 @@ title: "Privacy Policy"
 ---
 
 ## Table of contents
-
 {: .no_toc}
 
 1. TOC
-   {:toc}
+{:toc}
 
 ## Introduction
 

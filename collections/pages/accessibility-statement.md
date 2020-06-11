@@ -28,11 +28,10 @@ title: "Accessibility Statement"
 ---
 
 ## Table of contents
-
 {: .no_toc}
 
 1. TOC
-   {:toc}
+{:toc}
 
 ## We’re committed to easy access for everyone
 

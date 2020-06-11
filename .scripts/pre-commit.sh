@@ -11,7 +11,6 @@
 
 npm run prettier-css
 npm run prettier-js
-npm run prettier-md
 npm run purgecss
 npm run terser
 bundle exec jekyll build --verbose
