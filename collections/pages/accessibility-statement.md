@@ -28,10 +28,11 @@ title: "Accessibility Statement"
 ---
 
 ## Table of contents
+
 {: .no_toc}
 
 1. TOC
-{:toc}
+   {:toc}
 
 ## We’re committed to easy access for everyone
 
@@ -58,10 +59,10 @@ Phone: [{{ site.phone.display }}](mailto:+{{ site.phone.mailto }})
 Accessibility on this site relies on the following technologies to work with the particular combination of web browser and
 any assistive technologies or plugins installed on your computer:
 
-  * HTML
-  * WAI-ARIA
-  * CSS
-  * JavaScript
+- HTML
+- WAI-ARIA
+- CSS
+- JavaScript
 
 These technologies are relied upon for conformance with the accessibility standards used.
 
@@ -69,6 +70,6 @@ These technologies are relied upon for conformance with the accessibility standa
 
 We assessed the accessibility of this site by the following approaches:
 
-  1. Self-evaluation
-  2. External evaluation
-  3. Developer contract organization and its subcontractors evaluation and Quality Assurance
+1. Self-evaluation
+2. External evaluation
+3. Developer contract organization and its subcontractors evaluation and Quality Assurance

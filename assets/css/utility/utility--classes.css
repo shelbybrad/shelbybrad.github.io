@@ -7,7 +7,7 @@
  * Accessibly hide elements.
  */
 .a11y--visually-hidden:not(:focus-within) {
-  clip: rect(1px,1px,1px,1px);
+  clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
   overflow: hidden;
   position: absolute !important;
@@ -69,8 +69,9 @@ pre.highlight:before,
 .box-shadow--lifted-edges:after,
 pre.highlight:after {
   bottom: calc(1.5 * var(--spacing--single));
-  box-shadow: 0 calc(1.5 * var(--spacing--single)) calc(1 * var(--spacing--single)) rgba(0,0,0,.75);
-  content: '';
+  box-shadow: 0 calc(1.5 * var(--spacing--single))
+    calc(1 * var(--spacing--single)) rgba(0, 0, 0, 0.75);
+  content: "";
   left: calc(1 * var(--spacing--single));
   max-width: 300px; /* Magic number */
   position: absolute;

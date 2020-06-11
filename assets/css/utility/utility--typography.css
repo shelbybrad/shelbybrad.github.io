@@ -7,19 +7,19 @@
  * Font size multiplier classes.
  */
 .font-size--p375em {
-  font-size: .375em;
+  font-size: 0.375em;
 }
 .font-size--p5em {
-  font-size: .5em;
+  font-size: 0.5em;
 }
 .font-size--p625em {
-  font-size: .625em;
+  font-size: 0.625em;
 }
 .font-size--p75em {
-  font-size: .75em;
+  font-size: 0.75em;
 }
 .font-size--p875em {
-  font-size: .875em;
+  font-size: 0.875em;
 }
 .font-size--1em {
   font-size: 1em;

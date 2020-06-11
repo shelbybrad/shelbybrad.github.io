@@ -28,10 +28,11 @@ title: "Terms and conditions"
 ---
 
 ## Table of contents
+
 {: .no_toc}
 
 1. TOC
-{:toc}
+   {:toc}
 
 ## Website Usage
 
@@ -69,10 +70,10 @@ pages from the site for your own personal use subject to restrictions set in the
 
 You **must not**:
 
-  1. Republish material from this site
-  2. Sell, rent or sub-license material from this site
-  3. Reproduce, duplicate or copy material from this site
-  4. Redistribute content from this site (unless content is specifically made for redistribution)
+1. Republish material from this site
+2. Sell, rent or sub-license material from this site
+3. Reproduce, duplicate or copy material from this site
+4. Redistribute content from this site (unless content is specifically made for redistribution)
 
 ## User Comments
 
@@ -92,14 +93,14 @@ in our absolute discretion to be inappropriate, offensive or otherwise in breach
 
 You warrant and represent that:
 
-  1. You are entitled to post the Comments on our website and have all necessary licenses and consents to
-    do so;
-  2. The Comments do not infringe any intellectual property right, including without limitation copyright, patent or
-    trademark, or other proprietary right of any third party;
-  3. The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material
-    or material which is an invasion of privacy
-  4. The Comments will not be used to solicit or promote business or custom or present commercial activities
-    or unlawful activity.
+1. You are entitled to post the Comments on our website and have all necessary licenses and consents to
+   do so;
+2. The Comments do not infringe any intellectual property right, including without limitation copyright, patent or
+   trademark, or other proprietary right of any third party;
+3. The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material
+   or material which is an invasion of privacy
+4. The Comments will not be used to solicit or promote business or custom or present commercial activities
+   or unlawful activity.
 
 You hereby grant to us a non-exclusive royalty-free license to use, reproduce,
 edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats
@@ -141,10 +142,10 @@ To the maximum extent permitted by applicable law, we exclude all representation
 our website and the use of this website (including, without limitation, any warranties implied by law in respect of
 satisfactory quality, fitness for purpose and/or the use of reasonable care and skill). Nothing in this disclaimer will:
 
-  1. limit or exclude our or your liability for death or personal injury resulting from negligence;
-  2. limit or exclude our or your liability for fraud or fraudulent misrepresentation;
-  3. limit any of our or your liabilities in any way that is not permitted under applicable law; or
-  4. exclude any of our or your liabilities that may not be excluded under applicable law.
+1. limit or exclude our or your liability for death or personal injury resulting from negligence;
+2. limit or exclude our or your liability for fraud or fraudulent misrepresentation;
+3. limit any of our or your liabilities in any way that is not permitted under applicable law; or
+4. exclude any of our or your liabilities that may not be excluded under applicable law.
 
 The limitations and exclusions of liability set out in this Section and elsewhere in this disclaimer: (a)
 are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer or

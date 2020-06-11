@@ -6,9 +6,9 @@ authors:
 #hero_classes: "background-color--main-dark color--white"
 meta:
   description: "All markdown syntax and its usage for this site."
-#  image:
-#    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
-#    src: required/meta-image--default.jpg
+  #  image:
+  #    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
+  #    src: required/meta-image--default.jpg
   robots: "noindex,follow"
 #  title: "Overrides the tab title and social titles"
 #permalink: docs/path/page-title/
@@ -18,23 +18,26 @@ title: "Markdown"
 ---
 
 ## Table of contents
+
 {: .no_toc}
 
 1. TOC
-{:toc}
+   {:toc}
 
 A table of contents, based on the headings in the documents, can be added to the **top** \[only] of a markdown (.md) file
 with the following code exactly:
 
 ```markdown
 ## Table of contents
+
 {: .no_toc}
 
 1. TOC
-{:toc}
+   {:toc}
 ```
 
 ## Introduction
+
 {: .text-shadow--second-light--solid}
 
 On this site we use a text format called markdown for much of the content. This format is plain old text with some extra
@@ -46,6 +49,7 @@ beautiful pages. Anywhere you see a file that ends in `.md` you can use this mar
 heck out of your content without bugging a developer!
 
 ## All syntax
+
 {: .text-shadow--second-light--solid}
 
 This site renders markdown using the [kramdown engine](https://kramdown.gettalong.org/syntax.html), and as such can take
@@ -175,9 +179,11 @@ _However_, pretty link paths can change for SEO or usability purposes, whereas t
 to change. Given this, we can use a method of linking that the underlying (Jekyll) system provides:
 
 {% raw %}
+
 ```markdown
 We go into our history on the [About us page]({% link collections/pages/about.html %}).
 ```
+
 {% endraw %}
 
 This renders similar to the above link:
@@ -189,10 +195,10 @@ method will still point to the old path.
 
 When working with content files and their paths and links, please abide by the following:
 
-  1. Use the Jekyll, file-based method for links whenever possible
-  2. Avoid changing the file name or location of existing content files, especially of the Page and Doc type
-  3. When changing the "pretty path" ('Permalink' in the YAML front matter), be sure to [use the redirect-from plugin](https://github.com/jekyll/jekyll-redirect-from#usage)
-    to preserve the old path and prevent link rot
+1. Use the Jekyll, file-based method for links whenever possible
+2. Avoid changing the file name or location of existing content files, especially of the Page and Doc type
+3. When changing the "pretty path" ('Permalink' in the YAML front matter), be sure to [use the redirect-from plugin](https://github.com/jekyll/jekyll-redirect-from#usage)
+   to preserve the old path and prevent link rot
 
 ### Lists
 
@@ -205,36 +211,36 @@ Bulleted lists can be entered as a line starting with two spaces, an asterisk, t
 content, like so:
 
 ```markdown
-  * First bullet in the list, though since it's a bullet that's not important. This bullet has a lot of content, requiring
-    it to wrap at 120 characters. We indent the second and subsequent lines with an extra two spaces
-  * Another bullet
-  * Sure, let's do another bullet. Note that stylistically we do not end list items with periods
+- First bullet in the list, though since it's a bullet that's not important. This bullet has a lot of content, requiring
+  it to wrap at 120 characters. We indent the second and subsequent lines with an extra two spaces
+- Another bullet
+- Sure, let's do another bullet. Note that stylistically we do not end list items with periods
 ```
 
 This renders to the screen as:
 
-  * First bullet in the list, though since it's a bullet that's not important. This bullet has a lot of content, requiring
-    it to wrap at 120 characters. We indent the second and subsequent lines with an extra two spaces
-  * Another bullet
-  * Sure, let's do another bullet. Note that stylistically we do not end list items with periods
+- First bullet in the list, though since it's a bullet that's not important. This bullet has a lot of content, requiring
+  it to wrap at 120 characters. We indent the second and subsequent lines with an extra two spaces
+- Another bullet
+- Sure, let's do another bullet. Note that stylistically we do not end list items with periods
 
 #### Numbered lists
 
 Numbered lists are similar to bullet list syntax, just with the asterisks replaced with numbers and periods, like so:
 
 ```markdown
-  1. Say we need to talk
-  2. Say "sit down, it's just a talk"
-  3. Smile politely
-  4. Stare politely right on through
+1. Say we need to talk
+2. Say "sit down, it's just a talk"
+3. Smile politely
+4. Stare politely right on through
 ```
 
 This renders to the screen as:
 
-  1. Say we need to talk
-  2. Say "sit down, it's just a talk"
-  3. Smile politely
-  4. Stare politely right on through
+1. Say we need to talk
+2. Say "sit down, it's just a talk"
+3. Smile politely
+4. Stare politely right on through
 
 _Sometimes_ markdown gets upset when you have a numbered list with more than 9 items. In this case, it's ok to start again
 at zero or one, rather than using two-digit numbers. While it's true that any number can be used at any position in a numbered
@@ -274,11 +280,11 @@ where highlighting and other concerns are minimal, whereas a block of code is ap
 To insert a multi-line, highlighted code sample, wrap it top and bottom with three backticks. Optionally, you can add
 a notation after the opening backticks to indicate the [kind of syntax to highlight within](https://rouge-ruby.github.io/docs/Rouge/Lexers.html):
 
-``````markdown
+````markdown
 ```javascript
 alert("This is a bad example of JavaScript!");
 ```
-``````
+````
 
 This renders on the screen as:
 
@@ -307,21 +313,21 @@ footer.
 
 ```markdown
 | Header1 | Header2 | Header3 |
-|:--------|:-------:|--------:|
-| cell1   | cell2   | cell3   |
-| cellA   | cellB   | cellC   |
-| cell1   | cell2   | cell3   |
-| cellA   | cellB   | cellC   |
+| :------ | :-----: | ------: |
+| cell1   |  cell2  |   cell3 |
+| cellA   |  cellB  |   cellC |
+| cell1   |  cell2  |   cell3 |
+| cellA   |  cellB  |   cellC |
 ```
 
 This renders out as:
 
 | Header1 | Header2 | Header3 |
-|:--------|:-------:|--------:|
-| cell1   | cell2   | cell3   |
-| cellA   | cellB   | cellC   |
-| cell1   | cell2   | cell3   |
-| cellA   | cellB   | cellC   |
+| :------ | :-----: | ------: |
+| cell1   |  cell2  |   cell3 |
+| cellA   |  cellB  |   cellC |
+| cell1   |  cell2  |   cell3 |
+| cellA   |  cellB  |   cellC |
 
 Tables in both markdown and HTML are some of the most complicated syntax. If you find yourself making a table, it may be
 time to discuss your needs with a developer.
@@ -338,6 +344,7 @@ Since this site is obscenely high-performance, it does a bunch of things to imag
 load faster. The way of adding images above won't do it, but the way below will:
 
 {% raw %}
+
 ```smarty
 {% include atoms/image.html
   src="required/meta-image--default.jpg"
@@ -345,6 +352,7 @@ load faster. The way of adding images above won't do it, but the way below will:
   caption="Look how shareable the page is!"
 %}
 ```
+
 {% endraw %}
 
 The example code above becomes:
@@ -373,6 +381,7 @@ how much you have written.
 [^2]: The bracket-y dealie with the colon after it in the footnote example above
 
 ## Advanced
+
 {: .text-shadow--second-light--solid}
 
 The elements below get into murky territory, since if you're using them it's often a sign you should be using an HTML file
@@ -385,6 +394,7 @@ CSS classes can be added to certain elements using the `{: .classname }` syntax.
 
 ```markdown
 ## Advanced
+
 {: .text-shadow--second-light--solid}
 ```
 

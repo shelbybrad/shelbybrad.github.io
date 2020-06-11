@@ -5,11 +5,13 @@
  * Uses the DOM initializer pattern in partials/utility--initializer.js
  */
 
-var dismissibleInitializationFunction = function(initType) {
-  if (this.hasAttribute('id')) {
-    let storedInfo = localStorage.getItem('js--dismissible--' + this.getAttribute('id'));
-    if (storedInfo === 'hidden') {
-      this.classList.add('display--none');
+var dismissibleInitializationFunction = function (initType) {
+  if (this.hasAttribute("id")) {
+    let storedInfo = localStorage.getItem(
+      "js--dismissible--" + this.getAttribute("id")
+    );
+    if (storedInfo === "hidden") {
+      this.classList.add("display--none");
       this.parentNode.removeChild(this);
     }
   }
@@ -20,27 +22,35 @@ var dismissibleInitializationFunction = function(initType) {
     </button>
   `;
 
-  if (window.getComputedStyle(this).getPropertyValue('position') === "static") {
-    this.classList.add('position--relative');
+  if (window.getComputedStyle(this).getPropertyValue("position") === "static") {
+    this.classList.add("position--relative");
   }
 
-  this.insertAdjacentHTML('afterBegin', dismissButton);
+  this.insertAdjacentHTML("afterBegin", dismissButton);
 };
-utilityInitializer('js--dismissible', 'dismissibleInitializationFunction');
+utilityInitializer("js--dismissible", "dismissibleInitializationFunction");
 
 /* Use event delegation for any dynamically-added dismiss events. */
-document.addEventListener('click', function (event) {
-  if (event.target !== document
-    && event.target.closest('.js--dismissible--close')
-    && event.target.closest('.js--dismissible')
-  ) {
-    let dismissible = event.target.closest('.js--dismissible');
+document.addEventListener(
+  "click",
+  function (event) {
+    if (
+      event.target !== document &&
+      event.target.closest(".js--dismissible--close") &&
+      event.target.closest(".js--dismissible")
+    ) {
+      let dismissible = event.target.closest(".js--dismissible");
 
-    dismissible.classList.add('display--none', 'js--dismissible--closed');
-    dismissible.parentNode.removeChild(dismissible);
+      dismissible.classList.add("display--none", "js--dismissible--closed");
+      dismissible.parentNode.removeChild(dismissible);
 
-    if (dismissible.hasAttribute('id')) {
-      localStorage.setItem('js--dismissible--' + dismissible.getAttribute('id'), 'hidden');
+      if (dismissible.hasAttribute("id")) {
+        localStorage.setItem(
+          "js--dismissible--" + dismissible.getAttribute("id"),
+          "hidden"
+        );
+      }
     }
-  }
-}, false);
+  },
+  false
+);

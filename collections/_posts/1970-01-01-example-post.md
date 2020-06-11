@@ -53,7 +53,7 @@ Cuncti opprimere ferebam?
 
 ## Enim ignes tam primum
 
-Est paelice diversorum iaculum segetis *virque has* erat, nunc. Et **Macareus
+Est paelice diversorum iaculum segetis _virque has_ erat, nunc. Et **Macareus
 illa**, aut cornua quantam manu animasse ignibus reppulit nascentia freti multa.
 Cum hunc, turpes!
 
@@ -72,9 +72,9 @@ Lorem markdownum auras. In quaque hoc loqui, si tamen dea additus; perque.
 
 ## Venit destrinxit cum
 
-Aulidaque nomina fixa oracla Hector *et quid* quod exhalantem, artus flores
-magnorum relevasse postquam. Ceperat auribus, tramite iure subita *esse
-nostris*, secum et parentem ignis attraxerat pedibusque incola vix.
+Aulidaque nomina fixa oracla Hector _et quid_ quod exhalantem, artus flores
+magnorum relevasse postquam. Ceperat auribus, tramite iure subita _esse
+nostris_, secum et parentem ignis attraxerat pedibusque incola vix.
 
 Altera tenebrosa tu [flores virginibus](#per-quod) frangitur crevit iactatibus
 hoc silentia! Quod massa fontis faticano, da cum huc sensi tum?

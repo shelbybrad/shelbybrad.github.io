@@ -65,7 +65,7 @@ his Lordship he need fear no disturbance from the sweet creatures, and
 that she would be all attention to his commands--kissing her cherished
 pug as she spoke.
 
-"You are now, I think, seventeen, Juliana," said  his Lordship in a
+"You are now, I think, seventeen, Juliana," said his Lordship in a
 solemn important tone.
 
 "And a half, papa."

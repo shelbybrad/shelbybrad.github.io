@@ -6,9 +6,9 @@ authors:
 #hero_classes: "background-color--main-dark color--white"
 meta:
   description: "Instructions for making layouts."
-#  image:
-#    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
-#    src: required/meta-image--default.jpg
+  #  image:
+  #    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
+  #    src: required/meta-image--default.jpg
   robots: "noindex,follow"
 #  title: "Overrides the tab title and social titles"
 #permalink: docs/path/page-title/
@@ -20,20 +20,25 @@ title: "Layouts"
 Any page on the site can use the layout utilities included in the CSS to make beautiful, responsive layouts.
 
 ## Table of contents
+
 {: .no_toc}
 
 1. TOC
-{:toc}
+   {:toc}
 
 ## Basic example
 
 ```html
 <div class="layout--row display--flex">
-  <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center padding-horizontal--4 padding-horizontal--collapse">
+  <aside
+    class="layout--column flex--1 display--flex flex-direction--column justify-content--center padding-horizontal--4 padding-horizontal--collapse"
+  >
     <p>Left column content.</p>
   </aside>
 
-  <aside class="layout--column flex--1 display--flex flex-direction--column justify-content--center padding-horizontal--4 padding-horizontal--collapse">
+  <aside
+    class="layout--column flex--1 display--flex flex-direction--column justify-content--center padding-horizontal--4 padding-horizontal--collapse"
+  >
     <p>Right column content.</p>
   </aside>
 </div>
@@ -74,29 +79,26 @@ pages with storytelling or sales purposes may have additional stripes for calls 
 The site includes the `_includes/organisms/section.html` component, which can tentatively be used for any such stripe. However,
 there are two main considerations for this:
 
-  1. Using Liquid's assign/capture functionality in order to pass in section children/contents is likely more trouble and
-    render-time processing than it's worth
-  2. For most collections, the content is wrapped in a section by default, so adding sections directly to the page is chiefly
-    for the 'page' collection (some collections work like pages, but only for `.html` files rather than `.md` files)
+1. Using Liquid's assign/capture functionality in order to pass in section children/contents is likely more trouble and
+   render-time processing than it's worth
+2. For most collections, the content is wrapped in a section by default, so adding sections directly to the page is chiefly
+   for the 'page' collection (some collections work like pages, but only for `.html` files rather than `.md` files)
 
 For HTML validation and outline-level accessibility, be sure to include an `<h2>` near the beginning of any section you create.
 
 A section/stripe typically has the following markup:
 
 {% raw %}
+
 ```html
 <section class="layout--stripe">
   <div class="layout--stripe--inner">
-    {% include atoms/heading.html
-      children="Describes the section contents"
-      classes=""
-      level="2"
-    %}
-
-    ...section contents here.
+    {% include atoms/heading.html children="Describes the section contents"
+    classes="" level="2" %} ...section contents here.
   </div>
 </section>
 ```
+
 {% endraw %}
 
 Above, `.layout--stripe--inner` sets a max-width to the maximum content width of the site, and horizontally centers itself.
@@ -124,13 +126,14 @@ instead. The following class categories are the ones most applicable to layouts.
 #### `align-content--`
 
 The classes
-  * `.align-content--flex-start`
-  * `.align-content--flex-end`
-  * `.align-content--center`
-  * `.align-content--space-between`
-  * `.align-content--space-around`
-  * `.align-content--space-evenly`
-  * `.align-content--stretch`
+
+- `.align-content--flex-start`
+- `.align-content--flex-end`
+- `.align-content--center`
+- `.align-content--space-between`
+- `.align-content--space-around`
+- `.align-content--space-evenly`
+- `.align-content--stretch`
 
 apply the keyword property values for [align-content](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
 
@@ -141,11 +144,11 @@ so cross-axis settings are rare.
 
 These classes are also used sparingly, but can be used especially when centering.
 
-  * `.align-items--flex-start`
-  * `.align-items--flex-end`
-  * `.align-items--center`
-  * `.align-items--baseline`
-  * `.align-items--stretch`
+- `.align-items--flex-start`
+- `.align-items--flex-end`
+- `.align-items--center`
+- `.align-items--baseline`
+- `.align-items--stretch`
 
 One quick way to attempt vertical centering is to put align-items on the container. However, often the more resilient vertical
 centering rests with flex-direction--column and justify-content--center instead.
@@ -154,17 +157,17 @@ centering rests with flex-direction--column and justify-content--center instead.
 
 This is a super rare set of classes to use in a typical layout, but are available nonetheless.
 
-  * `.align-self--flex-start`
-  * `.align-self--flex-end`
-  * `.align-self--center`
-  * `.align-self--baseline`
-  * `.align-self--stretch`
+- `.align-self--flex-start`
+- `.align-self--flex-end`
+- `.align-self--center`
+- `.align-self--baseline`
+- `.align-self--stretch`
 
 #### `display--`
 
 The display property is key to setting a container to a flexbox layout.
 
-  * `.display--flex`
+- `.display--flex`
 
 Adding this class to a container, on its own, puts its children in a flex context. Additional classes will augment the
 children.
@@ -174,18 +177,18 @@ children.
 Some of the standard layout keyword values include auto, initial, and none. These largely have the effect of making the
 flex child take the space it needs, with auto making it take up the remaining space.
 
-  * `.flex--auto`
-  * `.flex--initial`
-  * `.flex--none`
+- `.flex--auto`
+- `.flex--initial`
+- `.flex--none`
 
 The 1-6 numbered flex classes allow for proportional layout:
 
-  * `.flex--1`
-  * `.flex--2`
-  * `.flex--3`
-  * `.flex--4`
-  * `.flex--5`
-  * `.flex--6`
+- `.flex--1`
+- `.flex--2`
+- `.flex--3`
+- `.flex--4`
+- `.flex--5`
+- `.flex--6`
 
 A layout containing a `flex--2` and two `flex--1` children would have a 50/25/25% layout in its
 respective direction.
@@ -195,10 +198,10 @@ respective direction.
 Chiefly, flex-direction--row (the default) sets layouts horizontally, while flex-direction--colulmn
 places them vertically.
 
-  * `.flex-direction--row`
-  * `.flex-direction--row-reverse`
-  * `.flex-direction--column`
-  * `.flex-direction--column-reverse`
+- `.flex-direction--row`
+- `.flex-direction--row-reverse`
+- `.flex-direction--column`
+- `.flex-direction--column-reverse`
 
 Each of the reverse classes/values can be used for creating alternating layouts, or for otherwise augmenting the source
 order without using the `order` property.
@@ -208,22 +211,22 @@ order without using the `order` property.
 By default, flex containers do not wrap their children. The flex-wrap--wrap class can be added to create layouts that
 continue to a second line, for instance.
 
-  * `.flex-wrap--nowrap`
-  * `.flex-wrap--wrap`
-  * `.flex-wrap--wrap-reverse`
+- `.flex-wrap--nowrap`
+- `.flex-wrap--wrap`
+- `.flex-wrap--wrap-reverse`
 
 #### `justify-content--`
 
 The justify-content property is the most useful plain modifier class for layouts. It sets the orientation of the children
 within a flex container to the start, center, or puts available space between the items.
 
-  * `.justify-content--flex-start `
-  * `.justify-content--flex-end`
-  * `.justify-content--center`
-  * `.justify-content--space-between`
-  * `.justify-content--space-around`
-  * `.justify-content--space-evenly`
-  * `.justify-content--stretch`
+- `.justify-content--flex-start`
+- `.justify-content--flex-end`
+- `.justify-content--center`
+- `.justify-content--space-between`
+- `.justify-content--space-around`
+- `.justify-content--space-evenly`
+- `.justify-content--stretch`
 
 ### utility--classes.css
 
@@ -303,26 +306,26 @@ spacing interacts with the edges of the viewport, whereas vertical spacing most 
 for practical purposes we are stringent about horizontal spacing and lax about vertical spacing), but the larger classes
 halve in size for small viewports.
 
-  * `.margin-vertical--0`
-  * `.margin-vertical--1`
-  * `.margin-vertical--2`
-  * `.margin-vertical--4`
-  * `.margin-vertical--8`
-  * `.margin-vertical--16`
-  * `.margin-vertical--32`
+- `.margin-vertical--0`
+- `.margin-vertical--1`
+- `.margin-vertical--2`
+- `.margin-vertical--4`
+- `.margin-vertical--8`
+- `.margin-vertical--16`
+- `.margin-vertical--32`
 
 #### `padding-horizontal--`
 
 The horizontal padding classes use the same units as all the other spacing classes, and like `margin-horizontal--` there
 is a `.padding-horizontal--collapse` class available for quick responsiveness.
 
-  * `.padding-horizontal--0`
-  * `.padding-horizontal--1`
-  * `.padding-horizontal--2`
-  * `.padding-horizontal--4`
-  * `.padding-horizontal--8`
-  * `.padding-horizontal--16`
-  * `.padding-horizontal--32`,
+- `.padding-horizontal--0`
+- `.padding-horizontal--1`
+- `.padding-horizontal--2`
+- `.padding-horizontal--4`
+- `.padding-horizontal--8`
+- `.padding-horizontal--16`
+- `.padding-horizontal--32`,
 
 #### `padding-horizontal--collapse`
 
@@ -336,10 +339,10 @@ The vertical padding classes should be used fairly sparingly, since a flex colum
 is overwhelmingly more likely to accomplish the desired effect. For more fixed applications, and for facilitating the spacer
 component, these classes can give you vertical internal spacing.
 
-  * `.padding-vertical--0`
-  * `.padding-vertical--1`
-  * `.padding-vertical--2`
-  * `.padding-vertical--4`
-  * `.padding-vertical--8`
-  * `.padding-vertical--16`
-  * `.padding-vertical--32`
+- `.padding-vertical--0`
+- `.padding-vertical--1`
+- `.padding-vertical--2`
+- `.padding-vertical--4`
+- `.padding-vertical--8`
+- `.padding-vertical--16`
+- `.padding-vertical--32`

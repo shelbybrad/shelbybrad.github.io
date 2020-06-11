@@ -28,10 +28,11 @@ title: "Privacy Policy"
 ---
 
 ## Table of contents
+
 {: .no_toc}
 
 1. TOC
-{:toc}
+   {:toc}
 
 ## Introduction
 
@@ -43,23 +44,22 @@ This privacy policy will explain how our organization uses the personal data we 
 
 We collect the following data:
 
-  * Personal identification information (Name, email address, phone number, etc.)
-
+- Personal identification information (Name, email address, phone number, etc.)
 
 ### How do we collect your data?
 
 You directly provide us with most of the data we collect. We collect data and process data when you:
 
-  * Register online or place an order for any of our products or services.
-  * Voluntarily complete a customer survey or provide feedback on any of our message boards or via email.
-  * Use or view our website via your browser’s cookies.
+- Register online or place an order for any of our products or services.
+- Voluntarily complete a customer survey or provide feedback on any of our message boards or via email.
+- Use or view our website via your browser’s cookies.
 
 ### How will we use your data?
 
 We collect your data so that we can:
 
-  * Process your order and manage your account.
-  * Email you with special offers on other products and services we think you might like.
+- Process your order and manage your account.
+- Email you with special offers on other products and services we think you might like.
 
 ### How do we store your data?
 
@@ -78,17 +78,17 @@ You have the right at any time to stop us from contacting you for marketing purp
 
 We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:
 
-  * **The right to access** – You have the right to request from us copies of your personal data. We may charge you a small
-    fee for this service.
-  * **The right to rectification** – You have the right to request that we correct any information you believe is inaccurate.
-    You also have the right to request we complete the information you believe is incomplete.
-  * **The right to erasure** – You have the right to request that we erase your personal data, under certain conditions.
-  * **The right to restrict processing** – You have the right to request that we restrict the processing of your personal
-    data, under certain conditions.
-  * **The right to object to processing** – You have the right to object to our processing of your personal data, under
-    certain conditions.
-  * **The right to data portability** – You have the right to request that we transfer the data that we have collected to
-    another organization, or directly to you, under certain conditions.
+- **The right to access** – You have the right to request from us copies of your personal data. We may charge you a small
+  fee for this service.
+- **The right to rectification** – You have the right to request that we correct any information you believe is inaccurate.
+  You also have the right to request we complete the information you believe is incomplete.
+- **The right to erasure** – You have the right to request that we erase your personal data, under certain conditions.
+- **The right to restrict processing** – You have the right to request that we restrict the processing of your personal
+  data, under certain conditions.
+- **The right to object to processing** – You have the right to object to our processing of your personal data, under
+  certain conditions.
+- **The right to data portability** – You have the right to request that we transfer the data that we have collected to
+  another organization, or directly to you, under certain conditions.
 
 If you make a request, we have one month to respond to you.
 
@@ -103,18 +103,18 @@ For further information, visit allaboutcookies.org .
 
 We use cookies in a range of ways to improve your experience on our website, including:
 
-  * Keeping you signed in
-  * Understanding how you use our website
+- Keeping you signed in
+- Understanding how you use our website
 
 ### What types of cookies do we use?
 
 There are a number of different types of cookies, however, our website uses:
 
-  * **Functionality** – We use these cookies so that we recognize you on our website and remember your previously selected
-    preferences. These could include what language you prefer and location you are in. A mix of first-party and third-party
-    cookies are used.
-  * **Analytics** – We use these cookies to collect information about your visit to our website, the content you viewed,
-    the links you followed and information about your browser, device, and your_anonymized_ IP address.
+- **Functionality** – We use these cookies so that we recognize you on our website and remember your previously selected
+  preferences. These could include what language you prefer and location you are in. A mix of first-party and third-party
+  cookies are used.
+- **Analytics** – We use these cookies to collect information about your visit to our website, the content you viewed,
+  the links you followed and information about your browser, device, and your*anonymized* IP address.
 
 ### How to manage cookies
 

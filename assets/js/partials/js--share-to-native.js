@@ -16,7 +16,12 @@ const shareToNativeButton = `
   `;
 
 if ("share" in navigator) {
-  const shareToNative = async function(shareUrl, shareTitle, shareText, shareImgUrl) {
+  const shareToNative = async function (
+    shareUrl,
+    shareTitle,
+    shareText,
+    shareImgUrl
+  ) {
     let share = {
       url: shareUrl,
       title: shareTitle,
@@ -24,11 +29,16 @@ if ("share" in navigator) {
     };
 
     if (shareImgUrl) {
-      const shareFileName = shareImgUrl.substr(shareImgUrl.lastIndexOf("/") + 1);
+      const shareFileName = shareImgUrl.substr(
+        shareImgUrl.lastIndexOf("/") + 1
+      );
       let fetchImgUrl = shareImgUrl;
 
       if (fetchImgUrl.indexOf(window.location.hostname) !== -1) {
-        fetchImgUrl = fetchImgUrl.substr(fetchImgUrl.indexOf(window.location.origin) + window.location.origin.length);
+        fetchImgUrl = fetchImgUrl.substr(
+          fetchImgUrl.indexOf(window.location.origin) +
+            window.location.origin.length
+        );
       }
 
       try {
@@ -44,17 +54,24 @@ if ("share" in navigator) {
     await navigator.share(share);
   };
 
-  document.body.insertAdjacentHTML('beforeEnd', shareToNativeButton);
-  document.addEventListener('click', function (event) {
-    if (event.target !== document
-      && event.target.closest('.js--share-to-native')
-    ) {
-      /* Append document.querySelector('[property="og:image"]').getAttribute('content') to share it as image. */
-      shareToNative(
-        window.location.href,
-        document.title,
-        document.querySelector('[property="og:description"]').getAttribute('content')
-      );
-    }
-  }, false);
+  document.body.insertAdjacentHTML("beforeEnd", shareToNativeButton);
+  document.addEventListener(
+    "click",
+    function (event) {
+      if (
+        event.target !== document &&
+        event.target.closest(".js--share-to-native")
+      ) {
+        /* Append document.querySelector('[property="og:image"]').getAttribute('content') to share it as image. */
+        shareToNative(
+          window.location.href,
+          document.title,
+          document
+            .querySelector('[property="og:description"]')
+            .getAttribute("content")
+        );
+      }
+    },
+    false
+  );
 }

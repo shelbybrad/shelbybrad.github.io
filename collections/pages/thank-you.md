@@ -11,9 +11,9 @@ authors:
 #  utility: 1
 meta:
   description: "We appreciate your form submission!"
-#  image:
-#    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
-#    src: required/meta-image--default.jpg
+  #  image:
+  #    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
+  #    src: required/meta-image--default.jpg
   robots: "noindex,follow"
 #  title: "Overrides the tab title and social titles"
 permalink: /thank-you/

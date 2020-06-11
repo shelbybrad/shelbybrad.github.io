@@ -6,9 +6,9 @@ authors:
 #hero_classes: "background-color--main-dark color--white"
 meta:
   description: "Quick overview of our guiding content principles."
-#  image:
-#    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
-#    src: required/meta-image--default.jpg
+  #  image:
+  #    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
+  #    src: required/meta-image--default.jpg
   robots: "noindex,follow"
 #  title: "Overrides the tab title and social titles"
 #permalink: docs/path/page-title/
@@ -19,7 +19,7 @@ title: "Content principles"
 
 ## Start with user needs.
 
-Write in a way that suits the situation. Ask yourself: Who is going to read this? What do they need to know? How might 
+Write in a way that suits the situation. Ask yourself: Who is going to read this? What do they need to know? How might
 they be feeling?
 
 Help people find the information they need quickly and easily. Guide them through the process.

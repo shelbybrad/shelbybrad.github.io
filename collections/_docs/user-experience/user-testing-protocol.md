@@ -6,9 +6,9 @@ authors:
 #hero_classes: "background-color--main-dark color--white"
 meta:
   description: "The allowed number and size of assets delivered to users on the front end."
-#  image:
-#    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
-#    src: required/meta-image--default.jpg
+  #  image:
+  #    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
+  #    src: required/meta-image--default.jpg
   robots: "noindex,follow"
 #  title: "Overrides the tab title and social titles"
 #permalink: docs/path/page-title/

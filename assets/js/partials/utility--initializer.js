@@ -15,20 +15,31 @@ let mutationCallbackRegistry = [];
 if ("MutationObserver" in window) {
   var mutationObserver = new MutationObserver(function (mutations) {
     mutations.forEach(function (mutation) {
-      if (mutation.target !== document.body && mutationCallbackRegistry.length) {
+      if (
+        mutation.target !== document.body &&
+        mutationCallbackRegistry.length
+      ) {
         mutationCallbackRegistry.forEach((registrant) => {
-          if (mutation.type
-            && (mutation.type === "attributes" || mutation.type === "childList")
+          if (
+            mutation.type &&
+            (mutation.type === "attributes" || mutation.type === "childList")
           ) {
             let elems = [];
 
             if (mutation.type === "childList") {
-              elems = mutation.target.querySelectorAll('.' + registrant.jsClass
-                + ':not(.' + registrant.jsClass + '--initialized)');
-            }
-            else if (mutation.type === "attributes") {
-              if (mutation.target.classList.contains(registrant.jsClass)
-                && !mutation.target.classList.contains(registrant.jsClass + '--initialized')
+              elems = mutation.target.querySelectorAll(
+                "." +
+                  registrant.jsClass +
+                  ":not(." +
+                  registrant.jsClass +
+                  "--initialized)"
+              );
+            } else if (mutation.type === "attributes") {
+              if (
+                mutation.target.classList.contains(registrant.jsClass) &&
+                !mutation.target.classList.contains(
+                  registrant.jsClass + "--initialized"
+                )
               ) {
                 elems.push(mutation.target);
               }
@@ -36,8 +47,10 @@ if ("MutationObserver" in window) {
 
             if (elems.length) {
               Array.prototype.forEach.call(elems, (elem) => {
-                elem.classList.add(registrant.jsClass + '--initialized');
-                window[registrant.initializationFunction].apply(elem, [mutation.type]);
+                elem.classList.add(registrant.jsClass + "--initialized");
+                window[registrant.initializationFunction].apply(elem, [
+                  mutation.type,
+                ]);
               });
             }
           }
@@ -52,7 +65,7 @@ if ("MutationObserver" in window) {
     childList: true,
     subtree: true,
     attributeOldValue: false,
-    characterDataOldValue: false
+    characterDataOldValue: false,
   });
 }
 
@@ -63,19 +76,19 @@ if ("MutationObserver" in window) {
  *
  * @todo use a better pattern than a function.
  */
-var utilityInitializer = function(jsClass, initializationFunction) {
-  const startElements = document.querySelectorAll('.' + jsClass);
+var utilityInitializer = function (jsClass, initializationFunction) {
+  const startElements = document.querySelectorAll("." + jsClass);
   if (startElements.length) {
     Array.prototype.forEach.call(startElements, (elem) => {
-      if (!elem.classList.contains(jsClass + '--initialized')) {
-        elem.classList.add(jsClass + '--initialized');
+      if (!elem.classList.contains(jsClass + "--initialized")) {
+        elem.classList.add(jsClass + "--initialized");
         window[initializationFunction].apply(elem, ["load"]);
       }
     });
   }
 
   mutationCallbackRegistry.push({
-    'jsClass': jsClass,
-    'initializationFunction': initializationFunction
+    jsClass: jsClass,
+    initializationFunction: initializationFunction,
   });
 };

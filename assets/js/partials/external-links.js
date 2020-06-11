@@ -8,17 +8,18 @@
  *
  * @type {NodeListOf<HTMLElementTagNameMap[string]>}
  */
-const allAnchors = document.querySelectorAll('a');
+const allAnchors = document.querySelectorAll("a");
 if (allAnchors.length) {
   Array.prototype.forEach.call(allAnchors, (thisAnchor) => {
-    if (thisAnchor.href.length
-      && thisAnchor.hostname !== window.location.hostname
-      && thisAnchor.href.substring(0, 6) !== 'mailto'
-      && thisAnchor.href.substring(0, 3) !== 'tel'
-      && thisAnchor.href.substring(0, 1) !== '#'
+    if (
+      thisAnchor.href.length &&
+      thisAnchor.hostname !== window.location.hostname &&
+      thisAnchor.href.substring(0, 6) !== "mailto" &&
+      thisAnchor.href.substring(0, 3) !== "tel" &&
+      thisAnchor.href.substring(0, 1) !== "#"
     ) {
-      thisAnchor.setAttribute('target', '_blank');
-      thisAnchor.setAttribute('rel', 'external noopener noreferrer');
+      thisAnchor.setAttribute("target", "_blank");
+      thisAnchor.setAttribute("rel", "external noopener noreferrer");
     }
   });
 }

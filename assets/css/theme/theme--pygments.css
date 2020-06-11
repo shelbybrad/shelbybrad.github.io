@@ -301,7 +301,8 @@
 }
 
 /* Generic Heading & Diff Header */
-.highlight .gh {}
+.highlight .gh {
+}
 
 /* Generic.Subheading & Diff Unified/Comment? */
 .highlight .gu {

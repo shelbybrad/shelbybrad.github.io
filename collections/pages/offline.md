@@ -11,9 +11,9 @@ menus:
 #  utility: 1
 meta:
   description: "When your connection is interrupted and you go to a non-cached page, this is where you land."
-#  image:
-#    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
-#    src: required/meta-image--default.jpg
+  #  image:
+  #    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
+  #    src: required/meta-image--default.jpg
   robots: "noindex,follow"
 #  title: "Overrides the tab title and social titles"
 permalink: /offline.html

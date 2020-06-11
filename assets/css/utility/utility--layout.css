@@ -65,7 +65,7 @@ main,
   }
 }
 @media all and (max-width: 767px) and (-ms-high-contrast: active),
-all and (max-width: 767px) and (-ms-high-contrast: none) {
+  all and (max-width: 767px) and (-ms-high-contrast: none) {
   /* IE hack to avoid column spacing issues for responsive. */
   .layout--row {
     display: block;
@@ -117,8 +117,7 @@ all and (max-width: 767px) and (-ms-high-contrast: none) {
     display: none;
   }
 }
-@media all and (prefers-reduced-motion: reduce),
-  print {
+@media all and (prefers-reduced-motion: reduce), print {
   .layout--hide--animations {
     display: none;
   }
@@ -151,7 +150,7 @@ all and (max-width: 767px) and (-ms-high-contrast: none) {
 .layout--multiple--horizontal {
   flex-direction: column;
 }
-.layout--multiple--horizontal > *  {
+.layout--multiple--horizontal > * {
   box-sizing: border-box;
   margin: 0 0 calc(4 * var(--spacing--single));
 }

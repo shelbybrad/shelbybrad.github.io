@@ -6,9 +6,9 @@ authors:
 #hero_classes: "background-color--main-dark color--white"
 meta:
   description: "Scripts and behaviors available for use on the site."
-#  image:
-#    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
-#    src: required/meta-image--default.jpg
+  #  image:
+  #    alt: "Shelby and Brad among the stars" # It's okay for this to be empty if the image is decorative
+  #    src: required/meta-image--default.jpg
   robots: "noindex,follow"
 #  title: "Overrides the tab title and social titles"
 #permalink: docs/path/page-title/
@@ -25,9 +25,9 @@ relevant classes are initialized via a mutationObserver, and all event code uses
 
 Per the Technical section of the site documentation, all additional JavaScript should be either:
 
-  1. Vanilla JS with no dependencies, and following the patterns and format of the existing scripts
-  2. Relegated to its own context, such as an 'SPA' page. The search functionality is an example of a single-page app that
-    has its own JavaScript that doesn't appear elsewhere on the site
+1. Vanilla JS with no dependencies, and following the patterns and format of the existing scripts
+2. Relegated to its own context, such as an 'SPA' page. The search functionality is an example of a single-page app that
+   has its own JavaScript that doesn't appear elsewhere on the site
 
 ## Initializer
 
@@ -45,8 +45,8 @@ For example, if an element should be given a particular class once it's found in
 be:
 
 ```javascript
-var exampleInitializationFunction = function(initType) {
-  this.classList.add('js--event--click');
+var exampleInitializationFunction = function (initType) {
+  this.classList.add("js--event--click");
 };
 ```
 
@@ -55,7 +55,7 @@ Notice that the targeted element is the `this` within the function scope.
 To register it to run both on load and on DOM mutations, call the `utilityInitializer()`:
 
 ```javascript
-utilityInitializer('js--example', 'exampleInitializationFunction');
+utilityInitializer("js--example", "exampleInitializationFunction");
 ```
 
 Any element that enters the DOM with the `js--example` class will then have the `js--event--click` class added by the function
@@ -83,13 +83,15 @@ at load-time.
 
 ```javascript
 /* Use event delegation for any dynamically-added events. */
-document.addEventListener('click', function (event) {
-  if (event.target !== document
-    && event.target.closest('.js--example')
-  ) {
-    let exampleElement = event.target.closest('.js--example');
-  }
-}, false);
+document.addEventListener(
+  "click",
+  function (event) {
+    if (event.target !== document && event.target.closest(".js--example")) {
+      let exampleElement = event.target.closest(".js--example");
+    }
+  },
+  false
+);
 ```
 
 The `closest()` method facilitates the bubbling with vanilla methods, narrowing events bubbled to the `document` to only elements
@@ -103,7 +105,7 @@ The main JavaScript on the site includes adding a 'js' class to the body, which 
 in CSS and elsewhere.
 
 ```javascript
-document.body.classList.add('js');
+document.body.classList.add("js");
 ```
 
 ### Scroll
@@ -112,9 +114,9 @@ The window has a single, lightweight, debounced scroll listener that toggles cla
 scrolling up, down, or if they have reached the top of the page. These classes can be used in the CSS for things like sticky
 headers:
 
-  * `.body-scroll--down`
-  * `.body-scroll--top`
-  * `.body-scroll--up`
+- `.body-scroll--down`
+- `.body-scroll--top`
+- `.body-scroll--up`
 
 #### Animate upon scroll reveal
 
@@ -128,7 +130,9 @@ reveal animations on elements added via AJAX if so desired.
 An example of a reveal animation on an element is as follows:
 
 ```html
-<div class="js--to-animate animation-name--reveal">This text will use the 'reveal' animation once observed.</div>
+<div class="js--to-animate animation-name--reveal">
+  This text will use the 'reveal' animation once observed.
+</div>
 ```
 
 **Result**:
@@ -141,9 +145,9 @@ Per [Heydon Pickering's work on the Inclusive card component](https://inclusive-
 `js--child--link` applied to a card or other block-level context will turn the element into the most functional block-link-like
 item possible. The class dynamically does the following (conditional on the classed element containing a valid link):
 
-  * Adds a utility class to change the cursor to `pointer` so hover makes it feel like a link
-  * Adds the `card--hover` class, which can be used in CSS to add hover effects
-  * Triggers a timed event listener that links for clicks, but ignores for highlights and drags
+- Adds a utility class to change the cursor to `pointer` so hover makes it feel like a link
+- Adds the `card--hover` class, which can be used in CSS to add hover effects
+- Triggers a timed event listener that links for clicks, but ignores for highlights and drags
 
 **Example**:
 
@@ -189,94 +193,94 @@ classes at the top level so authors may modify the appearance and functionality 
 For the following events:
 
 ```javascript
-    'animationcancel',
-    'animationend',
-    'animationiteration',
-    'animationstart',
-    'blur',
-    'canplay',
-    'canplaythrough',
-    'change',
-    'click',
-    'compositionend',
-    'compositionstart',
-    'compositionupdate',
-    'contextmenu',
-    'dblclick',
-    'drag',
-    'dragend',
-    'dragenter',
-    'dragleave',
-    'dragover',
-    'dragstart',
-    'drop',
-    'durationchange',
-    'emptied',
-    'ended',
-    'focus',
-    'focusin',
-    'focusout',
-    'fullscreenchange',
-    'fullscreenerror',
-    'gotpointercapture',
-    'input',
-    'loadeddata',
-    'loadedmetadata',
-    'lostpointercapture',
-    'mousedown',
-    'mouseenter',
-    'mouseleave',
-    'mousemove',
-    'mouseout',
-    'mouseover',
-    'mouseup',
-    'pause',
-    'play',
-    'playing',
-    'pointercancel',
-    'pointerdown',
-    'pointerenter',
-    'pointerleave',
-    'pointermove',
-    'pointerout',
-    'pointerover',
-    'pointerup',
-    'ratechange',
-    'reset',
-    'seeked',
-    'seeking',
-    'show',
-    'slotchange',
-    'stalled',
-    'submit',
-    'suspend',
-    'SVGAbort',
-    'SVGError',
-    'SVGLoad',
-    'SVGResize',
-    'SVGScroll',
-    'SVGUnload',
-    'SVGZoom',
-    'timeupdate',
-    'touchcancel',
-    'touchend',
-    'touchmove',
-    'touchstart',
-    'transitionend',
-    'unload',
-    'volumechange',
-    'waiting'
+"animationcancel",
+  "animationend",
+  "animationiteration",
+  "animationstart",
+  "blur",
+  "canplay",
+  "canplaythrough",
+  "change",
+  "click",
+  "compositionend",
+  "compositionstart",
+  "compositionupdate",
+  "contextmenu",
+  "dblclick",
+  "drag",
+  "dragend",
+  "dragenter",
+  "dragleave",
+  "dragover",
+  "dragstart",
+  "drop",
+  "durationchange",
+  "emptied",
+  "ended",
+  "focus",
+  "focusin",
+  "focusout",
+  "fullscreenchange",
+  "fullscreenerror",
+  "gotpointercapture",
+  "input",
+  "loadeddata",
+  "loadedmetadata",
+  "lostpointercapture",
+  "mousedown",
+  "mouseenter",
+  "mouseleave",
+  "mousemove",
+  "mouseout",
+  "mouseover",
+  "mouseup",
+  "pause",
+  "play",
+  "playing",
+  "pointercancel",
+  "pointerdown",
+  "pointerenter",
+  "pointerleave",
+  "pointermove",
+  "pointerout",
+  "pointerover",
+  "pointerup",
+  "ratechange",
+  "reset",
+  "seeked",
+  "seeking",
+  "show",
+  "slotchange",
+  "stalled",
+  "submit",
+  "suspend",
+  "SVGAbort",
+  "SVGError",
+  "SVGLoad",
+  "SVGResize",
+  "SVGScroll",
+  "SVGUnload",
+  "SVGZoom",
+  "timeupdate",
+  "touchcancel",
+  "touchend",
+  "touchmove",
+  "touchstart",
+  "transitionend",
+  "unload",
+  "volumechange",
+  "waiting";
 ```
 
 ...you can add `js--event--` and then the event name, and the classed element will have some things happen automatically
 when that event triggers:
 
-  * If the event occurs once, the `js--event--[eventName]--once` class is added and persists. So, if you add `js--event--click`
-    to a `<div>` and then click it, that element will have the `js--event--click--once` class on it
-  * The element will have a data attribute after the event occurs at least once: `data-js-event-eventname-count` and its
-    value will increment as the event occurs on the element
-  * Like the 'once' class, the event triggers a 'toggle' class. So, if you add `js--event--click` to a `<div>` and then
-    click it, that element will have the `js--event--click--toggle` class on it. Clicking again removes the class, and so forth
+- If the event occurs once, the `js--event--[eventName]--once` class is added and persists. So, if you add `js--event--click`
+  to a `<div>` and then click it, that element will have the `js--event--click--once` class on it
+- The element will have a data attribute after the event occurs at least once: `data-js-event-eventname-count` and its
+  value will increment as the event occurs on the element
+- Like the 'once' class, the event triggers a 'toggle' class. So, if you add `js--event--click` to a `<div>` and then
+  click it, that element will have the `js--event--click--toggle` class on it. Clicking again removes the class, and so forth
 
 A great deal of what we do as front-end JavaScript developers comes down to event handling and class manipulation, so this
 generalized utility can often be used to create functionality without writing additional JavaScript. Toogled items like
@@ -304,15 +308,16 @@ lazy load our images, with only a minimal fallback.
 
 To lazy-load an `<img>` or `<picture>`, simply:
 
-  1. Set all instances of `src` to `data-src` and `srcset` to `data-srcset`
-  2. Put in a placeholder for `src` and `srcset` as `src="/assets/images/required/s.gif"` (a tiny pixel) in order to maintain
-    HTML validity
-  3. Ideally, place a working original version of the tag within a `<noscript>` element as a fallback
-  4. Add the `picture--lazy-load` class to the `<img>` or `<picture>` element, whichever is at the top level
+1. Set all instances of `src` to `data-src` and `srcset` to `data-srcset`
+2. Put in a placeholder for `src` and `srcset` as `src="/assets/images/required/s.gif"` (a tiny pixel) in order to maintain
+   HTML validity
+3. Ideally, place a working original version of the tag within a `<noscript>` element as a fallback
+4. Add the `picture--lazy-load` class to the `<img>` or `<picture>` element, whichever is at the top level
 
 To make lazy loading and modern formats easier, add all images with the image include:
 
 {% raw %}
+
 ```liquid
 {% include atoms/image.html
   alt="Your alt text here"
@@ -321,6 +326,7 @@ To make lazy loading and modern formats easier, add all images with the image in
   src="required/meta-image--default.jpg"
 %}
 ```
+
 {% endraw %}
 
 **Result**:
@@ -342,7 +348,9 @@ classes can be used for some of the most frequent interface conventions:
 The `.js--copy-above` class, applied usually to a `<button>` like so:
 
 ```html
-<button class="js--copy-above layout--hide--no-javascript" type="button">+ Add another</button>
+<button class="js--copy-above layout--hide--no-javascript" type="button">
+  + Add another
+</button>
 ```
 
 ...clones the DOM element preceding it upon click, inserts another version, and does some interesting modification to the
@@ -359,7 +367,8 @@ cloned element to ensure proper operation and accessibility.
     </div>
   </fieldset>
 
-  <button class="js--copy-above layout--hide--no-javascript" type="button">+ Add another</button>
+<button class="js--copy-above layout--hide--no-javascript" type="button">+ Add another</button>
+
 </div>
 
 Mainly, it increments the value of any attribute that should be unique on the page, such as `for`, `id`, `name`, and the `aria-`
@@ -374,8 +383,13 @@ If the original element is:
 <fieldset name="attendee">
   <legend>Attendee</legend>
   <div class="form--item form--item--input form--item--input--text ">
-    <label class="label form--item--label display--block font-size--p75em" for="fullname"> Full name </label>
-    <input name="fullname" id="fullname" type="text">
+    <label
+      class="label form--item--label display--block font-size--p75em"
+      for="fullname"
+    >
+      Full name
+    </label>
+    <input name="fullname" id="fullname" type="text" />
   </div>
 </fieldset>
 ```
@@ -383,12 +397,22 @@ If the original element is:
 The first clone created by pressing the js--copy-above button would be augmented to be:
 
 ```html
-<fieldset name="attendee:2" class="js--dismissible js--dismissible--initialized position--relative">
-  <button type="button" class="js--dismissible--close" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+<fieldset
+  name="attendee:2"
+  class="js--dismissible js--dismissible--initialized position--relative"
+>
+  <button type="button" class="js--dismissible--close" aria-label="Close">
+    <span aria-hidden="true">×</span>
+  </button>
   <legend>Attendee</legend>
   <div class="form--item form--item--input form--item--input--text ">
-    <label class="label form--item--label display--block font-size--p75em" for="fullname:::2"> Full name </label>
-    <input name="fullname:::2" id="fullname:::2" type="text">
+    <label
+      class="label form--item--label display--block font-size--p75em"
+      for="fullname:::2"
+    >
+      Full name
+    </label>
+    <input name="fullname:::2" id="fullname:::2" type="text" />
   </div>
 </fieldset>
 ```
@@ -465,10 +489,19 @@ For a product widget of the following construction (automatic using collections 
 <div class="product--widget layout--hide--no-javascript ">
   <div class="product--widget--quantity">
     <label for="sbfrt-0001-quantity">Quantity:</label>
-    <input type="number" id="sbfrt-0001-quantity" name="sbfrt-0001-quantity" class="product--widget--quantity--input" min="1" value="1">
+    <input
+      type="number"
+      id="sbfrt-0001-quantity"
+      name="sbfrt-0001-quantity"
+      class="product--widget--quantity--input"
+      min="1"
+      value="1"
+    />
   </div>
   <div class="product--widget--buy-button">
-    <button type="button" class="buy-button snipcart-add-item"
+    <button
+      type="button"
+      class="buy-button snipcart-add-item"
       data-item-quantity="1"
       data-item-id="SBFRT-0001"
       data-item-name="A banana"
@@ -476,7 +509,9 @@ For a product widget of the following construction (automatic using collections 
       data-item-image="http://localhost:4000/assets/images/1200x630/banana.jpg"
       data-item-url="http://localhost:4000/products/a-banana/"
       data-item-description="Affordable, portable fruiting"
-    > Add to cart </button>
+    >
+      Add to cart
+    </button>
   </div>
 </div>
 ```
