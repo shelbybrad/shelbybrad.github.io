@@ -18,7 +18,7 @@ title: "Markdown"
 ---
 
 ## Table of contents
-{:.no_toc}
+{: .no_toc}
 
 1. TOC
 {:toc}
@@ -28,7 +28,7 @@ with the following code exactly:
 
 ```markdown
 ## Table of contents
-{:.no_toc}
+{: .no_toc}
 
 1. TOC
 {:toc}

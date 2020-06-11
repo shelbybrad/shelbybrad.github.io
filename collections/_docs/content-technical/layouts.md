@@ -20,11 +20,10 @@ title: "Layouts"
 Any page on the site can use the layout utilities included in the CSS to make beautiful, responsive layouts.
 
 ## Table of contents
-
 {: .no_toc}
 
 1. TOC
-   {:toc}
+{:toc}
 
 ## Basic example
 

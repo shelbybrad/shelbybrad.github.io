@@ -20,11 +20,10 @@ title: "Grammar and mechanics"
 Adapted from [mailchimp's guide](https://styleguide.mailchimp.com/grammar-and-mechanics/) under a CC-BY-NC-4.0 license.
 
 ## Table of contents
-
 {: .no_toc}
 
 1. TOC
-   {:toc}
+{:toc}
 
 ## Introduction
 
