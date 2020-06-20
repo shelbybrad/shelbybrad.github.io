@@ -30,6 +30,9 @@
 .border--1px-solid {
   border: 1px solid;
 }
+.border--default {
+  border: var(--border--default);
+}
 .border-bottom--1px-solid {
   border-bottom: 1px solid;
 }
@@ -185,6 +188,13 @@ pre.highlight:after {
     -webkit-column-count: 1;
     column-count: 1;
   }
+}
+
+/**
+ * Text shadow classes.
+ */
+.text-shadow--default {
+  text-shadow: var(--text-shadow--default);
 }
 
 /**
