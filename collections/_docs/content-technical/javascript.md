@@ -463,13 +463,21 @@ following the control in the DOM.
 Adding a button to the page like so:
 
 ```html
-<button type="button" class="js--toggle-below" aria-expanded="false">
+<button type="button" class="js--toggle-below" aria-expanded="true">
   Example hidden content<br />
-  <span class="js--toggle-below--label">Open below</span>
+  <span class="js--toggle-below--label">Close below</span>
 </button>
 ```
 
-will hide the element following it, with the button toggling the element's appearance in an accessible way on click.
+**Example**:
+
+<div><!-- Div for adjacency (only needed for markdown) -->
+  <button type="button" class="js--toggle-below" aria-expanded="true">
+    Example hidden content<br />
+    <span class="js--toggle-below--label">Close below</span>
+  </button>
+  <p>will hide the element following it, with the button toggling the element's appearance in an accessible way on click.</p>
+</div>
 
 If the `aria-expanded` attribute is not present or set to `"true"`, the element following the button is visible and the
 text of the `<span class="js--toggle-below--label>` will automatically switch to "Close below".
