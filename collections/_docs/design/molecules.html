@@ -75,26 +75,19 @@ title: "Molecules"
   mode="docblock"
 %}
 
-{% capture this_page_url %}{{ site.url }}{{ site.subpath }}/blog/{% endcapture %}
-{% include molecules/pager.html
-  base_url=this_page_url
-  page=paginator.page
-  next_page=paginator.next_page
-  next_page_path=paginator.next_page_path
-  previous_page=paginator.previous_page
-  previous_page_path=paginator.previous_page_path
-  total_pages=paginator.total_pages
-  mode="docblock"
-%}
-
-{% include molecules/prev-next.html
-  entity=page
-  mode="docblock"
-%}
+{% assign events = site.events %}
+{% if events[1] %}
+  {% assign event = events[1] %}
+  {% include molecules/prev-next.html
+    entity=event
+    mode="docblock"
+  %}
+{% endif %}
 
 {% assign products = site.products %}
 {% if products[0] %}
   {% assign product = products[0] %}
+
   {% include molecules/product--summary.html
     entity=product
     mode="docblock"

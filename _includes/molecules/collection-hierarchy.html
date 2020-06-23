@@ -67,38 +67,41 @@
   {% endif %}
 {% endcapture %}
 
+{% capture name %}Collection hierarchy{% endcapture %}
+
+{% capture liquid %}{% raw %}
+  {% include molecules/collection-hierarchy.html
+    collection="docs"
+    entity=page
+  %}
+{% endraw %}{% endcapture %}
+
 {% capture usage %}
-  ## General guidance
+#### General guidance
 
-  Cards are represent content that has its own page.
-
-  @see https://inclusive-components.design/cards/
+A collection hierarchy represents all the items in a collection, as organized in the collection's directory structure. It
+can serve as a secondary navigation, especially on pages for docs.
 {% endcapture %}
 
 {% capture accessibility %}
-  Just some sample text in the accessibility section for now.
-
-  @see https://www.a11ymatters.com/pattern/pagination/
+Just some sample text in the accessibility section for now.
 {% endcapture %}
 
 {% capture props %}
-  base_url| The URL of the page with the pager| /blog/
-  classes| css classes applied to parent| color--main-dark,
-  page| The current page number| 1,
-  next_page| Bool whether there is a next page| false,
-  next_page_path| The next page path given to the paginator object| page-4,
-  previous_page| Bool whether there is a previous page| false,
-  previous_page_path| The previous page path given to the paginator object| page-2,
-  total_pages| Total number of paginated pages| 4
+classes| css classes applied to parent| color--main-dark,
+collection| a collection registered with Jekyll| docs,
+entity| usually the current page. Used for highlight the active page| page
 {% endcapture %}
-{% assign classes = "image--polaroid, font-family--secondary" | split: ", " %}
 
-{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% assign classes = "background-color--main-light, font-size--2em" | split: ", " %}
+
 {% if include.mode == "docblock" %}
   {% include molecules/docblock.html
     accessibility=accessibility
     classes=classes
     html=component
+    liquid=liquid
+    name=name
     props=props
     source=include
     usage=usage

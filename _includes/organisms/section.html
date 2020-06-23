@@ -1,11 +1,3 @@
-{% comment %}
-  Components/includes use captures for content and documentation. The 'component' area is the component proper.
-
-  The component is rendered at the end via the 'mode' conditional.
-
-  Please thoroughly document all components.
-{% endcomment %}
-
 {% capture component %}
   <section class="include include--organisms include--organisms--section layout--stripe
     {% if include.classes %}{{ include.classes }}{% endif %}"
@@ -20,14 +12,23 @@
   </section>
 {% endcapture %}
 
-{% capture usage %}
-  ## General guidance
+{% capture name %}Section{% endcapture %}
 
-  Sections separate large distinct portions of content on a page.
+{% capture liquid %}{% raw %}
+  {% include organisms/section.html
+    slug="alerts"
+    mode="ref"
+  %}
+{% endraw %}{% endcapture %}
+
+{% capture usage %}
+#### General guidance
+
+Sections separate large distinct portions of content on a page.
 {% endcapture %}
 
 {% capture accessibility %}
-  Just some sample text in the accessibility section for now.
+Just some sample text in the accessibility section for now.
 {% endcapture %}
 
 {% capture props %}
@@ -36,14 +37,16 @@
   title| Each section should have an h2| This describes what is in the section,
   title_classes| Styling for the section title| heading--h1
 {% endcapture %}
-{% assign classes = "font-family--secondary" | split: ", " %}
 
-{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% assign classes = "background-color--main-light, font-size--2em" | split: ", " %}
+
 {% if include.mode == "docblock" %}
   {% include molecules/docblock.html
     accessibility=accessibility
     classes=classes
     html=component
+    liquid=liquid
+    name=name
     props=props
     source=include
     usage=usage

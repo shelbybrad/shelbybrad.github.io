@@ -1,13 +1,3 @@
-{% comment %}
-  Components/includes use captures for content and documentation. The 'component' area is the component proper.
-
-  The component is rendered at the end via the 'mode' conditional.
-
-  Please thoroughly document all components.
-
-aria-current="true"
-{% endcomment %}
-
 {% capture component %}
   <div class="search-widget position--absolute right--0 z-index--9998 {% if include.classes %}{{ include.classes }}{% endif %}">
     <button type="button" class="js--toggle-below button--search-widget--toggle" aria-expanded="false">
@@ -28,38 +18,36 @@ aria-current="true"
   </div>
 {% endcapture %}
 
+{% capture name %}Search widget{% endcapture %}
+
+{% capture liquid %}{% raw %}
+  {% include molecules/search-widget.html %}
+{% endraw %}{% endcapture %}
+
 {% capture usage %}
-  ## General guidance
+#### General guidance
 
-  Cards are represent content that has its own page.
-
-  @see https://inclusive-components.design/cards/
+The search widget is a toggleable icon that opens a search form for keyword searching the whole site. Only one should appear
+per page in order to avoid id attribute conflicts.
 {% endcapture %}
 
 {% capture accessibility %}
-  Just some sample text in the accessibility section for now.
-
-  @see https://www.a11ymatters.com/pattern/pagination/
+Just some sample text in the accessibility section for now.
 {% endcapture %}
 
 {% capture props %}
-  base_url| The URL of the page with the pager| /blog/
-  classes| css classes applied to parent| color--main-dark,
-  page| The current page number| 1,
-  next_page| Bool whether there is a next page| false,
-  next_page_path| The next page path given to the paginator object| page-4,
-  previous_page| Bool whether there is a previous page| false,
-  previous_page_path| The previous page path given to the paginator object| page-2,
-  total_pages| Total number of paginated pages| 4
+classes| css classes applied to parent| color--main-dark
 {% endcapture %}
-{% assign classes = "image--polaroid, font-family--secondary" | split: ", " %}
 
-{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% assign classes = "background-color--main-light, font-size--2em" | split: ", " %}
+
 {% if include.mode == "docblock" %}
   {% include molecules/docblock.html
     accessibility=accessibility
     classes=classes
     html=component
+    liquid=liquid
+    name=name
     props=props
     source=include
     usage=usage

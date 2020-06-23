@@ -1,13 +1,3 @@
-{% comment %}
-  Components/includes use captures for content and documentation. The 'component' area is the component proper.
-
-  The component is rendered at the end via the 'mode' conditional.
-
-  Please thoroughly document all components.
-
-aria-current="true"
-{% endcomment %}
-
 {% capture component %}
   <nav role="navigation" aria-label="Pagination. On page {{ include.page }} of {{ include.total_pages }}"
     class="display--flex layout--row {% if include.classes %}{{ include.classes }}{% endif %}">
@@ -48,22 +38,38 @@ aria-current="true"
   </nav>
 {% endcapture %}
 
+{% capture name %}Pager{% endcapture %}
+
+{% capture liquid %}{% raw %}
+  {% capture this_page_url %}{{ site.url }}{{ site.subpath }}/blog/{% endcapture %}
+  {% include molecules/pager.html
+    base_url=this_page_url
+    page=paginator.page
+    next_page=paginator.next_page
+    next_page_path=paginator.next_page_path
+    previous_page=paginator.previous_page
+    previous_page_path=paginator.previous_page_path
+    total_pages=paginator.total_pages
+    mode="docblock"
+  %}
+{% endraw %}{% endcapture %}
+
 {% capture usage %}
-  ## General guidance
+#### General guidance
 
-  Cards are represent content that has its own page.
-
-  @see https://inclusive-components.design/cards/
+Pagination can be used anywhere that limiting the number of items on a page is beneficial. Keep in mind, though, that Jekyll
+only provides default pagination on blog landing pages, so using this component anywhere else requires performing your own
+logic to populate all the props.
 {% endcapture %}
 
 {% capture accessibility %}
-  Just some sample text in the accessibility section for now.
+Just some sample text in the accessibility section for now.
 
-  @see https://www.a11ymatters.com/pattern/pagination/
+@see https://www.a11ymatters.com/pattern/pagination/
 {% endcapture %}
 
 {% capture props %}
-  base_url| The URL of the page with the pager| /blog/
+  base_url| The URL of the page with the pager| /blog/,
   classes| css classes applied to parent| color--main-dark,
   page| The current page number| 1,
   next_page| Bool whether there is a next page| false,
@@ -72,14 +78,16 @@ aria-current="true"
   previous_page_path| The previous page path given to the paginator object| page-2,
   total_pages| Total number of paginated pages| 4
 {% endcapture %}
-{% assign classes = "image--polaroid, font-family--secondary" | split: ", " %}
 
-{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% assign classes = "background-color--main-light, font-size--2em" | split: ", " %}
+
 {% if include.mode == "docblock" %}
   {% include molecules/docblock.html
     accessibility=accessibility
     classes=classes
     html=component
+    liquid=liquid
+    name=name
     props=props
     source=include
     usage=usage

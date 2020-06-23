@@ -1,14 +1,3 @@
-{% comment %}
-  Components/includes use captures for content and documentation. The 'component' area is the component proper.
-
-  The component is rendered at the end via the 'mode' conditional.
-
-  Please thoroughly document all components.
-
-  @todo inputmode, min, max, placeholder, step (not readonly because that's bad. Not checked because checks and radios will be their
-   own components).
-{% endcomment %}
-
 {% capture component %}
   <div class="form--item form--item--input form--item--input--{{ include.type }} {% if include.classes %}{{ include.classes }}{% endif %}">
     <label class="label form--item--label display--block font-size--p75em" for="{{ include.name }}">
@@ -28,31 +17,47 @@
   </div>
 {% endcapture %}
 
-{% capture usage %}
-  ## General guidance
+{% capture name %}Input{% endcapture %}
 
-  Images are visual representations.
+{% capture liquid %}{% raw %}
+  {% include forms/form--input.html
+    classes=""
+    description="Inputs can have description text."
+    label="Primary email"
+    name="email"
+    required=true
+    type="email"
+  %}
+{% endraw %}{% endcapture %}
+
+{% capture usage %}
+#### General guidance
+
+Use the input component for text, tel, email, hidden, or other varieties of the base-level `<input>` tag.
 {% endcapture %}
 
 {% capture accessibility %}
-  Just some sample text in the accessibility section for now.
+Form inputs require a matching label that is associated with it either implicitly or by using the `for` attribute.
 {% endcapture %}
 
 {% capture props %}
-  alt| appropriate alt text| A circus clown,
-  caption| an optional caption| We saw this guy at the circus,
-  classes| css classes applied to parent| color--main-dark,
-  link_url| an optional link to wrap it| http://www.google.com,
-  src| the filename/subpath of the image in /assets/images/| circus-clown.jpg
+classes| css classes applied to parent| color--main-dark,
+description| Longer textual description or help text| Inputs can have description text,
+label| text as short description of what to fill out| Primary email,
+name| input name passed as the key for the value in the form| email,
+required| Whether it is required to fill this out in order to submit the form| true,
+type| the type attribute to apply to the tag| text
 {% endcapture %}
-{% assign classes = "image--polaroid, font-family--secondary" | split: ", " %}
 
-{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% assign classes = "background-color--main-light, font-size--2em" | split: ", " %}
+
 {% if include.mode == "docblock" %}
   {% include molecules/docblock.html
     accessibility=accessibility
     classes=classes
     html=component
+    liquid=liquid
+    name=name
     props=props
     source=include
     usage=usage

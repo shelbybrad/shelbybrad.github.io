@@ -1,14 +1,3 @@
-{% comment %}
-  Components/includes use captures for content and documentation. The 'component' area is the component proper.
-
-  The component is rendered at the end via the 'mode' conditional.
-
-  Please thoroughly document all components.
-
-  @todo inputmode, min, max, placeholder, step (not readonly because that's bad. Not checked because checks and radios will be their
-   own components).
-{% endcomment %}
-
 {% capture component %}
   <fieldset class="fieldset form--fieldset form--fieldset--yes-no {% if include.classes %}{{ include.classes }}{% endif %}">
     <legend>{{ include.label }}
@@ -56,31 +45,53 @@
   </fieldset>
 {% endcapture %}
 
-{% capture usage %}
-  ## General guidance
+{% capture name %}Yes/No{% endcapture %}
 
-  Images are visual representations.
+{% capture liquid %}{% raw %}
+  {% include forms/form--yes-no.html
+    classes=""
+    default=false
+    description="Will you attend the wedding reception dinner on October 9, 2020?"
+    label="Répondez s'il vous plaît"
+    label_off="With regret"
+    label_on="Looking forward to it!"
+    name="rsvp"
+    required=false
+  %}
+{% endraw %}{% endcapture %}
+
+{% capture usage %}
+#### General guidance
+
+The yes/no component lets you get a clear answer using radio buttons to toggle. This base level control could then be
+enhanced with JavaScript and styling to be a single switch-style toggle, though that is not strictly necessary.
 {% endcapture %}
 
 {% capture accessibility %}
-  Just some sample text in the accessibility section for now.
+Radios are recognized by most assistive technologies. The more you change the markup the greater risk you have of breaking
+the experience for somebody.
 {% endcapture %}
 
 {% capture props %}
-  alt| appropriate alt text| A circus clown,
-  caption| an optional caption| We saw this guy at the circus,
-  classes| css classes applied to parent| color--main-dark,
-  link_url| an optional link to wrap it| http://www.google.com,
-  src| the filename/subpath of the image in /assets/images/| circus-clown.jpg
+classes| css classes applied to parent| color--main-dark,
+default| whether the on or off value should be checked by default| on,
+description| Longer textual description or help text| Inputs can have description text,
+label| text as short description of what to fill out| Primary email,
+label_off| Short text for a false-returning answer| No thank you,
+label_on| Short text for a true-returning answer| Yes please,
+name| input name passed as the key for the value in the form| email,
+required| Whether it is required to fill this out in order to submit the form| true
 {% endcapture %}
-{% assign classes = "image--polaroid, font-family--secondary" | split: ", " %}
 
-{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% assign classes = "background-color--main-light, font-size--2em" | split: ", " %}
+
 {% if include.mode == "docblock" %}
   {% include molecules/docblock.html
     accessibility=accessibility
     classes=classes
     html=component
+    liquid=liquid
+    name=name
     props=props
     source=include
     usage=usage

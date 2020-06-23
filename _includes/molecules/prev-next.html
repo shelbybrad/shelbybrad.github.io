@@ -1,15 +1,5 @@
-{% comment %}
-  Components/includes use captures for content and documentation. The 'component' area is the component proper.
-
-  The component is rendered at the end via the 'mode' conditional.
-
-  Please thoroughly document all components.
-
-aria-current="true"
-{% endcomment %}
-
 {% capture component %}
-  <nav role="navigation" aria-label="Pagination. On page {{ include.page }} of {{ include.total_pages }}"
+  <nav role="navigation" aria-label="Links to previous and next pages in source order"
     class="display--flex flex-direction--row {% if include.classes %}{{ include.classes }}{% endif %}">
     {% if include.entity.collection %}
       {% assign collection_name = include.entity.collection %}
@@ -52,38 +42,39 @@ aria-current="true"
   </nav>
 {% endcapture %}
 
+{% capture name %}Previous/Next{% endcapture %}
+
+{% capture liquid %}{% raw %}
+  {% include molecules/prev-next.html
+    entity=page
+  %}
+{% endraw %}{% endcapture %}
+
 {% capture usage %}
-  ## General guidance
+#### General guidance
 
-  Cards are represent content that has its own page.
-
-  @see https://inclusive-components.design/cards/
+A prev/next pager is a good way to drive engagement on serialized pages where a user may want to continue reading in source
+order.
 {% endcapture %}
 
 {% capture accessibility %}
-  Just some sample text in the accessibility section for now.
-
-  @see https://www.a11ymatters.com/pattern/pagination/
+Just some sample text in the accessibility section for now.
 {% endcapture %}
 
 {% capture props %}
-  base_url| The URL of the page with the pager| /blog/
-  classes| css classes applied to parent| color--main-dark,
-  page| The current page number| 1,
-  next_page| Bool whether there is a next page| false,
-  next_page_path| The next page path given to the paginator object| page-4,
-  previous_page| Bool whether there is a previous page| false,
-  previous_page_path| The previous page path given to the paginator object| page-2,
-  total_pages| Total number of paginated pages| 4
+classes| css classes applied to parent| color--main-dark,
+entity| the current page from which the source order is determined| page
 {% endcapture %}
-{% assign classes = "image--polaroid, font-family--secondary" | split: ", " %}
 
-{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% assign classes = "background-color--main-light, font-size--2em" | split: ", " %}
+
 {% if include.mode == "docblock" %}
   {% include molecules/docblock.html
     accessibility=accessibility
     classes=classes
     html=component
+    liquid=liquid
+    name=name
     props=props
     source=include
     usage=usage

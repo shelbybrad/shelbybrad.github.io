@@ -1,11 +1,3 @@
-{% comment %}
-  Components/includes use captures for content and documentation. The 'component' area is the component proper.
-
-  The component is rendered at the end via the 'mode' conditional.
-
-  Please thoroughly document all components.
-{% endcomment %}
-
 {% capture component %}
   <div class="alert include include--module include--molecule--alert position--relative
     {% if include.classes %}{{ include.classes }}{% endif %}
@@ -16,30 +8,43 @@
   </div>
 {% endcapture %}
 
-{% capture usage %}
-  ## General guidance
+{% capture name %}Alert{% endcapture %}
 
-  Alerts let the user know something more important and timely that body text.
+{% capture liquid %}{% raw %}
+  {% include molecules/alert.html
+    children="<p>Brad made a status alert</p>"
+    classes=""
+    dismissible=true
+    level="status"
+  %}
+{% endraw %}{% endcapture %}
+
+{% capture usage %}
+#### General guidance
+
+Alerts let the user know something more important and timely that body text.
 {% endcapture %}
 
 {% capture accessibility %}
-  Just some sample text in the accessibility section for now.
+Just some sample text in the accessibility section for now.
 {% endcapture %}
 
 {% capture props %}
-  children| content of the alert. Can be plain text or markup| Here is some plain text,
-  classes| css classes applied to parent| color--main-dark,
-  dismissible| Whether the alert should have x to close it| true,
-  level| status, warning, or error| warning
+children| content . Can be plain text or markup| Here is some plain text,
+classes| css classes applied to parent| color--main-dark,
+dismissible| whether the alert can be closed| true,
+level| three levels that influence styling: status warning error| status
 {% endcapture %}
-{% assign classes = "image--polaroid, font-family--secondary" | split: ", " %}
 
-{% comment %} "Mode conditional" for rendering. {% endcomment %}
+{% assign classes = "margin-vertical--16, font-size--2em" | split: ", " %}
+
 {% if include.mode == "docblock" %}
   {% include molecules/docblock.html
     accessibility=accessibility
     classes=classes
     html=component
+    liquid=liquid
+    name=name
     props=props
     source=include
     usage=usage
