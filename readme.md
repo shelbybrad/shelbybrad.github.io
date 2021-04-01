@@ -10,6 +10,7 @@ that you can customize and extend to suit your needs.
 All the repetitive stuff for content, performance, SEO, accessibility, testing, etc. is done, so you can focus on what
 makes your site special.
 
+
 ## Features
 
 The original version of this codebase gets four 100s in [Lighthouse](https://github.com/GoogleChrome/lighthouse) testing,
